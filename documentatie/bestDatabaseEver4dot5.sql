@@ -2,13 +2,11 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Article`
+-- Table `JMRacing`.`Article`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Article` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Article` (
   `ArticleID` INT NOT NULL AUTO_INCREMENT ,
   `Title` VARCHAR(200) NOT NULL ,
   `Message` TEXT NOT NULL ,
@@ -21,9 +19,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Racer`
+-- Table `JMRacing`.`Racer`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Racer` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racer` (
   `RacerID` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `Biography` TEXT NOT NULL ,
@@ -42,9 +40,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Event`
+-- Table `JMRacing`.`Event`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Event` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Event` (
   `EventID` INT NOT NULL AUTO_INCREMENT ,
   `Country` VARCHAR(100) NOT NULL ,
   `City` VARCHAR(100) NOT NULL ,
@@ -55,9 +53,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Result`
+-- Table `JMRacing`.`Result`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Result` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Result` (
   `ResultID` INT NOT NULL AUTO_INCREMENT ,
   `EventID` INT NOT NULL ,
   `RacerID` INT NOT NULL ,
@@ -70,21 +68,21 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Result` (
   INDEX `fk_Result_Racer1_idx` (`RacerID` ASC) ,
   CONSTRAINT `fk_Result_Event`
     FOREIGN KEY (`EventID` )
-    REFERENCES `mydb`.`Event` (`EventID` )
+    REFERENCES `JMRacing`.`Event` (`EventID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Result_Racer1`
     FOREIGN KEY (`RacerID` )
-    REFERENCES `mydb`.`Racer` (`RacerID` )
+    REFERENCES `JMRacing`.`Racer` (`RacerID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Product`
+-- Table `JMRacing`.`Product`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Product` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Product` (
   `ProductID` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `Price` DOUBLE NOT NULL ,
