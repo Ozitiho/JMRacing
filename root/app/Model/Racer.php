@@ -1,11 +1,11 @@
 <?php
 
-class Post extends AppModel {
+class Racer extends AppModel {
     public $validate = array(
-        'title' => array(
+        'Name' => array(
             'rule' => 'notEmpty'
         ),
-        'body' => array(
+        'Biography' => array(
             'rule' => 'notEmpty'
         )
     );

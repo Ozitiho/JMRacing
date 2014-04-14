@@ -1,11 +1,11 @@
 <?php
 
-class PostsController extends AppController {
+class RacersController extends AppController {
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
     public function index() {
-        $this->set('posts', $this->Post->find('all'));
+        $this->set('racers', $this->Racer->find('all'));
     }
 
     public function view($id = null) {
