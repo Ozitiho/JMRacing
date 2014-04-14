@@ -6,9 +6,9 @@ CREATE SCHEMA IF NOT EXISTS `JMRacing` DEFAULT CHARACTER SET utf8 ;
 USE `JMRacing` ;
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Editor`
+-- Table `JMRacing`.`Editors`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Editor` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Editors` (
   `EditorID` INT NOT NULL AUTO_INCREMENT ,
   `Admin` TINYINT(1) NOT NULL ,
   PRIMARY KEY (`EditorID`) )
@@ -16,9 +16,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Article`
+-- Table `JMRacing`.`Articles`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Article` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Articles` (
   `ArticleID` INT NOT NULL AUTO_INCREMENT ,
   `EditorID` INT NOT NULL ,
   `Title` VARCHAR(200) NOT NULL ,
@@ -30,16 +30,16 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Article` (
   INDEX `fk_Article_Editor1_idx` (`EditorID` ASC) ,
   CONSTRAINT `fk_Article_Editor1`
     FOREIGN KEY (`EditorID` )
-    REFERENCES `JMRacing`.`Editor` (`EditorID` )
+    REFERENCES `JMRacing`.`Editors` (`EditorID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Racer`
+-- Table `JMRacing`.`Racers`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racer` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racers` (
   `RacerID` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `Biography` TEXT NOT NULL ,
@@ -58,9 +58,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Event`
+-- Table `JMRacing`.`Events`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Event` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Events` (
   `EventID` INT NOT NULL AUTO_INCREMENT ,
   `Country` VARCHAR(100) NOT NULL ,
   `City` VARCHAR(100) NOT NULL ,
@@ -71,9 +71,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Result`
+-- Table `JMRacing`.`Results`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Result` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Results` (
   `ResultID` INT NOT NULL AUTO_INCREMENT ,
   `EventID` INT NOT NULL ,
   `RacerID` INT NOT NULL ,
@@ -86,21 +86,21 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Result` (
   INDEX `fk_Result_Racer1_idx` (`RacerID` ASC) ,
   CONSTRAINT `fk_Result_Event`
     FOREIGN KEY (`EventID` )
-    REFERENCES `JMRacing`.`Event` (`EventID` )
+    REFERENCES `JMRacing`.`Events` (`EventID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Result_Racer1`
     FOREIGN KEY (`RacerID` )
-    REFERENCES `JMRacing`.`Racer` (`RacerID` )
+    REFERENCES `JMRacing`.`Racers` (`RacerID` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Product`
+-- Table `JMRacing`.`Products`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Product` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Products` (
   `ProductID` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `Price` DOUBLE NOT NULL ,
