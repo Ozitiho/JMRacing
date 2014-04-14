@@ -2,19 +2,37 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+CREATE SCHEMA IF NOT EXISTS `JMRacing` DEFAULT CHARACTER SET utf8 ;
+USE `JMRacing` ;
+
+-- -----------------------------------------------------
+-- Table `JMRacing`.`Editor`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Editor` (
+  `EditorID` INT NOT NULL AUTO_INCREMENT ,
+  `Admin` TINYINT(1) NOT NULL ,
+  PRIMARY KEY (`EditorID`) )
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `JMRacing`.`Article`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`Article` (
   `ArticleID` INT NOT NULL AUTO_INCREMENT ,
+  `EditorID` INT NOT NULL ,
   `Title` VARCHAR(200) NOT NULL ,
   `Message` TEXT NOT NULL ,
-  `WriterID` INT NOT NULL ,
   `CreateDate` DATETIME NOT NULL ,
   `LastUpdatedDate` DATETIME NULL ,
   `Photo` VARCHAR(300) NULL ,
-  PRIMARY KEY (`ArticleID`) )
+  PRIMARY KEY (`ArticleID`) ,
+  INDEX `fk_Article_Editor1_idx` (`EditorID` ASC) ,
+  CONSTRAINT `fk_Article_Editor1`
+    FOREIGN KEY (`EditorID` )
+    REFERENCES `JMRacing`.`Editor` (`EditorID` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
