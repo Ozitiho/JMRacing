@@ -116,6 +116,15 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
+-- Data for table `JMRacing`.`Editors`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Editors` (`EditorID`, `Admin`) VALUES (1, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Data for table `JMRacing`.`Articles`
 -- -----------------------------------------------------
 START TRANSACTION;
