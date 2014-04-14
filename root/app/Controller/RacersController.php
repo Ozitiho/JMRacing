@@ -13,21 +13,21 @@ class RacersController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
 
-        $post = $this->Post->findById($id);
-        if (!$post) {
+        $racer = $this->Racer->findById($id);
+        if (!$racer) {
             throw new NotFoundException(__('Invalid post'));
         }
-        $this->set('post', $post);
+        $this->set('racer', $racer);
     }
 
     public function add() {
-        if ($this->request->is('post')) {
-            $this->Post->create();
-            if ($this->Post->save($this->request->data)) {
-                $this->Session->setFlash(__('Your post has been saved.'));
+        if ($this->request->is('racer')) {
+            $this->Racer->create();
+            if ($this->Racer->save($this->request->data)) {
+                $this->Session->setFlash(__('Your racer has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(__('Unable to add your post.'));
+            $this->Session->setFlash(__('Unable to add your racer.'));
         }
     }
 	
@@ -36,22 +36,22 @@ class RacersController extends AppController {
 			throw new NotFoundException(__('Invalid post'));
 		}
 
-		$post = $this->Post->findById($id);
-		if (!$post) {
+		$racer = $this->Racer->findById($id);
+		if (!$racer) {
 			throw new NotFoundException(__('Invalid post'));
 		}
 
-		if ($this->request->is(array('post', 'put'))) {
-			$this->Post->id = $id;
-			if ($this->Post->save($this->request->data)) {
-				$this->Session->setFlash(__('Your post has been updated.'));
+		if ($this->request->is(array('racer', 'put'))) {
+			$this->Racer->id = $id;
+			if ($this->Racer->save($this->request->data)) {
+				$this->Session->setFlash(__('Your racer has been updated.'));
 				return $this->redirect(array('action' => 'index'));
 			}
 			$this->Session->setFlash(__('Unable to update your post.'));
 		}
 
 		if (!$this->request->data) {
-			$this->request->data = $post;
+			$this->request->data = $racer;
 		}
 	}
 	public function delete($id) {
@@ -59,9 +59,9 @@ class RacersController extends AppController {
 			throw new MethodNotAllowedException();
 		}
 
-		if ($this->Post->delete($id)) {
+		if ($this->Racer->delete($id)) {
 			$this->Session->setFlash(
-				__('The post with id: %s has been deleted.', h($id))
+				__('The racer with id: %s has been deleted.', h($id))
 			);
 			return $this->redirect(array('action' => 'index'));
 		}
