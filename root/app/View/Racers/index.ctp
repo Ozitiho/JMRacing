@@ -18,26 +18,26 @@
 
     <?php foreach ($racers as $racer): ?>
     <tr>
-        <td><?php echo $racer['Racer']['id']; ?></td>
+        <td><?php echo $racer['Racer']['RacerID']; ?></td>
         <td>
-            <?php echo $this->Html->link($racer['Racer']['name'],
-				array('controller' => 'racers', 'action' => 'view', $racer['Racer']['id'])); ?>
+            <?php echo $this->Html->link($racer['Racer']['Name'],
+				array('controller' => 'racers', 'action' => 'view', $racer['Racer']['RacerID'])); ?>
         </td>
         <td>
             <?php
                 echo $this->Form->postLink(
                     'Delete',
-                    array('action' => 'delete', $racer['Racer']['id']),
+                    array('action' => 'delete', $racer['Racer']['RacerID']),
                     array('confirm' => 'Are you sure?')
                 );
 				echo "|";
                 echo $this->Html->link(
                     'Edit',
-                    array('action' => 'edit', $racer['Racer']['id'])
+                    array('action' => 'edit', $racer['Racer']['RacerID'])
                 );
             ?>
         </td>
-        <td><?php echo $racer['Racer']['created']; ?></td>
+        <td><?php echo $racer['Racer']['DateOfBirth']; ?></td>
     </tr>
     <?php endforeach; ?>
     <?php unset($post); ?>
