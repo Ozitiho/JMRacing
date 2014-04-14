@@ -114,3 +114,39 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`Racers`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Racers` (`RacerID`, `Name`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `RacerNumber`, `Photo`, `TicketsLink`) VALUES (1, 'Broem van broemer', 'I broem, therefore I am.', '01-01-2014', 'Broemcity', 'Broemelander', 'Broemcity', 186, 78, 'High tech broembroemmobiel', 1, NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`Events`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Events` (`EventID`, `Country`, `City`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', NULL, '01-01-2014');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`Results`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Results` (`ResultID`, `EventID`, `RacerID`, `R1`, `R2`, `GP`, `Date`) VALUES (1, 1, 1, 2, 3, 4, '01-01-2014');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`Products`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Products` (`ProductID`, `Name`, `Price`, `Size`, `Photo`) VALUES (1, 'Broempet', 2, 'XL', NULL);
+
+COMMIT;
