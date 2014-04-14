@@ -22,6 +22,7 @@
         <th>Racer Number</th>
         <th>Photo</th>
         <th>Tickets Link</th>
+        <th>Delete/Edit</th>
     </tr>
 
     <!-- Here is where we loop through our $posts array, printing out post info -->
@@ -41,11 +42,7 @@
         <td><?php echo $racer['Racer']['RacerNumber']; ?></td>
         <td><?php echo $racer['Racer']['Photo']; ?></td>
         <td><?php echo $racer['Racer']['TicketsLink']; ?></td>
-    </tr>
-    <?php endforeach; ?>
-    <?php unset($post); ?>
-</table>
-            <?php
+        <td>            <?php
                 echo $this->Form->postLink(
                     'Delete',
                     array('action' => 'delete', $racer['Racer']['id']),
@@ -57,3 +54,8 @@
                     array('action' => 'edit', $racer['Racer']['id'])
                 );
             ?>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    <?php unset($post); ?>
+</table>
