@@ -116,11 +116,20 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
+-- Data for table `JMRacing`.`Articles`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Articles` (`ArticleID`, `EditorID`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (1, 1, 'Broem', 'Broembroemmmmm', '2014-01-01', NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Data for table `JMRacing`.`Racers`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Racers` (`RacerID`, `Name`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `RacerNumber`, `Photo`, `TicketsLink`) VALUES (1, 'Broem van broemer', 'I broem, therefore I am.', '01-01-2014', 'Broemcity', 'Broemelander', 'Broemcity', 186, 78, 'High tech broembroemmobiel', 1, NULL, NULL);
+INSERT INTO `JMRacing`.`Racers` (`RacerID`, `Name`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `RacerNumber`, `Photo`, `TicketsLink`) VALUES (1, 'Broem van broemer', 'I broem, therefore I am.', '2014-01-01', 'Broemcity', 'Broemelander', 'Broemcity', 186, 78, 'High tech broembroemmobiel', 1, NULL, NULL);
 
 COMMIT;
 
@@ -129,7 +138,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Events` (`EventID`, `Country`, `City`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', NULL, '01-01-2014');
+INSERT INTO `JMRacing`.`Events` (`EventID`, `Country`, `City`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', NULL, '2014-01-01');
 
 COMMIT;
 
@@ -138,7 +147,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Results` (`ResultID`, `EventID`, `RacerID`, `R1`, `R2`, `GP`, `Date`) VALUES (1, 1, 1, 2, 3, 4, '01-01-2014');
+INSERT INTO `JMRacing`.`Results` (`ResultID`, `EventID`, `RacerID`, `R1`, `R2`, `GP`, `Date`) VALUES (1, 1, 1, 2, 3, 4, '2014-01-01');
 
 COMMIT;
 
