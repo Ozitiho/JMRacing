@@ -1,5 +1,3 @@
-<!-- File: /app/View/Posts/index.ctp -->
-
 <h1>Articles</h1>
 
 <?php echo $this->Html->link(
@@ -17,8 +15,6 @@
 		<th>LastUpdatedDate</th>
 		<th>Photo</th>
     </tr>
-
-    <!-- Here is where we loop through our $posts array, printing out post info -->
 
     <?php foreach ($articles as $article): ?>
     <tr>
