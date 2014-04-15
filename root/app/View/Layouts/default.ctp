@@ -38,10 +38,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
-<script src="js/jquery.slicknav.js" type="text/javascript"></script>
-<script src="js/jquery00.js" type="text/javascript"></script>
-<script src="js/scripts.js" type="text/javascript"></script>
-<script src="js/html5_IE.js" type="text/javascript"></script>
+<script src="/js/jquery.slicknav.js" type="text/javascript"></script>
+<script src="/js/jquery00.js" type="text/javascript"></script>
+<script src="/js/scripts.js" type="text/javascript"></script>
+<script src="/js/html5_IE.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -50,17 +50,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   <!-- Header starts from here -->
   <header>
   	<div class="home_banner">
-    	<img src="images/home_banner1.jpg" alt="">
+    	<img src="/images/home_banner1.jpg" alt="">
         <div class="clear"></div>
     </div>
   	<section class="container">
   		<div class="logo">
-        	<a href="index.html"><img src="images/logo.png" alt=""></a>
+        	<a href="/index.html"><img src="/images/logo.png" alt=""></a>
         </div>
         <div class="right">
         	<div class="social_icons">
-            	<a href="#" class="fb"><img src="images/fb.png" alt=""></a>
-                <a href="#" class="twitter"><img src="images/twitter.png" alt=""></a>
+            	<a href="#" class="fb"><img src="/images/fb.png" alt=""></a>
+                <a href="#" class="twitter"><img src="/images/twitter.png" alt=""></a>
             </div>
             <div id="menu">
             	<a>MENU</a>
@@ -120,32 +120,32 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->fetch('content'); ?>
         </div>
         <div class="shadow">
-        	<img src="images/bottom_shadow.png" alt="">
+        	<img src="/images/bottom_shadow.png" alt="">
         </div>
         <div class="photos_main">
         	<h1>LATEST PHOTOS</h1>
             <ul>
-            	<li><a href="#"><span>&nbsp;</span><img src="images/photo_img1.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img2.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img3.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img4.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img5.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img6.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img7.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img8.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img9.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img10.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img11.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img12.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img13.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img14.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img15.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="images/photo_img16.jpg" alt=""></a></li>
+            	<li><a href="#"><span>&nbsp;</span><img src="/images/photo_img1.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img2.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img3.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img4.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img5.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img6.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img7.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img8.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img9.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img10.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img11.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img12.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img13.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img14.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img15.jpg" alt=""></a></li>
+                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img16.jpg" alt=""></a></li>
             </ul>
             <a href="#" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
         </div>
         <div class="shadow">
-        	<img src="images/upper_shadow.png" alt="">
+        	<img src="/images/upper_shadow.png" alt="">
         </div>
         <div class="clear"></div>
       </section>
@@ -153,13 +153,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   <section class="map_main" id="map">
   	<section class="container">
   		<div class="center">
-        	<img src="images/direction_icon.png" alt="">
+        	<img src="/images/direction_icon.png" alt="">
             <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong> 45°56’48’’N 0°31’46’’W</h2>
             <p>01 June 2014 - Saint Jean d’Angely - France</p>
             <a class="button red">EXPLORE THE MAP</a>
         </div>
         <div class="map">
-        	<img src="images/full_map.png" alt="">
+        	<img src="/images/full_map.png" alt="">
         </div>
         <div class="clear"></div>
     </section>
