@@ -5,6 +5,20 @@ class ArticlesController extends AppController {
     public $components = array('Session');
 
     public function index() {
+		$articles = $this->Article->find('all');
+	
+		foreach($articles as $key => $article){
+			$string = $article['Article']['Message'];
+			if (strlen($string) > 100){
+				$string = substr($string, 0, 96);
+				$string .= '...';
+				$articles[$key]['Article']['Message'] = $string;
+			}
+		}
+        $this->set('articles', $articles);
+    }
+	
+	public function cms() {
         $this->set('articles', $this->Article->find('all'));
     }
 
@@ -65,5 +79,26 @@ class ArticlesController extends AppController {
 			);
 			return $this->redirect(array('action' => 'index'));
 		}
+	}
+	
+	private function markupArticle($pic, $head, $body) {
+		$html = '<div class="box">
+				<img src="' + $pic + '" alt="">
+				<span class="heading">NEWS</span>
+				<div class="description">
+					<h2>' + $head + '</h2>
+					<p>' + $body + '</p>
+					<div class="share">
+						<ul>
+							<li>SHARE &nbsp;&nbsp;</li>
+							<li class="fb"><a href="#">&nbsp;</a></li>
+							<li class="twitter"><a href="#">&nbsp;</a></li>
+							<li class="google"><a href="#">&nbsp;</a></li>
+						</ul>
+						<a href="#" class="button">READ FULL ARTICLE</a>
+					</div>
+				</div>
+			</div>';
+		return $html;
 	}
 }

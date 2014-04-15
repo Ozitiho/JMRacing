@@ -3,6 +3,7 @@
 echo $this->Form->create('Article');
 echo $this->Form->input('Title');
 echo $this->Form->input('Message', array('rows' => '3'));
+echo $this->Form->input('Photo');
 echo $this->Form->input('CreateDate');
 echo $this->Form->input('EditorID');
 echo $this->Form->end('Save Article');
