@@ -21,7 +21,7 @@ class RacersController extends AppController {
     }
 
     public function add() {
-        if ($this->request->is('racer')) {
+        if ($this->request->is('post')) {
             $this->Racer->create();
             if ($this->Racer->save($this->request->data)) {
                 $this->Session->setFlash(__('Your racer has been saved.'));
