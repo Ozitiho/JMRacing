@@ -10,8 +10,8 @@
 <table>
     <tr>
         <th>Id</th>
-        <th>EventID</th>
-        <th>RacerID</th>
+        <th>Event Location</th>
+        <th>Racer Name</th>
         <th>R1</th>
         <th>R2</th>
         <th>GP</th>
@@ -26,8 +26,8 @@
             <?php echo $this->Html->link($result['Result']['id'],
 				array('controller' => 'results', 'action' => 'view', $result['Result']['id'])); ?>
 		</td>
-        <td><?php echo $result['Result']['EventID']; ?></td>
-        <td><?php echo $result['Result']['RacerID']; ?></td>
+        <td><?php echo $result['Event']['Country']; ?></td>
+        <td><?php echo $result['Racer']['Name']; ?></td>
         <td><?php echo $result['Result']['R1']; ?></td>
         <td><?php echo $result['Result']['R2']; ?></td>
         <td><?php echo $result['Result']['GP']; ?></td>

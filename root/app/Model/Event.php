@@ -1,6 +1,7 @@
 <?php
 
 class Event extends AppModel {
+	public $hasMany = 'Result';
 	public $validate = array(
         'Country' => array(
 			'rule'     => 'alphaNumeric',
