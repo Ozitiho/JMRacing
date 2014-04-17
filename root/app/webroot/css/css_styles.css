@@ -216,12 +216,15 @@ background: linear-gradient(#FFDB4D, #FFCC02);
 
 .news_column{width:49.25%; float:left;}
 .news_column2{float:right;}
+.news_column3{width:98.50%;}
 
 .row{width:100%; float:left; padding:0 0 22px;}
 .box{width:48.47%; float:left; background:#ffffff; position:relative; -webkit-box-shadow: #666 0px 2px 2px;
 -moz-box-shadow: #666 0px 2px 2px;
 box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php);}
 .box.fright{float:right;}
+.box.more{width: 24.235%; margin-right: 2em;}
+.box.more.fright{margin-right: 0;}
 
 .box img{float:left; border:1px solid #fff;}
 .box .heading{font:bold 14px 'Asap'; color:#ffffff; line-height:24px; padding:5px 10px; z-index:11; background:#dc002f; position:absolute; left:10px; top:10px;}

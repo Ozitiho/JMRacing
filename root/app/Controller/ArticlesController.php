@@ -10,7 +10,7 @@ class ArticlesController extends AppController {
 		foreach($articles as $key => $article){
 			$string = $article['Article']['Message'];
 			if (strlen($string) > 100){
-				$string = substr($string, 0, 96);
+				$string = substr($string, 0, 90);
 				$string .= '...';
 				$articles[$key]['Article']['Message'] = $string;
 			}

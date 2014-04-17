@@ -1,42 +1,45 @@
 <div class="all_news">
 	<div class="news_column">
 		<?php
+			function article($article){
+				echo ('<img src="' . $article['Article']['Photo'] . '" alt="">
+						<span class="heading">NEWS</span>
+						<div class="description">
+							<h2>' . $article['Article']['Title'] . '</h2>
+							<p>' . $article['Article']['Message'] . '</p>
+							<div class="share">
+								<ul>
+									<li>SHARE &nbsp;&nbsp;</li>
+									<li class="fb"><a href="#">&nbsp;</a></li>
+									<li class="twitter"><a href="#">&nbsp;</a></li>
+									<li class="google"><a href="#">&nbsp;</a></li>
+								</ul>
+								<a href="#" class="button">READ FULL ARTICLE</a>
+							</div>
+						</div>
+					</div>');
+			}
+		
 			$count = 0;
-			foreach($articles as $article):
-			if($count >= 4){
-				break;
+			foreach($articles as $article){
+				if($count >= 4){
+					break;
+				}
+				if($count % 2 == 0){
+					echo '<div class="row">
+							<div class="box">';
+				}
+				else {
+					echo '<div class="box fright">';
+				}
+				
+				article($article);
+				
+				if($count % 2 == 1){
+					echo '</div>';
+				}
+				$count++;
 			}
-			if($count % 2 == 0){
-				echo '<div class="row">
-						<div class="box">';
-			}
-			else {
-				echo '<div class="box fright">';
-			}
-		?>
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
-				<span class="heading">NEWS</span>
-				<div class="description">
-					<h2><?php echo $article['Article']['Title']; ?></h2>
-					<p><?php echo $article['Article']['Message']; ?></p>
-					<div class="share">
-						<ul>
-							<li>SHARE &nbsp;&nbsp;</li>
-							<li class="fb"><a href="#">&nbsp;</a></li>
-							<li class="twitter"><a href="#">&nbsp;</a></li>
-							<li class="google"><a href="#">&nbsp;</a></li>
-						</ul>
-						<a href="#" class="button">READ FULL ARTICLE</a>
-					</div>
-				</div>
-			</div>
-			
-		<?php 
-			if($count % 2 == 1){
-				echo '</div>';
-			}
-			$count++;
-			endforeach; 
 		?>
 	</div>
 	<div class="news_column news_column2">
@@ -104,46 +107,30 @@
 			</div>
 		</div>
 	</div>
-	<div class="news_column">
+	<div class="news_column news_column3">
 		<?php
 			$count = -1;
-			foreach($articles as $article):
-			$count++;
-			if($count < 4){
-				continue;
+			foreach($articles as $article){
+				$count++;
+				if($count < 4){
+					continue;
+				}
+				if($count % 4 == 0){
+					echo '<div class="row">';
+				}
+				if($count % 4 != 3){
+					echo '<div class="box more">';
+				}		
+				else {
+					echo '<div class="box more fright">';
+				}
+				
+				article($article);
+				
+				if($count % 4 == 3){
+					echo '</div>';
+				}
 			}
-			if($count % 2 == 0){
-				echo '<div class="row">';
-			}
-			if($count % 2 == 0){
-				echo '<div class="box">';
-			}		
-			else {
-				echo '<div class="box fright">';
-			}
-		?>
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
-				<span class="heading">NEWS</span>
-				<div class="description">
-					<h2><?php echo $article['Article']['Title']; ?></h2>
-					<p><?php echo $article['Article']['Message']; ?></p>
-					<div class="share">
-						<ul>
-							<li>SHARE &nbsp;&nbsp;</li>
-							<li class="fb"><a href="#">&nbsp;</a></li>
-							<li class="twitter"><a href="#">&nbsp;</a></li>
-							<li class="google"><a href="#">&nbsp;</a></li>
-						</ul>
-						<a href="#" class="button">READ FULL ARTICLE</a>
-					</div>
-				</div>
-			</div>
-			
-		<?php 
-			if($count % 2 == 1){
-				echo '</div>';
-			}
-			endforeach; 
 		?>
 	</div>
 	<div class="load_more">

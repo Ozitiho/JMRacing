@@ -5,7 +5,8 @@ class EventsController extends AppController {
     public $components = array('Session');
 
     public function index() {
-        $this->set('events', $this->Event->find('all'));
+        $this->set('events', $this->Event->find('all')
+		);
     }
 
     public function view($id = null) {
