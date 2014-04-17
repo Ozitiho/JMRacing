@@ -20,11 +20,11 @@
  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="css/css_styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/css_styles.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
-<script src="js/jquery00.js" type="text/javascript"></script>
-<script src="js/jquery.slicknav.js" type="text/javascript"></script>
-<script src="js/html5_IE.js" type="text/javascript"></script>
+<script src="/js/jquery00.js" type="text/javascript"></script>
+<script src="/js/jquery.slicknav.js" type="text/javascript"></script>
+<script src="/js/html5_IE.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -34,12 +34,12 @@
   <header>
   	<section class="container">
   		<div class="logo">
-        	<a href="index.html"><img src="images/logo.png" alt=""></a>
+        	<a href="/index.html"><img src="/images/logo.png" alt=""></a>
         </div>
         <div class="right">
         	<div class="social_icons">
-            	<a href="#" class="fb"><img src="images/fb.png" alt=""></a>
-                <a href="#" class="twitter"><img src="images/twitter.png" alt=""></a>
+            	<a href="#" class="fb"><img src="/images/fb.png" alt=""></a>
+                <a href="#" class="twitter"><img src="/images/twitter.png" alt=""></a>
             </div>
             <div id="menu">
             	<a><span>MENU</span></a>
@@ -91,10 +91,11 @@
     	<div class="clear"></div>
   	</section>
     <div class="home_banner">
-    	<img src="images/home_banner1.jpg" alt="">
+    	<img src="/images/home_banner1.jpg" alt="">
         <div class="clear"></div>
     </div>
     <div class="events_main">
+		<!-- SECTION VOOR ARTICLES
     	<section class="container">
         	<div class="events">
             	<a id="event">SHOW MORE INFO NEXT EVENT</a>
@@ -163,13 +164,16 @@
             </div>
             <div class="clear"></div>
         </section>
+		-->
     </div>
   </header>
   <!-- Header ends here --> 
   <!-- Container starts from here -->
+  
   <section class="main_container">
       <section class="container">
         <div class="all_news">
+			<!-- CONTAINER VOOR IEDEREEN
         	<div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
                         <div class="box">
                             <img src="images/home_img1.jpg" alt="">
@@ -215,7 +219,7 @@
                             <p class="black">ALEKSANDR TONKOV #59</p>
                         </div>
                         <div class="facebook_box box">
-                            <!--<img src="images/big_fb.png" alt="" class="position">-->
+                            <img src="images/big_fb.png" alt="" class="position">
                             <h1>FACEBOOK</h1>
                             <ul>
                                 <li>
@@ -305,9 +309,9 @@
                         </div>
                         
                         
-                        <!--<nav id="page-nav">
+                        <nav id="page-nav">
                           <a href="pages/page2.html"></a>
-                        </nav>-->
+                        </nav>
                         <div class="more_items">
                         	<div class="box">
                             <img src="images/home_img6.jpg" alt="">
@@ -378,9 +382,10 @@
                     <a id="load-images">LOAD MORE NEWS</a>
                 </div>
             </div>
+			-->
         </div>
         <div class="shadow">
-        	<img src="images/upper_shadow.png" alt="">
+        	<img src="/images/upper_shadow.png" alt="">
         </div>
         <div class="logos_slider">
         	<div class="span-24 prepend-top last" id="slider"> 
@@ -417,7 +422,7 @@
             </div>
         </div>
         <div class="shadow">
-        	<img src="images/bottom_shadow.png" alt="">
+        	<img src="/images/bottom_shadow.png" alt="">
         </div>
         <div class="photos_main">
         	<h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
@@ -444,7 +449,7 @@
             </div>
         </div>
         <div class="shadow">
-        	<img src="images/upper_shadow.png" alt="">
+        	<img src="/images/upper_shadow.png" alt="">
         </div>
         <div class="clear"></div>
       </section>
@@ -454,19 +459,19 @@
   		<div class="center">
         	<a id="explore_map">EXPLORE THE MAP<br><span>&nbsp;</span></a>
             <div class="hide">
-                <img src="images/direction_icon.png" alt="">
+                <img src="/images/direction_icon.png" alt="">
                 
                 <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong> 45°56’48’’N 0°31’46’’W</h2>
                 <p>01 June 2014 - Saint Jean d’Angely - France</p>
                 <a class="button red" id="explore">EXPLORE THE MAP</a>
                 <div class="map">
-                    <img src="images/full_map.png" alt="">
+                    <img src="/images/full_map.png" alt="">
                 </div>
             </div>
         </div>
         <div class="map map1" id="A_map">
-        	<a id="close"><img src="images/G_cross.png" alt=""></a>
-        	<img src="images/full_map.png" alt="" id="A_map_img">
+        	<a id="close"><img src="/images/G_cross.png" alt=""></a>
+        	<img src="/images/full_map.png" alt="" id="A_map_img">
         </div>
         <div class="clear"></div>
     </section>
@@ -534,9 +539,9 @@
   <!-- Footer ends here --> 
 </div>
 <!-- Wrapper Div ends here -->
-<script src="js/masonry.pkgd.min.js"></script>
-<script src="js/jquery.infinitescroll.min.js"></script>
-<script src="js/scripts.js" type="text/javascript"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/jquery.infinitescroll.min.js"></script>
+<script src="/js/scripts.js" type="text/javascript"></script>
 
 <script type="text/javascript">
  $(function(){
