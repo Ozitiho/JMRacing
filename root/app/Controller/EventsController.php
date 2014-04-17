@@ -74,7 +74,7 @@ class EventsController extends AppController {
 	}
 	
 	// This function counts down to the first upcoming event
-	public function countDown()
+	public function countdown()
 	{
 		// Get the first upcoming event
 		$event = $this->Event->find('first', array(
@@ -82,6 +82,9 @@ class EventsController extends AppController {
 					'Date >= NOW()')
 				)
 		);
+		
+					$daysUntilEvent = 0;
+					$hoursUntilEvent = 0;
 		
 		// If an event has been found
 		if($event)
@@ -93,7 +96,6 @@ class EventsController extends AppController {
 			
 			// The difference between the two events in hours
 			$timeUntilEvent = round((strtotime($eventDate) - strtotime($currentDate))/3600, 1);
-			$daysUntilEvent = 0;
 			
 			/* If the difference between the two is bigger than 24, there's more than a day difference, so we
 			need to calculate the days / remaining hours */
@@ -114,9 +116,19 @@ class EventsController extends AppController {
 			// Round the hours
 			$hoursUntilEvent = round($hoursUntilEvent, 0);
 			
-			print("Days: $daysUntilEvent Hours: $hoursUntilEvent");
-			
-			$this->set('blaEvent', "bla");
+			// Make an array of both the hours and the time
+			$timeUntilEventArray = array("Days" => $daysUntilEvent, "Hours" => $hoursUntilEvent);
+		}
+		
+		if (isset($this->params['requested']) && $this->params['requested'] == 1)
+		{
+			return $timeUntilEventArray;
+		}
+		
+		else
+		{
+			// Make the days/hours available in the view
+			$this->set('time', $timeUntilEventArray);
 		}
 	}
 }

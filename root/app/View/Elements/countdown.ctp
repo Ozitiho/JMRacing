@@ -49,16 +49,34 @@ $this->start('header');
                 <p class="event_text">Saint Jean d’Angely - France - 01 June</p>
             </div>
             <div class="time_left">
+                <?php
+				// Get the time info from the events action countdown
+				$time = $this->requestAction('events/countdown');
+				
+				// Add 0's to the amount of hours/days if necessary
+				$updatedDays = $time["Days"];
+				$updatedHours = $time["Hours"];
+			
+				for($i = 3; $i > strlen($time["Days"]); $i--)
+				{
+					$updatedDays = 0 . $updatedDays;
+				}
+				
+				for($i = 2; $i > strlen($time["Hours"]); $i--)
+				{
+					$updatedHours = 0 . $updatedHours;
+				}
+				?>
                 <img src="/images/days.png" alt="">
                 <ul>
-                    <li>0</li>
-                    <li>4</li>
-                    <li>9</li>
+                    <li><?php print(substr($updatedDays, 0, 1));?></li>
+                    <li><?php print(substr($updatedDays, 1, 1));?></li>
+                    <li><?php print(substr($updatedDays, 2, 1));?></li>
                 </ul>
                 <img src="/images/hours.png" alt="">
                 <ul>
-                    <li>1</li>
-                    <li>6</li>
+                    <li><?php print(substr($updatedHours, 0, 1));?></li>
+                    <li><?php print(substr($updatedHours, 1, 1));?></li>
                 </ul>
             </div>
             <div class="results">
