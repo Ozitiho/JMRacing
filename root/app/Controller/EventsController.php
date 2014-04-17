@@ -115,6 +115,8 @@ class EventsController extends AppController {
 			$hoursUntilEvent = round($hoursUntilEvent, 0);
 			
 			print("Days: $daysUntilEvent Hours: $hoursUntilEvent");
+			
+			$this->set('blaEvent', "bla");
 		}
 	}
 }
