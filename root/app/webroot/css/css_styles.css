@@ -36,7 +36,7 @@ header{width:100%; margin:0px auto; position:relative;}
 .home_banner img{float:left;}
 header .container{position:absolute; left:50%; top:0; margin:0 0 0 -800px; z-index:11; padding:50px 0 0;}
 
-.logo{float:left; width:162px; margin:-15px 0 0;}
+.logo{float:left; width:162px; margin:-8px 0 0;}
 header .right{float:right; width:136px; position:relative;}
 
 header .social_icons{width:100%; float:left;}
@@ -83,26 +83,37 @@ background: -ms-linear-gradient(#C3002A, #dc002f);
 background: -o-linear-gradient(#C3002A, #dc002f);
 background: linear-gradient(#C3002A, #dc002f);
 -pie-background: linear-gradient(#C3002A, #dc002f); behavior: url(js/pie/PIE.php);}
-#menu a{width:100%; padding:20px 0 60px 0; font:bold 18px 'Asap'; color:#ffffff; line-height:20px; float:left; text-align:center; cursor:pointer;
+#menu a{width:100%; float:left; text-align:center; cursor:pointer;}
+#menu a span{width:100%; padding:20px 0 60px 0; font:bold 18px 'Asap'; color:#ffffff; line-height:20px; float:left; text-align:center; cursor:pointer;
 background:url(../images/menu_arrow.png) no-repeat center 75%;}
-#menu a.active{background-image:url(../images/cross.png);}
+#menu a.active span{background-image:url(../images/cross.png);}
+#menu a:hover{background: #DC002F;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#DC002F), to(#f6073a));
+background: -webkit-linear-gradient(#DC002F, #f6073a);
+background: -moz-linear-gradient(#DC002F, #f6073a);
+background: -ms-linear-gradient(#DC002F, #f6073a);
+background: -o-linear-gradient(#DC002F, #f6073a);
+background: linear-gradient(#DC002F, #f6073a);
+-pie-background: linear-gradient(#DC002F, #f6073a);}
 
 .menu_open{position:absolute; right:135px; top:0; width:1273px; display:none;}
 .search{width:98%; background:#bac0c9; float:left; padding:0.8% 1%;}
 .search input{width:95%; padding:8px 0 8px 1%; float:left; border:0; background:#ffffff; font:normal 16px 'Asap'; color:#000; line-height:18px;}
 .search input.submit{background:url(../images/search_icon.png) no-repeat center center; padding:0; width:4%; height:35px; cursor:pointer;}
 
-header nav{width:100%; float:left; background:#002145;}
-header nav > ul{width:99%; float:left; padding:0 0 0 1%;}
-header nav > ul > li{float:left; font:bold 18px 'Asap'; color:#bac0c9; line-height:20px; padding:20px 12px;}
-header nav > ul > li > a{color:#bac0c9;}
-header nav > ul > li > a:hover,header nav > ul > li:hover > a,header nav > ul > li.active > a,header nav > ul ul li a:hover{color:#ffffff;}
-header nav > ul > li:hover{background:url(../images/hover.png) no-repeat center bottom;}
+.menu_open nav{width:100%; float:left; background:#dc002f; padding-bottom:42px;}
+.menu_open nav > ul{width:99%; float:left; padding:0 0 0 1%; background:#002145;}
+.menu_open nav > ul > li{float:left; font:bold 18px 'Asap'; color:#bac0c9; line-height:20px; padding:20px 12px;}
+.menu_open nav > ul > li.sep{background:none !important;}
+.menu_open nav > ul > li > a{color:#bac0c9;}
+.menu_open nav > ul > li > a:hover,.menu_open nav > ul > li:hover > a,.menu_open nav > ul > li.active > a,.menu_open nav > ul ul li a:hover{color:#ffffff;}
+.menu_open nav > ul > li:hover{background:url(../images/hover.png) no-repeat center bottom;}
 
-header nav > ul > li:hover li{text-indent:0;}
-header nav > ul ul{width:99%; background:#dc002f; position:absolute; left:0; bottom:-42px; padding:0 0 0 1%;}
-header nav > ul ul li{float:left; font:bold 16px 'Asap'; color:#eabfc8; line-height:20px; padding:11px 12px; text-indent:-9999px;}
-header nav > ul ul li a{color:#eabfc8;}
+.menu_open nav > ul > li:hover ul{display:block;}
+.menu_open nav .submenu{width:99%; position:absolute; left:0; display:block; bottom:0px; padding:0 0 0 1%; min-height:42px;}
+.menu_open nav > ul li ul{display:none;}
+.menu_open nav > ul ul li{float:left; font:bold 16px 'Asap'; color:#eabfc8; line-height:20px; padding:11px 12px;}
+.menu_open nav > ul ul li a{color:#eabfc8;}
 
 .events_main{width:100%; float:left; position:absolute; left:0; bottom:118px;}
 .events_main .container{position:relative; left:auto; margin:0 auto; top:auto; bottom:auto; padding:0;}
@@ -145,7 +156,7 @@ background:url(../images/up_arrow.png) no-repeat right center; min-height:50px;}
 .full_event .heading{width:97%; padding:15px 0 15px 3%; float:left; font:bold 18px 'Asap'; color:#b8c0cb; line-height:24px; background:#002145;}
 
 .equal .left{float:left; width:46%; padding:0.5% 1%;}
-.equal .left img{float:left; margin:0.5% 0 1%;}
+.equal .left img{float:left; margin:0.5% 0 1%; border:1px solid #828D9F;}
 
 .equal .right{float:right; width:46%; padding:20px 4% 0 0%;}
 .equal .right h1{width:100%; float:left; font:bold 24px 'Asap'; color:#828d9f; line-height:32px;}
@@ -219,14 +230,15 @@ background: linear-gradient(#FFDB4D, #FFCC02);
 .news_column3{width:98.50%;}
 
 .row{width:100%; float:left; padding:0 0 22px;}
-.box{width:48.47%; float:left; background:#ffffff; position:relative; -webkit-box-shadow: #666 0px 2px 2px;
+#container{width:100%; float:left; position:relative;}
+.box{width:23%; margin:0 0.9% 25px; float:left; background:#ffffff; position:relative; -webkit-box-shadow: #666 0px 2px 2px;
 -moz-box-shadow: #666 0px 2px 2px;
 box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php);}
 .box.fright{float:right;}
 .box.more{width: 24.235%; margin-right: 2em;}
 .box.more.fright{margin-right: 0;}
 
-.box img{float:left; border:1px solid #fff;}
+.box img{float:left; border:1px solid #fff; margin:-1px; width:99.8%;}
 .box .heading{font:bold 14px 'Asap'; color:#ffffff; line-height:24px; padding:5px 10px; z-index:11; background:#dc002f; position:absolute; left:10px; top:10px;}
 
 .description{width:90%; padding:20px 5%; float:left;}
@@ -243,18 +255,16 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php);}
 .share li a:hover{background-position:left bottom !important;}
 
 .share a.button{float:right; background:#dc002f;}
-.share a.button:hover{background:#b20026;}
+.share a.button:hover{background:#FFCC00;}
+.share a.yellow:hover{background:#FFCC00; color:#000;}
 
-.team_col{width:48.47%; float:left;}
-.big_social{width:48.47%; float:right;}
 
-.team_col .box{width:100%; margin:0 0 23px;}
 .team_col .heading{background:#ffcc00; color:#000;}
 .team_col .blue{background:#003978; color:#fff;}
 .team_col .black{float:left; font:bold 24px 'Asap'; z-index:11; color:#ffffff; line-height:24px; padding:5px 10px; background:#000000; position:absolute; left:30px; bottom:30px;}
 
 .team_col .overlay{background:url(../images/overlay1.png) repeat left top; display:none; width:100%; height:100%; position:absolute; left:0; top:0; z-index:10;}
-.team_col .box:hover .overlay{display:block;}
+.team_col:hover .overlay{display:block;}
 
 .team_col .era{float:left; font:bold 18px 'Asap'; z-index:11; color:#002752; line-height:24px; width:100%;
 text-align:center; position:absolute; left:0; bottom:15px;}
@@ -264,10 +274,17 @@ text-align:center; position:absolute; left:0; bottom:15px;}
 .box a.play_button{position:absolute; left:50%; top:50%; z-index:11; margin:-40px 0 0 -40px; border:0;}
 .box a.play_button img{margin:0; border:0;}
 
-.facebook_box{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; width:90%; float:left; margin:0 0 22px; border:1px solid #fff;
- position:relative; -webkit-box-shadow: #666 0px 2px 2px;
--moz-box-shadow: #666 0px 2px 2px;
-box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); min-height:377px; padding:20px 5% 0;}
+.social_column,.team_main,.news_items{background:none; -webkit-box-shadow:none;
+-moz-box-shadow:none;
+box-shadow:none;}
+.social_column .box{width:92%; padding-left:4%; padding-right:4%;  margin:0 0 25px;}
+.team_main .box{width:100%; margin:0 0 29px;}
+
+.news_items{width:50%; margin:0;}
+.news_items .box{width:50%;}
+
+.facebook_box{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; float:left; border:1px solid #fff;
+ min-height:371px; padding:20px 1.9% 0; width:19%;}
 .facebook_box h1{font:bold 32px 'Asap'; padding:0 0 30px; color:#ffffff; line-height:32px; width:100%; float:left;}
 .facebook_box li{width:100%; float:left; padding:0 0 30px;}
 .facebook_box span{width:100%; float:left; font:normal 12px 'Asap'; color:#ffffff; line-height:24px;}
@@ -279,7 +296,64 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); min-height:377px; p
 .twitter_box .button{background:#e1f3f7; color:#39aecb;}
 
 .load_more{width:100%; float:left; text-align:center; padding:20px 0 40px;}
-.load_more a{font:bold 18px 'Asap'; color:#828d9f; line-height:24px;}
+.load_more a{font:bold 18px 'Asap'; color:#828d9f; line-height:24px; cursor:pointer;}
+
+.more_items{width:100%;}
+
+.box {
+  float: left;
+}
+/**** Transitions ****/
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
+}
+
+
+/* Infinite Scroll loader */
+#infscr-loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  left: 45%;
+  bottom: 40px;
+  width: 200px;
+  padding: 10px;
+  background: #000;
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+
 
 .shadow{width:100%; float:left; text-align:center;}
 
@@ -290,7 +364,7 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); min-height:377px; p
 #viewport li {float:left; width:200px; text-align:center;}
 
 .logos_slider a{background-position:left top; height:72px; display:inline-block; width:100%; background-repeat:no-repeat;}
-.logos_slider a:hover{background-position:left -113px !important;}
+.logos_slider a:hover{background-position:left -112px !important;}
 
 .logos_slider .S_logo1{}
 .logos_slider .S_logo2{}
@@ -319,18 +393,28 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); min-height:377px; p
 
 .photos_main{width:100%; float:left; padding:30px 0; text-align:center;}
 .photos_main h1{font:bold 18px 'Asap'; color:#828d9f; line-height:24px; padding:0 0 20px;}
+.photos_main h1 a{color:#828d9f; cursor:pointer;}
+.photos_main h1 span{background:url(../images/photo.png) no-repeat left top; width:66px; height:48px; display:inline-block; margin:20px 0 0;}
+.photos_main h1 a:hover span{background-position:left bottom;}
+.photos_main .hide{display:none;}
+
+#explore_map{color:#828d9f; cursor:pointer; font:bold 18px 'Asap'; color:#828d9f; line-height:24px; text-align:center;}
+#explore_map span{background:url(../images/map_icon.png) no-repeat left top; width:88px; height:48px; display:inline-block; margin:20px 0 20px;}
+#explore_map:hover span{background-position:left bottom;}
+.map_main .hide{display:none;}
 
 .photos_main li{display:inline-block; *display:inline; *zoom:1; margin:11px 8px; width:177px; border:1px solid #fff; position:relative; -webkit-box-shadow: #666 0px 2px 2px;
 -moz-box-shadow: #666 0px 2px 2px;
 box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); vertical-align:top;}
-.photos_main li a{display:inline-block; float:left;}
+.photos_main li a{display:inline-block; float:left; width:100%;}
 .photos_main li img{float:left;}
 .photos_main li span{position:absolute; display:none; left:0; top:0; width:100%; height:100%; z-index:11; background:url(../images/overlay.png) repeat left top;}
 .photos_main li:hover span{display:block;}
 
 .photos_main a.all_videos{font:bold 18px 'Asap'; color:#828d9f; line-height:24px; margin:20px 0 0; display:inline-block;}
 
-.map_main{width:100%; background:#fff url(../images/map_bg.png) repeat-x left bottom;}
+.map_main{width:100%;  position:relative; padding:0 0 80px;}
+.map_main1{background:#fff url(../images/map_bg.png) repeat-x left bottom; padding:0;}
 .map_main .center{width:100%; text-align:center; float:left; padding:30px 0 0;}
 .map_main .center img{margin:0 0 30px;}
 .map_main h2{font:normal 32px 'Asap'; color:#002752; line-height:34px; padding:0 0 25px;}
@@ -341,12 +425,20 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); vertical-align:top;
 .map_main .button{float:none; display:inline-block; cursor:pointer;}
 .map_main .button:hover{background:#b20026;}
 
-.map{width:100%; text-align:center; height:420px; float:left; overflow:hidden;}
-.map_new{height:auto;}
+
+.map_main .center .map,.map1{width:100%; text-align:center; height:420px; float:left; overflow:hidden; -moz-transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	-o-transition:all 0.5s;
+	transition:all 0.5s;}
+.map1{display:none;}
+.map_new{height:auto !important;}
 .map img{margin:0 0 -100px;}
 
+.map1 #close{position:absolute; top:10px; right:10px; z-index:111; cursor:pointer;}
+.map1 #close img{margin:0 !important;}
+
 /* ======================================== Footer Styles ============================================ */
-footer{width:100%; background:#002145; padding:0 0 40px; margin:-40px 0 0; display:inline-block; position:relative; z-index:11;}
+footer{width:100%; background:#002145; padding:0 0 40px; margin:-40px 0 0; float:left; position:relative; z-index:11;}
 
 .F_top{float:left; padding:35px 0;}
 footer li{font:bold 14px 'Asap'; color:#828d9f; line-height:24px; float:left; padding:0 12px;}
@@ -372,10 +464,329 @@ footer .social_icons li.google a:hover{background-position:-52px -21px;}
 .F_bottom li p{min-width:300px;}
 
 footer p.copyright{float:right; }
+.more_items{display:none;}
 
 /* ============== RESPONSIVE CSS =============== */
-@media only screen and (min-width: 768px) and (max-width: 1020px) {}
-@media only screen and (min-width:0px) and (max-width:1020px){}
-@media only screen and (min-width: 600px) and (max-width: 768px) {}
-@media only screen and (max-width: 600px) {}
-@media only screen and (max-width: 400px){}
+@media only screen and (min-width:1400px) and (max-width: 1620px) {
+	.container{width:1400px;}
+	header .container{margin-left:-700px;}
+	.menu_open{width:1090px;}
+	.menu_open nav > ul > li{font-size:16px; line-height:19px;}
+	
+	.time_left li{font-size:34px; width:45px;}
+	.equal .right h3{padding-bottom:10px;}
+	.equal .right p{line-height:20px; padding-bottom:10px;}
+	.equal .right a{padding:5px 15px 5px 12px;}
+	.full_event .heading{padding:10px 0 10px 3%;}
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:40%;}
+	.equal .right{width:52%; padding-top:10px;}
+	.events_main{bottom:88px;}
+	.equal .right h1{font-size:24px; line-height:26px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{font-size:13px; padding:5px 10px;}
+	.share ul{padding:5px 2%;}
+	.share li{font-size:13px; line-height:19px;}
+	.share li a{margin:0;}
+	
+	.facebook_box{padding:10px 1%; width:20%; min-height:300px;}
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:15px; line-height:22px;}
+	.team_col .era{font-size:16px; line-height:22px;}
+	.team_col .black{font-size:22px; line-height:24px; left:15px;}
+	
+	.photos_main li{width:158px; margin:10px 5px;}
+}
+
+@media only screen and (min-width:1200px) and (max-width: 1400px) {
+	.container{width:1190px;}
+	header .container{margin-left:-595px; padding-top:20px;}
+	.menu_open{width:884px;}
+	.menu_open nav > ul > li{font-size:14px; line-height:18px; padding:15px 7px;}
+	.menu_open nav > ul ul li{font-size:13px; line-height:16px;}
+	.search input{width:93%;}
+	.search input.submit{width:6%;}
+	
+	#menu{margin:-5px 0 0px;}
+	#menu a span{padding:15px 0 55px;}
+	
+	.events #event,.events p.event_text,.results li.race_results{font-size:15px; line-height:20px;}
+	
+	.time_left li{font-size:28px; width:37px; margin:4px 1px;}
+	.time_left img{margin-right:1px;}
+	.equal .right h3{padding-bottom:8px; font-size:16px;}
+	.equal .right p{line-height:18px; font-size:13px; padding-bottom:10px;}
+	.equal .right a{padding:4px 15px 4px 12px; font-size:12px; line-height:16px; margin:2px 0;}
+	.full_event .heading{padding:10px 0 10px 3%;}
+	
+	.all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
+	
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:40%;}
+	.equal .right{width:52%; padding-top:10px;}
+	.events_main{bottom:88px;}
+	.equal .right h1{font-size:20px; line-height:22px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
+	.share ul{width:94%;}
+	.description p{padding-bottom:15px;}
+	.share li{font-size:13px; line-height:19px;}
+	.share li a{margin:0;}
+	
+	.facebook_box{padding:10px 1%; width:20.6%; min-height:300px;}
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:14px; line-height:18px;}
+	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
+	.team_col .black{font-size:18px; line-height:20px; left:15px; bottom:10px;}
+	
+	.photos_main li{width:136px; margin:10px 3px;}
+	.F_bottom li p{min-width:218px;}
+	
+	.facebook_box .button{font-size:13px; line-height:18px; padding:7px 10px;}
+}
+
+@media only screen and (min-width:980px) and (max-width: 1200px) {
+	.container{width:980px;}
+	header .container{margin-left:-490px; padding-top:10px;}
+	.logo{width:140px;}
+	header .right{width:110px;}
+	header .social_icons a img{width:35px;}
+	.menu_open{width:730px; right:109px;}
+	.menu_open nav > ul > li{font-size:12px; line-height:16px; padding:12px 5px;}
+	.menu_open nav .submenu{min-height:32px;}
+	.menu_open nav{padding-bottom:32px;}
+	.menu_open nav > ul ul li{font-size:12px; line-height:14px; padding:8px 5px;}
+	.submenu{min-height:32px; bottom:-32px;}
+	.search input{width:93%; font-size:14px; line-height:16px; padding:6px 0 6px 1%;}
+	.search input.submit{width:6%; height:29px; background-size:50%;}
+	
+	#menu{margin:-3px 0 0px;}
+	#menu a span{padding:10px 0 45px; font-size:15px; line-height:16px; background-size:25%;}
+	
+	.events #event,.events p.event_text,.results li.race_results{font-size:13px; line-height:16px; padding-top:20px; min-height:40px;}
+	.events #event{background-size:10%;}
+	.events,.time_left,.results,.results li a{min-height:60px;}
+	.results li img{margin:10px 0 0 ;}
+	.results li.race_results{padding:0;}
+	.results li.race_results a span{padding:22px 0; background-size:22%;}
+	
+	.time_left li{font-size:24px; line-height:26px; min-height:44px; width:32px; margin:2px 1px;}
+	.time_left img{margin-right:1px; height:60px;}
+	.equal .right h3{padding-bottom:5px; font-size:14px;}
+	.full_event{bottom:60px;}
+	.equal .right p{line-height:16px; font-size:12px; padding-bottom:5px;}
+	.equal .right a{padding:4px 10px 4px 10px; font-size:12px; line-height:14px; margin:2px 0;}
+	.full_event .heading{padding:10px 0 10px 3%;}
+	
+	.all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
+	
+	.box{width:31.5%;}
+	.facebook_box{width:27.5%;}
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:40%;}
+	.equal .right{width:52%; padding-top:10px;}
+	.events_main{bottom:44px;}
+	.equal .right h1{font-size:18px; line-height:20px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px; font-size:12px; }
+	.all_news{margin-top:-30px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
+	.share ul{width:94%;}
+	.description p{padding-bottom:15px;}
+	.share li{font-size:13px; line-height:19px;}
+	.share li a{margin:0;}
+	
+
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:14px; line-height:18px;}
+	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
+	.team_col .black{font-size:18px; line-height:20px; left:15px; bottom:10px;}
+	
+	.photos_main li{width:150px; margin:10px 4px;}
+	.F_bottom li p{min-width:188px;}
+	footer p{font-size:13px; line-height:22px;}
+	footer li{padding:0 7px; font-size:13px;}
+	
+	.facebook_box .button{font-size:13px; line-height:18px; padding:7px 10px;}
+	.map_main h2{font-size:26px; line-height:30px;}
+	
+	.map_main .center .map, .map1{height:300px;}
+	.map img{margin-bottom:-30px;}
+}
+
+@media only screen and (min-width:750px) and (max-width: 980px) {
+	.container{width:750px;}
+	header .container{margin-left:-375px; padding-top:10px;}
+	.logo{width:100px;}
+	header .right{width:80px;}
+	header .social_icons a img{width:30px;}
+	.menu_open{width:566px; right:79px;}
+	.menu_open nav > ul > li{font-size:10px; line-height:14px; padding:10px 3px;}
+	.menu_open nav > ul ul li{font-size:10px; line-height:14px; padding:6px 3px;}
+	.menu_open nav .submenu{min-height:27px;}
+	.menu_open nav{padding-bottom:27px;}
+	.submenu{min-height:28px; bottom:-27px;}
+	.search input{width:93%; font-size:14px; line-height:16px; padding:5px 0 5px 1%;}
+	.search input.submit{width:6%; height:27px; background-size:50%;}
+	
+	#menu{margin:-4px 0 0px;}
+	#menu a span{padding:10px 0 35px; font-size:14px; line-height:16px; background-size:22%;}
+	
+	.events #event,.events p.event_text,.results li.race_results{font-size:10px; line-height:14px; padding-top:15px; min-height:25px;}
+	.events #event{background-size:10%;}
+	.events,.time_left,.results,.results li a{min-height:40px;}
+	.results li img{margin:5px 0 0 ; width:60px;}
+	.results li.race_results{padding:0;}
+	.results li.race_results a span{padding:14px 0; background-size:22%;}
+	
+	.time_left li{font-size:18px; line-height:20px; min-height:30px; width:25px; margin:2px 1px; padding-top:8px;}
+	.time_left img{margin-right:1px; height:40px;}
+	.equal .right h3{padding-bottom:5px; font-size:14px;}
+	.full_event{bottom:42px;}
+	.equal .right p{line-height:16px; font-size:12px; padding-bottom:5px;}
+	.equal .right a{padding:4px 10px 4px 10px; font-size:12px; line-height:14px; margin:2px 5px 2px 0; clear:none;}
+	.full_event .heading{padding:7px 0 7px 3%; font-size:14px; line-height:18px;}
+	
+	.all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
+	
+	.box{width:31%;}
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:98%;}
+	.equal .left img{width:48%; margin:0.7%;}
+	.equal .right{width:94%; padding:5px 3%;}
+	.all_events{width:94%; padding:5px 3%;}
+	.events_logo{display:none;}
+	.events_main{bottom:32px;}
+	.equal .right h1{font-size:18px; line-height:20px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px; font-size:12px; }
+	.all_news{margin-top:-20px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{width:100%; padding:7px 0; text-align:center; margin:5px 0 0; font-size:13px; line-height:16px;}
+	.facebook_box h1{font-size:24px; line-height:28px; padding-bottom:15px;}
+	.facebook_box{background-size:60%;}
+	.share ul{width:94%;}
+	.description p{padding-bottom:15px; font-size:13px; line-height:19px;}
+	.share li{font-size:13px; line-height:19px;}
+	.description{padding:10px 5%;}
+	.box .heading{font-size:12px; line-height:16px; padding:4px 7px;}
+	.description h2{font-size:16px; line-height:20px;}
+	.share li a{margin:0;}
+	
+	.facebook_box{ min-height:300px;}
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:13px; line-height:18px;}
+	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
+	.team_col .black{font-size:15px; line-height:18px; left:15px; bottom:10px;}
+	
+	.photos_main li{width:150px; margin:10px 4px;}
+	.F_bottom li p{min-width:108px;}
+	footer p.copyright{width:24%;}
+	footer p{font-size:12px; line-height:20px;}
+	footer li{padding:0 4px; font-size:11px;}
+	
+	.facebook_box .button{font-size:13px; line-height:18px; padding:7px 10px;}
+	.map_main h2{font-size:26px; line-height:30px;}
+	
+	.map_main .center .map, .map1{height:220px;}
+	.map img{margin-bottom:-20px;}
+	
+	.box{width:48%;}
+	.facebook_box{width:44%;}
+}
+@media only screen and (max-width:750px) {
+	.container{width:96%; padding-left:2%; padding-right:2%;}
+	header .container{position:relative; margin:0; left:auto; top:auto; background:#002145; padding:10px 2%;}
+	
+	#menu{display:none;}
+	
+	.events_main{position:relative; left:auto; bottom:auto; margin:0; float:none;}
+	.slicknav_menu{display:block;}
+	.events_main .container{padding:0 2%;}
+	.events{width:100%;}
+	.events #event{width:96%; background:url(../images/W_right_arrow.png) no-repeat 95% center;}
+	.full_event{position:relative; left:auto; bottom:auto;}
+	.equal{width:100%;}
+	
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:98%;}
+	.equal .left img{width:48%; margin:0.7%;}
+	.equal .right{width:94%; padding:5px 3%;}
+	.all_events{width:94%; padding:5px 3%;}
+	
+	.events_logo{width:94%; margin:10px 3%; max-width:318px; float:left;}
+	.events p.event_text{width:100%; padding:20px 0; display:none;}
+	
+	.equal .right a,.button{width:100%; padding:7px 0; text-align:center;}
+	
+	.time_left{width:100%;}
+	.results{width:100%;}
+	
+	.all_news{margin:10px 0 0;}
+	.box{width:100%; margin:10px 0;}
+	.share ul{width:94%; margin:0 0 10px;}
+	.facebook_box{width:93.8%; padding:15px 3%; min-height:200px;}
+	
+	.F_top{text-align:center;}
+	.F_top ul,footer .social_icons{width:100%; text-align:center; float:left;}
+	footer li,footer .social_icons li{float:none; display:inline-block; vertical-align:top;}
+	.F_bottom li p{min-width:50px;}
+	footer li.sep{display:none;}
+	footer .social_icons,.F_top{padding:20px 0 0;}
+	.F_bottom{margin:20px 0 0; padding:20px 0 0;}
+	.F_bottom li{width:100%; padding:0; text-align:center;}
+	
+	footer p.copyright{width:100%; text-align:center; padding:20px 0 0;}
+	.map{height:auto;}
+	footer{margin:-10px 0 0;}
+	
+	.map_main .center .map, .map1{height:200px;}
+	.map img{margin-bottom:-20px;}
+	
+	/*#viewport ul{width:100% !important; left:auto !important; margin:0 !important; text-align:center;}
+	#viewport li{float:none; display:inline-block; margin:10px 0;}
+	#viewport li.clone{display:none;}*/
+	#viewport{width:450px; float:none; margin:0 auto;}
+	#viewport li{width:225px;}
+	
+	.menu_open nav{display:none;}
+	
+	.results li{display:none;}
+	/*.map_main{display:none;}*/
+	.results li.race_results{display:block; width:100%;}
+	.results li.race_results a{background:none; width:100%; padding:0;}
+	.results li.race_results a span{padding-left:4%; width:96%; background-position:95% center;}
+}
+@media only screen and (max-width: 450px){
+	.team_col .era{font-size:14px; bottom:10px; line-height:16px;}
+	.team_col .black{font-size:20px; line-height:22px; left:10px; bottom:10px;}	
+	.time_left li{font-size:29px; line-height:36px; width:36px;}
+	
+	header .right{width:110px;}
+	.events #event,.events p.event_text,.results li.race_results,.full_event .heading{font-size:15px; line-height:18px;}
+	.equal .left img{width:47.8%;}
+	
+	.map_main .center .map, .map1{height:150px;}
+	.map img{margin-bottom:-10px;}
+	
+	#viewport{width:300px; float:none; margin:0 auto;}
+	#viewport li{width:300px;}
+}
+

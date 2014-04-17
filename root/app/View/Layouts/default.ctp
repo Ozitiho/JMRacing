@@ -32,10 +32,6 @@
 <div class="wrapper"> 
   <!-- Header starts from here -->
   <header>
-  	<div class="home_banner">
-    	<img src="/images/home_banner1.jpg" alt="">
-        <div class="clear"></div>
-    </div>
   	<section class="container">
   		<div class="logo">
         	<a href="/index.html"><img src="/images/logo.png" alt=""></a>
@@ -46,7 +42,7 @@
                 <a href="#" class="twitter"><img src="/images/twitter.png" alt=""></a>
             </div>
             <div id="menu">
-            	<a>MENU</a>
+            	<a><span>MENU</span></a>
             </div>
             <div class="menu_open">
             	<div class="search">
@@ -92,6 +88,10 @@
         </div>
     	<div class="clear"></div>
   	</section>
+	<div class="home_banner">
+    	<img src="/images/home_banner1.jpg" alt="">
+        <div class="clear"></div>
+    </div>
     
   </header>
   <!-- Header ends here --> 

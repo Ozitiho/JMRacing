@@ -14,7 +14,7 @@
 		easingClose: 'swing',
 		closedSymbol: '&#9658;',
 		openedSymbol: '&#9660;',
-		prependTo: '.menu_open',
+		prependTo: '.home_banner',
 		parentTag: 'a',
 		closeOnClick: false,
 		allowParentLinks: false,
@@ -81,7 +81,7 @@
 		$(items).each(function () {
 			var item = $(this);
 			data = {};
-			data.children = item.children('ul').attr('role','menu');
+			data.children = item.children('div').attr('role','menu');
 			item.data("menu", data);
 			
 			// if a list item has a nested menu
@@ -91,7 +91,7 @@
 				var a = item.contents();
 				var nodes = [];
 				$(a).each(function(){
-					if(!$(this).is("ul")) {
+					if(!$(this).is("div")) {
 						nodes.push(this);
 					}
 					else {
@@ -204,7 +204,7 @@
 		if (!data) {
 			data = {};
 			data.arrow = el.children('.'+prefix+'_arrow');
-			data.ul = el.next('ul');
+			data.ul = el.next('div');
 			data.parent = el.parent();
 			el.data("menu", data);
 		}
@@ -260,7 +260,7 @@
 		var $this = this;
 		
 		// select all parents that aren't hidden
-		var nonHidden = el.children('li').children('ul').not('.'+prefix+'_hidden');
+		var nonHidden = el.children('li').children('div').not('.'+prefix+'_hidden');
 		
 		// iterate over all items setting appropriate tags
 		if (!hidden) {
