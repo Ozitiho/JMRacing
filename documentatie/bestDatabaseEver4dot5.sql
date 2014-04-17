@@ -11,6 +11,8 @@ USE `JMRacing` ;
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`Editors` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Admin` TINYINT(1) NOT NULL ,
+  `Name` VARCHAR(100) NOT NULL ,
+  `Password` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -20,16 +22,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`Articles` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `EditorID` INT NOT NULL ,
+  `editor_id` INT NOT NULL ,
   `Title` VARCHAR(200) NOT NULL ,
   `Message` TEXT NOT NULL ,
   `CreateDate` DATETIME NOT NULL ,
   `LastUpdatedDate` DATETIME NULL ,
   `Photo` VARCHAR(300) NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_Article_Editor1_idx` (`EditorID` ASC) ,
+  INDEX `fk_Article_Editor1_idx` (`editor_id` ASC) ,
   CONSTRAINT `fk_Article_Editor1`
-    FOREIGN KEY (`EditorID` )
+    FOREIGN KEY (`editor_id` )
     REFERENCES `JMRacing`.`Editors` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
@@ -75,22 +77,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`Results` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `EventID` INT NOT NULL ,
-  `RacerID` INT NOT NULL ,
+  `event_id` INT NOT NULL ,
+  `racer_id` INT NOT NULL ,
   `R1` INT NULL ,
   `R2` INT NULL ,
   `GP` INT NULL ,
   `Date` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_Result_Event_idx` (`EventID` ASC) ,
-  INDEX `fk_Result_Racer1_idx` (`RacerID` ASC) ,
+  INDEX `fk_Result_Event_idx` (`event_id` ASC) ,
+  INDEX `fk_Result_Racer1_idx` (`racer_id` ASC) ,
   CONSTRAINT `fk_Result_Event`
-    FOREIGN KEY (`EventID` )
+    FOREIGN KEY (`event_id` )
     REFERENCES `JMRacing`.`Events` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Result_Racer1`
-    FOREIGN KEY (`RacerID` )
+    FOREIGN KEY (`racer_id` )
     REFERENCES `JMRacing`.`Racers` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
@@ -120,7 +122,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Editors` (`id`, `Admin`) VALUES (1, 1);
+INSERT INTO `JMRacing`.`Editors` (`id`, `Admin`, `Name`, `Password`) VALUES (1, 1, NULL, NULL);
 
 COMMIT;
 
@@ -129,7 +131,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Articles` (`id`, `EditorID`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (1, 1, 'Broem', 'Broembroemmmmm', '2014-01-01', NULL, NULL);
+INSERT INTO `JMRacing`.`Articles` (`id`, `editor_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (1, 1, 'Broem', 'Broembroemmmmm', '2014-01-01', NULL, NULL);
 
 COMMIT;
 
@@ -148,6 +150,8 @@ COMMIT;
 START TRANSACTION;
 USE `JMRacing`;
 INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', NULL, '2014-01-01');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (2, 'Bruumlend', 'Bruumsitty', NULL, '2015-02-02');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (3, 'Motorland', 'Motorstad', NULL, '2015-03-03');
 
 COMMIT;
 
@@ -156,7 +160,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Results` (`id`, `EventID`, `RacerID`, `R1`, `R2`, `GP`, `Date`) VALUES (1, 1, 1, 2, 3, 4, '2014-01-01');
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `Date`) VALUES (1, 1, 1, 2, 3, 4, '2014-01-01');
 
 COMMIT;
 
