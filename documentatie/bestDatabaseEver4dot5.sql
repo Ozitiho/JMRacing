@@ -122,7 +122,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Editors` (`id`, `Admin`, `Name`, `Password`) VALUES (1, 1, NULL, NULL);
+INSERT INTO `JMRacing`.`Editors` (`id`, `Admin`, `Name`, `Password`) VALUES (1, 1, 'Jorn Harkema', 'homo');
 
 COMMIT;
 
