@@ -1,7 +1,9 @@
 <?php
 
 class Event extends AppModel {
+    public $actsAs = array('Containable');
 	public $hasMany = 'Result';
+	
 	public $validate = array(
         'Country' => array(
 			'rule'     => 'alphaNumeric',
