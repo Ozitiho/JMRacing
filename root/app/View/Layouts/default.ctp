@@ -364,22 +364,22 @@
         	<h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
             <div class="hide">
                 <ul>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img1.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img2.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img3.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img4.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img5.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img6.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img7.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img8.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img9.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img10.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img11.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img12.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img13.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img14.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img15.jpg" alt=""></a></li>
-                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img16.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img1.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img2.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img3.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img4.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img5.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img6.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img7.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img8.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img9.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img10.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img11.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img12.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img13.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img14.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img15.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img16.jpg" alt=""></a></li>
                 </ul>
                 <a href="#" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
             </div>
