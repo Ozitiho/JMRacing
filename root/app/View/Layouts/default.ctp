@@ -173,6 +173,9 @@
   <section class="main_container">
       <section class="container">
         <div class="all_news">
+			<?php echo $this->fetch('flash');
+				echo $this->fetch('content');
+			?>
 			<!-- CONTAINER VOOR IEDEREEN
         	<div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
                         <div class="box">
