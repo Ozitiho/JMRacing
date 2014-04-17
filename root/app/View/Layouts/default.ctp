@@ -20,10 +20,10 @@
  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/css/css_styles.css" type="text/css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
-<script src="/js/jquery.slicknav.js" type="text/javascript"></script>
 <script src="/js/jquery00.js" type="text/javascript"></script>
-<script src="/js/scripts.js" type="text/javascript"></script>
+<script src="/js/jquery.slicknav.js" type="text/javascript"></script>
 <script src="/js/html5_IE.js" type="text/javascript"></script>
 </head>
 
@@ -58,7 +58,8 @@
                         <li><a href="#">NEWS</a></li>
                         <li class="sep">|</li>
                         <li><a href="#">TEAM</a>
-                        	<ul>
+                        	<div class="submenu">
+                            	<ul>
                             	<li><a href="#">Aleksandr Tonkov #59</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="#">Romain Febvre #461</a></li>
@@ -71,6 +72,7 @@
                                 <li class="sep">|</li>
                                 <li><a href="#">Race Results</a></li>
                             </ul>
+                            </div>
                         </li>
                         <li class="sep">|</li>
                         <li><a href="#">SPONSORS</a></li>
@@ -88,44 +90,363 @@
         </div>
     	<div class="clear"></div>
   	</section>
-	<div class="home_banner">
+    <div class="home_banner">
     	<img src="/images/home_banner1.jpg" alt="">
         <div class="clear"></div>
     </div>
-    
+    <div class="events_main">
+		<!-- SECTION VOOR ARTICLES
+    	<section class="container">
+        	<div class="events">
+            	<a id="event">SHOW MORE INFO NEXT EVENT</a>
+                <div class="full_event">
+                	<div class="equal white_bg">
+                    	<h1 class="heading">NEXT EVENT: Saint Jean d’Angely - France</h1>
+                        <div class="left">
+                        	<a href="#"><img src="images/event_img1.jpg" alt=""></a>
+                            <a href="#"><img src="images/event_img2.jpg" alt=""></a>
+                        </div>
+                        <div class="right">
+                        	<h1><span>01 June 2014</span><br>Saint Jean d’Angely - France</h1>
+                            <h3>45°56’48’’N 0°31’46’’W</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend lorem orci, quis volutpat lacus lacinia eget. In hac habitasse platea dictumst. Cras sagittis hendrerit urna et dictum. Vestibulum volutpat, enim nec gravida condimentum.</p>
+                            <a href="#" class="red">MORE INFO</a>
+                            <a href="#" class="gray">GET TICKETS</a>
+                            <a href="#" class="yellow">SEE RESULTS MX2 2014</a>
+                        </div>
+                    </div>
+                    <div class="equal">
+                    	<h1 class="heading">CALENDAR UPCOMING EVENTS</h1>
+                        <div class="all_events">
+                        	<ul>
+                            	<li><a href="#">France <span>- St. Jean d’Angely -</span> 01 June 2014</a></li>
+                                <li><a href="#">Italy <span>- Maggiori -</span> 15 June 2014</a></li>
+                                <li><a href="#">Germany <span>- Teutschenthal -</span> 22 June 2014</a></li>
+                                <li><a href="#">Sweden <span>- Uddevalla -</span> 06 July 2014</a></li>
+                                <li><a href="#">Finland <span>- Hyvinkää -</span> 13 July 2014</a></li>
+                                <li class="last"><a href="#">Czech Republic <span>- Loket -</span> 27 July 2014</a></li>
+                            </ul>
+                            <a href="#" class="button light_gray">ALL EVENTS 2014</a>
+                        </div>
+                        <div class="events_logo">
+                        	<a href="#"><img src="images/event_logo1.png" alt=""></a>
+                            <ul>
+                            	<li><a href="#"><img src="images/event_logo2.png" alt=""></a></li>
+                            	<li class="fright"><a href="#"><img src="images/event_logo3.png" alt=""></a></li>
+                            </ul>
+                            <ul>
+                            	<li><a href="#"><img src="images/event_logo2.png" alt=""></a></li>
+                            	<li class="fright"><a href="#"><img src="images/event_logo3.png" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="event_text">Saint Jean d’Angely - France - 01 June</p>
+            </div>
+            <div class="time_left">
+                <img src="images/days.png" alt="">
+                <ul>
+                    <li>0</li>
+                    <li>4</li>
+                    <li>9</li>
+                </ul>
+                <img src="images/hours.png" alt="">
+                <ul>
+                    <li>1</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            <div class="results">
+            	<ul>
+                	<li><a class="map_open scroll" href="#map"><img src="images/map.png" alt=""></a></li>
+                    <li class="race_results"><a href="#"><span>RACE RESULTS</span></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
+		-->
+    </div>
   </header>
   <!-- Header ends here --> 
   <!-- Container starts from here -->
+  
   <section class="main_container">
       <section class="container">
         <div class="all_news">
-            <?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
+			<!-- CONTAINER VOOR IEDEREEN
+        	<div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
+                        <div class="box">
+                            <img src="images/home_img1.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Aleksandr Tonkov finishes sixth in the MX des Nations</h2>
+                                <p>Aleksandr Tonkov of the Wilvo Nestaan JM Racing KTM Team finished sixth in the MX des Nations in...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button yellow">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="images/home_img2.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Romain Febvre scores top three moto finish in Brazil</h2>
+                                <p>Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="box team_col">
+                            <a href="#">
+                                <img src="images/home_img3.jpg" alt="">
+                                <span class="overlay">&nbsp;</span>
+                                <span class="heading">TEAM</span>
+                            </a>
+                            <p class="black">ALEKSANDR TONKOV #59</p>
+                        </div>
+                        <div class="facebook_box box">
+                            <img src="images/big_fb.png" alt="" class="position">
+                            <h1>FACEBOOK</h1>
+                            <ul>
+                                <li>
+                                    <span>03 April 2014</span>
+                                    <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
+                                </li>
+                                <li>
+                                    <span>05 April 2014</span>
+                                    <a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
+                                </li>
+                            </ul>
+                            <a href="#" class="button">JOIN OUR FACEBOOK</a>
+                        </div>
+                        <div class="box team_col">
+                            <a href="#">
+                                <img src="images/home_img4.jpg" alt="">
+                                <span class="overlay">&nbsp;</span>
+                                <span class="heading">TEAM</span>
+                            </a>
+                            <p class="black">ROMAIN FEBVRE #461</p>
+                        </div>
+                        
+                    
+                        <div class="box">
+                            <img src="images/home_img5.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Romain Febvre scores top three moto finish in Brazil</h2>
+                                <p>Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <img src="images/home_img6.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Aleksandr Tonkov finishes sixth in the MX des Nations</h2>
+                                <p>Aleksandr Tonkov of the Wilvo Nestaan JM Racing KTM Team finished sixth in the MX des Nations in...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="box team_col">
+                            <a href="#">
+                                <img src="images/home_img7.jpg" alt="">
+                                <span class="overlay">&nbsp;</span>
+                                <span class="heading blue">MERCHANDISE</span>
+                            </a>
+                            <p class="era">New Era - Red Bull Cap &nbsp;&nbsp;  <del>€29,95</del> &nbsp;&nbsp;  <span>€14,95</span></p>
+                        </div>
+                        <div class="facebook_box twitter_box box">
+                            <h1>TWITTER</h1>
+                            <ul>
+                                <li>
+                                    <span>03 April 2014</span>
+                                    <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
+                                </li>
+                                <li>
+                                    <span>05 April 2014</span>
+                                    <a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
+                                </li>
+                            </ul>
+                            <a href="#" class="button">FOLLOW ON TWITTER</a>
+                        </div>
+                        <div class="box team_col">
+                            <img src="images/home_img8.jpg" alt="">
+                            <span class="overlay">&nbsp;</span>
+                            <span class="heading blue">VIDEO</span>
+                            <a href="#" class="play_button"><img src="images/play_button.png" alt=""></a>
+                        </div>
+                        
+                        
+                        <nav id="page-nav">
+                          <a href="pages/page2.html"></a>
+                        </nav>
+                        <div class="more_items">
+                        	<div class="box">
+                            <img src="images/home_img6.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Aleksandr Tonkov finishes sixth in the MX des Nations</h2>
+                                <p>Aleksandr Tonkov of the Wilvo Nestaan JM Racing KTM Team finished sixth in the MX des Nations in...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                        	<div class="box">
+                            <img src="images/home_img5.jpg" alt="">
+                            <span class="heading">NEWS</span>
+                            <div class="description">
+                                <h2>Romain Febvre scores top three moto finish in Brazil</h2>
+                                <p>Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish...</p>
+                                <div class="share">
+                                    <ul>
+                                        <li>SHARE &nbsp;&nbsp;</li>
+                                        <li class="fb"><a href="#">&nbsp;</a></li>
+                                        <li class="twitter"><a href="#">&nbsp;</a></li>
+                                        <li class="google"><a href="#">&nbsp;</a></li>
+                                    </ul>
+                                    <a href="#" class="button">READ FULL ARTICLE</a>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="box team_col">
+                                <a href="#">
+                                    <img src="images/home_img7.jpg" alt="">
+                                    <span class="overlay">&nbsp;</span>
+                                    <span class="heading blue">MERCHANDISE</span>
+                                </a>
+                                <p class="era">New Era - Red Bull Cap &nbsp;&nbsp;  <del>€29,95</del> &nbsp;&nbsp;  <span>€14,95</span></p>
+                            </div>
+                            <div class="box team_col">
+                            <a href="#">
+                                <img src="images/home_img3.jpg" alt="">
+                                <span class="overlay">&nbsp;</span>
+                                <span class="heading">TEAM</span>
+                            </a>
+                            <p class="black">ALEKSANDR TONKOV #59</p>
+                        </div>
+                        	<div class="box team_col">
+                            <a href="#">
+                                <img src="images/home_img4.jpg" alt="">
+                                <span class="overlay">&nbsp;</span>
+                                <span class="heading">TEAM</span>
+                            </a>
+                            <p class="black">ROMAIN FEBVRE #461</p>
+                        </div>
+                        	<div class="box team_col">
+                            <img src="images/home_img8.jpg" alt="">
+                            <span class="overlay">&nbsp;</span>
+                            <span class="heading blue">VIDEO</span>
+                            <a href="#" class="play_button"><img src="images/play_button.png" alt=""></a>
+                        </div>
+                        </div>
+                <div class="load_more">
+                    <a id="load-images">LOAD MORE NEWS</a>
+                </div>
+            </div>
+			-->
+        </div>
+        <div class="shadow">
+        	<img src="/images/upper_shadow.png" alt="">
+        </div>
+        <div class="logos_slider">
+        	<div class="span-24 prepend-top last" id="slider"> 
+            	<a class="next-a" id="simplePrevious"></a>
+                <div id="viewport">
+                  <ul>
+                    <li class="S_logo1">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo2">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo3">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo4">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo5">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo6">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo7">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                    <li class="S_logo8">
+                      <a href="#">&nbsp;</a>
+                    </li>
+                  </ul>
+                </div>
+                <a class="back-a" id="simpleNext"></a> 
+            </div>
         </div>
         <div class="shadow">
         	<img src="/images/bottom_shadow.png" alt="">
         </div>
         <div class="photos_main">
-        	<h1>LATEST PHOTOS</h1>
-            <ul>
-            	<li><a href="#"><span>&nbsp;</span><img src="/images/photo_img1.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img2.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img3.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img4.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img5.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img6.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img7.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img8.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img9.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img10.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img11.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img12.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img13.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img14.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img15.jpg" alt=""></a></li>
-                <li><a href="#"><span>&nbsp;</span><img src="/images/photo_img16.jpg" alt=""></a></li>
-            </ul>
-            <a href="#" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
+        	<h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
+            <div class="hide">
+                <ul>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img1.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img2.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img3.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img4.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img5.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img6.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img7.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img8.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img9.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img10.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img11.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img12.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img13.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img14.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img15.jpg" alt=""></a></li>
+                    <li><a href="#"><span>&nbsp;</span><img src="images/photo_img16.jpg" alt=""></a></li>
+                </ul>
+                <a href="#" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
+            </div>
         </div>
         <div class="shadow">
         	<img src="/images/upper_shadow.png" alt="">
@@ -136,13 +457,21 @@
   <section class="map_main" id="map">
   	<section class="container">
   		<div class="center">
-        	<img src="/images/direction_icon.png" alt="">
-            <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong> 45°56’48’’N 0°31’46’’W</h2>
-            <p>01 June 2014 - Saint Jean d’Angely - France</p>
-            <a class="button red">EXPLORE THE MAP</a>
+        	<a id="explore_map">EXPLORE THE MAP<br><span>&nbsp;</span></a>
+            <div class="hide">
+                <img src="/images/direction_icon.png" alt="">
+                
+                <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong> 45°56’48’’N 0°31’46’’W</h2>
+                <p>01 June 2014 - Saint Jean d’Angely - France</p>
+                <a class="button red" id="explore">EXPLORE THE MAP</a>
+                <div class="map">
+                    <img src="/images/full_map.png" alt="">
+                </div>
+            </div>
         </div>
-        <div class="map">
-        	<img src="/images/full_map.png" alt="">
+        <div class="map map1" id="A_map">
+        	<a id="close"><img src="/images/G_cross.png" alt=""></a>
+        	<img src="/images/full_map.png" alt="" id="A_map_img">
         </div>
         <div class="clear"></div>
     </section>
@@ -206,8 +535,50 @@
     	<div class="clear"></div>
     </section>
   </footer>
+  <div class="clear"></div>
   <!-- Footer ends here --> 
 </div>
 <!-- Wrapper Div ends here -->
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/jquery.infinitescroll.min.js"></script>
+<script src="/js/scripts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+ $(function(){
+
+    var $container = $('#container');
+
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box'
+      });
+    });
+
+    $container.infinitescroll({
+      navSelector  : '#page-nav',    // selector for the paged navigation
+      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      loading: {
+          finishedMsg: 'No more pages to load.',
+          img: 'http://i.imgur.com/6RMhx.gif'
+        }
+      },
+      // trigger Masonry as a callback
+      function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+          // show elems now they're ready
+          $newElems.animate({ opacity: 1 });
+          $container.masonry( 'appended', $newElems, true );
+        });
+      }
+    );
+
+  });
+</script>
+
+
 </body>
 </html>

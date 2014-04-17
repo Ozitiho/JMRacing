@@ -1,6 +1,11 @@
 <?php
 
 class EventsController extends AppController {
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('countDown');
+    }
+	
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
@@ -65,6 +70,51 @@ class EventsController extends AppController {
 				__('The event with id: %s has been deleted.', h($id))
 			);
 			return $this->redirect(array('action' => 'index'));
+		}
+	}
+	
+	// This function counts down to the first upcoming event
+	public function countDown()
+	{
+		// Get the first upcoming event
+		$event = $this->Event->find('first', array(
+				'conditions' => array(
+					'Date >= NOW()')
+				)
+		);
+		
+		// If an event has been found
+		if($event)
+		{
+			$eventDate = $event["Event"]["Date"];
+			
+			// Calculate the difference between the current date and the date of the first upcoming event
+			$currentDate = date("Y-m-d H:i:s");
+			
+			// The difference between the two events in hours
+			$timeUntilEvent = round((strtotime($eventDate) - strtotime($currentDate))/3600, 1);
+			$daysUntilEvent = 0;
+			
+			/* If the difference between the two is bigger than 24, there's more than a day difference, so we
+			need to calculate the days / remaining hours */
+			if($timeUntilEvent > 24)
+			{
+				// The difference in days
+				$daysUntilEvent = floor($timeUntilEvent / 24);
+				
+				// The remaining hours
+				$hoursUntilEvent = $timeUntilEvent % 24;
+			}
+			
+			else
+			{
+				$hoursUntilEvent = $timeUntilEvent;
+			}
+			
+			// Round the hours
+			$hoursUntilEvent = round($hoursUntilEvent, 0);
+			
+			print("Days: $daysUntilEvent Hours: $hoursUntilEvent");
 		}
 	}
 }
