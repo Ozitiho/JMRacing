@@ -1,12 +1,9 @@
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
-	<?php
-		//TODO: EDIT THSI WHEN WEBSITE GOES ONLINE!!
-		$url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	
+	<?php	
 		$count = 0;	
 		foreach($articles as $article)
 		{
-			$currentUrl = $url . "/articles/" .  $article['Article']['id'];
+			$currentUrl = "/articles/" .  $article['Article']['id'];
 		?>
 			<div class="box">
 				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
