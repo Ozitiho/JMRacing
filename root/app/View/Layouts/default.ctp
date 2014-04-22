@@ -18,6 +18,9 @@
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
+        
+        // Include the sponsors element
+        print($this->element('sponsors'));
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -107,7 +110,7 @@
   <!-- Header ends here --> 
   <!-- Container starts from here -->
   <section class="main_container">
-      <section class="container">
+      <section class="container inner_container3">
         <div class="all_news">
 			<?php
 				// Container for all pages
@@ -117,40 +120,10 @@
         <div class="shadow">
         	<img src="/images/upper_shadow.png" alt="">
         </div>
-        <div class="logos_slider">
-        	<div class="span-24 prepend-top last" id="slider"> 
-            	<a class="next-a" id="simplePrevious"></a>
-                <div id="viewport">
-                  <ul>
-                    <li class="S_logo1">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo2">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo3">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo4">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo5">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo6">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo7">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo8">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                  </ul>
-                </div>
-                <a class="back-a" id="simpleNext"></a> 
-            </div>
-        </div>
+        <?php
+	// Get sponsors dynamically
+	echo $this->fetch('sponsors');
+	?>
         <div class="shadow">
         	<img src="/images/bottom_shadow.png" alt="">
         </div>
@@ -269,46 +242,25 @@
   <!-- Footer ends here --> 
 </div>
 <!-- Wrapper Div ends here -->
-<script src="/js/masonry.pkgd.min.js"></script>
-<script src="/js/jquery.infinitescroll.min.js"></script>
-<script src="/js/scripts.js" type="text/javascript"></script>
+<script src="js/EventEmitter.js"></script>
+<script src="js/eventie.js"></script>
+<script src="js/doc-ready.js"></script>
+<script src="js/get-style-property.js"></script>
+<script src="js/get-size.js"></script>
+<script src="js/item.js"></script>
+<script src="js/outlayer.js"></script>
 
-<script type="text/javascript">
- $(function(){
+<script src="js/masonry.js"></script>
 
-    var $container = $('#container');
-
-    $container.imagesLoaded(function(){
-      $container.masonry({
-        itemSelector: '.box'
-      });
-    });
-
-    $container.infinitescroll({
-      navSelector  : '#page-nav',    // selector for the paged navigation
-      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
-      itemSelector : '.box',     // selector for all items you'll retrieve
-      loading: {
-          finishedMsg: 'No more pages to load.',
-          img: 'http://i.imgur.com/6RMhx.gif'
-        }
-      },
-      // trigger Masonry as a callback
-      function( newElements ) {
-        // hide new items while they are loading
-        var $newElems = $( newElements ).css({ opacity: 0 });
-        // ensure that images load before adding to masonry layout
-        $newElems.imagesLoaded(function(){
-          // show elems now they're ready
-          $newElems.animate({ opacity: 1 });
-          $container.masonry( 'appended', $newElems, true );
-        });
-      }
-    );
-
+<script>
+$(window).load(function(){
+  var container = document.querySelector('#container');
+  var msnry = new Masonry( container, {
+	  columnWidth:1
   });
+});
 </script>
 
-
+<script src="js/scripts.js" type="text/javascript"></script>
 </body>
 </html>

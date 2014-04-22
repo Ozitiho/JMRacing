@@ -1,3 +1,7 @@
+<?php
+// Include the countdown element
+print($this->element('countdown'));
+?>
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<?php
 		$url = $actual_link = "$_SERVER[HTTP_HOST]";
