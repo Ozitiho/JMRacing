@@ -533,7 +533,7 @@ border-top-width:2px; border-bottom-width:2px;}
 .year_events h1{font:bold 18px 'Asap'; color:#828d9f; line-height:20px; padding:12px 0; width:100%; background:#fff; text-align:center;}
 .year_events .all_events{width:45%;}
 
-.inner_container3 .all_news{margin-top:-300px;}
+.inner_up .all_news{margin-top:-500px;}
 
 /* ======================================== Fifth Styles ============================================ */
 .box_top{width:100%; float:left; position:relative;}
@@ -598,7 +598,8 @@ border-top-width:2px; border-bottom-width:2px;}
 	.item ul{width:47%;}
 	.box_equal .item .button{width:45%; padding:5px 0 6px;}
 	.only_description .description{width:90%; padding:60px 5% 30px;}
-
+	
+	.inner_up .all_news{margin-top:-380px;}
 }
 
 @media only screen and (min-width:1200px) and (max-width: 1400px) {
@@ -666,6 +667,8 @@ border-top-width:2px; border-bottom-width:2px;}
 	
 	.only_description .description{width:96%; padding:45px 2% 20px;}
 	.description p.big{padding-top:15px;}
+	
+	.inner_up .all_news{margin-top:-350px;}
 }
 
 @media only screen and (min-width:980px) and (max-width: 1200px) {
@@ -760,6 +763,8 @@ border-top-width:2px; border-bottom-width:2px;}
 	.only_description .description{padding-top:45px;}
 	.description p.big{padding-top:15px;}
 	.w3.only_description{width:64%;}
+	
+	.inner_up .all_news{margin-top:-280px;}
 }
 
 @media only screen and (min-width:750px) and (max-width: 980px) {
@@ -810,7 +815,8 @@ border-top-width:2px; border-bottom-width:2px;}
 	header .social_icons a{padding-top:7px;}
 	
 	.all_events .light_gray{margin:0px 0 0; padding:5px 10px; font-size:12px; }
-	.all_news,.inner_container3 .all_news{margin-top:-20px;}
+	.all_news{margin-top:-20px;}
+	.inner_up .all_news{margin-top:-200px;}
 	.events_logo{margin-top:10px;}
 	
 	.share a.button{width:100%; padding:7px 0; text-align:center; margin:5px 0 0; font-size:13px; line-height:16px;}
@@ -886,7 +892,7 @@ border-top-width:2px; border-bottom-width:2px;}
 	.time_left{width:100%;}
 	.results{width:100%;}
 	
-	.all_news,.inner_container3 .all_news{margin:10px 0 0;}
+	.all_news,.inner_up .all_news{margin:10px 0 0;}
 	.box{width:100%; margin:10px 0;}
 	.share ul{width:94%; margin:0 0 10px;}
 	.facebook_box{width:93.8%; padding:15px 3%; min-height:200px;}
