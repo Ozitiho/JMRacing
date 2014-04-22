@@ -66,6 +66,7 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Events` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Country` VARCHAR(100) NOT NULL ,
   `City` VARCHAR(100) NOT NULL ,
+  `Description` TEXT NOT NULL ,
   `Photo` VARCHAR(300) NULL ,
   `Date` DATE NOT NULL ,
   PRIMARY KEY (`id`) )
@@ -112,6 +113,18 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Products` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `JMRacing`.`Sponsors`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Sponsors` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `Name` VARCHAR(100) NOT NULL ,
+  `Image` VARCHAR(200) NOT NULL ,
+  `URL` VARCHAR(200) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -149,9 +162,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', NULL, '2014-01-01');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (2, 'Bruumlend', 'Bruumsitty', NULL, '2015-02-02');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Photo`, `Date`) VALUES (3, 'Motorland', 'Motorstad', NULL, '2015-03-03');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', 'Jorn de meester Sharkema heeft hier vorig jaar zegegevierd.', NULL, '2014-01-01');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (2, 'Bruumlend', 'Bruumsitty', 'Bas van koesveld heeft hier vorig jaar gewonnen, dus dat betekent dat iedereen kan winnen.', NULL, '2015-02-02');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (3, 'Motorland', 'Motorstad', 'De enige echte klassieker binnen de broemsport.', NULL, '2015-03-03');
 
 COMMIT;
 
@@ -170,5 +183,14 @@ COMMIT;
 START TRANSACTION;
 USE `JMRacing`;
 INSERT INTO `JMRacing`.`Products` (`id`, `Name`, `Price`, `Size`, `Photo`) VALUES (1, 'Broempet', 2, 'XL', NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`Sponsors`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (1, 'Wilvo', 'http://www.wilvo.nl/img/logo.gif', 'http://www.wilvo.nl');
 
 COMMIT;
