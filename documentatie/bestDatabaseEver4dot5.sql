@@ -162,8 +162,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', 'Jorn de meester Sharkema heeft hier vorig jaar zegegevierd.', NULL, '2014-01-01');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (2, 'Bruumlend', 'Bruumsitty', 'Bas van koesveld heeft hier vorig jaar gewonnen, dus dat betekent dat iedereen kan winnen.', NULL, '2015-02-02');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (1, 'Broemland', 'Broemstad', 'Jorn de meester Sharkema heeft hier vorig jaar zegegevierd.', NULL, '2014-07-07');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (2, 'Bruumlend', 'Bruumsitty', 'Bas van koesveld heeft hier vorig jaar gewonnen, dus dat betekent dat iedereen kan winnen.', NULL, '2014-08-08');
 INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Date`) VALUES (3, 'Motorland', 'Motorstad', 'De enige echte klassieker binnen de broemsport.', NULL, '2015-03-03');
 
 COMMIT;
