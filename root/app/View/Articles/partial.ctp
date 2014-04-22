@@ -1,7 +1,7 @@
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<?php
-		//TODO: EDIT THSI WHEN WEBSITE GOES ONLINE!!
-		$url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		//TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
+		$url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
 	
 		$count = 0;	
 		foreach($articles as $article)
@@ -63,7 +63,7 @@
 				<?php
 			}
 		}
-		//After the articles, show the merchandise
+		//After the articles, show the merchandise and team
 	?>
 	<div class="box team_col">
 		<a href="#">

@@ -14,6 +14,7 @@ class ArticlesController extends AppController {
                     array('order' => array('id' => 'desc')));
 		
 		foreach($articles as $key => $article){
+			// Shorten body
 			$string = $article['Article']['Message'];
 			if (strlen($string) > 116){
 				$string = substr($string, 0, 113);
@@ -30,6 +31,7 @@ class ArticlesController extends AppController {
                     array('order' => array('id' => 'desc')));
 		
 		foreach($articles as $key => $article){
+			// Shorten body
 			$string = $article['Article']['Message'];
 			if (strlen($string) > 116){
 				$string = substr($string, 0, 113);
@@ -101,17 +103,6 @@ class ArticlesController extends AppController {
 				__('The article with id: %s has been deleted.', h($id))
 			);
 			return $this->redirect(array('action' => 'index'));
-		}
-	}
-	
-	function shorten($articles){
-		foreach($articles as $key => $article){
-			$string = $article['Article']['Message'];
-			if (strlen($string) > 100){
-				$string = substr($string, 0, 90);
-				$string .= '...';
-				$articles[$key]['Article']['Message'] = $string;
-			}
 		}
 	}
 }
