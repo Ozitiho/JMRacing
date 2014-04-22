@@ -1,5 +1,6 @@
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
-	<?php	
+<<<<<<< HEAD
+	<?php
 		$count = 0;	
 		foreach($articles as $article)
 		{
@@ -60,7 +61,7 @@
 				<?php
 			}
 		}
-		//After the articles, show the merchandise
+		//After the articles, show the merchandise and team
 	?>
 	<div class="box team_col">
 		<a href="#">
