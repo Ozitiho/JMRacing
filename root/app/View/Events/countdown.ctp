@@ -1,13 +1,4 @@
-<!-- File: /app/View/Events/view.ctp -->
-
-<h1><?php echo h($event['Event']['Country']); ?></h1>
-
-<p><small>City: <?php echo $event['Event']['City']; ?></small></p>
-<p><small>Date: <?php echo $event['Event']['Date']; ?></small></p>
-<p><small>Photo:<br> <img src='<?php echo $event['Event']['Photo']; ?>'></img></small></p>
-
 <?php
-//$this->extend('/Common/view');
 $this->start('header');
 ?>
 <section class="container">
@@ -17,8 +8,8 @@ $this->start('header');
                 	<div class="equal white_bg">
                     	<h1 class="heading">NEXT EVENT: Saint Jean d’Angely - France</h1>
                         <div class="left">
-                        	<a href="#"><img src="images/event_img1.jpg" alt=""></a>
-                            <a href="#"><img src="images/event_img2.jpg" alt=""></a>
+                        	<a href="#"><img src="/images/event_img1.jpg" alt=""></a>
+                            <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                         </div>
                         <div class="right">
                         	<h1><span>01 June 2014</span><br>Saint Jean d’Angely - France</h1>
@@ -43,14 +34,14 @@ $this->start('header');
                             <a href="#" class="button light_gray">ALL EVENTS 2014</a>
                         </div>
                         <div class="events_logo">
-                        	<a href="#"><img src="images/event_logo1.png" alt=""></a>
+                        	<a href="#"><img src="/images/event_logo1.png" alt=""></a>
                             <ul>
-                            	<li><a href="#"><img src="images/event_logo2.png" alt=""></a></li>
-                            	<li class="fright"><a href="#"><img src="images/event_logo3.png" alt=""></a></li>
+                            	<li><a href="#"><img src="/images/event_logo2.png" alt=""></a></li>
+                            	<li class="fright"><a href="#"><img src="/images/event_logo3.png" alt=""></a></li>
                             </ul>
                             <ul>
-                            	<li><a href="#"><img src="images/event_logo2.png" alt=""></a></li>
-                            	<li class="fright"><a href="#"><img src="images/event_logo3.png" alt=""></a></li>
+                            	<li><a href="#"><img src="/images/event_logo2.png" alt=""></a></li>
+                            	<li class="fright"><a href="#"><img src="/images/event_logo3.png" alt=""></a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,13 +49,13 @@ $this->start('header');
                 <p class="event_text">Saint Jean d’Angely - France - 01 June</p>
             </div>
             <div class="time_left">
-                <img src="images/days.png" alt="">
+                <img src="/images/days.png" alt="">
                 <ul>
                     <li>0</li>
                     <li>4</li>
                     <li>9</li>
                 </ul>
-                <img src="images/hours.png" alt="">
+                <img src="/images/hours.png" alt="">
                 <ul>
                     <li>1</li>
                     <li>6</li>
@@ -72,7 +63,7 @@ $this->start('header');
             </div>
             <div class="results">
             	<ul>
-                	<li><a class="map_open scroll" href="#map"><img src="images/map.png" alt=""></a></li>
+                	<li><a class="map_open scroll" href="#map"><img src="/images/map.png" alt=""></a></li>
                     <li class="race_results"><a href="#"><span>RACE RESULTS</span></a></li>
                 </ul>
             </div>
