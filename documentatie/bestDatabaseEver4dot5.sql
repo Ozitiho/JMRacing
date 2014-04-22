@@ -191,6 +191,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (1, 'Wilvo', 'http://www.wilvo.nl/img/logo.gif', 'http://www.wilvo.nl');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (1, 'Wilvo', 'S_logo1.png', 'http://www.wilvo.nl');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (2, 'Nestaan', 'S_logo2.png', 'http://www.nestaan.nl');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (3, 'Husqvarna', 'S_logo3.png', 'http://www.husqvarna.com');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (4, 'Red Bull', 'S_logo4.png', 'http://www.redbull.com');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (5, 'Jumbo', 'S_logo5.png', 'http://www.jumbosupermarkten.nl');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (6, 'Bel Ray', 'S_logo6.png', 'http://www.belray.com/');
+INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (7, 'Segafredo', 'S_logo7.png', 'http://www.segafredo.nl/');
 
 COMMIT;

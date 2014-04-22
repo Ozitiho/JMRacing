@@ -18,6 +18,9 @@
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
+        
+        // Include the sponsors element
+        print($this->element('sponsors'));
 ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -117,40 +120,10 @@
         <div class="shadow">
         	<img src="/images/upper_shadow.png" alt="">
         </div>
-        <div class="logos_slider">
-        	<div class="span-24 prepend-top last" id="slider"> 
-            	<a class="next-a" id="simplePrevious"></a>
-                <div id="viewport">
-                  <ul>
-                    <li class="S_logo1">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo2">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo3">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo4">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo5">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo6">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo7">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo8">
-                      <a href="#">&nbsp;</a>
-                    </li>
-                  </ul>
-                </div>
-                <a class="back-a" id="simpleNext"></a> 
-            </div>
-        </div>
+        <?php
+	// Get sponsors dynamically
+	echo $this->fetch('sponsors');
+	?>
         <div class="shadow">
         	<img src="/images/bottom_shadow.png" alt="">
         </div>
