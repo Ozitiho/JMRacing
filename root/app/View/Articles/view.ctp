@@ -46,74 +46,35 @@
 		<a href="#" class="button">FOLLOW ON TWITTER</a>
 	</div>
 	<div class="load_more">
-		<a>RELATED NEWS ITEMS</a>
+		<a>NEWEST NEWS ITEMS</a>
 	</div>
-	<div class="box">
-		<img src="/images/home_img1.jpg" alt="">
-		<span class="heading">NEWS</span>
-		<div class="description">
-			<h2>Aleksandr Tonkov finishes sixth in the MX des Nations</h2>
-			<p>Aleksandr Tonkov of the Wilvo Nestaan JM Racing KTM Team finished sixth in the MX des Nations in...</p>
-			<div class="share">
-				<ul>
-					<li>SHARE &nbsp;&nbsp;</li>
-					<li class="fb"><a href="#">&nbsp;</a></li>
-					<li class="twitter"><a href="#">&nbsp;</a></li>
-					<li class="google"><a href="#">&nbsp;</a></li>
-				</ul>
-				<a href="#" class="button yellow">READ FULL ARTICLE</a>
-			</div>
-		</div>
-	</div>
-	<div class="box">
-		<img src="/images/home_img2.jpg" alt="">
-		<span class="heading">NEWS</span>
-		<div class="description">
-			<h2>Romain Febvre scores top three moto finish in Brazil</h2>
-			<p>Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish...</p>
-			<div class="share">
-				<ul>
-					<li>SHARE &nbsp;&nbsp;</li>
-					<li class="fb"><a href="#">&nbsp;</a></li>
-					<li class="twitter"><a href="#">&nbsp;</a></li>
-					<li class="google"><a href="#">&nbsp;</a></li>
-				</ul>
-				<a href="#" class="button">READ FULL ARTICLE</a>
-			</div>
-		</div>
-	</div>
-	<div class="box">
-		<img src="/images/home_img5.jpg" alt="">
-		<span class="heading">NEWS</span>
-		<div class="description">
-			<h2>Romain Febvre scores top three moto finish in Brazil</h2>
-			<p>Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish...</p>
-			<div class="share">
-				<ul>
-					<li>SHARE &nbsp;&nbsp;</li>
-					<li class="fb"><a href="#">&nbsp;</a></li>
-					<li class="twitter"><a href="#">&nbsp;</a></li>
-					<li class="google"><a href="#">&nbsp;</a></li>
-				</ul>
-				<a href="#" class="button">READ FULL ARTICLE</a>
-			</div>
-		</div>
-	</div>
-	<div class="box">
-		<img src="/images/home_img6.jpg" alt="">
-		<span class="heading">NEWS</span>
-		<div class="description">
-			<h2>Aleksandr Tonkov finishes sixth in the MX des Nations</h2>
-			<p>Aleksandr Tonkov of the Wilvo Nestaan JM Racing KTM Team finished sixth in the MX des Nations in...</p>
-			<div class="share">
-				<ul>
-					<li>SHARE &nbsp;&nbsp;</li>
-					<li class="fb"><a href="#">&nbsp;</a></li>
-					<li class="twitter"><a href="#">&nbsp;</a></li>
-					<li class="google"><a href="#">&nbsp;</a></li>
-				</ul>
-				<a href="#" class="button">READ FULL ARTICLE</a>
-			</div>
-		</div>
-	</div>
+	
+	<?php
+		$count = 0;	
+		foreach($articles as $article)
+		{
+	?>
+			<div class="box">
+				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<span class="heading">NEWS</span>
+				<div class="description">
+					<h2><?php echo $article['Article']['Title']; ?></h2>
+					<p><?php echo $article['Article']['Message']; ?></p>
+					<div class="share">
+						<ul>
+							<li>SHARE &nbsp;&nbsp;</li>
+							<li class="fb"><a href="#">&nbsp;</a></li>
+							<li class="twitter"><a href="#">&nbsp;</a></li>
+							<li class="google"><a href="#">&nbsp;</a></li>
+						</ul>
+						<a href="/articles/view/<?php echo $article['Article']['id']; ?>" class="button yellow">READ FULL ARTICLE</a>
+					</div>
+				</div>
+			</div>	
+	<?php
+		$count ++;
+		//Don't display more than 4 articles
+		if($count == 4) break;
+		}
+	?>
 </div>

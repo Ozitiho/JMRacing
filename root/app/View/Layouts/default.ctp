@@ -242,15 +242,15 @@
   <!-- Footer ends here --> 
 </div>
 <!-- Wrapper Div ends here -->
-<script src="js/EventEmitter.js"></script>
-<script src="js/eventie.js"></script>
-<script src="js/doc-ready.js"></script>
-<script src="js/get-style-property.js"></script>
-<script src="js/get-size.js"></script>
-<script src="js/item.js"></script>
-<script src="js/outlayer.js"></script>
+<script src="/js/EventEmitter.js"></script>
+<script src="/js/eventie.js"></script>
+<script src="/js/doc-ready.js"></script>
+<script src="/js/get-style-property.js"></script>
+<script src="/js/get-size.js"></script>
+<script src="/js/item.js"></script>
+<script src="/js/outlayer.js"></script>
 
-<script src="js/masonry.js"></script>
+<script src="/js/masonry.js"></script>
 
 <script>
 $(window).load(function(){
@@ -261,6 +261,6 @@ $(window).load(function(){
 });
 </script>
 
-<script src="js/scripts.js" type="text/javascript"></script>
+<script src="/js/scripts.js" type="text/javascript"></script>
 </body>
 </html>
