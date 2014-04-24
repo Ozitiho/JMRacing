@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application model for CakePHP.
  *
@@ -18,7 +19,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('Model', 'Model');
 
 /**
@@ -30,4 +30,16 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+    // This method checks if input only contains letters
+    public function lettersOnly($input) {
+        foreach ($input as $in) {
+            if (ctype_alpha(str_replace(' ', '', $in))) {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
 }

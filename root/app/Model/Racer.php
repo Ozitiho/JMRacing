@@ -6,7 +6,8 @@ class Racer extends AppModel {
     public $hasMany = 'Result';
     public $validate = array(
         'Name' => array(
-            'required' => 'notEmpty'
+            'rule' => array('lettersOnly', 'notEmpty'),
+            'message' => 'Only letters are allowed.'
         ),
         'Biography' => array(
             'rule' => 'notEmpty'
@@ -15,13 +16,16 @@ class Racer extends AppModel {
             'rule' => 'notEmpty'
         ),
         'PlaceOfBirth' => array(
-            'rule' => 'notEmpty'
+            'rule' => array('lettersOnly', 'notEmpty'),
+            'message' => 'Only letters are allowed.'
         ),
         'Nationality' => array(
-            'rule' => 'notEmpty'
+            'rule' => array('lettersOnly', 'notEmpty'),
+            'message' => 'Only letters are allowed.'
         ),
         'Residence' => array(
-            'rule' => 'notEmpty'
+            'rule' => array('lettersOnly', 'notEmpty'),
+            'message' => 'Only letters are allowed.'
         ),
         'Height' => array(
             'rule' => array('numeric', 'notEmpty'),
@@ -36,7 +40,7 @@ class Racer extends AppModel {
         ),
         'RacerNumber' => array(
             'rule' => array('numeric', 'notEmpty'),
-            'message' => 'Racer Number can only contain digits.'
+            'message' => 'Racer number can only contain digits.'
         )
     );
 

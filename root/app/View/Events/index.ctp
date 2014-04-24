@@ -32,7 +32,7 @@
         ?>
         <div class="box">
             <div class="results_event">
-                <h1>RESULTS <span style="text-transform: uppercase;"><?php print($racer["Racer"]["Name"]); ?></span> #59</h1>
+                <h1>RESULTS <span style="text-transform: uppercase;"><?php print($racer["Racer"]["Name"]); ?></span> #<?php print($racer["Racer"]["RacerNumber"]); ?></h1>
                 <table>
                     <tr>
                         <th class="yellow">EVENT</th>

@@ -6,7 +6,7 @@ class Product extends AppModel {
             'rule' => 'notEmpty'
         ),
         'Price' => array(
-            'rule' => array('notEmpty', 'numeric')
+            'rule' => array('numeric', 'notEmpty'),
         )
     );
 }
