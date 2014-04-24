@@ -22,30 +22,6 @@ if ($sponsors) {
                         <?php
                     }
                     ?>
-                    <li class="S_logo1">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo2">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo3">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo4">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo5">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo6">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo7">
-                        <a href="#">&nbsp;</a>
-                    </li>
-                    <li class="S_logo8">
-                        <a href="#">&nbsp;</a>
-                    </li>
                 </ul>
             </div>
             <a class="back-a" id="simpleNext"></a> 
