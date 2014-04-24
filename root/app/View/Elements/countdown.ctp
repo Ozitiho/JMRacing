@@ -21,7 +21,7 @@ if ($events) {
                         <h1><span><?php print(date("d F Y", strtotime($events[0]["Event"]["Date"]))); ?></span><br><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
                         <h3>45°56’48’’N 0°31’46’’W</h3>
                         <p><?php print($events[0]["Event"]["Description"]); ?></p>
-                        <a href="events/view/<?php print($events[0]["Event"]["id"]);?>" class="red">MORE INFO</a>
+                        <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>" class="red">MORE INFO</a>
                         <a href="#" class="gray">GET TICKETS</a>
                         <a href="#" class="yellow">SEE RESULTS MX2 2014</a>
                     </div>
@@ -45,20 +45,20 @@ if ($events) {
                                 if ($count == $amountOfEvents) {
                                     ?>
                                     <li class="last">
-                                    <?php
-                                } else {
-                                    ?>
+                                        <?php
+                                    } else {
+                                        ?>
                                     <li>
                                         <?php
                                     }
                                     ?>
-                                    <a href="/events/view/<?php print($id);?>"><?php print($country); ?> <span>- <?php print($city); ?> -</span> <?php print(date("d F Y", strtotime($event["Event"]["Date"]))); ?></a>
+                                    <a href="/events/view/<?php print($id); ?>"><?php print($country); ?> <span>- <?php print($city); ?> -</span> <?php print(date("d F Y", strtotime($event["Event"]["Date"]))); ?></a>
                                 </li>
-                                    <?php
-                                }
-                                ?>
+                                <?php
+                            }
+                            ?>
                         </ul>
-                        <a href="/events" class="button light_gray">ALL EVENTS <?php print(date("Y"));?></a>
+                        <a href="/events" class="button light_gray">ALL EVENTS <?php print(date("Y")); ?></a>
                     </div>
                     <div class="events_logo">
                         <a href="#"><img src="/images/event_logo1.png" alt=""></a>
@@ -76,22 +76,22 @@ if ($events) {
             <p class="event_text"><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?> - <?php print(date("d F", strtotime($events[0]["Event"]["Date"]))); ?></p>
         </div>
         <div class="time_left">
-    <?php
-    // Get the time info from the events action countdown
-    $time = $this->requestAction('events/countdown');
+            <?php
+            // Get the time info from the events action countdown
+            $time = $this->requestAction('events/countdown');
 
-    // Add 0's to the amount of hours/days if necessary
-    $updatedDays = $time["Days"];
-    $updatedHours = $time["Hours"];
+            // Add 0's to the amount of hours/days if necessary
+            $updatedDays = $time["Days"];
+            $updatedHours = $time["Hours"];
 
-    for ($i = 3; $i > strlen($time["Days"]); $i--) {
-        $updatedDays = 0 . $updatedDays;
-    }
+            for ($i = 3; $i > strlen($time["Days"]); $i--) {
+                $updatedDays = 0 . $updatedDays;
+            }
 
-    for ($i = 2; $i > strlen($time["Hours"]); $i--) {
-        $updatedHours = 0 . $updatedHours;
-    }
-    ?>
+            for ($i = 2; $i > strlen($time["Hours"]); $i--) {
+                $updatedHours = 0 . $updatedHours;
+            }
+            ?>
             <img src="/images/days.png" alt="">
             <ul>
                 <li><?php print(substr($updatedDays, 0, 1)); ?></li>

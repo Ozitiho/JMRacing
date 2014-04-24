@@ -4,15 +4,15 @@ class EventsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('countDown', 'getUpcomingEvents');
+        $this->Auth->allow('countDown', 'getUpcomingEvents', 'getEventsByYear');
     }
 
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
     public function index() {
-        $this->set('events', $this->Event->find('all', array('order' => array('Date' => 'asc')))
-        );
+        $this->getUpcomingEvents();
+        $this->getEventsByYear(date("Y"));
     }
 
     public function view($id = null) {
@@ -74,15 +74,16 @@ class EventsController extends AppController {
             return $this->redirect(array('action' => 'index'));
         }
     }
-    
-    public function getUpcomingEvents()
-    {
+
+    public function getUpcomingEvents() {
+        $upcomingEvents = $this->Event->find('all', array('order' => array('Date' => 'asc'),
+            'conditions' => array('Date >= NOW()',
+                'Year(Date) = ' . date("Y"))
+        ));
         if (isset($this->params['requested']) && $this->params['requested'] == 1) {
-            return $this->Event->find('all', 
-                    array('order' => array('Date' => 'asc'),
-                        'conditions' => array('Date >= NOW()',
-                        'Year(Date) = ' . date("Y"))
-                ));
+            return $upcomingEvents;
+        } else {
+            $this->set('upcomingEvents', $upcomingEvents);
         }
     }
 
@@ -130,6 +131,19 @@ class EventsController extends AppController {
 
         if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $timeUntilEventArray;
+        }
+    }
+
+    // This function gets a racer's results
+    public function getEventsByYear($id) {
+        $events = $this->Event->find('all', array('order' => array('Date' => 'asc'),
+            'conditions' => array('Year(Date) = ' . $id)
+        ));
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $events;
+        } else {
+            $this->set('yearEvents', $events);
         }
     }
 
