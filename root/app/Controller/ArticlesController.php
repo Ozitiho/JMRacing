@@ -48,6 +48,7 @@ class ArticlesController extends AppController {
     }
 
     public function view($id = null) {
+		// Get article
         if (!$id) {
             throw new NotFoundException(__('Invalid article'));
         }
@@ -57,6 +58,22 @@ class ArticlesController extends AppController {
             throw new NotFoundException(__('Invalid article'));
         }
         $this->set('article', $article);
+		
+		// Get other articles
+		$articles = $this->Article->find('all', 
+                    array('order' => array('id' => 'desc')));
+		
+		foreach($articles as $key => $article){
+			// Shorten body
+			$string = $article['Article']['Message'];
+			if (strlen($string) > 116){
+				$string = substr($string, 0, 113);
+				$string .= '...';
+				$articles[$key]['Article']['Message'] = $string;
+			}
+		}
+		
+        $this->set('articles', $articles);
     }
 
     public function add() {

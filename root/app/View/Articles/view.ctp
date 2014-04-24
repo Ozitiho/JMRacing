@@ -3,9 +3,12 @@
 		<span class="heading">NEWS</span>
 		<div class="description">
 			<h2><?php echo h($article['Article']['Title']); ?></h2>
-			<span class="small">Created: <?php echo $article['Article']['CreateDate']; ?> | Last updated: <?php echo $article['Article']['LastUpdatedDate']; ?></span>
+			<span class="small">
+			Created: <?php echo $article['Article']['CreateDate']; ?>
+			<?php if($article['Article']['LastUpdatedDate'] != null){echo " | Last updated: ".$article['Article']['LastUpdatedDate'];} ?>
+			</span>
 			<br><br>
-			<p><?php echo h($article['Article']['Message']); ?></p>
+			<p><?php echo ($article['Article']['Message']); ?></p>
 			<div class="share">
 				<ul>
 					<li>SHARE &nbsp;&nbsp;</li>
@@ -45,36 +48,37 @@
 		</ul>
 		<a href="#" class="button">FOLLOW ON TWITTER</a>
 	</div>
-	<div class="load_more">
-		<a>NEWEST NEWS ITEMS</a>
-	</div>
 	
 	<?php
-		$count = 0;	
-		foreach($articles as $article)
+		if ($articles != null)
 		{
+			echo "<div class='load_more'><a>NEWEST NEWS ITEMS</a></div>";
+			$count = 0;	
+			foreach($articles as $article)
+			{
 	?>
-			<div class="box">
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
-				<span class="heading">NEWS</span>
-				<div class="description">
-					<h2><?php echo $article['Article']['Title']; ?></h2>
-					<p><?php echo $article['Article']['Message']; ?></p>
-					<div class="share">
-						<ul>
-							<li>SHARE &nbsp;&nbsp;</li>
-							<li class="fb"><a href="#">&nbsp;</a></li>
-							<li class="twitter"><a href="#">&nbsp;</a></li>
-							<li class="google"><a href="#">&nbsp;</a></li>
-						</ul>
-						<a href="/articles/view/<?php echo $article['Article']['id']; ?>" class="button yellow">READ FULL ARTICLE</a>
+				<div class="box">
+					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+					<span class="heading">NEWS</span>
+					<div class="description">
+						<h2><?php echo $article['Article']['Title']; ?></h2>
+						<p><?php echo $article['Article']['Message']; ?></p>
+						<div class="share">
+							<ul>
+								<li>SHARE &nbsp;&nbsp;</li>
+								<li class="fb"><a href="#">&nbsp;</a></li>
+								<li class="twitter"><a href="#">&nbsp;</a></li>
+								<li class="google"><a href="#">&nbsp;</a></li>
+							</ul>
+							<a href="/articles/view/<?php echo $article['Article']['id']; ?>" class="button yellow">READ FULL ARTICLE</a>
+						</div>
 					</div>
-				</div>
-			</div>	
+				</div>	
 	<?php
-		$count ++;
-		//Don't display more than 4 articles
-		if($count == 4) break;
+			$count ++;
+			//Don't display more than 4 articles
+			if($count == 4) break;
+			}
 		}
 	?>
 </div>
