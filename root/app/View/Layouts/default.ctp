@@ -108,9 +108,9 @@
     </div>
   </header>
   <!-- Header ends here --> 
-  <!-- Container starts from here -->
-  <section class="main_container">
-      <section class="container inner_container3">
+<!-- Container starts from here -->
+  <section class="main_container inner_container2 inner_container3">
+      <section class="container">
         <div class="all_news">
 			<?php
 				// Container for all pages
