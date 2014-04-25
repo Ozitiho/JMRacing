@@ -125,6 +125,20 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Sponsors` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `JMRacing`.`Product`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`Product` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `Name` VARCHAR(150) NOT NULL ,
+  `Price` DOUBLE NOT NULL ,
+  `DiscountPrice` DOUBLE NULL ,
+  `Size` VARCHAR(4) NOT NULL ,
+  `Image` VARCHAR(250) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
