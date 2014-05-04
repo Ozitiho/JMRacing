@@ -1,4 +1,11 @@
 <!-- File: /app/View/Events/view.ctp -->
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner3.jpg" alt="">
+<?php
+$this->end();
+?>
 <h1><?php echo h($event['Event']['Country']); ?></h1>
 
 <p><small>City: <?php echo $event['Event']['City']; ?></small></p>
