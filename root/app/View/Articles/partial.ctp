@@ -1,6 +1,51 @@
 <?php
-// Include the countdown element
-print($this->element('countdown'));
+	function shorten($string)
+	{
+		if (strlen($string) > 116){
+			$string = substr($string, 0, 113);
+			$string .= '...';
+		}
+		return $string;
+	}
+
+	// Include the countdown element
+	print($this->element('countdown'));
+
+	//Load the external twitter API library
+	require_once(App::path('Vendor')[0] . "twitter-api-php/TwitterAPIExchange.php");
+
+	// These are the twitter app access tokens - see: https://dev.twitter.com/apps/
+	$settings = array(
+		'oauth_access_token' => "249730612-OWKcfzHN4EgjT5Lm4r2FEFGjkSfvydvAkOaDHCcO",
+		'oauth_access_token_secret' => "HZTa0hNDUl4LJgCimaUFFPxumfH5xmFeR2eWUOva0Y8TX",
+		'consumer_key' => "iMs9fbv99Ev5NqkW20Vio5uSZ",
+		'consumer_secret' => "qvkmztmaWukquDEYBMGPPJ6Zf40NCmgiGgh0c1IKBP5vPyk6m7"
+	);
+
+	/** Perform a GET request and echo the response
+	    Note: Set the GET field BEFORE calling buildOauth(); **/
+	$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+	$getfield = '?screen_name=HusqvarnaMXGP';
+	$requestMethod = 'GET';
+	$twitter = new TwitterAPIExchange($settings);
+	$tweets =  $twitter->setGetfield($getfield)
+				 ->buildOauth($url, $requestMethod)
+				 ->performRequest();
+	
+	//Decode the twitter json and save them for now
+	$tweets = json_decode($tweets, true);
+	
+	//Load Facebook posts
+	
+	$page_id = 'husqvarnamxgp';
+
+	$token = '243799329140027|63915777e84ed91f711ac64cf25ca565';
+
+	// get JSON from adres
+	$page_posts = file_get_contents('https://graph.facebook.com/'.$page_id.'/posts?fields=message&access_token='.$token);
+
+	//Also save the facebook json to be used later.
+	$pageposts = json_decode($page_posts, true);
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
@@ -35,37 +80,53 @@ print($this->element('countdown'));
 			//Don't display more than 4 articles
 			if($count == 4) break;
 			//After the third article, display the social media links
-			if($count == 3){
-				?>
+			if($count == 2){
+			?>
 				<div class="facebook_box box">
 					<h1>FACEBOOK</h1>
 					<ul>
+						<?php
+							for($i = 0; $i < 2; $i++):
+						?>
 						<li>
-							<span>03 April 2014</span>
-							<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
+							<span>
+								<?php
+									//Take the facebook date info and format it to: 01 Januari 2000
+									$datetime = new DateTime($pageposts['data'][$i]['created_time']);
+									echo $datetime->format('d M Y');
+								?>
+							</span>
+							<a href="https://www.facebook.com/husqvarnamxgp"><?php echo shorten($pageposts['data'][$i]['message']); ?></a>
 						</li>
-						<li>
-							<span>05 April 2014</span>
-							<a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
-						</li>
+						
+						<?php
+							endfor;
+						?>
 					</ul>
 					<a href="https://www.facebook.com/JMRacingTeamMX" class="button">JOIN OUR FACEBOOK</a>
 				</div>
 				<div class="facebook_box twitter_box box">
 					<h1>TWITTER</h1>
 					<ul>
+						<?php
+							for($i = 0; $i < 2; $i++):
+						?>
 						<li>
-							<span>03 April 2014</span>
-							<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
+							<span>
+								<?php 
+									$datetime = new DateTime($tweets[$i]['created_at']);
+									echo $datetime->format('d M Y');
+								?>
+							</span>
+							<a href="https://twitter.com/HusqvarnaMXGP"><?php echo $tweets[$i]['text'] ?></a>
 						</li>
-						<li>
-							<span>05 April 2014</span>
-							<a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
-						</li>
+						<?php
+							endfor;
+						?>
 					</ul>
 					<a href="https://twitter.com/JMRacingMX" class="button">FOLLOW ON TWITTER</a>
 				</div>
-				<?php
+			<?php
 			}
 		}
 		//After the articles, show the merchandise and team
