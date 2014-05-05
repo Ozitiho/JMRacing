@@ -7,7 +7,8 @@ class Sponsor extends AppModel {
             'rule' => 'notEmpty'
         ),
         'Image' => array(
-            'rule' => 'notEmpty'
+            'rule' => array('url', 'notEmpty'),
+            'message' => 'This is no valid URL.'
         ),
         'URL' => array(
             'rule' => array('url', 'notEmpty'),

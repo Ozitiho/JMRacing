@@ -1,5 +1,5 @@
 <?php
 
-class Racer extends AppModel {
+class Team extends AppModel {
     
 }
