@@ -1,6 +1,12 @@
 <?php
 // Include the countdown element
 print($this->element('countdown'));
+
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner.jpg" alt="">
+<?php
+$this->end();
 ?>
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<?php

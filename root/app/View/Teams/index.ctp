@@ -1,3 +1,10 @@
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner2.jpg" alt="">
+<?php
+$this->end();
+?>
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<div class="box team_col w2">
 		<a href="/racers/view/1">

@@ -1,3 +1,10 @@
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner4.jpg" alt="">
+<?php
+$this->end();
+?>
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<div class="box w3 only_description">
 		<span class="heading">NEWS</span>

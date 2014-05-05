@@ -1,5 +1,11 @@
 <!-- File: /app/View/Posts/index.ctp -->
-
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner3.jpg" alt="">
+<?php
+$this->end();
+?>
 <h1>Racers</h1>
 
 <?php echo $this->Html->link(
