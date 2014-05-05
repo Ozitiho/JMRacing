@@ -14,8 +14,6 @@ echo $this->Html->link(
         <th>URL</th>
     </tr>
 
-    <!-- Here is where we loop through our $posts array, printing out post info -->
-
 <?php foreach ($sponsors as $sponsor): ?>
         <tr>
             <td><?php echo $sponsor['Sponsor']['id']; ?></td>

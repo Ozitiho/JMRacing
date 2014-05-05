@@ -1,5 +1,10 @@
 <!-- File: /app/View/Posts/index.ctp -->
 <?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner3.jpg" alt="">
+<?php
+$this->end();
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
@@ -94,49 +99,50 @@
                 <h1>THIS YEARS EVENTS</h1>
                 <div class="all_events">
                     <ul>
-    <?php
-    $amountOfEvents = count($upcomingEvents);
-    $count = 0;
+                        <?php
+                        $amountOfEvents = count($upcomingEvents);
+                        $count = 0;
+                        $amountToSplitRows = round($amountOfEvents / 2);
 
-    foreach ($upcomingEvents as $event) {
-        $count++;
-        $country = $event["Event"]["Country"];
-        $city = $event["Event"]["City"];
-        $date = $event["Event"]["Date"];
-        $id = $event["Event"]["id"];
+                        foreach ($upcomingEvents as $event) {
+                            $count++;
+                            $country = $event["Event"]["Country"];
+                            $city = $event["Event"]["City"];
+                            $date = $event["Event"]["Date"];
+                            $id = $event["Event"]["id"];
 
-        // The last event needs a specific li class, don't ask me why...
-        if ($count == $amountOfEvents) {
-            ?>
-                                <li class="last">
-                                <?php
-                            } else {
+                            // The last event needs a specific li class
+                            if ($count == $amountOfEvents || $count == $amountToSplitRows) {
                                 ?>
+                                <li class="last">
+                                    <?php
+                                } else {
+                                    ?>
                                 <li>
                                     <?php
                                 }
                                 ?>
                                 <a href="/events/view/<?php print($id); ?>"><?php print($country); ?> <span>- <?php print($city); ?> -</span> <?php print(date("d F Y", strtotime($event["Event"]["Date"]))); ?></a>
                             </li>
-        <?php
-        // After 7 races, start a all_events class to show two boxes besides eachother
-        if ($count == 7) {
-            ?>
+                            <?php
+                            // After 7 races, start a all_events class to show two boxes besides eachother
+                            if ($count == $amountToSplitRows) {
+                                ?>
                             </ul>
                         </div>
                         <div class="all_events">
                             <ul>
-            <?php
-        }
-    }
-    ?>
+                                <?php
+                            }
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
         </div>
-    <?php
-}
-?>
+        <?php
+    }
+    ?>
     <div class="box_equal">
         <div class="load_more">
             <a id="load-images">MERCHANDISE</a>

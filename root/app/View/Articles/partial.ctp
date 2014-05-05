@@ -11,6 +11,12 @@
 	// Include the countdown element
 	print($this->element('countdown'));
 
+	$this->start('bannerImage');
+	?>
+	<img src="/images/home_banner1.jpg" alt="">
+	<?php
+	$this->end();
+
 	//Load the external twitter API library
 	require_once(App::path('Vendor')[0] . "twitter-api-php/TwitterAPIExchange.php");
 

@@ -1,4 +1,11 @@
 <!-- File: /app/View/Event/edit.ctp -->
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner3.jpg" alt="">
+<?php
+$this->end();
+?>
 
 <h1>Edit Event</h1>
 <?php

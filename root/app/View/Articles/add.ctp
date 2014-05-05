@@ -1,3 +1,10 @@
+<?php
+$this->start('bannerImage');
+?>
+<img src="/images/inner_banner.jpg" alt="">
+<?php
+$this->end();
+?>
 <h1>Add Article</h1>
 <?php
 echo $this->Form->create('Article');

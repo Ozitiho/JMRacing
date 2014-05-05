@@ -91,9 +91,7 @@ class EventsController extends AppController {
     public function countdown() {
         // Get the first upcoming event
         $event = $this->Event->find('first', array(
-            'conditions' => array(
-                'Date >= NOW()',
-                'Year(Date) = ' . date("Y"))
+            'conditions' => 'Date >= NOW()'
                 )
         );
 

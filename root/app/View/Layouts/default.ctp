@@ -96,7 +96,9 @@
     	<div class="clear"></div>
   	</section>
     <div class="home_banner">
-    	<img src="/images/home_banner1.jpg" alt="">
+        <?php
+    	echo $this->fetch('bannerImage');
+        ?>
         <div class="clear"></div>
     </div>
     <div class="events_main">
