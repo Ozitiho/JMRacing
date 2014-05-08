@@ -16,13 +16,13 @@ $this->end();
 		<a href="/racers/view/1" class="profile"><span>VIEW PROFILE</span></a>
 	</div>
 	<div class="box team_col w2">
-		<a href="#">
+		<a href="/racers/view/2">
 			<img src="/images/big_img2.jpg" alt="">
 			<span class="overlay">&nbsp;</span>
 			<span class="heading">TEAM</span>
 		</a>
 		<p class="black">ROMAIN FEBVRE #461</p>
-		<a href="#" class="profile"><span>VIEW PROFILE</span></a>
+		<a href="/racers/view/2" class="profile"><span>VIEW PROFILE</span></a>
 	</div>
 	
 	<div class="box team_col">

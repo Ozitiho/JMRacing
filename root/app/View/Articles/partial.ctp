@@ -18,7 +18,7 @@
 	$this->end();
 
 	//Load the external twitter API library
-	require_once(App::path('Vendor')[0] . "twitter-api-php/TwitterAPIExchange.php");
+	require_once(APP . 'Vendor' . DS . "twitter-api-php/TwitterAPIExchange.php");
 
 	// These are the twitter app access tokens - see: https://dev.twitter.com/apps/
 	$settings = array(
