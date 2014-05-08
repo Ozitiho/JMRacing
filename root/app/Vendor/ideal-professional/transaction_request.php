@@ -1,0 +1,1 @@
+TransactieID ontvangen, klik op de link om de betaling te starten:<br><a href=""></a><p><a href="http://www.ideal-simulator.nl">www.ideal-simulator.nl</a></p>
