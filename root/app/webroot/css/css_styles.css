@@ -240,7 +240,9 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php);}
 
 .description{width:90%; padding:20px 5%; float:left;}
 .description h2{font:bold 18px 'Asap'; color:#002752; line-height:24px; float:left; width:100%;}
-.description p{width:100%; float:left; font:normal 14px 'Asap'; color:#828d9f; line-height:24px; padding:0 0 25px;}
+.input, .submit, .legend, .description p{width:100%; float:left; font:normal 14px 'Asap'; color:#828d9f; line-height:24px; padding:0 0 25px;}
+.submit input {margin-top: 25px; margin-left: 25px; background-color: #FFF;}
+.input input {float: right;}
 
 .share{float:left; width:100%;}
 .share ul{float:left; background:#bac0c9; padding:7px 3%;}
@@ -281,12 +283,12 @@ box-shadow:none;}
 .news_items .box{width:50%;}
 
 .facebook_box{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; float:left; border:1px solid #fff;
- min-height:371px; padding:20px 1.9% 0; width:19%;}
+ height:406px; padding:20px 1.9% 0; width:19%;}
 .facebook_box h1{font:bold 32px 'Asap'; padding:0 0 30px; color:#ffffff; line-height:32px; width:100%; float:left;}
 .facebook_box li{width:100%; float:left; padding:0 0 30px;}
 .facebook_box span{width:100%; float:left; font:normal 12px 'Asap'; color:#ffffff; line-height:24px;}
 .facebook_box li a{font:bold 16px 'Asap'; color:#ffffff; line-height:24px;}
-.facebook_box .button{float:right; color:#2f6cb0; background:#e0e9f3;}
+.facebook_box .button{float:right; color:#2f6cb0; background:#e0e9f3; position: absolute; bottom: 1em; right: 1em;}
 .facebook_box .button:hover{background:#ffffff;}
 
 .twitter_box{background:#39aecb url(../images/big_twitter.png) no-repeat right top;}
