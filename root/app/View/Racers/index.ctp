@@ -17,17 +17,7 @@ $this->end();
     <tr>
         <th>RacerID</th>
         <th>Name</th>
-        <th>Biography</th>
-        <th>Date Of Birth</th>
-        <th>Place Of Birth</th>
-        <th>Nationality</th>
-        <th>Residence</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Hardware</th>
         <th>Racer Number</th>
-        <th>Photo</th>
-        <th>Tickets Link</th>
         <th>Delete/Edit</th>
     </tr>
 
@@ -37,17 +27,7 @@ $this->end();
     <tr>
         <td><?php echo $racer['Racer']['id']; ?></td>
         <td><?php echo $racer['Racer']['Name']; ?></td>
-        <td><?php echo $racer['Racer']['Biography']; ?></td>
-        <td><?php echo $racer['Racer']['DateOfBirth']; ?></td>
-        <td><?php echo $racer['Racer']['PlaceOfBirth']; ?></td>
-        <td><?php echo $racer['Racer']['Nationality']; ?></td>
-        <td><?php echo $racer['Racer']['Residence']; ?></td>
-        <td><?php echo $racer['Racer']['Height'] / 100; ?>m</td>
-        <td><?php echo $racer['Racer']['Weight']; ?>kg</td>
-        <td><?php echo $racer['Racer']['Hardware']; ?></td>
         <td><?php echo $racer['Racer']['RacerNumber']; ?></td>
-        <td><?php echo $racer['Racer']['Photo']; ?></td>
-        <td><?php echo $racer['Racer']['TicketsLink']; ?></td>
         <td>            <?php
                 echo $this->Form->postLink(
                     'Delete',

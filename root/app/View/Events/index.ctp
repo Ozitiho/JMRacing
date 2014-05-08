@@ -34,6 +34,15 @@ $this->end();
 
     // Show the results for each racer
     foreach ($racers as $racer) {
+        $r1Count = 0;
+        $r2Count = 0;
+        $gpCount = 0;
+        $r1Sum = 0;
+        $r2Sum = 0;
+        $gpSum = 0;
+        $r1Average = 0;
+        $r2Average = 0;
+        $gpAverage = 0;
         ?>
         <div class="box">
             <div class="results_event">
@@ -63,6 +72,24 @@ $this->end();
                             foreach ($racer["Result"] as $result) {
                                 if ($event["Event"]["id"] == $result["event_id"]) {
                                     $resultFound = true;
+
+                                    // If the result for R1 is set, increase the count/sum
+                                    if ($result["R1"]) {
+                                        $r1Count++;
+                                        $r1Sum += $result["R1"];
+                                    }
+
+                                    // If the result for R2 is set, increase the count/sum
+                                    if ($result["R2"]) {
+                                        $r2Count++;
+                                        $r2Sum += $result["R2"];
+                                    }
+
+                                    // If the result for GP is set, increase the count/sum
+                                    if ($result["GP"]) {
+                                        $gpCount++;
+                                        $gpSum += $result["GP"];
+                                    }
                                     ?>
                                     <td class="event_r1"><span><?php print($result["R1"]); ?></span></td>
                                     <td class="event_r2"><span><?php print($result["R2"]); ?></span></td>
@@ -84,6 +111,61 @@ $this->end();
                         <?php
                     }
                     ?>
+                    <tr class="empty">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="border">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="average">
+                        <?php
+                        // Calculate the averages for R1/R2/GP
+                        // If the sum and count are > 0, an average can be calculated
+                        if ($r1Sum > 0 && $r1Count > 0) {
+                            $r1Average = round($r1Sum / $r1Count);
+                        }
+
+                        if ($r2Sum > 0 && $r2Count > 0) {
+                            $r2Average = round($r2Sum / $r2Count);
+                        }
+
+                        if ($gpSum > 0 && $gpCount > 0) {
+                            $gpAverage = round($gpSum / $gpCount);
+                        }
+                        ?>
+                        <td class="event_name"><span>AVERAGE ALL RACES</span></td>
+                        <td class="event_r1 blank"><span>
+                                <?php
+                                // If an average is calculated, show it
+                                if ($r1Average > 0) {
+                                    print($r1Average);
+                                }
+                                ?>
+                            </span>
+                        </td>
+                        <td class="event_r2 blank"><span>
+                                <?php
+                                if ($r2Average > 0) {
+                                    print($r2Average);
+                                }
+                                ?>
+                            </span>
+                        </td>
+                        <td class="event_gp blank"><span class="yellow">
+                                <?php
+                                if ($gpAverage > 0) {
+                                    print($gpAverage);
+                                }
+                                ?>
+                            </span>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
@@ -92,7 +174,7 @@ $this->end();
     ?>
 
     <?php
-    if ($upcomingEvents) {
+    if ($yearEvents) {
         ?>
         <div class="box w2">
             <div class="year_events">
@@ -100,11 +182,11 @@ $this->end();
                 <div class="all_events">
                     <ul>
                         <?php
-                        $amountOfEvents = count($upcomingEvents);
+                        $amountOfEvents = count($yearEvents);
                         $count = 0;
                         $amountToSplitRows = round($amountOfEvents / 2);
 
-                        foreach ($upcomingEvents as $event) {
+                        foreach ($yearEvents as $event) {
                             $count++;
                             $country = $event["Event"]["Country"];
                             $city = $event["Event"]["City"];
@@ -125,7 +207,7 @@ $this->end();
                                 <a href="/events/view/<?php print($id); ?>"><?php print($country); ?> <span>- <?php print($city); ?> -</span> <?php print(date("d F Y", strtotime($event["Event"]["Date"]))); ?></a>
                             </li>
                             <?php
-                            // After 7 races, start a all_events class to show two boxes besides eachother
+                            // Split the rows halfway, to they form nice rows
                             if ($count == $amountToSplitRows) {
                                 ?>
                             </ul>

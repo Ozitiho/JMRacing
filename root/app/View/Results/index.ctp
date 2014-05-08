@@ -15,7 +15,6 @@
         <th>R1</th>
         <th>R2</th>
         <th>GP</th>
-        <th>Date</th>
     </tr>
 
     <!-- Here is where we loop through our $posts array, printing out post info -->
@@ -31,7 +30,6 @@
         <td><?php echo $result['Result']['R1']; ?></td>
         <td><?php echo $result['Result']['R2']; ?></td>
         <td><?php echo $result['Result']['GP']; ?></td>
-        <td><?php echo $result['Result']['Date']; ?></td>
         <td>
             <?php
                 echo $this->Form->postLink(

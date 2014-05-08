@@ -8,4 +8,3 @@
 <p><small>R1: <?php echo $result['Result']['R1']; ?></small></p>
 <p><small>R2: <?php echo $result['Result']['R2']; ?></small></p>
 <p><small>GP: <?php echo $result['Result']['GP']; ?></small></p>
-<p><small>Date: <?php echo $result['Result']['Date']; ?></small></p>

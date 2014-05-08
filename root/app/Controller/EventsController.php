@@ -77,8 +77,7 @@ class EventsController extends AppController {
 
     public function getUpcomingEvents() {
         $upcomingEvents = $this->Event->find('all', array('order' => array('Date' => 'asc'),
-            'conditions' => array('Date >= NOW()',
-                'Year(Date) = ' . date("Y"))
+            'conditions' => 'Date >= NOW()'
         ));
         if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $upcomingEvents;
@@ -132,10 +131,10 @@ class EventsController extends AppController {
         }
     }
 
-    // This function gets a racer's results
-    public function getEventsByYear($id) {
+    // This function gets the events by year
+    public function getEventsByYear($year) {
         $events = $this->Event->find('all', array('order' => array('Date' => 'asc'),
-            'conditions' => array('Year(Date) = ' . $id)
+            'conditions' => array('Year(Date) = ' . $year)
         ));
 
         if (isset($this->params['requested']) && $this->params['requested'] == 1) {

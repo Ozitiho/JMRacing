@@ -41,8 +41,12 @@ if ($events) {
                                 $date = $event["Event"]["Date"];
                                 $id = $event["Event"]["id"];
 
-                                // The last event needs a specific li class, don't ask me why...
-                                if ($count == $amountOfEvents) {
+                                /* The last event needs a specific li class, don't ask me why...
+                                 * The max amount of events to show are 6, to keep the layout 
+                                 * intact. So show the last class when the last or sixth event 
+                                 * has been reached
+                                 */
+                                if ($count == $amountOfEvents || $count == 6) {
                                     ?>
                                     <li class="last">
                                         <?php
@@ -55,6 +59,11 @@ if ($events) {
                                     <a href="/events/view/<?php print($id); ?>"><?php print($country); ?> <span>- <?php print($city); ?> -</span> <?php print(date("d F Y", strtotime($event["Event"]["Date"]))); ?></a>
                                 </li>
                                 <?php
+                                // If the max of 6 events has been reached, break the foreach loop
+                                if($count == 6)
+                                {
+                                    break;
+                                }
                             }
                             ?>
                         </ul>
@@ -107,7 +116,7 @@ if ($events) {
         <div class="results">
             <ul>
                 <li><a class="map_open scroll" href="#map"><img src="/images/map.png" alt=""></a></li>
-                <li class="race_results"><a href="#"><span>RACE RESULTS</span></a></li>
+                <li class="race_results"><a href="/events"><span>RACE RESULTS</span></a></li>
             </ul>
         </div>
         <div class="clear"></div>

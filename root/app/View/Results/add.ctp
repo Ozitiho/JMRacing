@@ -8,6 +8,5 @@ echo $this->Form->input('RacerID');
 echo $this->Form->input('R1');
 echo $this->Form->input('R2');
 echo $this->Form->input('GP');
-echo $this->Form->input('Date');
 echo $this->Form->end('Save Post');
 ?>
