@@ -15,6 +15,7 @@ class RacersController extends AppController {
     }
 
     public function view($id = null) {
+		// Set ID for racer
         if (!$id) {
             throw new NotFoundException(__('Invalid post'));
         }
@@ -24,6 +25,15 @@ class RacersController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
         $this->set('racer', $racer);
+		
+		// Set results
+		$results = $this->Racer->Result->find('all');
+		
+		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $results;
+        } else {
+            $this->set('results', $results);
+        }
     }
 
     public function add() {

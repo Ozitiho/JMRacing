@@ -190,6 +190,9 @@
                         <div class="map map1" id="A_map">
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
+							<div class="flag">
+								<img src="/images/flag.png">
+							</div>
                         </div>
                         <div class="clear"></div>
                     </section>

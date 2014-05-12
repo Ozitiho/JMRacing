@@ -106,9 +106,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Product`
+-- Table `JMRacing`.`products`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Product` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`products` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(150) NOT NULL ,
   `Price` DOUBLE NOT NULL ,
