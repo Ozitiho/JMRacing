@@ -1,233 +1,145 @@
-<?php
-/**
- *
- *
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Pages
- * @since         CakePHP(tm) v 0.10.0.1076
- */
+<?php	
+	// Include the countdown element
+	print($this->element('countdown'));
 
-if (!Configure::read('debug')):
-	throw new NotFoundException();
-endif;
-
-App::uses('Debugger', 'Utility');
-?>
-<h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
-<p>
-	<a href="http://cakephp.org/changelogs/<?php echo Configure::version(); ?>"><?php echo __d('cake_dev', 'Read the changelog'); ?> </a>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	Debugger::checkSecurityKeys();
-endif;
-?>
-<?php
-if (file_exists(WWW_ROOT . 'css' . DS . 'cake.generic.css')):
-?>
-<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;">
-	<?php echo __d('cake_dev', 'URL rewriting is not properly configured on your server.'); ?>
-	1) <a target="_blank" href="http://book.cakephp.org/2.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-	2) <a target="_blank" href="http://book.cakephp.org/2.0/en/development/configuration.html#cakephp-core-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-</p>
-<?php
-endif;
-?>
-<p>
-<?php
-	if (version_compare(PHP_VERSION, '5.2.8', '>=')):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your version of PHP is too low. You need PHP 5.2.8 or higher to use CakePHP.');
-		echo '</span>';
-	endif;
-?>
-</p>
-<p>
-	<?php
-		if (is_writable(TMP)):
-			echo '<span class="notice success">';
-				echo __d('cake_dev', 'Your tmp directory is writable.');
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo __d('cake_dev', 'Your tmp directory is NOT writable.');
-			echo '</span>';
-		endif;
+	$this->start('bannerImage');
 	?>
-</p>
-<p>
+	<img src="/images/home_banner1.jpg" alt="">
 	<?php
-		$settings = Cache::settings();
-		if (!empty($settings)):
-			echo '<span class="notice success">';
-				echo __d('cake_dev', 'The %s is being used for core caching. To change the config edit %s', '<em>'. $settings['engine'] . 'Engine</em>', 'APP/Config/core.php');
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo __d('cake_dev', 'Your cache is NOT working. Please check the settings in %s', 'APP/Config/core.php');
-			echo '</span>';
-		endif;
-	?>
-</p>
-<p>
-	<?php
-		$filePresent = null;
-		if (file_exists(APP . 'Config' . DS . 'database.php')):
-			echo '<span class="notice success">';
-				echo __d('cake_dev', 'Your database configuration file is present.');
-				$filePresent = true;
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo __d('cake_dev', 'Your database configuration file is NOT present.');
-				echo '<br/>';
-				echo __d('cake_dev', 'Rename %s to %s', 'APP/Config/database.php.default', 'APP/Config/database.php');
-			echo '</span>';
-		endif;
-	?>
-</p>
-<?php
-if (isset($filePresent)):
-	App::uses('ConnectionManager', 'Model');
-	try {
-		$connected = ConnectionManager::getDataSource('default');
-	} catch (Exception $connectionError) {
-		$connected = false;
-		$errorMsg = $connectionError->getMessage();
-		if (method_exists($connectionError, 'getAttributes')):
-			$attributes = $connectionError->getAttributes();
-			if (isset($errorMsg['message'])):
-				$errorMsg .= '<br />' . $attributes['message'];
-			endif;
-		endif;
-	}
-?>
-<p>
-	<?php
-		if ($connected && $connected->isConnected()):
-			echo '<span class="notice success">';
-				echo __d('cake_dev', 'CakePHP is able to connect to the database.');
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo __d('cake_dev', 'CakePHP is NOT able to connect to the database.');
-				echo '<br /><br />';
-				echo $errorMsg;
-			echo '</span>';
-		endif;
-	?>
-</p>
-<?php endif; ?>
-<?php
-	App::uses('Validation', 'Utility');
-	if (!Validation::alphaNumeric('cakephp')):
-		echo '<p><span class="notice">';
-			echo __d('cake_dev', 'PCRE has not been compiled with Unicode support.');
-			echo '<br/>';
-			echo __d('cake_dev', 'Recompile PCRE with Unicode support by adding <code>--enable-unicode-properties</code> when configuring');
-		echo '</span></p>';
-	endif;
+	$this->end();
+	
+	$articles = $this->requestAction('articles/getShortenedArticles');
+	
+	$products = $this->requestAction('products/getProducts');
+	
+	$tweets = $this->requestAction('socialMedia/getTweets');
+	
+	$pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 ?>
 
-<p>
+<div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
 	<?php
-		if (CakePlugin::loaded('DebugKit')):
-			echo '<span class="notice success">';
-				echo __d('cake_dev', 'DebugKit plugin is present');
-			echo '</span>';
-		else:
-			echo '<span class="notice">';
-				echo __d('cake_dev', 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.');
-				echo '<br/>';
-				echo __d('cake_dev', 'You can install it from %s', $this->Html->link('GitHub', 'https://github.com/cakephp/debug_kit'));
-			echo '</span>';
-		endif;
+		//TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
+		$url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
+	
+		$count = 0;	
+		foreach($articles as $article)
+		{
+			$currentUrl = $url . "/articles/" .  $article['Article']['id'];
+		?>
+			<div class="box">
+				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<span class="heading">NEWS</span>
+				<div class="description">
+					<h2><?php echo $article['Article']['Title']; ?></h2>
+					<p><?php echo $article['Article']['Message']; ?></p>
+					<div class="share">
+						<ul>
+							<li>SHARE &nbsp;&nbsp;</li>
+							<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . $article['Article']['Title']; ?>"  target="_blank">&nbsp;</a></li>
+							<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+							<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
+						</ul>
+						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+					</div>
+				</div>
+			</div>	
+		<?php
+			$count ++;
+			//Don't display more than 4 articles
+			if($count == 4) break;
+			//After the third article, display the social media links
+			if($count == 2){
+			?>
+				<div class="facebook_box box">
+					<h1>FACEBOOK</h1>
+					<ul>
+						<?php
+							for($i = 0; $i < 2; $i++):
+						?>
+						<li>
+							<span>
+								<?php
+									//Take the facebook date info and format it to: 01 Januari 2000
+									$datetime = new DateTime($pageposts['data'][$i]['created_time']);
+									echo $datetime->format('d M Y');
+								?>
+							</span>
+							<a href="https://www.facebook.com/husqvarnamxgp"><?php echo $pageposts['data'][$i]['message']; ?></a>
+						</li>
+						
+						<?php
+							endfor;
+						?>
+					</ul>
+					<a href="https://www.facebook.com/JMRacingTeamMX" class="button">JOIN OUR FACEBOOK</a>
+				</div>
+				<div class="facebook_box twitter_box box">
+					<h1>TWITTER</h1>
+					<ul>
+						<?php
+							for($i = 0; $i < 2; $i++):
+						?>
+						<li>
+							<span>
+								<?php 
+									$datetime = new DateTime($tweets[$i]['created_at']);
+									echo $datetime->format('d M Y');
+								?>
+							</span>
+							<a href="https://twitter.com/HusqvarnaMXGP"><?php echo $tweets[$i]['text'] ?></a>
+						</li>
+						<?php
+							endfor;
+						?>
+					</ul>
+					<a href="https://twitter.com/JMRacingMX" class="button">FOLLOW ON TWITTER</a>
+				</div>
+			<?php
+			}
+		}
+		//After the articles, show the merchandise and team
 	?>
-</p>
-
-<h3><?php echo __d('cake_dev', 'Editing this Page'); ?></h3>
-<p>
-<?php
-echo __d('cake_dev', 'To change the content of this page, edit: %s.<br />
-To change its layout, edit: %s.<br />
-You can also add some CSS styles for your pages at: %s.',
-	'APP/View/Pages/home.ctp', 'APP/View/Layouts/default.ctp', 'APP/webroot/css');
-?>
-</p>
-
-<h3><?php echo __d('cake_dev', 'Getting Started'); ?></h3>
-<p>
-	<?php
-		echo $this->Html->link(
-			sprintf('<strong>%s</strong> %s', __d('cake_dev', 'New'), __d('cake_dev', 'CakePHP 2.0 Docs')),
-			'http://book.cakephp.org/2.0/en/',
-			array('target' => '_blank', 'escape' => false)
-		);
-	?>
-</p>
-<p>
-	<?php
-		echo $this->Html->link(
-			__d('cake_dev', 'The 15 min Blog Tutorial'),
-			'http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html',
-			array('target' => '_blank', 'escape' => false)
-		);
-	?>
-</p>
-
-<h3><?php echo __d('cake_dev', 'Official Plugins'); ?></h3>
-<p>
-<ul>
-	<li>
-		<?php echo $this->Html->link('DebugKit', 'https://github.com/cakephp/debug_kit') ?>:
-		<?php echo __d('cake_dev', 'provides a debugging toolbar and enhanced debugging tools for CakePHP applications.'); ?>
-	</li>
-	<li>
-		<?php echo $this->Html->link('Localized', 'https://github.com/cakephp/localized') ?>:
-		<?php echo __d('cake_dev', 'contains various localized validation classes and translations for specific countries'); ?>
-	</li>
-</ul>
-</p>
-
-<h3><?php echo __d('cake_dev', 'More about CakePHP'); ?></h3>
-<p>
-<?php echo __d('cake_dev', 'CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.'); ?>
-</p>
-<p>
-<?php echo __d('cake_dev', 'Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.'); ?>
-</p>
-
-<ul>
-	<li><a href="http://cakephp.org">CakePHP</a>
-	<ul><li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li></ul></li>
-	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li></ul></li>
-	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Quick API Reference'); ?></li></ul></li>
-	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li></ul></li>
-	<li><a href="http://plugins.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Plugins'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'A comprehensive list of all CakePHP plugins created by the community'); ?></li></ul></li>
-	<li><a href="http://community.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Community Center'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything related to the CakePHP community in one place'); ?></li></ul></li>
-	<li><a href="https://groups.google.com/group/cake-php"><?php echo __d('cake_dev', 'CakePHP Google Group'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Community mailing list'); ?></li></ul></li>
-	<li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-	<ul><li><?php echo __d('cake_dev', 'Live chat about CakePHP'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/"><?php echo __d('cake_dev', 'CakePHP Code'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Find the CakePHP code on GitHub and contribute to the framework'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/issues"><?php echo __d('cake_dev', 'CakePHP Issues'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Issues'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/wiki#roadmaps"><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?></li></ul></li>
-	<li><a href="http://training.cakephp.org"><?php echo __d('cake_dev', 'Training'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Join a live session and get skilled with the framework'); ?></li></ul></li>
-	<li><a href="http://cakefest.org"><?php echo __d('cake_dev', 'CakeFest'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Don\'t miss our annual CakePHP conference'); ?></li></ul></li>
-	<li><a href="http://cakefoundation.org"><?php echo __d('cake_dev', 'Cake Software Foundation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Promoting development related to CakePHP'); ?></li></ul></li>
-</ul>
+	<div class="box team_col">
+		<a href="#">
+			<img src="/images/home_img3.jpg" alt="">
+			<span class="overlay">&nbsp;</span>
+			<span class="heading">TEAM</span>
+		</a>
+		<p class="black">ALEKSANDR TONKOV #59</p>
+	</div>
+	<div class="box team_col">
+		<a href="#">
+			<img src="/images/home_img4.jpg" alt="">
+			<span class="overlay">&nbsp;</span>
+			<span class="heading">TEAM</span>
+		</a>
+		<p class="black">ROMAIN FEBVRE #461</p>
+	</div>
+	<div class="box team_col">
+		<a href="#">
+			<img src=<?php echo $products[0]['Product']['Image'];?> alt="">
+			<span class="overlay">&nbsp;</span>
+			<span class="heading blue">MERCHANDISE</span>
+		</a>
+		<p class="era"><?php echo $products[0]['Product']['Name'] ?> &nbsp;&nbsp; 
+		<?php 
+			if($products[0]['Product']['DiscountPrice'] > 0){
+				echo ('<del>&euro;'.$products[0]['Product']['Price'].'</del> &nbsp;&nbsp;  <span>&euro;'.$products[0]['Product']['DiscountPrice'].'</span></p>');
+			}
+			else{
+				echo ('<span>&euro;'.$products[0]['Product']['Price'].'</span></p>');
+			}
+		?>
+	</div>
+	<div class="box team_col">
+		<img src="/images/home_img8.jpg" alt="">
+		<span class="overlay">&nbsp;</span>
+		<span class="heading blue">VIDEO</span>
+		<a href="#" class="play_button"><img src="/images/play_button.png" alt=""></a>
+	</div>
+	<!-- When requesting to show more news, simply link to a page with all news -->
+	<div class="load_more">
+		<a id="load-images" href="/articles/">LOAD MORE NEWS</a>
+	</div>
+</div>

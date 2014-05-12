@@ -16,10 +16,19 @@ class ArticlesController extends AppController {
 		foreach($articles as $key => $article){
 			// Shorten body
 			$string = $article['Article']['Message'];
-			if (strlen($string) > 116){
-				$string = substr($string, 0, 113);
-				$string .= '...';
-				$articles[$key]['Article']['Message'] = $string;
+			if($key == 0){
+				if (strlen($string) > 696){
+					$string = substr($string, 0, 693);
+					$string .= '...';
+					$articles[$key]['Article']['Message'] = $string;
+				}
+			}
+			else {
+				if (strlen($string) > 116){
+					$string = substr($string, 0, 113);
+					$string .= '...';
+					$articles[$key]['Article']['Message'] = $string;
+				}
 			}
 		}
 		
@@ -41,6 +50,23 @@ class ArticlesController extends AppController {
 		}
 		
         $this->set('articles', $articles);
+	}
+	
+	public function getShortenedArticles() {
+		$articles = $this->Article->find('all', 
+                    array('order' => array('id' => 'desc')));
+		
+		foreach($articles as $key => $article){
+			// Shorten body
+			$string = $article['Article']['Message'];
+			if (strlen($string) > 116){
+				$string = substr($string, 0, 113);
+				$string .= '...';
+				$articles[$key]['Article']['Message'] = $string;
+			}
+		}
+		
+        return $articles;
 	}
 	
 	public function cms() {

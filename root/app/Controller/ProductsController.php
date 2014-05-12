@@ -7,6 +7,10 @@ class ProductsController extends AppController {
     public function index() {
         $this->set('products', $this->Product->find('all'));
     }
+	
+	public function getProducts() {
+        return $this->Product->find('all');
+    }
 
     public function view($id = null) {
         if (!$id) {

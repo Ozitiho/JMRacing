@@ -283,7 +283,7 @@ box-shadow:none;}
 .news_items .box{width:50%;}
 
 .facebook_box{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; float:left; border:1px solid #fff;
- height:406px; padding:20px 1.9% 0; width:19%;}
+ height:320px; padding:20px 1.9% 0; width:19%;}
 .facebook_box h1{font:bold 32px 'Asap'; padding:0 0 30px; color:#ffffff; line-height:32px; width:100%; float:left;}
 .facebook_box li{width:100%; float:left; padding:0 0 30px;}
 .facebook_box span{width:100%; float:left; font:normal 12px 'Asap'; color:#ffffff; line-height:24px;}
@@ -491,7 +491,9 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 .box_info .description ul{float:right;}
 
 .box_equal{width:49.8%; float:left;}
+.box_equal.index{width:100%;}
 .box_equal .box{width:46%; margin:0 1.9% 20px;}
+.box_equal.index .box{width:22.6%; margin: 0 0.9% 10px;}
 .box_equal .box img{border-bottom:1px solid #bac0c9;}
 .box_equal .box .era{position:relative; bottom:auto; left:auto;}
 .box_equal .item .button{background:#f27f32;}
@@ -596,6 +598,7 @@ border-top-width:2px; border-bottom-width:2px;}
 	.photos_main li{width:158px; margin:10px 5px;}
 	.w3 .description{width:28%; padding:5px 2% 5px 0%; float:right;}
 	.w3 .description p{padding-bottom:15px; line-height:21px;}
+	.w3 .share {width: 28%; position:absolute; bottom: 1em; right: 1.5em;}
 	
 	.item ul{width:47%;}
 	.box_equal .item .button{width:45%; padding:5px 0 6px;}

@@ -115,7 +115,7 @@
             /* The section class(es) that should be used are different on the articles(home) page
              * than on the other pages.
              */
-            if ($title_for_layout == "Articles") {
+            if ($title_for_layout == "Home" || $title_for_layout == "Articles") {
                 ?>
                 <section class="main_container">
                     <?php
