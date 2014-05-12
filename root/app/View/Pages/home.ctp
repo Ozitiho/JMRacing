@@ -116,6 +116,7 @@
 		</a>
 		<p class="black">ROMAIN FEBVRE #461</p>
 	</div>
+	<?php if(isset($products[0])){ ?>
 	<div class="box team_col">
 		<a href="#">
 			<img src=<?php echo $products[0]['Product']['Image'];?> alt="">
@@ -132,6 +133,7 @@
 			}
 		?>
 	</div>
+	<?php } ?>
 	<div class="box team_col">
 		<img src="/images/home_img8.jpg" alt="">
 		<span class="overlay">&nbsp;</span>
