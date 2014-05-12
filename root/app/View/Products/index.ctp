@@ -1,12 +1,4 @@
 <?php
-	function shorten($string)
-	{
-		if (strlen($string) > 116){
-			$string = substr($string, 0, 113);
-			$string .= '...';
-		}
-		return $string;
-	}
 $this->start('bannerImage');
 ?>
 <img src="/images/inner_banner3.jpg" alt="">
