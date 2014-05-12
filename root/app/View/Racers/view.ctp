@@ -86,84 +86,24 @@ $this->end();
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 							</tr>
-							<tr>
-								<td class="event_name"><span>France</span> - St. J. d’Angely</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Italy</span> - Maggiori</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Germany</span> - Teutschent...</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Sweden</span> - Uddevalla</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Finland</span> - Hyvinkää</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Czech Republic</span> - Loket</td>
-								<td class="event_r1"><span>6</span></td>
-								<td class="event_r2"><span>3</span></td>
-								<td class="event_gp"><span>8</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>France</span> - St. J. d’Angely</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Italy</span> - Maggiori</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Germany</span> - Teutschent...</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Sweden</span> - Uddevalla</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Finland</span> - Hyvinkää</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>Czech Republic</span> - Loket</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
-							<tr>
-								<td class="event_name"><span>France</span> - St. J. d’Angely</td>
-								<td class="event_r1 blank"><span>&nbsp;</span></td>
-								<td class="event_r2 blank"><span>&nbsp;</span></td>
-								<td class="event_gp blank"><span>&nbsp;</span></td>
-							</tr>
+							
+							<?php
+								foreach($results as $result){
+									if($racer['Racer']['id'] == $result['Result']['racer_id'])
+									{
+										print("
+										<tr>
+											<td class='event_name'><span>".$result['Result']['racer_id']."</span> - St. J. d’Angely</td>
+											<td class='event_r1'><span>6</span></td>
+											<td class='event_r2'><span>3</span></td>
+											<td class='event_gp'><span>8</span></td>
+										</tr>
+										");
+									}
+								
+								}
+							?>
+							
 							<tr class="empty">
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
