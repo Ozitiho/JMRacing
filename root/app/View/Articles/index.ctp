@@ -90,7 +90,9 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 			else {
 			?>
 			<div class="box">
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<div class="center-cropped news" style="background-image: url('<?php echo $article['Article']['Photo']; ?>');">
+					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				</div>
 				<span class="heading">NEWS</span>
 				<div class="description">
 					<h2><?php echo $article['Article']['Title']; ?></h2>

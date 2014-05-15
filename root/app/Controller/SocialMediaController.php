@@ -57,5 +57,20 @@ class SocialMediaController extends AppController {
 		
 		return $page_posts;
 	}
+	
+	public function getFacebookPictures(){
+		//Load Facebook pictures
+		
+		$album_id = '630229000370596';
 
+		$token = '243799329140027|63915777e84ed91f711ac64cf25ca565';
+
+		// get JSON from adres
+		$page_posts = file_get_contents('https://graph.facebook.com/'.$album_id.'/photos?access_token='.$token);
+		
+		//Also decode the facebook json.
+		$page_posts = json_decode($page_posts, true);
+		
+		return $page_posts['data'];
+	}
 }
