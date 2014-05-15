@@ -1,6 +1,11 @@
 <?php
 
 class SocialMediaController extends AppController {
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('getFacebookPictures', 'getTweets', 'getFacebookPosts');
+    }
 	public function getTweets(){
 		//Load the external twitter API library
 		require_once(APP . 'Vendor' . DS . "twitter-api-php/TwitterAPIExchange.php");
