@@ -1,7 +1,7 @@
 <?php
 $this->start('bannerImage');
 ?>
-<img src="/images/inner_banner.jpg" alt="">
+<img src="/images/inner_banner2.jpg" alt="">
 <?php
 $this->end();
 ?>

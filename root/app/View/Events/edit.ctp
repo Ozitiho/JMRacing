@@ -1,8 +1,7 @@
-<!-- File: /app/View/Event/edit.ctp -->
 <?php
 $this->start('bannerImage');
 ?>
-<img src="/images/inner_banner3.jpg" alt="">
+<img src="/images/inner_banner2.jpg" alt="">
 <?php
 $this->end();
 ?>

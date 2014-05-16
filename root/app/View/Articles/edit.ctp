@@ -1,7 +1,7 @@
 <?php
 $this->start('bannerImage');
 ?>
-<img src="/images/inner_banner.jpg" alt="">
+<img src="/images/inner_banner2.jpg" alt="">
 <?php
 $this->end();
 ?>
@@ -26,7 +26,7 @@ $this->end();
         echo $this->Form->input('Photo');
         echo $this->Form->input('CreateDate');
         echo $this->Form->input('id', array('type' => 'hidden'));
-        echo $this->Form->end('Save Post');
+        echo $this->Form->end('Edit Article');
         ?>
     </fieldset>
 </div>
