@@ -9,7 +9,13 @@
 
         <title>
             <?php echo $cakeDescription ?>:
-            <?php echo $title_for_layout; ?>
+            <?php
+            // If a custom title is set, show it, otherwise use default
+            if ($this->fetch('title') != null) {
+                $title_for_layout = $this->fetch('title');
+            }
+            print($title_for_layout);
+            ?>
         </title>
 
         <?php
@@ -39,12 +45,12 @@
             <header>
                 <section class="container">
                     <div class="logo">
-                        <a href="/index.html"><img src="/images/logo.png" alt=""></a>
+                        <a href="/"><img src="/images/logo.png" alt=""></a>
                     </div>
                     <div class="right">
                         <div class="social_icons">
-                            <a href="#" class="fb"><img src="/images/fb.png" alt=""></a>
-                            <a href="#" class="twitter"><img src="/images/twitter.png" alt=""></a>
+                            <a href="https://www.facebook.com/JMRacingTeamMX" class="fb"><img src="/images/fb.png" alt=""></a>
+                            <a href="https://twitter.com/JMRacingMX" class="twitter"><img src="/images/twitter.png" alt=""></a>
                         </div>
                         <div id="menu">
                             <a><span>MENU</span></a>
@@ -62,12 +68,12 @@
                                     <li class="sep">|</li>
                                     <li><a href="/articles">NEWS</a></li>
                                     <li class="sep">|</li>
-                                    <li><a href="/racers">TEAM</a>
+                                    <li><a href="/teams">TEAM</a>
                                         <div class="submenu">
                                             <ul>
-                                                <li><a href="#">Aleksandr Tonkov #59</a></li>
+                                                <li><a href="/racers/view/1">Aleksandr Tonkov #59</a></li>
                                                 <li class="sep">|</li>
-                                                <li><a href="#">Romain Febvre #461</a></li>
+                                                <li><a href="/racers/view/2">Romain Febvre #461</a></li>
                                                 <li class="sep">|</li>
                                                 <li><a href="#">Team Managers</a></li>
                                                 <li class="sep">|</li>
@@ -86,7 +92,7 @@
                                     <li class="sep">|</li>
                                     <li><a href="#">PHOTOS &amp; MOVIES</a></li>
                                     <li class="sep">|</li>
-                                    <li><a href="#">MERCHANDISE</a></li>
+                                    <li><a href="/products">MERCHANDISE</a></li>
                                     <li class="sep">|</li>
                                     <li><a href="#">CONTACT</a></li>
                                 </ul>
@@ -103,7 +109,7 @@
                 </div>
                 <div class="events_main">
                     <?php
-                    // Countdown header
+// Countdown header
                     echo $this->fetch('flash');
                     echo $this->fetch('header');
                     ?>
@@ -136,7 +142,7 @@
                             <img src="/images/upper_shadow.png" alt="">
                         </div>
                         <?php
-                        // Get sponsors dynamically
+// Get sponsors dynamically
                         echo $this->fetch('sponsors');
                         ?>
                         <div class="shadow">
@@ -190,9 +196,9 @@
                         <div class="map map1" id="A_map">
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
-							<div class="flag">
-								<img src="/images/flag.png">
-							</div>
+                            <div class="flag">
+                                <img src="/images/flag.png">
+                            </div>
                         </div>
                         <div class="clear"></div>
                     </section>
@@ -204,27 +210,27 @@
                         <div class="F_top">
                             <ul>
                                 <li class="sep">|</li>
-                                <li><a href="#">HOME</a></li>
+                                <li><a href="/">HOME</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">NEWS</a></li>
+                                <li><a href="/articles">NEWS</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">TEAM</a></li>
+                                <li><a href="/teams">TEAM</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="#">SPONSORS</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">CALENDAR &amp; RESULTS</a></li>
+                                <li><a href="/events">CALENDAR &amp; RESULTS</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="#">PHOTOS &amp; MOVIES</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">MERCHANDISE</a></li>
+                                <li><a href="/products">MERCHANDISE</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="#">CONTACT</a></li>
                                 <li class="sep">|</li>
                             </ul>
                         </div>
                         <ul class="social_icons">
-                            <li class="fb"><a href="#">&nbsp;</a></li>
-                            <li class="twitter"><a href="#">&nbsp;</a></li>
+                            <li class="fb"><a href="https://www.facebook.com/JMRacingTeamMX">&nbsp;</a></li>
+                            <li class="twitter"><a href="https://twitter.com/JMRacingMX">&nbsp;</a></li>
                             <li class="google"><a href="#">&nbsp;</a></li>
                         </ul>
                         <div class="F_bottom">

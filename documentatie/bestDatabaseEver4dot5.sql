@@ -47,6 +47,14 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racers` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `RacerNumber` INT NOT NULL ,
+  `Biography` TEXT NOT NULL ,
+  `DateOfBirth` DATE NOT NULL ,
+  `PlaceOfBirth` VARCHAR(100) NOT NULL ,
+  `Nationality` VARCHAR(100) NOT NULL ,
+  `Residence` VARCHAR(100) NOT NULL ,
+  `Height` INT NOT NULL ,
+  `Weight` INT NOT NULL ,
+  `Hardware` VARCHAR(150) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -155,8 +163,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`) VALUES (1, 'Aleksandr Tonkov', 59);
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`) VALUES (2, 'Romain Febvre', 461);
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer');
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets');
 
 COMMIT;
 
