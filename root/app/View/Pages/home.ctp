@@ -12,9 +12,7 @@
 	
 	$products = $this->requestAction('products/getProducts');
 	
-	$tweets = $this->requestAction('socialMedia/getTweets');
-	
-	$pageposts = $this->requestAction('socialMedia/getFacebookPosts');
+	$photos = $this->requestAction('socialMedia/getFacebookPictures');
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
@@ -28,7 +26,9 @@
 			$currentUrl = $url . "/articles/" .  $article['Article']['id'];
 		?>
 			<div class="box">
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<div class="center-cropped news" style="background-image: url('<?php echo $article['Article']['Photo']; ?>');">
+					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				</div>
 				<span class="heading">NEWS</span>
 				<div class="description">
 					<h2><?php echo $article['Article']['Title']; ?></h2>
@@ -40,7 +40,7 @@
 							<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
 							<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 						</ul>
-						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+						<a href="/articles/view/<?php print($article['Article']['id']);?>" class="button yellow">READ FULL ARTICLE</a>
 					</div>
 				</div>
 			</div>	
@@ -49,60 +49,15 @@
 			//Don't display more than 4 articles
 			if($count == 4) break;
 			//After the third article, display the social media links
-			if($count == 2){
-			?>
-				<div class="facebook_box box">
-					<h1>FACEBOOK</h1>
-					<ul>
-						<?php
-							for($i = 0; $i < 2; $i++):
-						?>
-						<li>
-							<span>
-								<?php
-									//Take the facebook date info and format it to: 01 Januari 2000
-									$datetime = new DateTime($pageposts['data'][$i]['created_time']);
-									echo $datetime->format('d M Y');
-								?>
-							</span>
-							<a href="https://www.facebook.com/husqvarnamxgp"><?php echo $pageposts['data'][$i]['message']; ?></a>
-						</li>
-						
-						<?php
-							endfor;
-						?>
-					</ul>
-					<a href="https://www.facebook.com/JMRacingTeamMX" class="button">JOIN OUR FACEBOOK</a>
-				</div>
-				<div class="facebook_box twitter_box box">
-					<h1>TWITTER</h1>
-					<ul>
-						<?php
-							for($i = 0; $i < 2; $i++):
-						?>
-						<li>
-							<span>
-								<?php 
-									$datetime = new DateTime($tweets[$i]['created_at']);
-									echo $datetime->format('d M Y');
-								?>
-							</span>
-							<a href="https://twitter.com/HusqvarnaMXGP"><?php echo $tweets[$i]['text'] ?></a>
-						</li>
-						<?php
-							endfor;
-						?>
-					</ul>
-					<a href="https://twitter.com/JMRacingMX" class="button">FOLLOW ON TWITTER</a>
-				</div>
-			<?php
-			}
+			if($count == 2) print($this->element('socialmedia'));
 		}
+		//If there are less than 2 articles, show the social media links anyway.
+		if($count < 2) print($this->element('socialmedia'));
 		//After the articles, show the merchandise and team
 	?>
 	<div class="box team_col">
 		<a href="#">
-			<img src="/images/home_img3.jpg" alt="">
+			<div class="center-cropped" style="background-image: url('/images/home_img3.jpg');"></div>
 			<span class="overlay">&nbsp;</span>
 			<span class="heading">TEAM</span>
 		</a>
@@ -110,7 +65,7 @@
 	</div>
 	<div class="box team_col">
 		<a href="#">
-			<img src="/images/home_img4.jpg" alt="">
+			<div class="center-cropped" style="background-image: url('/images/home_img4.jpg');"></div>
 			<span class="overlay">&nbsp;</span>
 			<span class="heading">TEAM</span>
 		</a>
@@ -118,27 +73,18 @@
 	</div>
 	<?php if(isset($products[0])){ ?>
 	<div class="box team_col">
-		<a href="#">
-			<img src=<?php echo $products[0]['Product']['Image'];?> alt="">
+		<a href="products">
+			<div class="center-cropped" style="background-image: url('<?php echo $products[0]['Product']['Image'];?>');"></div>
 			<span class="overlay">&nbsp;</span>
 			<span class="heading blue">MERCHANDISE</span>
 		</a>
-		<p class="era"><?php echo $products[0]['Product']['Name'] ?> &nbsp;&nbsp; 
-		<?php 
-			if($products[0]['Product']['DiscountPrice'] > 0){
-				echo ('<del>&euro;'.$products[0]['Product']['Price'].'</del> &nbsp;&nbsp;  <span>&euro;'.$products[0]['Product']['DiscountPrice'].'</span></p>');
-			}
-			else{
-				echo ('<span>&euro;'.$products[0]['Product']['Price'].'</span></p>');
-			}
-		?>
 	</div>
 	<?php } ?>
 	<div class="box team_col">
-		<img src="/images/home_img8.jpg" alt="">
+		<div class="center-cropped" style="background-image: url('<?php echo $photos[17]['source'];?>');"></div>
 		<span class="overlay">&nbsp;</span>
 		<span class="heading blue">VIDEO</span>
-		<a href="#" class="play_button"><img src="/images/play_button.png" alt=""></a>
+		<a href="https://www.facebook.com/media/set/?set=vb.628475897212573&type=2" class="play_button"><img src="/images/play_button.png" alt=""></a>
 	</div>
 	<!-- When requesting to show more news, simply link to a page with all news -->
 	<div class="load_more">

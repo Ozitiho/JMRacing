@@ -36,7 +36,7 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 							<li class="twitter"><a href="#">&nbsp;</a></li>
 							<li class="google"><a href="#">&nbsp;</a></li>
 						</ul>
-						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+						<a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,9 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 			else {
 			?>
 			<div class="box">
-				<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<div class="center-cropped news" style="background-image: url('<?php echo $article['Article']['Photo']; ?>');">
+					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				</div>
 				<span class="heading">NEWS</span>
 				<div class="description">
 					<h2><?php echo $article['Article']['Title']; ?></h2>
@@ -102,7 +104,7 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 							<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
 							<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 						</ul>
-						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+						<a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
 					</div>
 				</div>
 			</div>	

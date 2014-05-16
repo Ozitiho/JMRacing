@@ -36,18 +36,17 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'articles',
-                'action' => 'partial'
+                'controller' => '/',
+                'action' => 'index'
             ),
             'logoutRedirect' => array(
-                'controller' => 'articles',
-                'action' => 'partial',
-                'home'
+                'controller' => '/',
+                'action' => 'index'
             )
         )
     );
 
     public function beforeFilter() {
-        $this->Auth->allow('index', 'view');
+        $this->Auth->allow('index', 'view', 'login', 'home', 'display');
     }
 }

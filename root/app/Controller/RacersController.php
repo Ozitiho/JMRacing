@@ -36,7 +36,7 @@ class RacersController extends AppController {
         }
     }
 
-    public function add() {
+    public function add($test, $test2) {
         if ($this->request->is('post')) {
             $this->Racer->create();
             if ($this->Racer->save($this->request->data)) {
