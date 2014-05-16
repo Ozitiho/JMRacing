@@ -240,7 +240,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 
 .description{width:90%; padding:20px 5%; float:left;}
 .description h2{font:bold 18px 'Asap'; color:#002752; line-height:24px; float:left; width:100%;}
-.input, .submit, .legend, .description p{width:100%; float:left; font:normal 14px 'Asap'; color:#828d9f; line-height:24px; padding:0 0 25px;}
+.input, .submit, .legend, .description p{width:100%; float:left; font:normal 14px 'Asap'; color:#828d9f; line-height:24px; padding:0 0 5px;}
 .submit input {margin-top: 25px; margin-left: 25px; background-color: #FFF;}
 .input input {float: right;}
 
@@ -257,6 +257,38 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .share a.button:hover{background:#FFCC00;}
 .share a.yellow:hover{background:#FFCC00; color:#000;}
 
+.center-cropped {
+    width: 100%;
+    height: 157px;
+    background-position: center center;
+    background-repeat: no-repeat;
+	background-size: cover;	
+    overflow: hidden;
+}
+
+.center-cropped.news {
+	height: 216px;
+	border-bottom:1px solid #bac0c9;
+}
+.image_left .center-cropped {
+	height: 464px;
+}
+.center-cropped.photos {
+	height: 105px;
+}
+
+/* Set the image to fill its parent and make transparent */
+.center-cropped img {
+   min-height: 100%;
+   min-width: 100%;
+
+   /* IE 8 */
+   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   /* IE 5-7 */
+   filter: alpha(opacity=0);
+   /* modern browsers */
+   opacity: 0;
+}
 
 .team_col .heading{background:#ffcc00; color:#000;}
 .team_col .blue{background:#003978; color:#fff;}
@@ -269,6 +301,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
                text-align:center; position:absolute; left:0; bottom:15px;}
 .team_col .era del{color:#828d9f;}
 .team_col .era span{color:#55ac0e;}
+.prodname{clear: both;}
 
 .box a.play_button{position:absolute; left:50%; top:50%; z-index:11; margin:-40px 0 0 -40px; border:0;}
 .box a.play_button img{margin:0; border:0;}
@@ -646,6 +679,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .all_events .light_gray{margin:0px 0 0; padding:5px 10px;}
     .events_logo{margin-top:10px;}
 
+    .share {position: absolute; bottom: 1em; width: 90%}
     .share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
     .share ul{width:94%;}
     .description p{padding-bottom:15px;}
@@ -677,6 +711,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 
     .only_description .description{width:96%; padding:45px 2% 20px;}
     .description p.big{padding-top:15px;}
+    .description{ height: 260px;}
 
     .cms
     {
@@ -961,6 +996,278 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     {
         width: 90%;
     }
+}
+
+@media only screen and (min-width:980px) and (max-width: 1200px) {
+	.container{width:980px;}
+	header .container{margin-left:-490px; padding-top:10px;}
+	.logo{width:140px;}
+	header .right{width:110px;}
+	header .social_icons a img{width:35px;}
+	.menu_open{width:730px; right:109px;}
+	.menu_open nav > ul > li{font-size:12px; line-height:16px; padding:12px 5px;}
+	.menu_open nav .submenu{min-height:32px;}
+	.menu_open nav{padding-bottom:32px;}
+	.menu_open nav > ul ul li{font-size:12px; line-height:14px; padding:8px 5px;}
+	.submenu{min-height:32px; bottom:-32px;}
+	.search input{width:93%; font-size:14px; line-height:16px; padding:6px 0 6px 1%;}
+	.search input.submit{width:6%; height:29px; background-size:50%;}
+	
+	#menu{margin:-3px 0 0px;}
+	#menu a span{padding:10px 0 45px; font-size:15px; line-height:16px; background-size:25%;}
+	
+	.events #event,.events p.event_text,.results li.race_results{font-size:13px; line-height:16px; padding-top:20px; min-height:40px;}
+	.events #event{background-size:10%;}
+	.events,.time_left,.results,.results li a{min-height:60px;}
+	.results li img{margin:10px 0 0 ;}
+	.results li.race_results{padding:0;}
+	.results li.race_results a span{padding:22px 0; background-size:22%;}
+	
+	.time_left li{font-size:24px; line-height:26px; min-height:44px; width:32px; margin:2px 1px;}
+	.time_left img{margin-right:1px; height:60px;}
+	.equal .right h3{padding-bottom:5px; font-size:14px;}
+	.full_event{bottom:60px;}
+	.equal .right p{line-height:16px; font-size:12px; padding-bottom:5px;}
+	.equal .right a{padding:4px 10px 4px 10px; font-size:12px; line-height:14px; margin:2px 0;}
+	.full_event .heading{padding:10px 0 10px 3%;}
+	
+	.all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
+	
+	.box{width:31.5%;}
+	.facebook_box{width:27.5%;}
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:40%;}
+	.equal .right{width:52%; padding-top:10px;}
+	.events_main{bottom:44px;}
+	.equal .right h1{font-size:18px; line-height:20px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px; font-size:12px; }
+	.all_news{margin-top:-30px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
+	.share ul{width:94%;}
+	.description p{padding-bottom:15px;}
+	.share li{font-size:13px; line-height:19px;}
+	.share li a{margin:0;}
+	
+	/* This is for the max size */
+	.description{ height: 235px;}
+	.share {position: absolute; bottom: 1em; width: 90%}
+
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:14px; line-height:18px;}
+	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
+	.team_col .black{font-size:18px; line-height:20px; left:15px; bottom:10px;}
+	
+	.photos_main li{width:150px; margin:10px 4px;}
+	.F_bottom li p{min-width:188px;}
+	footer p{font-size:13px; line-height:22px;}
+	footer li{padding:0 7px; font-size:13px;}
+	
+	.facebook_box .button{font-size:13px; line-height:18px; padding:7px 10px;}
+	.map_main h2{font-size:26px; line-height:30px;}
+	
+	.map_main .center .map, .map1{height:300px;}
+	.map img{margin-bottom:-30px;}
+	
+	.image_left{width:100%;}
+	.w3{width:31.5%;}
+	.w3 .description{width:94%; padding:20px 3%;}
+	.w2{width:48%;}
+	.box_equal{float:none; width:49.8%;}
+	
+	.results_event td{font-size:12px; line-height:20px;}
+	.results_event h1{font-size:16px; line-height:18px;}
+	.year_events{min-height:341px;}
+	.results_event td.event_r1 span, .results_event td.event_r2 span, .results_event td.event_gp span{width:30px; height:25px; padding-top:5px;}
+	
+	.event_w2{width:31.5%;}
+	.event_w2 .equal .left{width:97.5%;}
+	.event_w2 .equal .right{width:94%; padding:10px 3%;}
+	
+	.inner_container2 .box .font_18, .team_col .font_18{font-size:16px;}
+	
+	.only_description .description{padding-top:45px;}
+	.description p.big{padding-top:15px;}
+	.w3.only_description{width:64%;}
+}
+
+@media only screen and (min-width:750px) and (max-width: 980px) {
+	.container{width:750px;}
+	header .container{margin-left:-375px; padding-top:10px;}
+	.logo{width:100px;}
+	header .right{width:80px;}
+	header .social_icons a img{width:30px;}
+	.menu_open{width:566px; right:79px;}
+	.menu_open nav > ul > li{font-size:10px; line-height:14px; padding:10px 3px;}
+	.menu_open nav > ul ul li{font-size:10px; line-height:14px; padding:6px 3px;}
+	.menu_open nav .submenu{min-height:27px;}
+	.menu_open nav{padding-bottom:27px;}
+	.submenu{min-height:28px; bottom:-27px;}
+	.search input{width:93%; font-size:14px; line-height:16px; padding:5px 0 5px 1%;}
+	.search input.submit{width:6%; height:27px; background-size:50%;}
+	
+	#menu{margin:-4px 0 0px;}
+	#menu a span{padding:10px 0 35px; font-size:14px; line-height:16px; background-size:22%;}
+	
+	.events #event,.events p.event_text,.results li.race_results{font-size:10px; line-height:14px; padding-top:15px; min-height:25px;}
+	.events #event{background-size:10%;}
+	.events,.time_left,.results,.results li a{min-height:40px;}
+	.results li img{margin:5px 0 0 ; width:60px;}
+	.results li.race_results{padding:0;}
+	.results li.race_results a span{padding:14px 0; background-size:22%;}
+	
+	.time_left li{font-size:18px; line-height:20px; min-height:30px; width:25px; margin:2px 1px; padding-top:8px;}
+	.time_left img{margin-right:1px; height:40px;}
+	.equal .right h3{padding-bottom:5px; font-size:14px;}
+	.full_event{bottom:42px;}
+	.equal .right p{line-height:16px; font-size:12px; padding-bottom:5px;}
+	.equal .right a{padding:4px 10px 4px 10px; font-size:12px; line-height:14px; margin:2px 5px 2px 0; clear:none;}
+	.full_event .heading{padding:7px 0 7px 3%; font-size:14px; line-height:18px;}
+	
+	.all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
+	
+	.box{width:31%;}
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:98%;}
+	.equal .left img{width:48%; margin:0.7%;}
+	.equal .right{width:94%; padding:5px 3%;}
+	.all_events,.year_events .all_events{width:94%; padding:5px 3%;}
+	.events_logo{display:none;}
+	.events_main{bottom:32px;}
+	.equal .right h1{font-size:18px; line-height:20px;}
+	
+	header .social_icons a{padding-top:7px;}
+	
+	.all_events .light_gray{margin:0px 0 0; padding:5px 10px; font-size:12px; }
+	.all_news,.inner_container3 .all_news{margin-top:-20px;}
+	.events_logo{margin-top:10px;}
+	
+	.share a.button{width:100%; padding:7px 0; text-align:center; margin:5px 0 0; font-size:13px; line-height:16px;}
+	.facebook_box h1{font-size:24px; line-height:28px; padding-bottom:15px;}
+	.facebook_box{background-size:60%;}
+	.share ul{width:94%;}
+	.description p{padding-bottom:15px; font-size:13px; line-height:19px;}
+	.share li{font-size:13px; line-height:19px;}
+	.description{padding:10px 5%;}
+	.box .heading{font-size:12px; line-height:16px; padding:4px 7px;}
+	.description h2{font-size:16px; line-height:20px;}
+	.share li a{margin:0;}
+	
+	/* This is for the max size */
+	.description{ height: 180px;}
+	.share {position: absolute; bottom: 1em; width: 90%}
+	
+	.facebook_box{ min-height:300px;}
+	.facebook_box li{padding-bottom:20px;}
+	.facebook_box li a{font-size:13px; line-height:18px;}
+	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
+	.team_col .black{font-size:15px; line-height:18px; left:15px; bottom:10px;}
+	
+	.photos_main li{width:150px; margin:10px 4px;}
+	.F_bottom li p{min-width:108px;}
+	footer p.copyright{width:24%;}
+	footer p{font-size:12px; line-height:20px;}
+	footer li{padding:0 4px; font-size:11px;}
+	
+	.facebook_box .button{font-size:13px; line-height:18px; padding:7px 10px;}
+	.map_main h2{font-size:26px; line-height:30px;}
+	
+	.map_main .center .map, .map1{height:220px;}
+	.map img{margin-bottom:-20px;}
+	
+	.box{width:48%;}
+	.facebook_box{width:44%;}
+	.twitter_box{width:43.9%;}
+	
+	
+	.image_left{width:100%;}
+	.w3{width:48%;}
+	.w3 .description{width:90%; padding:10px 5%;}
+	.w2{width:48%;}
+	.box_equal{float:none; width:49.5%;}
+	.box_equal .box{width:96%;}
+	
+	.w3.only_description{width:97.5%;}
+	.only_description .description{padding-top:45px;}
+	.description p.big{padding-top:15px;}
+}
+@media only screen and (max-width:750px) {
+	.container{width:96%; padding-left:2%; padding-right:2%;}
+	header .container{position:relative; margin:0; left:auto; top:auto; background:#002145; padding:10px 2%;}
+	
+	#menu{display:none;}
+	
+	.events_main{position:relative; left:auto; bottom:auto; margin:0; float:none;}
+	.slicknav_menu{display:block;}
+	.events_main .container{padding:0 2%;}
+	.events{width:100%;}
+	.events #event{width:96%; background:url(../images/W_right_arrow.png) no-repeat 95% center;}
+	.full_event{position:relative; left:auto; bottom:auto;}
+	.equal{width:100%;}
+	
+	.events_logo ul{padding:10px 0 0;}
+	.equal .left{width:98%;}
+	.equal .left img{width:48%; margin:0.7%;}
+	.equal .right{width:94%; padding:5px 3%;}
+	.all_events,.year_events .all_events{width:94%; padding:5px 3%;}
+	
+	.events_logo{width:94%; margin:10px 3%; max-width:318px; float:left;}
+	.events p.event_text{width:100%; padding:20px 0; display:none;}
+	
+	.equal .right a,.button,.item .button{width:100%; padding:7px 0; text-align:center;}
+	.facebook_box .button{width:95%; left:1em;}
+	
+	.time_left{width:100%;}
+	.results{width:100%;}
+	
+	.all_news,.inner_container3 .all_news{margin:10px 0 0;}
+	.box{width:100%; margin:10px 0;}
+	.share ul{width:94%; margin:0 0 10px;}
+	.facebook_box{width:93.8%; padding:15px 3%; min-height:200px;}
+	
+	.F_top{text-align:center;}
+	.F_top ul,footer .social_icons{width:100%; text-align:center; float:left;}
+	footer li,footer .social_icons li{float:none; display:inline-block; vertical-align:top;}
+	.F_bottom li p{min-width:50px;}
+	footer li.sep{display:none;}
+	footer .social_icons,.F_top{padding:20px 0 0;}
+	.F_bottom{margin:20px 0 0; padding:20px 0 0;}
+	.F_bottom li{width:100%; padding:0; text-align:center;}
+	
+	footer p.copyright{width:100%; text-align:center; padding:20px 0 0;}
+	.map{height:auto;}
+	footer{margin:-10px 0 0;}
+	
+	.map_main .center .map, .map1{height:200px;}
+	.map img{margin-bottom:-20px;}
+	
+	/*#viewport ul{width:100% !important; left:auto !important; margin:0 !important; text-align:center;}
+	#viewport li{float:none; display:inline-block; margin:10px 0;}
+	#viewport li.clone{display:none;}*/
+	#viewport{width:450px; float:none; margin:0 auto;}
+	#viewport li{width:225px;}
+	
+	.menu_open nav{display:none;}
+	
+	.results li{display:none;}
+	/*.map_main{display:none;}*/
+	.results li.race_results{display:block; width:100%;}
+	.results li.race_results a{background:none; width:100%; padding:0;}
+	.results li.race_results a span{padding-left:4%; width:96%; background-position:95% center;}
+	
+	.image_left{width:100%;}
+	.w3{width:100%;}
+	.w3 .description{width:90%; padding:20px 5%;}
+	
+	.box_equal{float:none; width:100%;}
+	.box_equal .box{width:97.8%;}
+	
+	.only_description .description{padding-top:45px;}
+	.description p.big{padding-top:15px;}
 }
 @media only screen and (max-width: 450px){
     .team_col .era{font-size:14px; bottom:10px; line-height:16px;}
