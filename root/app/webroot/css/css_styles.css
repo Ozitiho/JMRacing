@@ -431,12 +431,12 @@ box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php); vertical-align:top;
 	transition:all 0.5s;}
 .map1{display:none;}
 .map_new{height:auto !important;}
-.map img{margin:0 0 -100px;}
+.map img{margin:0 0 0;}
 
 .map1 #close{position:absolute; top:10px; right:10px; z-index:111; cursor:pointer;}
 .map1 #close img{margin:0 !important;}
 
-.flag {width:100%; text-align: center; height: 100px; float: left; position: absolute;}
+.flag {position: absolute; z-index: 222; top: 0;}
 
 /* ======================================== Footer Styles ============================================ */
 footer{width:100%; background:#002145; padding:0 0 40px; margin:-40px 0 0; float:left; position:relative; z-index:11;}
