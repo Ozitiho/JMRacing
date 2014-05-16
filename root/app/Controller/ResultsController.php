@@ -8,10 +8,6 @@ class ResultsController extends AppController {
     public function index() {
         $this->set('results', $this->Result->find('all'));
     }
-    
-    public function cms() {
-        $this->set('results', $this->Result->find('all'));
-    }
 
     public function view($id = null) {
         if (!$id) {
@@ -30,11 +26,9 @@ class ResultsController extends AppController {
             $this->Result->create();
             if ($this->Result->save($this->request->data)) {
                 $this->Session->setFlash(__('Your result has been saved.'));
-                return $this->redirect(array('action' => 'cms'));
+                return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(
-                    'Unable to add your result.', 'default', array('class' => 'flashError')
-            );
+            $this->Session->setFlash(__('Unable to add your result.'));
         }
     }
 
@@ -44,7 +38,6 @@ class ResultsController extends AppController {
         }
 
         $result = $this->Result->findById($id);
-        $this->set('result', $result);
         if (!$result) {
             throw new NotFoundException(__('Invalid result'));
         }
@@ -53,11 +46,9 @@ class ResultsController extends AppController {
             $this->Result->id = $id;
             if ($this->Result->save($this->request->data)) {
                 $this->Session->setFlash(__('Your result has been updated.'));
-                return $this->redirect(array('action' => 'cms'));
+                return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(
-                    'Unable to update your result.', 'default', array('class' => 'flashError')
-            );
+            $this->Session->setFlash(__('Unable to update your result.'));
         }
 
         if (!$this->request->data) {
@@ -72,9 +63,9 @@ class ResultsController extends AppController {
 
         if ($this->Result->delete($id)) {
             $this->Session->setFlash(
-                    __('The result has been deleted.', h($id))
+                    __('The result with id: %s has been deleted.', h($id))
             );
-            return $this->redirect(array('action' => 'cms'));
+            return $this->redirect(array('action' => 'index'));
         }
     }
 
