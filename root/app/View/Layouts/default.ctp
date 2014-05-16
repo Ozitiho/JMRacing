@@ -29,8 +29,9 @@
 
         $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
-        // Include the sponsors element
+        // Include the sponsors and map element
         print($this->element('sponsors'));
+		print($this->element('map'));
         ?>
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -198,12 +199,9 @@
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
                             <?php
-                            // Fetch the map element
-                            echo $this->fetch('map');
+								// Fetch the map element
+								echo $this->fetch('map');
                             ?>
-                            <div class="flag">
-                                <img src="/images/flag.png">
-                            </div>
                         </div>
                         <div class="clear"></div>
                     </section>
