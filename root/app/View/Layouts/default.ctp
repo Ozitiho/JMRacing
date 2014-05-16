@@ -24,10 +24,10 @@
         echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->fetch('script');
-		
-		
-	
-		$photos = $this->requestAction('socialMedia/getFacebookPictures');
+
+
+
+        $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
         // Include the sponsors element
         print($this->element('sponsors'));
@@ -156,19 +156,19 @@
                             <h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
                             <div class="hide">
                                 <ul>
-									<?php
-										for($i = 0; $i < 16; $i++):
-									?>
-                                    <li>
-										<a href="<?php echo $photos[$i]['link']; ?>"><span>&nbsp;</span>
-											<div class="center-cropped photos" style="background-image: url('<?php echo $photos[$i]['source']; ?>');">
-												<img src="<?php echo $photos[$i]['source']; ?>" alt="">
-											</div>
-										</a>
-									</li>
-									<?php
-										endfor;
-									?>
+                                    <?php
+                                    for ($i = 0; $i < 16; $i++):
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo $photos[$i]['link']; ?>"><span>&nbsp;</span>
+                                                <div class="center-cropped photos" style="background-image: url('<?php echo $photos[$i]['source']; ?>');">
+                                                    <img src="<?php echo $photos[$i]['source']; ?>" alt="">
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <?php
+                                    endfor;
+                                    ?>
                                 </ul>
                                 <a href="https://www.facebook.com/husqvarnamxgp/photos" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
                             </div>
@@ -197,6 +197,10 @@
                         <div class="map map1" id="A_map">
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
+                            <?php
+                            // Fetch the map element
+                            echo $this->fetch('map');
+                            ?>
                             <div class="flag">
                                 <img src="/images/flag.png">
                             </div>
