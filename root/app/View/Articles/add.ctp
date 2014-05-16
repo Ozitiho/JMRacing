@@ -26,7 +26,7 @@ $this->end();
         echo $this->Form->input('Photo');
         echo $this->Form->input('CreateDate');
         echo $this->Form->input('user_id', array('type' => 'hidden', 'default'=>AuthComponent::user('id')));
-        echo $this->Form->end('Save Article');
+        echo $this->Form->end('Add Article');
         ?>
     </fieldset>
 </div>

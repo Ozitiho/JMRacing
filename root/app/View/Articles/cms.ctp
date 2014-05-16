@@ -20,17 +20,15 @@ $this->end();
     </legend>
     <table>
         <tr>
-            <th>Id</th>
             <th>Title</th>
-            <th>CreateDate</th>
-            <th colspan="2">LastUpdatedDate</th>
+            <th>Created</th>
+            <th>Last updated</th>
         </tr>
 
         <!-- Here is where we loop through our $posts array, printing out post info -->
 
         <?php foreach ($articles as $article): ?>
             <tr>
-                <td><?php echo $article['Article']['id']; ?></td>
                 <td>
                     <?php echo $this->Html->link($article['Article']['Title'], array('controller' => 'articles', 'action' => 'view', $article['Article']['id']));
                     ?>
@@ -50,7 +48,7 @@ $this->end();
                 </td>
             </tr>
         <?php endforeach; ?>
-        <?php unset($post); ?>
+        <?php unset($article); ?>
     </table>
     <a href="/articles/add" class="buttonLink">Add Article</a>
 </div>

@@ -13,14 +13,12 @@ $this->end();
     </legend>
     <table>
         <tr>
-            <th>Id</th>
             <th>Name</th>
             <th colspan="2">URL</th>
         </tr>
 
         <?php foreach ($sponsors as $sponsor): ?>
             <tr>
-                <td><?php echo $sponsor['Sponsor']['id']; ?></td>
                 <td>
                     <?php echo $sponsor['Sponsor']['Name'];?>
                 </td>
@@ -38,7 +36,7 @@ $this->end();
                 </td>
             </tr>
         <?php endforeach; ?>
-        <?php unset($post); ?>
+        <?php unset($sponsor); ?>
     </table>
     <a href="/sponsors/add" class="buttonLink">Add Sponsor</a>
 </div>

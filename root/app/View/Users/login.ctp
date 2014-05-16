@@ -6,9 +6,9 @@ $this->start('bannerImage');
 $this->end();
 ?>
 <div class="box users form cms">
-    <?php echo $this->Session->flash(); ?>
     <?php echo $this->Form->create('User'); ?>
     <fieldset>
+        <?php echo $this->Session->flash(); ?>
         <legend class="legend">
             <h1><?php echo __('Please enter your username and password'); ?></h1>
         </legend>

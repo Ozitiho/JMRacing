@@ -1,14 +1,19 @@
 <?php
 
 class ProductsController extends AppController {
+
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
     public function index() {
         $this->set('products', $this->Product->find('all'));
     }
-	
-	public function getProducts() {
+
+    public function cms() {
+        $this->set('products', $this->Product->find('all'));
+    }
+
+    public function getProducts() {
         return $this->Product->find('all');
     }
 
@@ -25,49 +30,71 @@ class ProductsController extends AppController {
     }
 
     public function add() {
+        // Make all sizes available for the dropdown menu
+        $this->possibleSizes();
+        
         if ($this->request->is('post')) {
             $this->Product->create();
             if ($this->Product->save($this->request->data)) {
                 $this->Session->setFlash(__('Your product has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to add your product.'));
+            $this->Session->setFlash(
+                    'Unable to add your product.', 'default', array('class' => 'flashError')
+            );
         }
     }
-	
-	public function edit($id = null) {
-		if (!$id) {
-			throw new NotFoundException(__('Invalid product'));
-		}
 
-		$product = $this->Product->findById($id);
-		if (!$product) {
-			throw new NotFoundException(__('Invalid product'));
-		}
+    public function edit($id = null) {
+        if (!$id) {
+            throw new NotFoundException(__('Invalid product'));
+        }
 
-		if ($this->request->is(array('product', 'put'))) {
-			$this->Product->id = $id;
-			if ($this->Product->save($this->request->data)) {
-				$this->Session->setFlash(__('Your product has been updated.'));
-				return $this->redirect(array('action' => 'index'));
-			}
-			$this->Session->setFlash(__('Unable to update your product.'));
-		}
+        $product = $this->Product->findById($id);
+        if (!$product) {
+            throw new NotFoundException(__('Invalid product'));
+        }
+        
+        // Make all sizes available for the dropdown menu
+        $this->possibleSizes();
 
-		if (!$this->request->data) {
-			$this->request->data = $product;
-		}
-	}
-	public function delete($id) {
-		if ($this->request->is('get')) {
-			throw new MethodNotAllowedException();
-		}
+        if ($this->request->is(array('product', 'put'))) {
+            $this->Product->id = $id;
+            if ($this->Product->save($this->request->data)) {
+                $this->Session->setFlash(__('Your product has been updated.'));
+                return $this->redirect(array('action' => 'cms'));
+            }
+            $this->Session->setFlash(
+                    'Unable to update your product.', 'default', array('class' => 'flashError')
+            );
+        }
 
-		if ($this->Product->delete($id)) {
-			$this->Session->setFlash(
-				__('The product with id: %s has been deleted.', h($id))
-			);
-			return $this->redirect(array('action' => 'index'));
-		}
-	}
+        if (!$this->request->data) {
+            $this->request->data = $product;
+        }
+    }
+
+    public function delete($id) {
+        if ($this->request->is('get')) {
+            throw new MethodNotAllowedException();
+        }
+
+        if ($this->Product->delete($id)) {
+            $this->Session->setFlash(
+                    __('The product has been deleted.', h($id))
+            );
+            return $this->redirect(array('action' => 'cms'));
+        }
+    }
+
+    public function possibleSizes() {
+        $sizes = array("s" => "S", "m" => "M", "l" => "L", "xl" => "XL");
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $sizes;
+        } else {
+            $this->set('sizes', $sizes);
+        }
+    }
+
 }

@@ -1358,6 +1358,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 {
     width: 100%;
     resize: vertical;
+    border: 1px solid #000;
 }
 
 .cms a:hover
