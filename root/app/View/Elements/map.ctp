@@ -9,8 +9,8 @@ if ($events) {
 	foreach ($events as $event) {
 		//if($event['Event']['id'] == 16){
 			// Calculate flag position
-			$marginTop = (20 + (((($event['Event']['Latitude'] * 100) / 85) * 20) / 100));
-			$marginLeft = (40 + (((($event['Event']['Longitude'] * 100) / 180) * 40) / 100));
+			$marginTop = (20.5 - (((($event['Event']['Latitude'] * 100) / 85) * 18.5) / 100));
+			$marginLeft = (38.5 + (((($event['Event']['Longitude'] * 100) / 180) * 32.5) / 100));
 			
 			print("
 				<div class='flag' style='margin-left:".$marginLeft."%;margin-top:".$marginTop."%;'>
