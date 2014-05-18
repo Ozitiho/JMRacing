@@ -8,12 +8,12 @@ class Product extends AppModel {
         ),
         'Price' => array(
             'rule' => array('numeric', 'notEmpty'),
+            'message' => 'Prices can only contain digits.'
         ),
         'DiscountPrice' => array(
-            'rule' => 'numeric'
-        ),
-        'Size' => array(
-            'lettersOnly', 'notEmpty'
+            'rule' => 'numeric',
+            'allowEmpty' => true,
+            'message' => 'Prices can only contain digits.'
         ),
         'Image' => array(
             'rule' => array('url', 'notEmpty'),

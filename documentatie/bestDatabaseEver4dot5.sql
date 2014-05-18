@@ -47,6 +47,14 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racers` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(200) NOT NULL ,
   `RacerNumber` INT NOT NULL ,
+  `Biography` TEXT NOT NULL ,
+  `DateOfBirth` DATE NOT NULL ,
+  `PlaceOfBirth` VARCHAR(100) NOT NULL ,
+  `Nationality` VARCHAR(100) NOT NULL ,
+  `Residence` VARCHAR(100) NOT NULL ,
+  `Height` INT NOT NULL ,
+  `Weight` INT NOT NULL ,
+  `Hardware` VARCHAR(150) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -155,8 +163,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`) VALUES (1, 'Aleksandr Tonkov', 59);
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`) VALUES (2, 'Romain Febvre', 461);
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer');
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets');
 
 COMMIT;
 
@@ -172,17 +180,17 @@ INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`
 INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (5, 'Bulgaria', 'Sevlievo', 'beschrijving', NULL, NULL, NULL, '2014-04-20');
 INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (6, 'Netherlands', 'Valkenswaard', 'beschrijving', NULL, NULL, NULL, '2014-05-04');
 INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (7, 'Spain', 'Talavera de la Reina', 'beschrijving', NULL, NULL, NULL, '2014-05-11');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', NULL, NULL, NULL, '2014-05-25');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (9, 'France', 'Saint Jean d\'Angely', 'beschrijving', NULL, NULL, NULL, '2014-06-01');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (10, 'Italy', 'Maggiora', 'beschrijving', NULL, NULL, NULL, '2014-06-15');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (11, 'Germany', 'Teutschenthal', 'beschrijving', NULL, NULL, NULL, '2014-06-22');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (12, 'Sweden', 'Uddevalla', 'beschrijving', NULL, NULL, NULL, '2014-07-06');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (13, 'Finland', 'Hyvinkää', 'beschrijving', NULL, NULL, NULL, '2014-07-13');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (14, 'Czech Republic', 'Loket', 'beschrijving', NULL, NULL, NULL, '2014-07-27');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (15, 'Belgium', 'TBA', 'beschrijving', NULL, NULL, NULL, '2014-08-03');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', NULL, NULL, NULL, '2014-08-17');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (17, 'State of Goias', 'Goiania', 'beschrijving', NULL, NULL, NULL, '2014-09-07');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (18, 'Mexico', 'Leon', 'beschrijving', NULL, NULL, NULL, '2014-09-14');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', NULL, '55.378051', '-3.435973', '2014-05-25');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (9, 'France', 'Saint Jean d\'Angely', 'beschrijving', NULL, '45.944823', '-0.517763', '2014-06-01');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (10, 'Italy', 'Maggiora', 'beschrijving', NULL, '45.686217', '8.419272', '2014-06-15');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (11, 'Germany', 'Teutschenthal', 'beschrijving', NULL, '51.447752', '11.798088', '2014-06-22');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (12, 'Sweden', 'Uddevalla', 'beschrijving', NULL, '58.349800', '11.935649', '2014-07-06');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (13, 'Finland', 'Hyvinkää', 'beschrijving', NULL, '60.631811', '24.857883', '2014-07-13');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (14, 'Czech Republic', 'Loket', 'beschrijving', NULL, '50.186012', '12.754063', '2014-07-27');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (15, 'Belgium', 'TBA', 'beschrijving', NULL, '50.850000', '4.350000', '2014-08-03');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', NULL, '48.296212', '37.270004', '2014-08-17');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (17, 'State of Goias', 'Goiania', 'beschrijving', NULL, '-16.686891', '-49.264794', '2014-09-07');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (18, 'Mexico', 'Leon', 'beschrijving', NULL, '21.129201', '-101.672675', '2014-09-14');
 
 COMMIT;
 

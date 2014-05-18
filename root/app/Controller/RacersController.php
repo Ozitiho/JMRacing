@@ -9,8 +9,8 @@ class RacersController extends AppController {
 
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
-
-    public function index() {
+    
+    public function cms() {
         $this->set('racers', $this->Racer->find('all'));
     }
 
@@ -41,9 +41,11 @@ class RacersController extends AppController {
             $this->Racer->create();
             if ($this->Racer->save($this->request->data)) {
                 $this->Session->setFlash(__('Your racer has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to add your racer.'));
+            $this->Session->setFlash(
+                    'Unable to add your racer.', 'default', array('class' => 'flashError')
+            );
         }
     }
 
@@ -61,9 +63,11 @@ class RacersController extends AppController {
             $this->Racer->id = $id;
             if ($this->Racer->save($this->request->data)) {
                 $this->Session->setFlash(__('Your racer has been updated.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to update your post.'));
+            $this->Session->setFlash(
+                    'Unable to update your racer.', 'default', array('class' => 'flashError')
+            );
         }
 
         if (!$this->request->data) {
@@ -78,9 +82,9 @@ class RacersController extends AppController {
 
         if ($this->Racer->delete($id)) {
             $this->Session->setFlash(
-                    __('The racer with id: %s has been deleted.', h($id))
+                    __('The racer has been deleted.', h($id))
             );
-            return $this->redirect(array('action' => 'index'));
+            return $this->redirect(array('action' => 'cms'));
         }
     }
     

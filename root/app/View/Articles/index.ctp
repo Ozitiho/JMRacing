@@ -36,7 +36,7 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 							<li class="twitter"><a href="#">&nbsp;</a></li>
 							<li class="google"><a href="#">&nbsp;</a></li>
 						</ul>
-						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+						<a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@ $pageposts = $this->requestAction('socialMedia/getFacebookPosts');
 							<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
 							<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 						</ul>
-						<a href="#" class="button yellow">READ FULL ARTICLE</a>
+						<a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
 					</div>
 				</div>
 			</div>	

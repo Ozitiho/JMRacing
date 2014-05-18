@@ -15,6 +15,10 @@ class EventsController extends AppController {
         $this->getEventsByYear(date("Y"));
     }
 
+    public function cms() {
+        $this->set('events', $this->Event->find('all'));
+    }
+
     public function view($id = null) {
         if (!$id) {
             throw new NotFoundException(__('Invalid event'));
@@ -32,9 +36,12 @@ class EventsController extends AppController {
             $this->Event->create();
             if ($this->Event->save($this->request->data)) {
                 $this->Session->setFlash(__('Your event has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to add your event.'));
+
+            $this->Session->setFlash(
+                    'Unable to add your event.', 'default', array('class' => 'flashError')
+            );
         }
     }
 
@@ -44,6 +51,8 @@ class EventsController extends AppController {
         }
 
         $event = $this->Event->findById($id);
+        $this->set('event', $event);
+
         if (!$event) {
             throw new NotFoundException(__('Invalid event'));
         }
@@ -52,9 +61,11 @@ class EventsController extends AppController {
             $this->Event->id = $id;
             if ($this->Event->save($this->request->data)) {
                 $this->Session->setFlash(__('Your event has been updated.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to update your event.'));
+            $this->Session->setFlash(
+                    'Unable to update your event.', 'default', array('class' => 'flashError')
+            );
         }
 
         if (!$this->request->data) {
@@ -69,9 +80,9 @@ class EventsController extends AppController {
 
         if ($this->Event->delete($id)) {
             $this->Session->setFlash(
-                    __('The event with id: %s has been deleted.', h($id))
+                    __('The event has been deleted.', h($id))
             );
-            return $this->redirect(array('action' => 'index'));
+            return $this->redirect(array('action' => 'cms'));
         }
     }
 

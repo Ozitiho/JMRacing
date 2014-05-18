@@ -12,17 +12,9 @@ class SponsorsController extends AppController {
             $this->set('sponsors', $this->Sponsor->find('all'));
         }
     }
-
-    public function view($id = null) {
-        if (!$id) {
-            throw new NotFoundException(__('Invalid sponsor'));
-        }
-
-        $sponsor = $this->Sponsor->findById($id);
-        if (!$sponsor) {
-            throw new NotFoundException(__('Invalid sponsor'));
-        }
-        $this->set('sponsor', $sponsor);
+    
+    public function cms() {
+        $this->set('sponsors', $this->Sponsor->find('all'));
     }
 
     public function add() {
@@ -30,9 +22,11 @@ class SponsorsController extends AppController {
             $this->Sponsor->create();
             if ($this->Sponsor->save($this->request->data)) {
                 $this->Session->setFlash(__('Your sponsor has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to add your sponsor.'));
+            $this->Session->setFlash(
+                    'Unable to add your sponsor.', 'default', array('class' => 'flashError')
+            );
         }
     }
 
@@ -50,9 +44,11 @@ class SponsorsController extends AppController {
             $this->Sponsor->id = $id;
             if ($this->Sponsor->save($this->request->data)) {
                 $this->Session->setFlash(__('Your sponsor has been updated.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
-            $this->Session->setFlash(__('Unable to update your sponsor.'));
+            $this->Session->setFlash(
+                    'Unable to update your sponsor.', 'default', array('class' => 'flashError')
+            );
         }
 
         if (!$this->request->data) {
@@ -67,9 +63,9 @@ class SponsorsController extends AppController {
 
         if ($this->Sponsor->delete($id)) {
             $this->Session->setFlash(
-                    __('The sponsor with id: %s has been deleted.', h($id))
+                    __('The sponsor has been deleted.', h($id))
             );
-            return $this->redirect(array('action' => 'index'));
+            return $this->redirect(array('action' => 'cms'));
         }
     }
 
