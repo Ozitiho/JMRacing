@@ -18,6 +18,12 @@ class Product extends AppModel {
         'Image' => array(
             'rule' => array('url', 'notEmpty'),
             'message' => 'This is no valid URL.'
+        ),
+        'Size' => array(
+            'valid' => array(
+                'rule' => array('inList', array('s', 'm', 'l', 'xl')),
+                'allowEmpty' => false
+            )
         )
     );
 

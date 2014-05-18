@@ -30,8 +30,6 @@ class ProductsController extends AppController {
     }
 
     public function add() {
-        // Make all sizes available for the dropdown menu
-        $this->possibleSizes();
         
         if ($this->request->is('post')) {
             $this->Product->create();
@@ -54,9 +52,6 @@ class ProductsController extends AppController {
         if (!$product) {
             throw new NotFoundException(__('Invalid product'));
         }
-        
-        // Make all sizes available for the dropdown menu
-        $this->possibleSizes();
 
         if ($this->request->is(array('product', 'put'))) {
             $this->Product->id = $id;
@@ -86,15 +81,4 @@ class ProductsController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
-
-    public function possibleSizes() {
-        $sizes = array("s" => "S", "m" => "M", "l" => "L", "xl" => "XL");
-
-        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
-            return $sizes;
-        } else {
-            $this->set('sizes', $sizes);
-        }
-    }
-
 }

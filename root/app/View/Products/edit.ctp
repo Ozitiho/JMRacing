@@ -17,7 +17,8 @@ $this->end();
         echo $this->Form->input('Name');
         echo $this->Form->input('Price');
         echo $this->Form->input('DiscountPrice');
-        echo $this->Form->input('Size', array('type' => 'select', 'options' => $sizes, 'default' => ''));
+        echo $this->Form->input('Size', array('type' => 'select', 'options' =>
+            array("none" => "None", "s" => "S", "m" => "M", "l" => "L", "xl" => "XL")));
         echo $this->Form->input('Image');
         echo $this->Form->end('Edit Product');
         ?>

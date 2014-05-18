@@ -9,34 +9,36 @@ $this->end();
 <div class="box users form cms cmsIndex">
     <?php echo $this->Session->flash(); ?>
     <legend class="legend">
-        <h1>Sponsors</h1>
+        <h1>Users</h1>
     </legend>
     <table>
         <tr>
-            <th>Name</th>
-            <th>URL</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Created</th>
         </tr>
 
-        <?php foreach ($sponsors as $sponsor): ?>
+        <?php foreach ($users as $user): ?>
             <tr>
                 <td>
-                    <?php echo $sponsor['Sponsor']['Name'];?>
+                    <?php echo $user['User']['username'];?>
                 </td>
-                <td><?php echo $sponsor['Sponsor']['URL']; ?></td>
+                <td><?php echo $user['User']['role']; ?></td>
+                <td><?php echo $user['User']['created']; ?></td>
                 <td>
                     <?php
                     echo $this->Html->link(
-                            'Edit', array('action' => 'edit', $sponsor['Sponsor']['id'])
+                            'Edit', array('action' => 'edit', $user['User']['id'])
                     );
                     echo " | ";
                     echo $this->Form->postLink(
-                            'Delete', array('action' => 'delete', $sponsor['Sponsor']['id']), array('confirm' => 'Are you sure?')
+                            'Delete', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Are you sure?')
                     );
                     ?>
                 </td>
             </tr>
         <?php endforeach; ?>
-        <?php unset($sponsor); ?>
+        <?php unset($user); ?>
     </table>
-    <a href="/sponsors/add" class="buttonLink">Add Sponsor</a>
+    <a href="/users/add" class="buttonLink">Add User</a>
 </div>
