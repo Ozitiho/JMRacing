@@ -1,6 +1,10 @@
 <?php
 
 class ProductsController extends AppController {
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('getProducts', 'index');
+    }
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 

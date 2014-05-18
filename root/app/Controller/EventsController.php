@@ -4,7 +4,7 @@ class EventsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('countDown', 'getUpcomingEvents', 'getEventsByYear');
+        $this->Auth->allow('countDown', 'getUpcomingEvents', 'getEventsByYear', 'index');
     }
 
     public $helpers = array('Html', 'Form', 'Session');

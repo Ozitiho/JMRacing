@@ -6,7 +6,7 @@ class ArticlesController extends AppController {
 	
 	public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('partial');
+        $this->Auth->allow('index', 'view', 'getShortenedArticles');
     }
 	
     public function index() {
@@ -34,23 +34,6 @@ class ArticlesController extends AppController {
 		
         $this->set('articles', $articles);
     }
-	
-	public function partial() {
-		$articles = $this->Article->find('all', 
-                    array('order' => array('id' => 'desc')));
-		
-		foreach($articles as $key => $article){
-			// Shorten body
-			$string = $article['Article']['Message'];
-			if (strlen($string) > 116){
-				$string = substr($string, 0, 113);
-				$string .= '...';
-				$articles[$key]['Article']['Message'] = $string;
-			}
-		}
-		
-        $this->set('articles', $articles);
-	}
 	
 	public function getShortenedArticles() {
 		$articles = $this->Article->find('all', 

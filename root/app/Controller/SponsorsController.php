@@ -2,11 +2,6 @@
 
 class SponsorsController extends AppController {
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('add', 'edit');
-    }
-
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
