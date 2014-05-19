@@ -36,8 +36,8 @@ class SocialMediaController extends AppController {
 		
 		function shorten($string)
 		{
-			if (strlen($string) > 116){
-				$string = substr($string, 0, 113);
+			if (strlen($string) > 140){
+				$string = substr($string, 0, 137);
 				$string .= '...';
 			}
 			return $string;

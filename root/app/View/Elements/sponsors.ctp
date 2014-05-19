@@ -1,11 +1,11 @@
 <?php
-$this->start('sponsors');
+	$this->start('sponsors');
 
-// Get the sponsors
-$sponsors = $this->requestAction('sponsors/index');
+	// Get the sponsors
+	$sponsors = $this->requestAction('sponsors/index');
 
-// Only show the sponsors if there are any
-if ($sponsors) {
+	// Only show the sponsors if there are any
+	if ($sponsors) {
     ?>
     <div class="logos_slider">
         <div class="span-24 prepend-top last" id="slider"> 
@@ -28,7 +28,7 @@ if ($sponsors) {
         </div>
     </div>
     <?php
-}
+	}
 ?>
 
 <?php $this->end(); ?>

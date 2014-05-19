@@ -316,11 +316,11 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .news_items .box{width:50%;}
 
 .facebook_box{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; float:left; border:1px solid #fff;
-              height:320px; padding:20px 1.9% 0; width:19%;}
+              padding:20px 1.9% 0; width:19%;}
 .facebook_box h1{font:bold 32px 'Asap'; padding:0 0 30px; color:#ffffff; line-height:32px; width:100%; float:left;}
 .facebook_box li{width:100%; float:left; padding:0 0 30px;}
 .facebook_box span{width:100%; float:left; font:normal 12px 'Asap'; color:#ffffff; line-height:24px;}
-.facebook_box li a{font:bold 16px 'Asap'; color:#ffffff; line-height:24px;}
+.facebook_box li a{font:bold 16px 'Asap'; color:#ffffff; line-height:24px; word-wrap: break-word;}
 .facebook_box .button{float:right; color:#2f6cb0; background:#e0e9f3; position: absolute; bottom: 1em; right: 1em;}
 .facebook_box .button:hover{background:#ffffff;}
 
@@ -623,8 +623,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .share ul{padding:5px 2%;}
     .share li{font-size:13px; line-height:19px;}
     .share li a{margin:0;}
-
-    .facebook_box{padding:10px 1%; width:20.6%; min-height:300px;}
+	
+    .facebook_box{padding:10px 1%; width:20.6%; height:340px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:15px; line-height:22px;}
     .team_col .era{font-size:16px; line-height:22px;}
