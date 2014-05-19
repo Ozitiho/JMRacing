@@ -12,6 +12,10 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
 
+    public function cms() {
+        $this->set('users', $this->User->find('all'));
+    }
+
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
@@ -40,10 +44,10 @@ class UsersController extends AppController {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
             $this->Session->setFlash(
-                    __('The user could not be saved. Please, try again.')
+                    'Unable to add your user.', 'default', array('class' => 'flashError')
             );
         }
     }
@@ -56,10 +60,10 @@ class UsersController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'cms'));
             }
             $this->Session->setFlash(
-                    __('The user could not be saved. Please, try again.')
+                    'Unable to update your user.', 'default', array('class' => 'flashError')
             );
         } else {
             $this->request->data = $this->User->read(null, $id);
@@ -75,11 +79,11 @@ class UsersController extends AppController {
             throw new NotFoundException(__('Invalid user'));
         }
         if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'));
-            return $this->redirect(array('action' => 'index'));
+            $this->Session->setFlash(
+                    __('The user has been deleted.', h($id))
+            );
+            return $this->redirect(array('action' => 'cms'));
         }
-        $this->Session->setFlash(__('User was not deleted'));
-        return $this->redirect(array('action' => 'index'));
     }
 
 }

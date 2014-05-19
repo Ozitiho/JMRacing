@@ -25,8 +25,6 @@
         echo $this->fetch('css');
         echo $this->fetch('script');
 
-
-
         $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
         // Include the sponsors and map element
@@ -34,9 +32,7 @@
 		print($this->element('map'));
         ?>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/css/css_styles.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
         <script src="/js/jquery00.js" type="text/javascript"></script>
         <script src="/js/jquery.slicknav.js" type="text/javascript"></script>

@@ -85,13 +85,26 @@ class ArticlesController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Article->create();
-            if ($this->Article->save($this->request->data)) {
-                $this->Session->setFlash(__('Your article has been saved.'));
-                return $this->redirect(array('action' => 'cms'));
-            }
-            $this->Session->setFlash(
-                    'Unable to add your article.', 'default', array('class' => 'flashError')
-            );
+            
+			// Check if image has been uploaded
+			if (is_uploaded_file($this->data['Article']['Photo']['tmp_name'])) {
+				move_uploaded_file(
+					$this->request->data['Article']['Photo']['tmp_name'],
+					'images/' . $this->request->data['Article']['Photo']['name']
+				);
+
+				// Store the filename in the array to be saved to the db
+				$this->request->data['Article']['Photo'] = $this->request->data['Article']['Photo']['name'];
+			}
+
+			// Now do the save		
+			if ($this->Article->save($this->request->data)) {
+				$this->Session->setFlash(__('Your article has been saved.'));
+				return $this->redirect(array('action' => 'cms'));
+			}
+			$this->Session->setFlash(
+					'Unable to add your article.', 'default', array('class' => 'flashError')
+			);
         }
     }
 
