@@ -137,7 +137,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`users` (`id`, `username`, `password`, `role`, `created`, `modified`) VALUES (1, 'Admin', 'geheim', 'de baas', '2014-05-08', NULL);
+INSERT INTO `JMRacing`.`users` (`id`, `username`, `password`, `role`, `created`, `modified`) VALUES (1, 'jirn11', '29480a2cb40cee5d0616ae74b323c1d6f74491a1', 'admin', '2014-05-08', NULL);
 
 COMMIT;
 
