@@ -1303,6 +1303,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     color: #828D9F;
     font-size: 14px;
     overflow: hidden;
+    width: 50%;
+    margin-top: -15%;
 }
 
 .cms h1

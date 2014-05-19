@@ -154,5 +154,15 @@ class EventsController extends AppController {
             $this->set('yearEvents', $events);
         }
     }
+    
+    public function getEventById($id) {
+        $event = $this->Event->findById($id);
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $event;
+        } else {
+            $this->set('event', $event);
+        }
+    }
 
 }

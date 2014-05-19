@@ -9,13 +9,13 @@ class RacersController extends AppController {
 
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
-    
+
     public function cms() {
         $this->set('racers', $this->Racer->find('all'));
     }
 
     public function view($id = null) {
-		// Set ID for racer
+        // Set ID for racer
         if (!$id) {
             throw new NotFoundException(__('Invalid post'));
         }
@@ -25,11 +25,11 @@ class RacersController extends AppController {
             throw new NotFoundException(__('Invalid post'));
         }
         $this->set('racer', $racer);
-		
-		// Set results
-		$results = $this->Racer->Result->find('all');
-		
-		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+
+        // Set results
+        $results = $this->Racer->Result->find('all');
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $results;
         } else {
             $this->set('results', $results);
@@ -87,7 +87,7 @@ class RacersController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
-    
+
     public function getRacerResults() {
         $results = $this->Racer->find('all', array(
             'contain' => array('Result')
@@ -97,6 +97,16 @@ class RacersController extends AppController {
             return $results;
         } else {
             $this->set('racerResults', $results);
+        }
+    }
+
+    public function getRacerById($id) {
+        $racer = $this->Racer->findById($id);
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $racer;
+        } else {
+            $this->set('racer', $racer);
         }
     }
 

@@ -85,5 +85,15 @@ class UsersController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
+    
+    public function getUserById($id) {
+        $user = $this->User->findById($id);
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $user;
+        } else {
+            $this->set('user', $user);
+        }
+    }
 
 }
