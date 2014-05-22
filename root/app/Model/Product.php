@@ -21,7 +21,7 @@ class Product extends AppModel {
         ),
         'Size' => array(
             'valid' => array(
-                'rule' => array('inList', array('s', 'm', 'l', 'xl')),
+                'rule' => array('inList', array('none', 's', 'm', 'l', 'xl')),
                 'allowEmpty' => false
             )
         )

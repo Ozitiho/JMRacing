@@ -27,9 +27,10 @@
 
         $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
-        // Include the sponsors and map element
+        // Include the elements
         print($this->element('sponsors'));
 		print($this->element('map'));
+		print($this->element('next_race'));
         ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -91,7 +92,7 @@
                                     <li class="sep">|</li>
                                     <li><a href="/events">CALENDAR &amp; RESULTS</a></li>
                                     <li class="sep">|</li>
-                                    <li><a href="#">PHOTOS &amp; MOVIES</a></li>
+                                    <li><a href="https://www.facebook.com/husqvarnamxgp/photos_albums">PHOTOS &amp; MOVIES</a></li>
                                     <li class="sep">|</li>
                                     <li><a href="/products">MERCHANDISE</a></li>
                                     <li class="sep">|</li>
@@ -167,7 +168,7 @@
                                     endfor;
                                     ?>
                                 </ul>
-                                <a href="https://www.facebook.com/husqvarnamxgp/photos" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
+                                <a href="https://www.facebook.com/husqvarnamxgp/photos_albums" class="all_videos">SEE ALL PHOTOS &amp; VIDEOS</a>
                             </div>
                         </div>
                         <div class="shadow">
@@ -183,8 +184,11 @@
                             <div class="hide">
                                 <img src="/images/direction_icon.png" alt="">
 
-                                <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong> 45°56’48’’N 0°31’46’’W</h2>
-                                <p>01 June 2014 - Saint Jean d’Angely - France</p>
+                                <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong></h2>
+                                <?php
+									// Fetch the next_race element
+									echo $this->fetch('next_race');
+								?>
                                 <a class="button red" id="explore">EXPLORE THE MAP</a>
                                 <div class="map">
                                     <img src="/images/full_map.png" alt="">

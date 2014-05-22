@@ -165,3 +165,4 @@ root/lib/Cake/Test/test_app/View/Emails/html/japanese.ctp
 root/lib/Cake/Test/test_app/View/Emails/text/japanese.ctp
 root/lib/Cake/Test/test_app/View/Layouts/Emails/html/japanese.ctp
 root/lib/Cake/Test/test_app/View/Layouts/Emails/text/japanese.ctp
+root/app/Config/database.php

@@ -20,10 +20,10 @@ $this->end();
             <h1>Add Article</h1>
         </legend>
         <?php
-        echo $this->Form->create('Article', array('type' => 'file'));
+        echo $this->Form->create('Article');
         echo $this->Form->input('Title');
         echo $this->Form->input('Message', array('rows' => '10'));
-        echo $this->Form->input('Photo', array('type' => 'file'));
+        echo $this->Form->input('Photo');
         echo $this->Form->input('CreateDate');
         echo $this->Form->input('user_id', array('type' => 'hidden', 'default'=>AuthComponent::user('id')));
         echo $this->Form->end('Add Article');
