@@ -26,8 +26,8 @@
 			$currentUrl = $url . "/articles/" .  $article['Article']['id'];
 		?>
 			<div class="box">
-				<div class="center-cropped news" style="background-image: url('<?php echo $article['Article']['Photo']; ?>');">
-					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<div class="center-cropped news" style="background-image: url('/<?php echo $article['Article']['Photo']; ?>');">
+					<img src="/<?php echo $article['Article']['Photo']; ?>" alt="">
 				</div>
 				<span class="heading">NEWS</span>
 				<div class="description">

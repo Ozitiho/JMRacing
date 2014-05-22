@@ -127,6 +127,17 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`products` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `JMRacing`.`albums`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`albums` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(100) NOT NULL ,
+  `description` VARCHAR(300) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -227,5 +238,16 @@ INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (5, 'Jum
 INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (6, 'Bel Ray', 'S_logo6.png', 'http://www.belray.com/');
 INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (7, 'Segafredo', 'S_logo7.png', 'http://www.segafredo.nl/');
 INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (8, 'Suomy', 'S_logo8.png', 'http://www.suomy.com/');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`products`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (1, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', '/images/home_img7.jpg');
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (2, 'Race Shirt - Red Bull', 29.95, 14.95, 'none', '/images/team_img5.jpg');
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (3, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', '/images/team_img6.jpg');
 
 COMMIT;

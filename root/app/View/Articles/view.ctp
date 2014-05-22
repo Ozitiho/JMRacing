@@ -1,7 +1,7 @@
 <?php
 $this->start('bannerImage');
 ?>
-<img src="/images/inner_banner4.jpg" alt="">
+<img src="/<?php print($article['Article']['Photo']);?>" alt="">
 <?php
 $this->end();
 
@@ -70,7 +70,7 @@ $this->end();
         foreach ($articles as $article) {
             ?>
             <div class="box">
-                <img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+                <img src="/<?php echo $article['Article']['Photo']; ?>" alt="">
                 <span class="heading">NEWS</span>
                 <div class="description">
                     <h2><?php echo $article['Article']['Title']; ?></h2>
