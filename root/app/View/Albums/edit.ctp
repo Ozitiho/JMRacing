@@ -5,18 +5,19 @@ $this->start('bannerImage');
 <?php
 $this->end();
 ?>
+
 <div class="box users form cms">
     <fieldset>
         <?php echo $this->Session->flash(); ?>
         <legend class="legend">
-            <h1>Add Album</h1>
+            <h1>Edit Album</h1>
         </legend>
         <?php
         echo $this->Form->create('Album');
         echo $this->Form->input('name');
         echo $this->Form->input('description', array('rows' => '5'));
-        echo $this->Form->input('user_id', array('type' => 'hidden', 'default'=>AuthComponent::user('id')));
-        echo $this->Form->end('Add Album');
+        echo $this->Form->input('id', array('type' => 'hidden'));
+        echo $this->Form->end('Edit Album');
         ?>
     </fieldset>
 </div>

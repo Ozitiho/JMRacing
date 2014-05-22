@@ -1,7 +1,17 @@
 <?php
 $this->start('bannerImage');
+
+$fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
+$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+
+// If an image is found
+if ($imageDetails) {
+    $albumID = $imageDetails["Photo"]["album_id"];
+    $imageName = $imageDetails["Photo"]["name"];
+    $fullImageLocation = "/images/albums/$albumID/$imageName";
+}
 ?>
-<img src="/<?php print($article['Article']['Photo']);?>" alt="">
+<img src="<?php print($fullImageLocation); ?>" alt="">
 <?php
 $this->end();
 
@@ -17,9 +27,11 @@ $this->end();
             <h2><?php echo h($article['Article']['Title']); ?></h2>
             <span class="small">
                 Created: <?php echo $article['Article']['CreateDate']; ?>
-                <?php if ($article['Article']['LastUpdatedDate'] != null) {
+                <?php
+                if ($article['Article']['LastUpdatedDate'] != null) {
                     echo " | Last updated: " . $article['Article']['LastUpdatedDate'];
-                } ?>
+                }
+                ?>
             </span>
             <br><br>
             <p><?php echo ($article['Article']['Message']); ?></p>
@@ -35,14 +47,23 @@ $this->end();
     </div>
 
     <?php
-	print($this->element('socialmedia'));
+    print($this->element('socialmedia'));
     if ($articles != null) {
         echo "<div class='load_more'><a>NEWEST NEWS ITEMS</a></div>";
         $count = 0;
         foreach ($articles as $article) {
+            $thumbImageLocation = $fullImageLocation; // In case no image can be found
+            $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+
+            // If an image is found
+            if ($imageDetails) {
+                $albumID = $imageDetails["Photo"]["album_id"];
+                $imageName = $imageDetails["Photo"]["name"];
+                $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+            }
             ?>
             <div class="box">
-                <img src="/<?php echo $article['Article']['Photo']; ?>" alt="">
+                <img src="<?php echo $thumbImageLocation; ?>" alt="">
                 <span class="heading">NEWS</span>
                 <div class="description">
                     <h2><?php echo $article['Article']['Title']; ?></h2>

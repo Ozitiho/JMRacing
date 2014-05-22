@@ -23,7 +23,7 @@ $this->end();
         echo $this->Form->create('Article');
         echo $this->Form->input('Title');
         echo $this->Form->input('Message', array('rows' => '10'));
-        echo $this->Form->input('Photo', array('label' => 'Photo (<a href="/albums/cms" target="_blank">browse through albums</a>)'));
+        echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));
         echo $this->Form->input('CreateDate');
         echo $this->Form->input('id', array('type' => 'hidden'));
         echo $this->Form->end('Edit Article');
