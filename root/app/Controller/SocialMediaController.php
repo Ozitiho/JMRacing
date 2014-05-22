@@ -49,8 +49,8 @@ class SocialMediaController extends AppController {
 
 		$token = '243799329140027|63915777e84ed91f711ac64cf25ca565';
 
-		// get JSON from adres
-		$page_posts = file_get_contents('https://graph.facebook.com/'.$page_id.'/posts?fields=message&access_token='.$token);
+		// get JSON from adres, the @ represses the error it gives upon failing to get content
+		$page_posts = @file_get_contents('https://graph.facebook.com/'.$page_id.'/posts?fields=message&access_token='.$token);
 		
 		//Also decode the facebook json.
 		$page_posts = json_decode($page_posts, true);

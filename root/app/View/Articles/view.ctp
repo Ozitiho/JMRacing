@@ -33,37 +33,9 @@ $this->end();
             </div>
         </div>
     </div>
-    <div class="facebook_box box">
-            <!--<img src="images/big_fb.png" alt="" class="position">-->
-        <h1>FACEBOOK</h1>
-        <ul>
-            <li>
-                <span>03 April 2014</span>
-                <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
-            </li>
-            <li>
-                <span>05 April 2014</span>
-                <a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
-            </li>
-        </ul>
-        <a href="#" class="button">JOIN OUR FACEBOOK</a>
-    </div>
-    <div class="facebook_box twitter_box box">
-        <h1>TWITTER</h1>
-        <ul>
-            <li>
-                <span>03 April 2014</span>
-                <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod venenatis viverra. http://pra.erat/ante</a>
-            </li>
-            <li>
-                <span>05 April 2014</span>
-                <a href="#">Imperdiet luctus lectus porttitor, aliquam placerat massa. Aenean elit arcu, pretium non ultrices a, volutpat aliquet nibh.</a>
-            </li>
-        </ul>
-        <a href="#" class="button">FOLLOW ON TWITTER</a>
-    </div>
 
     <?php
+	print($this->element('socialmedia'));
     if ($articles != null) {
         echo "<div class='load_more'><a>NEWEST NEWS ITEMS</a></div>";
         $count = 0;

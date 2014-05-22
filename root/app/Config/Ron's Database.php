@@ -65,12 +65,12 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'port' => '3307',
+		'port' => '3306',
 		'login' => 'root',
-		'password' => 'usbw',
+		'password' => '',
 		'database' => 'jmracing',
 		'prefix' => '',
-		//'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(

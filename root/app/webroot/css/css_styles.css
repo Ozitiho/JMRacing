@@ -590,7 +590,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 .personal_info li .desc{color:#002145; font:normal 18px 'journalregular'; line-height:24px; float:right;}
 
 /* ======================================== Sixth Styles ============================================ */
-.only_description .description{width:82%; padding:60px 9% 30px;}
+.only_description .description{width:82%; padding:60px 9% 30px; min-height: 350px;}
 .description p.big{color:#002752; padding-top:30px;}
 .description strong.desc_head{color:#828d9f; font-size:18px;}
 .only_description .share ul{float:right;}
@@ -624,7 +624,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .share li{font-size:13px; line-height:19px;}
     .share li a{margin:0;}
 	
-    .facebook_box{padding:10px 1%; width:20.6%; height:340px;}
+    .facebook_box{padding:10px 1%; width:20.6%; height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:15px; line-height:22px;}
     .team_col .era{font-size:16px; line-height:22px;}
@@ -679,14 +679,14 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .all_events .light_gray{margin:0px 0 0; padding:5px 10px;}
     .events_logo{margin-top:10px;}
 
-    .share {position: absolute; bottom: 1em; width: 90%}
+    .share {position: absolute; bottom: 1em; width: 94%}
     .share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
     .share ul{width:94%;}
     .description p{padding-bottom:15px;}
     .share li{font-size:13px; line-height:19px;}
     .share li a{margin:0;}
 
-    .facebook_box{padding:10px 1%; width:20.6%; min-height:300px;}
+    .facebook_box{padding:10px 1%; width:20.6%; min-height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:14px; line-height:18px;}
     .team_col .era{font-size:14px; line-height:20px; bottom:10px;}
@@ -755,6 +755,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .all_events li{font-size:12px; line-height:16px; padding:8px 0 10px;}
 
     .box{width:31.5%;}
+
+    .facebook_box{min-height:389px;}
     .facebook_box{width:27.5%;}
     .events_logo ul{padding:10px 0 0;}
     .equal .left{width:40%;}
@@ -880,7 +882,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
     .description h2{font-size:16px; line-height:20px;}
     .share li a{margin:0;}
 
-    .facebook_box{ min-height:300px;}
+    .facebook_box{ min-height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:13px; line-height:18px;}
     .team_col .era{font-size:14px; line-height:20px; bottom:10px;}
@@ -1161,7 +1163,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.description{ height: 180px;}
 	.share {position: absolute; bottom: 1em; width: 90%}
 	
-	.facebook_box{ min-height:300px;}
+	.facebook_box{ min-height:389px;}
 	.facebook_box li{padding-bottom:20px;}
 	.facebook_box li a{font-size:13px; line-height:18px;}
 	.team_col .era{font-size:14px; line-height:20px; bottom:10px;}
@@ -1227,7 +1229,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.all_news,.inner_container3 .all_news{margin:10px 0 0;}
 	.box{width:100%; margin:10px 0;}
 	.share ul{width:94%; margin:0 0 10px;}
-	.facebook_box{width:93.8%; padding:15px 3%; min-height:200px;}
+	.facebook_box{width:93.8%; padding:15px 3%; min-height:389px;}
 	
 	.F_top{text-align:center;}
 	.F_top ul,footer .social_icons{width:100%; text-align:center; float:left;}
