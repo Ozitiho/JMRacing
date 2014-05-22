@@ -51,7 +51,7 @@ class ArticlesController extends AppController {
     }
 
     public function cms() {
-        $this->set('articles', $this->Article->find('all'));
+        $this->set('articles', $this->Article->find('all', array('order' => array('id DESC'))));
     }
 
     public function view($id = null) {

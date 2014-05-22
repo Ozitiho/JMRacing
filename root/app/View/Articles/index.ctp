@@ -20,7 +20,7 @@ $this->end();
 			if($count == 1){
 			?>
 			<div class="box w3">
-				<div class="image_left"><img src="<?php echo $article['Article']['Photo']; ?>" alt=""></div>
+				<div class="image_left"><img src="/<?php echo $article['Article']['Photo']; ?>" alt=""></div>
 				<span class="heading">LATEST NEWS</span>
 				<div class="description">
 					<h2><?php echo $article['Article']['Title']; ?></h2>
@@ -42,8 +42,8 @@ $this->end();
 			else {
 			?>
 			<div class="box">
-				<div class="center-cropped news" style="background-image: url('<?php echo $article['Article']['Photo']; ?>');">
-					<img src="<?php echo $article['Article']['Photo']; ?>" alt="">
+				<div class="center-cropped news" style="background-image: url('/<?php echo $article['Article']['Photo']; ?>');">
+					<img src="/<?php echo $article['Article']['Photo']; ?>" alt="">
 				</div>
 				<span class="heading">NEWS</span>
 				<div class="description">
