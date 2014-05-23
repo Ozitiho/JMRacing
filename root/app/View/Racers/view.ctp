@@ -111,10 +111,8 @@ $this->end();
 							<td>&nbsp;</td>
 						</tr>
 						<tr class="average">
-							<td class="event_name"><span>AVARAGE ALL RACES</span></td>
-							<td class="event_r1 blank"><span>6</span></td>
-							<td class="event_r2 blank"><span>3</span></td>
-							<td class="event_gp blank"><span class="yellow">8</span></td>
+							<td class="event_name"><span>WORLD CUP STANDING</span></td>
+							<td class="event_gp blank"><span class="yellow"><?php echo $racer['Racer']['WorldCupStanding'] ?></span></td>
 						</tr>
 					</table>
 				</div>
