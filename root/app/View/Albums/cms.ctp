@@ -25,7 +25,10 @@ $this->end();
                         ?>
                         <li style="background-image: url(<?php print($albumImage); ?>);">
                             <input type="checkbox" name="deleteAlbum[]" value="<?php print($albumID); ?>">
-                            <a href="/albums/view/<?php print($albumID); ?>">
+                            <a href="/albums/edit/<?php print($albumID); ?>">
+                                <img src="/images/editIcon.png" alt="" class="pencilIcon">
+                            </a>
+                            <a href="/albums/view/<?php print($albumID); ?>" class="blockLink">
                                 <?php
                                 print("<p>" . $album["Album"]["name"] . "</p>");
                                 ?>

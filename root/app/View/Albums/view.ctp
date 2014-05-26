@@ -1,10 +1,10 @@
 <script>
     // This function fills the box with the details/img of the clicked thumbnail
-    function setBoxImage(albumID, imgName)
+    function setBoxImage(albumID, imgName, photoID)
     {
         $("#includeBox").css('background-image', 'url(/images/albums/' + albumID + '/' + imgName + ')');
         $("#includeBox").css('display', 'block');
-        $("#includeBox").html('<p class="articleImageLink">images/albums/' + albumID + '/' + imgName + '</p>');
+        $("#includeBox").html('<p class="articleImageLink">Photo ID: ' + photoID + '</p>');
 
         // Don't close the box when the user clicks the links text
         $(".articleImageLink").click(function(e)
@@ -59,20 +59,22 @@ $albumImages = $this->requestAction('albums/getSpecificAlbumImages/' . $albumID)
             <p><input type="submit" value="Upload Photos" name="uploadPhotosButton" class="redButton" /></p>
         </form>
         <?php
-// If an array, album contains images
-        if (is_array($albumImages)) {
+        // If the album contains images
+        if ($albumImages) {
             ?>
             <form action="" method="post">
                 <ul class="albumViewImages">
                     <?php
                     foreach ($albumImages as $image) {
-                        $rawImage = rawurlencode($image); // convert spaces to %20
+                        $photoID = $image["Photo"]["id"];
+                        $imageName = $image["Photo"]["name"];
+                        $rawImage = rawurlencode($imageName); // convert spaces to %20
                         ?>
-                        <li style="background-image: url(/images/albums/<?php print($albumID . "/" . $rawImage); ?>);"
-                            onclick="setBoxImage('<?php print($albumID); ?>', '<?php print($rawImage); ?>')" 
+                        <li style="background-image: url(/images/albums/<?php print($albumID . "/thumbs/" . $rawImage); ?>);"
+                            onclick="setBoxImage('<?php print($albumID); ?>', '<?php print($rawImage); ?>', '<?php print($photoID);?>')" 
                             title="Click to see a bigger version of this image">
                             <p>
-                                <input type="checkbox" class="deleteBox" name="deleteImage[]" value="<?php print($image); ?>">
+                                <input type="checkbox" class="deleteBox" name="deleteImage[]" value="<?php print($imageName); ?>">
                             </p>
                         </li>
                         <?php

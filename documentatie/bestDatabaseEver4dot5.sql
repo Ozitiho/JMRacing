@@ -20,6 +20,48 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `JMRacing`.`albums`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`albums` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(100) NOT NULL ,
+  `description` VARCHAR(300) NULL ,
+  `user_id` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_albums_users1_idx` (`user_id` ASC) ,
+  CONSTRAINT `fk_albums_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `JMRacing`.`users` (`id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JMRacing`.`photos`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`photos` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(150) NOT NULL ,
+  `album_id` INT NOT NULL ,
+  `user_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_photos_albums1_idx` (`album_id` ASC) ,
+  INDEX `fk_photos_users1_idx` (`user_id` ASC) ,
+  CONSTRAINT `fk_photos_albums1`
+    FOREIGN KEY (`album_id` )
+    REFERENCES `JMRacing`.`albums` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_photos_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `JMRacing`.`users` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `JMRacing`.`Articles`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`Articles` (
@@ -29,14 +71,20 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Articles` (
   `Message` TEXT NOT NULL ,
   `CreateDate` DATETIME NOT NULL ,
   `LastUpdatedDate` DATETIME NULL ,
-  `Photo` VARCHAR(300) NULL ,
+  `photo_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_Article_Editor1_idx` (`user_id` ASC) ,
+  INDEX `fk_Articles_photos1_idx` (`photo_id` ASC) ,
   CONSTRAINT `fk_Article_Editor1`
     FOREIGN KEY (`user_id` )
     REFERENCES `JMRacing`.`users` (`id` )
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Articles_photos1`
+    FOREIGN KEY (`photo_id` )
+    REFERENCES `JMRacing`.`photos` (`id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
@@ -55,6 +103,7 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Racers` (
   `Height` INT NOT NULL ,
   `Weight` INT NOT NULL ,
   `Hardware` VARCHAR(150) NOT NULL ,
+  `WorldCupStanding` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -102,9 +151,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`Sponsors`
+-- Table `JMRacing`.`sponsors`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`Sponsors` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`sponsors` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `Name` VARCHAR(100) NOT NULL ,
   `Image` VARCHAR(200) NOT NULL ,
@@ -128,13 +177,58 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `JMRacing`.`albums`
+-- Table `JMRacing`.`event_sponsors`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`albums` (
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`event_sponsors` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(100) NOT NULL ,
-  `description` VARCHAR(300) NULL ,
+  `sponsor_id` INT NOT NULL ,
+  `event_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_eventSponsors_Sponsors1_idx` (`sponsor_id` ASC) ,
+  INDEX `fk_eventSponsors_Events1_idx` (`event_id` ASC) ,
+  CONSTRAINT `fk_eventSponsors_Sponsors1`
+    FOREIGN KEY (`sponsor_id` )
+    REFERENCES `JMRacing`.`sponsors` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_eventSponsors_Events1`
+    FOREIGN KEY (`event_id` )
+    REFERENCES `JMRacing`.`Events` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JMRacing`.`tags`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`tags` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `value` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JMRacing`.`article_tags`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `JMRacing`.`article_tags` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `tag_id` INT NOT NULL ,
+  `article_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_article_tags_tags1_idx` (`tag_id` ASC) ,
+  INDEX `fk_article_tags_Articles1_idx` (`article_id` ASC) ,
+  CONSTRAINT `fk_article_tags_tags1`
+    FOREIGN KEY (`tag_id` )
+    REFERENCES `JMRacing`.`tags` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_article_tags_Articles1`
+    FOREIGN KEY (`article_id` )
+    REFERENCES `JMRacing`.`Articles` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -153,19 +247,45 @@ INSERT INTO `JMRacing`.`users` (`id`, `username`, `password`, `role`, `created`,
 COMMIT;
 
 -- -----------------------------------------------------
+-- Data for table `JMRacing`.`albums`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (1, 'News Images', NULL, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`photos`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (1, 'romainvalkenswaard2014.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (2, 'axel1.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (3, 'romainbulgarije20142.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (4, 'romaintrentino2014.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (5, 'febvre_brazil.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (6, 'jmmill.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (7, 'aleksandremmen.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (8, 'febvrethailand3.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (9, 'Wilvo-Nestaan-Husqvarna_pod.jpg', 1, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Data for table `JMRacing`.`Articles`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (1, 1, 'Wilvo Nestaan Husqvarna Factory Racing on the podium in Qatar', 'Wilvo Nestaan Husqvarna Factory Racing has started the World MX2 Series in Losail, Qatar with a podium position. Romain Febvre finished third overall just the same as he did last year and his team mate Aleksandr Tonkov ended the day with fifth position overall.', '2014-03-02', NULL, 'http://jmracing.mx/images/Wilvo-Nestaan-Husqvarna_pod.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (2, 1, 'Romain Febvre scores top three moto finish in Thailand', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing managed to score a top three moto finish in the second round of the World MX2 Series in Si Racha, Thailand. The young Frenchman scored this result in the second moto. In the first moto he made a mistake in the beginning of the race but came back from twelfth to ninth position, which gave him fifth position overall. Aleksandr Tonkov was riding well in the extreme heat of Thailand. He finished in seventh and eight position in the motos and ended the day with ninth position overall.', '2014-03-09', NULL, 'http://jmracing.mx/images/febvrethailand3.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (3, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Emmen', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have scored podium positions at the opening round of the Dutch Open MX2 Series in Emmercompascuum. After a fourth position in the first moto, Romain Febvre was fighting for the win in the second moto and finished the race in second position. With these results he finished in second position overall as well. Aleksandr Tonkov didn’t felt comfortable on the track but gave everything he had and finished in third position in both motos.', '2014-03-17', NULL, 'http://jmracing.mx/images/aleksandremmen.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (4, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Mill', 'Wilvo Nestaan Husqvarna Factory Racing has scored two podium positions in the second round of the Dutch Open Championship Series in Mill. Aleksandr Tonkov and Romain Febvre had a nice battle for second position in both motos. In the first and the second moto it was Romain who crossed the finish line in second position in front of his team mate Aleksandr.', '2014-03-23', NULL, 'http://jmracing.mx/images/jmmill.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (5, 1, 'Romain Febvre scores top three moto finish in Brazil', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish in the third round of the World MX2 Series in Beto Carrero, Brazil. Unfortunately he made a crash in the opening lap of the second moto and had to come from behind. Romain gave everything he had and worked his way back up to eleventh position for seventh overall. Aleksandr Tonkov was fighting inside of the top three in the first moto but due to a crash in the closing stages of the race he finished the moto in sixth position. In the second moto he was riding in fifth position but with still several laps to go he crashed and lost two positions to finish the race in seventh position.', '2014-03-31', NULL, 'http://jmracing.mx/images/febvre_brazil.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (6, 1, 'Romain Febvre in the top five in GP of Italy', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing finished inside of the top five at round four of the World MX2 Series in Arco di Trento, Italy. The young Frenchman finished seventh in the first moto and came home in fifth position in the second moto which gave him fifth place overall. Aleksandr Tonkov had to start from the outside in the first moto due to some bad luck in the qualifying heat. He had a good jump out of the gate but disaster struck the young Russian when he made a crash in the beginning of the race. Due to this he dropped back to the back of the pack. Aleksandr tried to make the best of it and charged all the way back to fourteenth position. In the second moto things were going better for him as he finished in seventh position, which gave him tenth position overall.', '2014-04-14', NULL, 'http://jmracing.mx/images/romaintrentino2014.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (7, 1, 'Romain Febvre close of scoring a top three moto finish in Bulgaria', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing came close of scoring a top three moto finish at round five of the World MX2 Series in Sevlievo, Bulgaria. Febvre finished in fifth position in the first moto and things were looking that he was going for a top three moto finish in the second moto. He was riding in third position but with several laps to go he made a small crash and lost two positions to finally finish the race in fifth position. Aleksandr had several duels around tenth position in the first moto. He changed places for several times and finally finished the moto in tenth position. In the second moto he crashed in the start but charged back through the field and finished the race in ninth position.', '2014-04-20', NULL, 'http://jmracing.mx/images/romainbulgarije20142.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (8, 1, 'Febvre and Tonkov new leaders in the Dutch MX2 Series', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have taken over the first two spots in the Dutch MX2 Series. In round three of the series in Axel, Romain finished second overall and took over the championship lead from the injured Glenn Coldenhoff. Aleksandr Tonkov missed the overall podium by only two points but with fourth position overall he moved up to second position in the standings.', '2014-04-27', NULL, 'http://jmracing.mx/images/axel1.jpg');
-INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `Photo`) VALUES (9, 1, 'Romain Febvre second in the Dutch Grand Prix', 'Wilvo Nestaan Husqvarna Factory Racing has had a successful Grand Prix in Valkenswaard. Romain Febvre and Aleksandr Tonkov were doing a great job and scored well on the sand circuit of Valkenswaard. Romain Febvre finished in third position in both motos which gave him second position overall. Aleksandr ended the day in seventh position with a 5-8 in the motos and scored consistent in the Dutch Grand Prix.', '2014-05-04', NULL, 'http://jmracing.mx/images/romainvalkenswaard2014.jpg');
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (1, 1, 'Wilvo Nestaan Husqvarna Factory Racing on the podium in Qatar', 'Wilvo Nestaan Husqvarna Factory Racing has started the World MX2 Series in Losail, Qatar with a podium position. Romain Febvre finished third overall just the same as he did last year and his team mate Aleksandr Tonkov ended the day with fifth position overall.', '2014-03-02', NULL, 9);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (2, 1, 'Romain Febvre scores top three moto finish in Thailand', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing managed to score a top three moto finish in the second round of the World MX2 Series in Si Racha, Thailand. The young Frenchman scored this result in the second moto. In the first moto he made a mistake in the beginning of the race but came back from twelfth to ninth position, which gave him fifth position overall. Aleksandr Tonkov was riding well in the extreme heat of Thailand. He finished in seventh and eight position in the motos and ended the day with ninth position overall.', '2014-03-09', NULL, 8);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (3, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Emmen', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have scored podium positions at the opening round of the Dutch Open MX2 Series in Emmercompascuum. After a fourth position in the first moto, Romain Febvre was fighting for the win in the second moto and finished the race in second position. With these results he finished in second position overall as well. Aleksandr Tonkov didn’t felt comfortable on the track but gave everything he had and finished in third position in both motos.', '2014-03-17', NULL, 7);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (4, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Mill', 'Wilvo Nestaan Husqvarna Factory Racing has scored two podium positions in the second round of the Dutch Open Championship Series in Mill. Aleksandr Tonkov and Romain Febvre had a nice battle for second position in both motos. In the first and the second moto it was Romain who crossed the finish line in second position in front of his team mate Aleksandr.', '2014-03-23', NULL, 6);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (5, 1, 'Romain Febvre scores top three moto finish in Brazil', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish in the third round of the World MX2 Series in Beto Carrero, Brazil. Unfortunately he made a crash in the opening lap of the second moto and had to come from behind. Romain gave everything he had and worked his way back up to eleventh position for seventh overall. Aleksandr Tonkov was fighting inside of the top three in the first moto but due to a crash in the closing stages of the race he finished the moto in sixth position. In the second moto he was riding in fifth position but with still several laps to go he crashed and lost two positions to finish the race in seventh position.', '2014-03-31', NULL, 5);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (6, 1, 'Romain Febvre in the top five in GP of Italy', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing finished inside of the top five at round four of the World MX2 Series in Arco di Trento, Italy. The young Frenchman finished seventh in the first moto and came home in fifth position in the second moto which gave him fifth place overall. Aleksandr Tonkov had to start from the outside in the first moto due to some bad luck in the qualifying heat. He had a good jump out of the gate but disaster struck the young Russian when he made a crash in the beginning of the race. Due to this he dropped back to the back of the pack. Aleksandr tried to make the best of it and charged all the way back to fourteenth position. In the second moto things were going better for him as he finished in seventh position, which gave him tenth position overall.', '2014-04-14', NULL, 4);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (7, 1, 'Romain Febvre close of scoring a top three moto finish in Bulgaria', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing came close of scoring a top three moto finish at round five of the World MX2 Series in Sevlievo, Bulgaria. Febvre finished in fifth position in the first moto and things were looking that he was going for a top three moto finish in the second moto. He was riding in third position but with several laps to go he made a small crash and lost two positions to finally finish the race in fifth position. Aleksandr had several duels around tenth position in the first moto. He changed places for several times and finally finished the moto in tenth position. In the second moto he crashed in the start but charged back through the field and finished the race in ninth position.', '2014-04-20', NULL, 3);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (8, 1, 'Febvre and Tonkov new leaders in the Dutch MX2 Series', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have taken over the first two spots in the Dutch MX2 Series. In round three of the series in Axel, Romain finished second overall and took over the championship lead from the injured Glenn Coldenhoff. Aleksandr Tonkov missed the overall podium by only two points but with fourth position overall he moved up to second position in the standings.', '2014-04-27', NULL, 2);
+INSERT INTO `JMRacing`.`Articles` (`id`, `user_id`, `Title`, `Message`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES (9, 1, 'Romain Febvre second in the Dutch Grand Prix', 'Wilvo Nestaan Husqvarna Factory Racing has had a successful Grand Prix in Valkenswaard. Romain Febvre and Aleksandr Tonkov were doing a great job and scored well on the sand circuit of Valkenswaard. Romain Febvre finished in third position in both motos which gave him second position overall. Aleksandr ended the day in seventh position with a 5-8 in the motos and scored consistent in the Dutch Grand Prix.', '2014-05-04', NULL, 1);
 
 COMMIT;
 
@@ -174,8 +294,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer');
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets');
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer', NULL);
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets', NULL);
 
 COMMIT;
 
@@ -226,18 +346,18 @@ INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`
 COMMIT;
 
 -- -----------------------------------------------------
--- Data for table `JMRacing`.`Sponsors`
+-- Data for table `JMRacing`.`sponsors`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (1, 'Wilvo', 'S_logo1.png', 'http://www.wilvo.nl');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (2, 'Nestaan', 'S_logo2.png', 'http://www.nestaan.nl');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (3, 'Husqvarna', 'S_logo3.png', 'http://www.husqvarna.com');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (4, 'Red Bull', 'S_logo4.png', 'http://www.redbull.com');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (5, 'Jumbo', 'S_logo5.png', 'http://www.jumbosupermarkten.nl');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (6, 'Bel Ray', 'S_logo6.png', 'http://www.belray.com/');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (7, 'Segafredo', 'S_logo7.png', 'http://www.segafredo.nl/');
-INSERT INTO `JMRacing`.`Sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (8, 'Suomy', 'S_logo8.png', 'http://www.suomy.com/');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (1, 'Wilvo', 'S_logo1.png', 'http://www.wilvo.nl');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (2, 'Nestaan', 'S_logo2.png', 'http://www.nestaan.nl');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (3, 'Husqvarna', 'S_logo3.png', 'http://www.husqvarna.com');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (4, 'Red Bull', 'S_logo4.png', 'http://www.redbull.com');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (5, 'Jumbo', 'S_logo5.png', 'http://www.jumbosupermarkten.nl');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (6, 'Bel Ray', 'S_logo6.png', 'http://www.belray.com/');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (7, 'Segafredo', 'S_logo7.png', 'http://www.segafredo.nl/');
+INSERT INTO `JMRacing`.`sponsors` (`id`, `Name`, `Image`, `URL`) VALUES (8, 'Suomy', 'S_logo8.png', 'http://www.suomy.com/');
 
 COMMIT;
 

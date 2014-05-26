@@ -14,6 +14,9 @@ class AlbumsController extends AppController {
     }
 
     public function view($id = null) {
+        //Load the image resize class
+        require_once(APP . 'Vendor' . DS . "imageResize/smart_resize_image.function.php");
+
         if ($this->request->is('post')) {
             // If photos are uploaded
             if (isset($_POST["uploadPhotosButton"])) {
@@ -53,7 +56,8 @@ class AlbumsController extends AppController {
                  * page
                  */
                 if (!file_exists('images/albums/' . $this->Album->getInsertID())) {
-                    mkdir('images/albums/' . $this->Album->getInsertID(), 0777, true);
+                    // Create an albums dir and inside that create a thumbs dir
+                    mkdir('images/albums/' . $this->Album->getInsertID() . "/thumbs", 0777, true);
                 }
 
                 $this->Session->setFlash(__('Your album has been saved.'));
@@ -101,7 +105,22 @@ class AlbumsController extends AppController {
             foreach ($_POST["deleteAlbum"] as $album) {
                 $this->Album->delete($album);
 
-                // Check if the directory exists, if so, delete the images inside it
+                // Remove the thumbs dir and the files inside it
+                if (is_dir('images/albums/' . $album . '/thumbs')) {
+                    // Get the list of files
+                    $images = scandir("images/albums/" . $album . '/thumbs', 1);
+
+                    // Remove the dots that get added
+                    $images = array_diff($images, array('.', '..'));
+
+                    // Delete the images
+                    $this->deleteImages($album, $images);
+
+                    // Now remove the directory
+                    rmdir('images/albums/' . $album . '/thumbs');
+                }
+
+                // Remove the main dir and the files inside it
                 if (is_dir('images/albums/' . $album)) {
                     // Get the list of files
                     $images = scandir("images/albums/" . $album, 1);
@@ -138,42 +157,37 @@ class AlbumsController extends AppController {
     public function returnAlbumImage($id) {
         $albumImage = "/images/no-photo.jpg";
 
-        if (file_exists('images/albums/' . $id)) {
-            $files = scandir("images/albums/" . $id, 1);
+        // Get the last photo
+        $albumImages = $this->Album->Photo->find('first', array(
+            'conditions' => array('Photo.album_id' => $id),
+            'order' => 'Photo.id DESC'
+        ));
 
-            // If files[0] equals .. the folder does not contain any files
-            if ($files[0] != "..") {
-                $albumImage = "/images/albums/$id/$files[0]";
-            }
+        if ($albumImages) {
+            $albumImage = "/images/albums/$id/thumbs/" . $albumImages["Photo"]["name"];
         }
 
         return $albumImage;
     }
 
     public function getSpecificAlbumImages($id) {
-        $albumImages = null;
-
-        if (file_exists('images/albums/' . $id)) {
-            $files = scandir("images/albums/" . $id, 1);
-
-            // If files[0] equals .. the folder does not contain any files
-            if ($files[0] != "..") {
-                $albumImages = $files;
-
-                /* Remove the . and .. elements that scandir adds to the array so only the 
-                 * actual images remain in the array
-                 */
-                $albumImages = array_diff($albumImages, array('.', '..'));
-            }
-        }
+        $albumImages = $this->Album->Photo->find('all', array(
+            'conditions' => array('Photo.album_id' => $id)));
 
         return $albumImages;
+    }
+
+    public function getDetailsFromPhotoID($id) {
+        $image = $this->Album->Photo->find('first', array(
+            'conditions' => array('Photo.id' => $id)));
+
+        return $image;
     }
 
     public function uploadImages($albumID) {
         $errorMessages = array();
         $valid_mime_types = array("image/png", "image/jpeg", "image/gif", "image/bmp");
-        $max_file_size = 1024 * 10000; //100 kb
+        $max_file_size = 1024 * 10000; //10000 kb
         $path = "images/albums/$albumID/"; // Upload directory
         $count = 0;
 
@@ -183,7 +197,7 @@ class AlbumsController extends AppController {
                 // Loop $_FILES to execute all files
                 foreach ($_FILES['files']['name'] as $f => $name) {
                     // This checks if the upload button hasn't been pressed without selecting a file
-                    if ($_FILES['files']['name'][$f] != null) {
+                    if ($_FILES['files']['name'] [$f] != null) {
                         // If an error message is found
                         if ($_FILES['files']['error'][$f] != 0) {
                             // Check if the uploaded file contains an error and if so, add it to the errorMessages array
@@ -229,6 +243,28 @@ class AlbumsController extends AppController {
                                 continue;
                             } else { // No error found! Move uploaded files 
                                 if (move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path . $name)) {
+                                    // Path and name for the new resized file
+                                    $resizedFile = "images/albums/$albumID/thumbs/$name";
+
+                                    //call the function (when passing path to pic)
+                                    smart_resize_image("images/albums/$albumID/$name", null, 750, 750, true, $resizedFile, false, false, 50);
+
+                                    // Check if this photo already exists in this album
+                                    $imageCheck = $this->Album->Photo->find('first', array(
+                                        'conditions' => array('Photo.album_id' => $albumID,
+                                            'Photo.name' => $name)));
+
+                                    // Only add the photo if it doesn't already exist in the DB
+                                    if (!$imageCheck) {
+                                        // Insert the photo(s) into the database
+                                        $userID = AuthComponent::user('id');
+
+                                        $data = $this->Album->Photo->saveAll(array(
+                                            'name' => $name,
+                                            'album_id' => $albumID,
+                                            'user_id' => $userID,
+                                        ));
+                                    }
                                     // succes
                                 }
                             }
@@ -238,12 +274,21 @@ class AlbumsController extends AppController {
             }
         }
 
+
+
         return $errorMessages;
     }
 
     public function deleteImages($albumID, $imagesToBeDeleted) {
         foreach ($imagesToBeDeleted as $image) {
+            // Delete the big pictures
             unlink("images/albums/$albumID/$image");
+
+            // Delete the thumbs
+            unlink("images/albums/$albumID/thumbs/$image");
+
+            // Delete the image from the DB
+            $this->Album->Photo->deleteAll(array('Photo.name' => $image));
         }
     }
 

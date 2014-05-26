@@ -41,6 +41,10 @@ class Racer extends AppModel {
         'RacerNumber' => array(
             'rule' => array('numeric', 'notEmpty'),
             'message' => 'Racer number can only contain digits.'
+        ),
+		'WorldCupStanding' => array(
+            'rule' => array('numeric', 'notEmpty'),
+            'message' => 'World cup standing can only contain digits.'
         )
     );
 
