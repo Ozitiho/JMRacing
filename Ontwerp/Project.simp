@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="5.93" multi-file="no">
+  <meta>
+    <name>Project</name>
+    <authors> </authors>
+    <description />
+  </meta>
+  <management>
+    <persons>
+      <person id="P7ed8edccb01046829f52cf1511898a69">
+        <first-name />
+        <last-name />
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <tasks />
+    <requirements />
+    <issues />
+    <to-dos />
+  </management>
+  <glossary />
+  <types>
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types />
+  </types>
+  <filters />
+  <items />
+  <models>
+    <model id="p704501034344184468" name="Model 1" type="" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>05/22/2014 17:20:24</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="uml-object" id="p517111160383422843" name="ObjectDiagram1" order-index="1" show-nullability="false">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>05/22/2014 17:20:24</creation-date>
+          <change-date>05/22/2014 17:51:19</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="ddip517111160383422843_328726771165849326" cid="OBJ001" type="object" name="article1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:21:18">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="article">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="user_id" value="1" />
+                <attribute name="title" value="Romain Febre numero uno" />
+                <attribute name="message" value="Romain Febre won the race" />
+                <attribute name="create_date" value="2014-01-01 00:00:00" />
+                <attribute name="last_updated_date" value="2014-01-01 00:00:00" />
+                <attribute name="photo" value="www.fotos.nl/voorbeeld.jpg" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_666032311323643637" cid="OBJ002" type="object" name="event1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:26:02">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="event">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="country" value="Qatar" />
+                <attribute name="city" value="Losail" />
+                <attribute name="description" value="beschrijving" />
+                <attribute name="photo" value="www.example.com/image" />
+                <attribute name="latitude" value="55.123123" />
+                <attribute name="longitude" value="03.12381238" />
+                <attribute name="date" value="2014-01-01 00:00:00" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_535189222784253194" cid="OBJ003" type="object" name="product1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:34:20">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="product">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="name" value="Red Bull Racing Cap" />
+                <attribute name="price" value="9.99" />
+                <attribute name="discount_price" value="4.99" />
+                <attribute name="size" value="XL" />
+                <attribute name="image" value="www.example.com/image" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_556350201176777426" cid="OBJ004" type="object" name="racer1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:42:17">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="racer">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="name" value="Aleksandr Tonkov" />
+                <attribute name="biography" value="ik ben racer 1" />
+                <attribute name="date_of_birth" value="2014-01-01" />
+                <attribute name="place_of_birth" value="Zwolle" />
+                <attribute name="nationality" value="Nederlandse" />
+                <attribute name="residence" value="Zwolle" />
+                <attribute name="height" value="189" />
+                <attribute name="weight" value="20" />
+                <attribute name="hardware" value="KX125 2008" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_689025950669455391" cid="OBJ005" type="object" name="result1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:47:30">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="result">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="event_id" value="1" />
+                <attribute name="racer_id" value="1" />
+                <attribute name="R1" value="2" />
+                <attribute name="R2" value="6" />
+                <attribute name="GP" value="3" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_132528888831143372" cid="REL001" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:48:14">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="ddip517111160383422843_666032311323643637" to="ddip517111160383422843_689025950669455391">
+              <start-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="ddip517111160383422843_437088017807621568" cid="OBJ006" type="object" name="sponsor1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:48:33">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="sponsor">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="name" value="Husqvarna" />
+                <attribute name="image" value="www.example.com/image" />
+                <attribute name="url" value="www.husqvarna.com" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_138911422749943893" cid="OBJ007" type="object" name="user1" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:49:38">
+            <stereotypes />
+            <tagged-values />
+            <documentation>
+              <text>
+                <content>
+                  <p index="0">
+                    <t />
+                    <style font-name="Arial" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                      <text>
+                        <solid-brush color="#FF000000" />
+                      </text>
+                    </style>
+                  </p>
+                </content>
+              </text>
+            </documentation>
+            <cooperation>
+              <participants />
+              <comments />
+            </cooperation>
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <object classifier-name="">
+              <attributes>
+                <attribute name="id" value="1" />
+                <attribute name="username" value="admin" />
+                <attribute name="password" value="(hash)" />
+                <attribute name="created" value="2014-01-01 00:00:00" />
+                <attribute name="role" value="admin" />
+                <attribute name="modified" value="2014-01-01 00:00:00" />
+              </attributes>
+            </object>
+          </item>
+          <item id="ddip517111160383422843_575956637685635906" cid="REL002" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:51:16">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="ddip517111160383422843_556350201176777426" to="ddip517111160383422843_689025950669455391">
+              <start-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+          <item id="ddip517111160383422843_247954803456041032" cid="REL003" type="relationship" name="" style-class="" is-abstract="false" is-root="false" is-leaf="false" is-active="false" creator="P7ed8edccb01046829f52cf1511898a69" creation-date="05/22/2014 17:51:19">
+            <stereotypes />
+            <tagged-values />
+            <associated-diagrams />
+            <owned-items />
+            <style class="default" />
+            <relation from="ddip517111160383422843_328726771165849326" to="ddip517111160383422843_138911422749943893">
+              <start-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+              <end-role id="" name="" multiplicity="" navigability="" association-type="association" visibility="private" />
+            </relation>
+          </item>
+        </abstract-items>
+        <layer name="Default" visible="true" enabled="true" locked="false">
+          <item id="ddip517111160383422843_328726771165849326" iid="284cdd360ec345ad8cb03a212ce62f96" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:21:18" order-index="0" type="entity">
+            <layout ax="14" ay="-33" awidth="271" aheight="150" x="14" y="-33" width="271" height="150" />
+          </item>
+          <item id="ddip517111160383422843_666032311323643637" iid="4e5b534a6b59449193ddf966229e66ca" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:26:02" order-index="1" type="entity">
+            <layout ax="24" ay="192" awidth="182" aheight="178" x="24" y="192" width="182" height="178" />
+          </item>
+          <item id="ddip517111160383422843_535189222784253194" iid="a1a2c6bee4494a6a804ed9a4abf389c7" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:34:20" order-index="2" type="entity">
+            <layout ax="253" ay="440" awidth="189" aheight="150" x="253" y="440" width="189" height="150" />
+          </item>
+          <item id="ddip517111160383422843_556350201176777426" iid="19238dcdefc841829b3c7cf436d38176" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:42:17" order-index="3" type="entity">
+            <layout ax="24" ay="410" awidth="177" aheight="198" x="24" y="410" width="177" height="198" />
+          </item>
+          <item id="ddip517111160383422843_689025950669455391" iid="027bd0006eef44cda34caff35a3c98d5" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:47:30" order-index="4" type="entity">
+            <layout ax="290" ay="217" awidth="118" aheight="128" x="290" y="217" width="118" height="128" />
+          </item>
+          <item id="ddip517111160383422843_132528888831143372" iid="942d65395d7249f4882dcab587448517" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:48:14" order-index="5" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" x1="206" y1="281" x2="290" y2="281" start-border-pos="0.375" end-border-pos="0.875">
+              <points>
+                <point x="206" y="281" />
+                <point x="290" y="281" />
+              </points>
+            </layout>
+            <relation from="ddip517111160383422843_666032311323643637" from-iid="4e5b534a6b59449193ddf966229e66ca" to="ddip517111160383422843_689025950669455391" to-iid="027bd0006eef44cda34caff35a3c98d5" />
+            <role-positions start-role="25,15" end-role="25,15" start-multiplicity="25,-15" end-multiplicity="25,-15" />
+          </item>
+          <item id="ddip517111160383422843_437088017807621568" iid="3b26932473bc42b783b1ebb0dac4e0f6" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:48:33" order-index="6" type="entity">
+            <layout ax="445" ay="217" awidth="169" aheight="109" x="445" y="217" width="169" height="109" />
+          </item>
+          <item id="ddip517111160383422843_138911422749943893" iid="b0f408622fdf4e8ea0cb0e8311dc57d4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:49:38" order-index="7" type="entity">
+            <layout ax="404" ay="-43" awidth="140" aheight="160" x="404" y="-43" width="0" height="0" />
+          </item>
+          <item id="ddip517111160383422843_575956637685635906" iid="c9a5f5f684a2406b9dff721aa9fb7ac4" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:51:16" order-index="8" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" x1="201" y1="423" x2="290" y2="338" start-border-pos="0.266893637300742" end-border-pos="0.985858380794525">
+              <points>
+                <point x="201" y="423" />
+                <point x="290" y="338" />
+              </points>
+            </layout>
+            <relation from="ddip517111160383422843_556350201176777426" from-iid="19238dcdefc841829b3c7cf436d38176" to="ddip517111160383422843_689025950669455391" to-iid="027bd0006eef44cda34caff35a3c98d5" />
+            <role-positions start-role="25,15" end-role="25,15" start-multiplicity="25,-15" end-multiplicity="25,-15" />
+          </item>
+          <item id="ddip517111160383422843_247954803456041032" iid="41168fd375b444d59a20898e40a774eb" show-cid="false" show-parent-name="false" show-stereotypes="true" show-tagged-values="false" creation-date="05/22/2014 17:51:19" order-index="9" type="relation">
+            <layout line-style="oblique" lock-start-point="false" lock-end-point="false" name-position="10,-10" x1="285" y1="40" x2="404" y2="38" start-border-pos="0.371527779897054" end-border-pos="0.87668788433075">
+              <points>
+                <point x="285" y="40" />
+                <point x="404" y="38" />
+              </points>
+            </layout>
+            <relation from="ddip517111160383422843_328726771165849326" from-iid="284cdd360ec345ad8cb03a212ce62f96" to="ddip517111160383422843_138911422749943893" to-iid="b0f408622fdf4e8ea0cb0e8311dc57d4" />
+            <role-positions start-role="25,15" end-role="25,15" start-multiplicity="25,-15" end-multiplicity="25,-15" />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+  <documents />
+  <document-templates />
+</sim-project>
