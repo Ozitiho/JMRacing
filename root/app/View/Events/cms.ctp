@@ -15,11 +15,12 @@ $this->end();
             <th>Country</th>
             <th>City</th>
             <th>Date</th>
+			<th>Sponsors</th>
         </tr>
 
-        <!-- Here is where we loop through our $posts array, printing out post info -->
-
-        <?php foreach ($events as $event): ?>
+        <?php foreach ($events as $event): 
+			$sponsors = $this->requestAction('events/getSponsorsOfEvent/'.$event["Event"]["id"]);
+		?>
             <tr>
                 <td>
                     <?php echo $this->Html->link($event['Event']['Country'], array('controller' => 'events', 'action' => 'view', $event['Event']['id']));
@@ -27,6 +28,13 @@ $this->end();
                 </td>
                 <td><?php echo $event['Event']['City']; ?></td>
                 <td><?php echo $event['Event']['Date']; ?></td>
+				<td>
+				<?php 
+					foreach ($sponsors as $sponsor) {
+						echo $sponsor['Sponsor']['Name'] . " ";
+					}
+				?>
+				</td>
                 <td>
                     <?php
                     echo $this->Html->link(

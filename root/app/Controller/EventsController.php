@@ -85,6 +85,17 @@ class EventsController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
+	
+	public function getSponsorsOfEvent($id) {
+		$sponsors = $this->Event->EventSponsor->find('all', array(
+            'conditions' => 'event_id = ' . $id
+        ));
+		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $sponsors;
+        } else {
+            $this->set('sponsors', $sponsors);
+        }
+	}
 
     public function getUpcomingEvents() {
         $upcomingEvents = $this->Event->find('all', array('order' => array('Date' => 'asc'),
