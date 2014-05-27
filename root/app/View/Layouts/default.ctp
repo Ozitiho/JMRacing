@@ -70,33 +70,25 @@
                                     <li class="sep">|</li>
                                     <li><a href="/articles">NEWS</a></li>
                                     <li class="sep">|</li>
-                                    <li><a href="/teams">TEAM</a>
+                                    <li><a href="/team">TEAM</a>
                                         <div class="submenu">
                                             <ul>
                                                 <li><a href="/racers/view/1">Aleksandr Tonkov #59</a></li>
                                                 <li class="sep">|</li>
                                                 <li><a href="/racers/view/2">Romain Febvre #461</a></li>
                                                 <li class="sep">|</li>
-                                                <li><a href="#">Team Managers</a></li>
-                                                <li class="sep">|</li>
-                                                <li><a href="#">Mechanics</a></li>
-                                                <li class="sep">|</li>
-                                                <li><a href="#">Main Sponsors</a></li>
-                                                <li class="sep">|</li>
-                                                <li><a href="#">Race Results</a></li>
+                                                <li><a href="/events">Race Results</a></li>
                                             </ul>
                                         </div>
                                     </li>
                                     <li class="sep">|</li>
-                                    <li><a href="#">SPONSORS</a></li>
+                                    <li><a href="/sponsors">SPONSORS</a></li>
                                     <li class="sep">|</li>
                                     <li><a href="/events">CALENDAR &amp; RESULTS</a></li>
                                     <li class="sep">|</li>
                                     <li><a href="https://www.facebook.com/husqvarnamxgp/photos_albums">PHOTOS &amp; MOVIES</a></li>
                                     <li class="sep">|</li>
                                     <li><a href="/products">MERCHANDISE</a></li>
-                                    <li class="sep">|</li>
-                                    <li><a href="#">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -217,17 +209,15 @@
                                 <li class="sep">|</li>
                                 <li><a href="/articles">NEWS</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="/teams">TEAM</a></li>
+                                <li><a href="/team">TEAM</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">SPONSORS</a></li>
+                                <li><a href="/sponsors">SPONSORS</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="/events">CALENDAR &amp; RESULTS</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">PHOTOS &amp; MOVIES</a></li>
+                                <li><a href="https://www.facebook.com/husqvarnamxgp/photos_albums">PHOTOS &amp; MOVIES</a></li>
                                 <li class="sep">|</li>
                                 <li><a href="/products">MERCHANDISE</a></li>
-                                <li class="sep">|</li>
-                                <li><a href="#">CONTACT</a></li>
                                 <li class="sep">|</li>
                             </ul>
                         </div>

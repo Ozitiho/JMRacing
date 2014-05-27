@@ -22,11 +22,13 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
     $count = 0;
     foreach ($articles as $article) {
-        $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found; // In case no image can be found
-        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
-
+        $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found
+		if (isset($article['Article']['photo_id'])){
+			$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+		}
+		
         // If an image is found
-        if ($imageDetails) {
+        if (isset($imageDetails)) {
             $albumID = $imageDetails["Photo"]["album_id"];
             $imageName = $imageDetails["Photo"]["name"];
             $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
