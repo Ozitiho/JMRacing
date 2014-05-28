@@ -33,7 +33,7 @@
 			}
 		?>
 	</ul>
-	<a href="https://www.facebook.com/JMRacingTeamMX" class="button">JOIN OUR FACEBOOK</a>
+	<a href="https://www.facebook.com/husqvarnamxgp" class="button">JOIN OUR FACEBOOK</a>
 </div>
 <div class="facebook_box twitter_box box">
 	<h1>TWITTER</h1>
@@ -63,5 +63,5 @@
 			}
 		?>
 	</ul>
-	<a href="https://twitter.com/JMRacingMX" class="button">FOLLOW ON TWITTER</a>
+	<a href="https://twitter.com/HusqvarnaMXGP" class="button">FOLLOW ON TWITTER</a>
 </div>
