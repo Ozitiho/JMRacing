@@ -7,7 +7,8 @@ $this->end();
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
-	<?php $currentUrl = "yes"; ?>
+	//There is currently no means for sharing products, so do so later
+	<?php $currentUrl = "TODO"; ?>
 	
 	<div class="box_equal index">
 	<?php

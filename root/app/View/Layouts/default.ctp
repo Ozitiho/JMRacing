@@ -227,14 +227,22 @@
                                 <li class="sep">|</li>
                                 <li><a href="/products">MERCHANDISE</a></li>
                                 <li class="sep">|</li>
-                                <li><a href="#">CONTACT</a></li>
+                                <li>
+								<?php 
+									if (!$this->Session->read('Auth.User')){
+										echo "<a href=\"/users/login\">LOGIN</a></li>";
+									}
+									else{
+										echo "<a href=\"/users/logout\">LOGOUT</a></li>";
+									}
+								?>
                                 <li class="sep">|</li>
                             </ul>
                         </div>
                         <ul class="social_icons">
                             <li class="fb"><a href="https://www.facebook.com/JMRacingTeamMX">&nbsp;</a></li>
                             <li class="twitter"><a href="https://twitter.com/JMRacingMX">&nbsp;</a></li>
-                            <li class="google"><a href="#">&nbsp;</a></li>
+                            <li class="google" style="visibility:hidden;"><a href="#">&nbsp;</a></li>
                         </ul>
                         <div class="F_bottom">
                             <ul>

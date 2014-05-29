@@ -725,7 +725,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 
     .only_description .description{width:96%; padding:45px 2% 20px;}
     .description p.big{padding-top:15px;}
-    .description{ height: 260px;}
+    .description{ height: 140px;}
 
     .cms
     {
@@ -1070,7 +1070,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.share li a{margin:0;}
 	
 	/* This is for the max size */
-	.description{ height: 235px;}
+	.description{ height: 140px;}
 	.share {position: absolute; bottom: 1em; width: 90%}
 
 	.facebook_box li{padding-bottom:20px;}
@@ -1174,7 +1174,7 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.share li a{margin:0;}
 	
 	/* This is for the max size */
-	.description{ height: 180px;}
+	.description{ height: 140px;}
 	.share {position: absolute; bottom: 1em; width: 90%}
 	
 	.facebook_box{ min-height:389px;}
