@@ -295,8 +295,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer', NULL);
-INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets', NULL);
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (1, 'Aleksandr Tonkov', 59, 'ik ben racer 1', '2014-01-01', 'Zwolle', 'Nederlandse', 'Zwolle', 186, 85, 'Brommer', 4);
+INSERT INTO `JMRacing`.`Racers` (`id`, `Name`, `RacerNumber`, `Biography`, `DateOfBirth`, `PlaceOfBirth`, `Nationality`, `Residence`, `Height`, `Weight`, `Hardware`, `WorldCupStanding`) VALUES (2, 'Romain Febvre', 461, 'ik ben racer 2', '2014-01-01', 'Utrecht', 'Nederlandse', 'Utrecht', 182, 80, 'Fiets', 12);
 
 COMMIT;
 
