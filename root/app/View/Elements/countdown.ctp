@@ -3,6 +3,7 @@ $this->start('header');
 
 // Get the upcoming events
 $events = $this->requestAction('events/getUpcomingEvents');
+$sponsors = $this->requestAction('events/getSponsorsOfEvent/'.$events[0]["Event"]["id"]);
 
 // Only show the countdown/event bar if there are any events
 if ($events) {
@@ -70,15 +71,27 @@ if ($events) {
                         <a href="/events" class="button light_gray">ALL EVENTS <?php print(date("Y")); ?></a>
                     </div>
                     <div class="events_logo">
-                        <a href="#"><img src="/images/event_logo1.png" alt=""></a>
-                        <ul>
-                            <li><a href="#"><img src="/images/event_logo2.png" alt=""></a></li>
-                            <li class="fright"><a href="#"><img src="/images/event_logo3.png" alt=""></a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#"><img src="/images/event_logo2.png" alt=""></a></li>
-                            <li class="fright"><a href="#"><img src="/images/event_logo3.png" alt=""></a></li>
-                        </ul>
+						<?php
+							if(isset($sponsors[0])){
+								echo "<a href='".$sponsors[0]['Sponsor']['URL']."'><img src='/images/".$sponsors[0]['Sponsor']['Image']."' alt=''></a>";
+							}
+							echo "<ul>";
+							if(isset($sponsors[1])){
+								echo "<li><a href='".$sponsors[1]['Sponsor']['URL']."'><img src='/images/".$sponsors[1]['Sponsor']['Image']."' alt=''></a></li>";
+							}
+							if(isset($sponsors[2])){
+								echo "<li class='fright'><a href='".$sponsors[2]['Sponsor']['URL']."'><img src='/images/".$sponsors[2]['Sponsor']['Image']."' alt=''></a></li>";
+							}
+							echo "</ul>
+								<ul>";
+							if(isset($sponsors[3])){
+								echo "<li><a href='".$sponsors[3]['Sponsor']['URL']."'><img src='/images/".$sponsors[3]['Sponsor']['Image']."' alt=''></a></li>";
+							}
+							if(isset($sponsors[4])){
+								echo "<li class='fright'><a href='".$sponsors[4]['Sponsor']['URL']."'><img src='/images/".$sponsors[4]['Sponsor']['Image']."' alt=''></a></li>";
+							}
+							echo "</ul>";
+						?>
                     </div>
                 </div>
             </div>

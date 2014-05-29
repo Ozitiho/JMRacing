@@ -24,7 +24,7 @@ $this->end();
 			<div class="description">
 				<p class="era"><?php echo $product['Product']['Name'] ?></p><p class="era"> &nbsp;&nbsp;
 				<?php 
-					if($products[0]['Product']['DiscountPrice'] > 0){
+					if($product['Product']['DiscountPrice'] > 0){
 						echo ('<del>&euro;'.$product['Product']['Price'].'</del> &nbsp;&nbsp;  <span>&euro;'.$product['Product']['DiscountPrice'].'</span></p>');
 					}
 					else{

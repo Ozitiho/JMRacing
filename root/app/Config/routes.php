@@ -26,6 +26,9 @@
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	
+	// Team
+	Router::connect('/team', array('controller' => 'pages', 'action' => 'display', 'team'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

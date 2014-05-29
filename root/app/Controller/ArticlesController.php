@@ -85,6 +85,23 @@ class ArticlesController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Article->create();
+			// Calculate ExpireDate
+			$priority = $this->request->data['Article']['Priority'];
+			if ($priority == 1){
+				$this->request->data['Article']['ExpireDate'] = 0;
+			}
+			if ($priority == 2){
+				$this->request->data['Article']['ExpireDate'] = 0;
+			}
+			if ($priority == 3){
+				$this->request->data['Article']['ExpireDate'] = 0;
+			}
+			if ($priority == 4){
+				$this->request->data['Article']['ExpireDate'] = 0;
+			}
+			if ($priority == 5){
+				$this->request->data['Article']['ExpireDate'] = 0;
+			}
             if ($this->Article->save($this->request->data)) {
                 $this->Session->setFlash(__('Your article has been saved.'));
                 return $this->redirect(array('action' => 'cms'));
