@@ -85,7 +85,7 @@ class ArticlesController extends AppController {
         if ($this->request->is('post')) {
             $this->Article->create();
             // Calculate ExpireDate
-            $priority = $this->request->data['Article']['Priority'];
+            $priority = $this->request->data['Article']['priority'];
             if ($priority == 1) {
                 $this->request->data['Article']['ExpireDate'] = 0;
             }
