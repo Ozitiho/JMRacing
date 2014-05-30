@@ -29,8 +29,8 @@
 
         // Include the elements
         print($this->element('sponsors'));
-		print($this->element('map'));
-		print($this->element('next_race'));
+        print($this->element('map'));
+        print($this->element('next_race'));
         ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -97,7 +97,20 @@
                 </section>
                 <div class="home_banner">
                     <?php
-                    echo $this->fetch('bannerImage');
+                    // Fetch the page specific banner image
+                    $bannerImage = $this->fetch('bannerImage');
+
+                    // If there's no page specific banner, show a default one
+                    if ($bannerImage == null) {
+                        ?>
+                        <img src="/images/inner_banner2.jpg" alt="">
+                        <?php
+                    }
+                    
+                    else
+                    {
+                        print($bannerImage);
+                    }
                     ?>
                     <div class="clear"></div>
                 </div>
@@ -178,9 +191,9 @@
 
                                 <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong></h2>
                                 <?php
-									// Fetch the next_race element
-									echo $this->fetch('next_race');
-								?>
+                                // Fetch the next_race element
+                                echo $this->fetch('next_race');
+                                ?>
                                 <a class="button red" id="explore">EXPLORE THE MAP</a>
                                 <div class="map">
                                     <img src="/images/full_map.png" alt="">
@@ -191,8 +204,8 @@
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
                             <?php
-								// Fetch the map element
-								echo $this->fetch('map');
+                            // Fetch the map element
+                            echo $this->fetch('map');
                             ?>
                         </div>
                         <div class="clear"></div>

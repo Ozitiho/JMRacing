@@ -14,7 +14,22 @@ $this->end();
         <div class="box w2 event_w2">
             <div class="equal white_bg">
                 <div class="left">
-                    <a href="#"><img src="/images/event_img1.jpg" alt=""></a>
+                    <?php
+                    $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
+                    $thumbImageLocation = $fullImageLocation; // In case no image can be found
+                    if (isset($upcomingEvents[0]['Event']['photo_id'])) {
+                        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $upcomingEvents[0]['Event']['photo_id']);
+                    }
+
+                    // If an image is found
+                    if (isset($imageDetails)) {
+                        $albumID = $imageDetails["Photo"]["album_id"];
+                        $imageName = $imageDetails["Photo"]["name"];
+                        $fullImageLocation = "/images/albums/$albumID/$imageName";
+                        $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+                    }
+                    ?>
+                    <a href="/events/view/<?php print($upcomingEvents[0]["Event"]["id"]);?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
                     <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                 </div>
                 <div class="right">

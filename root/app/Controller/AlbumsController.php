@@ -18,6 +18,10 @@ class AlbumsController extends AppController {
         require_once(APP . 'Vendor' . DS . "imageResize/smart_resize_image.function.php");
 
         if ($this->request->is('post')) {
+            if(!$_POST)
+            {
+                // In this case the post_max_size has been overschreven
+            }
             // If photos are uploaded
             if (isset($_POST["uploadPhotosButton"])) {
                 // Upload the images and get potential error messages
@@ -187,7 +191,7 @@ class AlbumsController extends AppController {
     public function uploadImages($albumID) {
         $errorMessages = array();
         $valid_mime_types = array("image/png", "image/jpeg", "image/gif", "image/bmp");
-        $max_file_size = 1024 * 10000; //10000 kb
+        $max_file_size = 1024 * 5000; // An image cannot be bigger than 5mb
         $path = "images/albums/$albumID/"; // Upload directory
         $count = 0;
 

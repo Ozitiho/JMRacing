@@ -41,5 +41,10 @@ class AppModel extends Model {
             return false;
         }
     }
+    
+    public function getLastInsertedId() {
+       $db =& ConnectionManager::getDataSource($this->useDbConfig);
+       return $db->lastInsertId();
+    }
 
 }

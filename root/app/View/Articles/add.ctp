@@ -25,8 +25,10 @@ $this->end();
         echo $this->Form->input('Message', array('rows' => '10'));
         echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));
         echo $this->Form->input('CreateDate');
-		echo $this->Form->input('Priority', array('options' => array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5')));
-        echo $this->Form->input('user_id', array('type' => 'hidden', 'default'=>AuthComponent::user('id')));
+        echo $this->Form->input('Priority', array('options' => array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5')));
+        echo $this->Form->input('Tags');
+        print("(Seperate tags by using a comma and a space after the last tag)");
+        echo $this->Form->input('user_id', array('type' => 'hidden', 'default' => AuthComponent::user('id')));
         echo $this->Form->end('Add Article');
         ?>
     </fieldset>

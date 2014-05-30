@@ -117,11 +117,17 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Events` (
   `Country` VARCHAR(100) NOT NULL ,
   `City` VARCHAR(100) NOT NULL ,
   `Description` TEXT NOT NULL ,
-  `Photo` VARCHAR(300) NULL ,
   `Latitude` VARCHAR(45) NULL ,
   `Longitude` VARCHAR(45) NULL ,
   `Date` DATETIME NOT NULL ,
-  PRIMARY KEY (`id`) )
+  `photo_id` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_Events_photos1_idx` (`photo_id` ASC) ,
+  CONSTRAINT `fk_Events_photos1`
+    FOREIGN KEY (`photo_id` )
+    REFERENCES `JMRacing`.`photos` (`id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
@@ -172,8 +178,14 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`products` (
   `Price` DOUBLE NOT NULL ,
   `DiscountPrice` DOUBLE NULL ,
   `Size` VARCHAR(4) NOT NULL ,
-  `Image` VARCHAR(250) NOT NULL ,
-  PRIMARY KEY (`id`) )
+  `photo_id` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_products_photos1_idx` (`photo_id` ASC) ,
+  CONSTRAINT `fk_products_photos1`
+    FOREIGN KEY (`photo_id` )
+    REFERENCES `JMRacing`.`photos` (`id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
@@ -205,26 +217,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`tags` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `value` VARCHAR(100) NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `JMRacing`.`article_tags`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `JMRacing`.`article_tags` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `tag_id` INT NOT NULL ,
   `article_id` INT NOT NULL ,
+  `value` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_article_tags_tags1_idx` (`tag_id` ASC) ,
   INDEX `fk_article_tags_Articles1_idx` (`article_id` ASC) ,
-  CONSTRAINT `fk_article_tags_tags1`
-    FOREIGN KEY (`tag_id` )
-    REFERENCES `JMRacing`.`tags` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
   CONSTRAINT `fk_article_tags_Articles1`
     FOREIGN KEY (`article_id` )
     REFERENCES `JMRacing`.`Articles` (`id` )
@@ -253,6 +249,8 @@ COMMIT;
 START TRANSACTION;
 USE `JMRacing`;
 INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (1, 'News Images', NULL, 1);
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (2, 'Event Images', NULL, 1);
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (3, 'Merchandise Images', NULL, 1);
 
 COMMIT;
 
@@ -270,6 +268,28 @@ INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (6,
 INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (7, 'aleksandremmen.jpg', 1, 1);
 INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (8, 'febvrethailand3.jpg', 1, 1);
 INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (9, 'Wilvo-Nestaan-Husqvarna_pod.jpg', 1, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (10, 'stateofgoias.jpeg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (11, 'kegums.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (12, 'lierneux.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (13, 'leon.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (14, 'lommel.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (15, 'loket.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (16, 'hyvinkaa.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (17, 'uddevalla.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (18, 'teutschenhal.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (19, 'maggiora.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (20, 'saintjean.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (21, 'ukmaterley.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (22, 'spaintalavera.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (23, 'valkenswaardNETHERLANDS.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (24, 'bulgariosevlievo.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (25, 'trentinoARCODITRENTO.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (26, 'brazilBETOCARRERO.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (27, 'thailandsiracha.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (28, 'qatarlosail.jpg', 2, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (29, 'home_img7.jpg', 3, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (30, 'team_img5.jpg', 3, 1);
+INSERT INTO `JMRacing`.`photos` (`id`, `name`, `album_id`, `user_id`) VALUES (31, 'team_img6.jpg', 3, 1);
 
 COMMIT;
 
@@ -305,24 +325,24 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (1, 'Qatar', 'Losail', 'beschrijving', NULL, NULL, NULL, '2014-03-01');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (2, 'Thailand', 'Si Racha', 'beschrijving', NULL, NULL, NULL, '2014-03-09');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (3, 'Brazil', 'Beto Carrero', 'beschrijving', NULL, NULL, NULL, '2014-03-30');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (4, 'Trentino', 'Arco di Trento', 'beschrijving', NULL, NULL, NULL, '2014-04-13');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (5, 'Bulgaria', 'Sevlievo', 'beschrijving', NULL, NULL, NULL, '2014-04-20');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (6, 'Netherlands', 'Valkenswaard', 'beschrijving', NULL, NULL, NULL, '2014-05-04');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (7, 'Spain', 'Talavera de la Reina', 'beschrijving', NULL, NULL, NULL, '2014-05-11');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', NULL, '55.378051', '-3.435973', '2014-05-25');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (9, 'France', 'Saint Jean d\'Angely', 'beschrijving', NULL, '45.944823', '-0.517763', '2014-06-01');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (10, 'Italy', 'Maggiora', 'beschrijving', NULL, '45.686217', '8.419272', '2014-06-15');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (11, 'Germany', 'Teutschenthal', 'beschrijving', NULL, '51.447752', '11.798088', '2014-06-22');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (12, 'Sweden', 'Uddevalla', 'beschrijving', NULL, '58.349800', '11.935649', '2014-07-06');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (13, 'Finland', 'Hyvinkää', 'beschrijving', NULL, '60.631811', '24.857883', '2014-07-13');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (14, 'Czech Republic', 'Loket', 'beschrijving', NULL, '50.186012', '12.754063', '2014-07-27');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (15, 'Belgium', 'TBA', 'beschrijving', NULL, '50.850000', '4.350000', '2014-08-03');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', NULL, '48.296212', '37.270004', '2014-08-17');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (17, 'State of Goias', 'Goiania', 'beschrijving', NULL, '-16.686891', '-49.264794', '2014-09-07');
-INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Photo`, `Latitude`, `Longitude`, `Date`) VALUES (18, 'Mexico', 'Leon', 'beschrijving', NULL, '21.129201', '-101.672675', '2014-09-14');
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (1, 'Qatar', 'Losail', 'beschrijving', NULL, NULL, '2014-03-01', 28);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (2, 'Thailand', 'Si Racha', 'beschrijving', NULL, NULL, '2014-03-09', 27);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (3, 'Brazil', 'Beto Carrero', 'beschrijving', NULL, NULL, '2014-03-30', 26);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (4, 'Trentino', 'Arco di Trento', 'beschrijving', NULL, NULL, '2014-04-13', 25);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (5, 'Bulgaria', 'Sevlievo', 'beschrijving', NULL, NULL, '2014-04-20', 24);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (6, 'Netherlands', 'Valkenswaard', 'beschrijving', NULL, NULL, '2014-05-04', 23);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (7, 'Spain', 'Talavera de la Reina', 'beschrijving', NULL, NULL, '2014-05-11', 22);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', '55.378051', '-3.435973', '2014-05-25', 21);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (9, 'France', 'Saint Jean d\'Angely', 'beschrijving', '45.944823', '-0.517763', '2014-06-01', 20);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (10, 'Italy', 'Maggiora', 'beschrijving', '45.686217', '8.419272', '2014-06-15', 19);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (11, 'Germany', 'Teutschenthal', 'beschrijving', '51.447752', '11.798088', '2014-06-22', 18);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (12, 'Sweden', 'Uddevalla', 'beschrijving', '58.349800', '11.935649', '2014-07-06', 17);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (13, 'Finland', 'Hyvinkää', 'beschrijving', '60.631811', '24.857883', '2014-07-13', 16);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (14, 'Czech Republic', 'Loket', 'beschrijving', '50.186012', '12.754063', '2014-07-27', 15);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (15, 'Belgium', 'TBA', 'beschrijving', '50.850000', '4.350000', '2014-08-03', NULL);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', '48.296212', '37.270004', '2014-08-17', NULL);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (17, 'State of Goias', 'Goiania', 'beschrijving', '-16.686891', '-49.264794', '2014-09-07', 10);
+INSERT INTO `JMRacing`.`Events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`) VALUES (18, 'Mexico', 'Leon', 'beschrijving', '21.129201', '-101.672675', '2014-09-14', 13);
 
 COMMIT;
 
@@ -367,8 +387,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (1, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', '/images/home_img7.jpg');
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (2, 'Race Shirt - Red Bull', 29.95, 14.95, 'none', '/images/team_img5.jpg');
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `Image`) VALUES (3, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', '/images/team_img6.jpg');
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (1, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', 29);
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (2, 'Race Shirt - Red Bull', 29.95, 14.95, 'none', 30);
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (3, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', 31);
 
 COMMIT;

@@ -23,10 +23,10 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
     $count = 0;
     foreach ($articles as $article) {
         $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found
-		if (isset($article['Article']['photo_id'])){
-			$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
-		}
-		
+        if (isset($article['Article']['photo_id'])) {
+            $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+        }
+
         // If an image is found
         if (isset($imageDetails)) {
             $albumID = $imageDetails["Photo"]["album_id"];
@@ -84,15 +84,30 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
         </a>
         <p class="black">ROMAIN FEBVRE #461</p>
     </div>
-<?php if (isset($products[0])) { ?>
+    <?php if (isset($products[0])) { ?>
         <div class="box team_col">
+            <?php
+            $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
+            $thumbImageLocation = $fullImageLocation; // In case no image can be found
+            if (isset($products[0]['Product']['photo_id'])) {
+                $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $products[0]['Product']['photo_id']);
+            }
+
+            // If an image is found
+            if (isset($imageDetails)) {
+                $albumID = $imageDetails["Photo"]["album_id"];
+                $imageName = $imageDetails["Photo"]["name"];
+                $fullImageLocation = "/images/albums/$albumID/$imageName";
+                $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+            }
+            ?>
             <a href="products">
-                <div class="center-cropped" style="background-image: url('<?php echo $products[0]['Product']['Image']; ?>');"></div>
+                <div class="center-cropped" style="background-image: url('<?php echo $thumbImageLocation; ?>');"></div>
                 <span class="overlay">&nbsp;</span>
                 <span class="heading blue">MERCHANDISE</span>
             </a>
         </div>
-<?php } ?>
+    <?php } ?>
     <div class="box team_col">
         <div class="center-cropped" style="background-image: url('<?php echo $photos[17]['source']; ?>');"></div>
         <span class="overlay">&nbsp;</span>

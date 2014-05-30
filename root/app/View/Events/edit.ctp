@@ -15,7 +15,7 @@ $this->end();
         echo $this->Form->create('Event');
         echo $this->Form->input('Country');
         echo $this->Form->input('City');
-        echo $this->Form->input('Photo');
+        echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));
         echo $this->Form->input('Latitude');
         echo $this->Form->input('Longitude');
         echo $this->Form->input('Date');

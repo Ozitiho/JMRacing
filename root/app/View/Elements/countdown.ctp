@@ -3,7 +3,7 @@ $this->start('header');
 
 // Get the upcoming events
 $events = $this->requestAction('events/getUpcomingEvents');
-$sponsors = $this->requestAction('events/getSponsorsOfEvent/'.$events[0]["Event"]["id"]);
+$sponsors = $this->requestAction('events/getSponsorsOfEvent/' . $events[0]["Event"]["id"]);
 
 // Only show the countdown/event bar if there are any events
 if ($events) {
@@ -15,7 +15,22 @@ if ($events) {
                 <div class="equal white_bg">
                     <h1 class="heading">NEXT EVENT: <?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
                     <div class="left">
-                        <a href="#"><img src="/images/event_img1.jpg" alt=""></a>
+                        <?php
+                        $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
+                        $thumbImageLocation = $fullImageLocation; // In case no image can be found
+                        if (isset($events[0]['Event']['photo_id'])) {
+                            $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $events[0]['Event']['photo_id']);
+                        }
+
+                        // If an image is found
+                        if (isset($imageDetails)) {
+                            $albumID = $imageDetails["Photo"]["album_id"];
+                            $imageName = $imageDetails["Photo"]["name"];
+                            $fullImageLocation = "/images/albums/$albumID/$imageName";
+                            $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+                        }
+                        ?>
+                        <a href="events/view/<?php print($events[0]["Event"]["id"]);?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
                         <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                     </div>
                     <div class="right">
@@ -24,7 +39,7 @@ if ($events) {
                         <p><?php print($events[0]["Event"]["Description"]); ?></p>
                         <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>" class="red">MORE INFO</a>
                         <a href="#" class="gray">GET TICKETS</a>
-                        <a href="#" class="yellow">SEE RESULTS MX2 2014</a>
+                        <a href="/events" class="yellow">SEE RESULTS MX2 2014</a>
                     </div>
                 </div>
                 <div class="equal">
@@ -61,8 +76,7 @@ if ($events) {
                                 </li>
                                 <?php
                                 // If the max of 6 events has been reached, break the foreach loop
-                                if($count == 6)
-                                {
+                                if ($count == 6) {
                                     break;
                                 }
                             }
@@ -71,27 +85,27 @@ if ($events) {
                         <a href="/events" class="button light_gray">ALL EVENTS <?php print(date("Y")); ?></a>
                     </div>
                     <div class="events_logo">
-						<?php
-							if(isset($sponsors[0])){
-								echo "<a href='".$sponsors[0]['Sponsor']['URL']."'><img src='/images/".$sponsors[0]['Sponsor']['Image']."' alt=''></a>";
-							}
-							echo "<ul>";
-							if(isset($sponsors[1])){
-								echo "<li><a href='".$sponsors[1]['Sponsor']['URL']."'><img src='/images/".$sponsors[1]['Sponsor']['Image']."' alt=''></a></li>";
-							}
-							if(isset($sponsors[2])){
-								echo "<li class='fright'><a href='".$sponsors[2]['Sponsor']['URL']."'><img src='/images/".$sponsors[2]['Sponsor']['Image']."' alt=''></a></li>";
-							}
-							echo "</ul>
+                        <?php
+                        if (isset($sponsors[0])) {
+                            echo "<a href='" . $sponsors[0]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[0]['Sponsor']['Image'] . "' alt=''></a>";
+                        }
+                        echo "<ul>";
+                        if (isset($sponsors[1])) {
+                            echo "<li><a href='" . $sponsors[1]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[1]['Sponsor']['Image'] . "' alt=''></a></li>";
+                        }
+                        if (isset($sponsors[2])) {
+                            echo "<li class='fright'><a href='" . $sponsors[2]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[2]['Sponsor']['Image'] . "' alt=''></a></li>";
+                        }
+                        echo "</ul>
 								<ul>";
-							if(isset($sponsors[3])){
-								echo "<li><a href='".$sponsors[3]['Sponsor']['URL']."'><img src='/images/".$sponsors[3]['Sponsor']['Image']."' alt=''></a></li>";
-							}
-							if(isset($sponsors[4])){
-								echo "<li class='fright'><a href='".$sponsors[4]['Sponsor']['URL']."'><img src='/images/".$sponsors[4]['Sponsor']['Image']."' alt=''></a></li>";
-							}
-							echo "</ul>";
-						?>
+                        if (isset($sponsors[3])) {
+                            echo "<li><a href='" . $sponsors[3]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[3]['Sponsor']['Image'] . "' alt=''></a></li>";
+                        }
+                        if (isset($sponsors[4])) {
+                            echo "<li class='fright'><a href='" . $sponsors[4]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[4]['Sponsor']['Image'] . "' alt=''></a></li>";
+                        }
+                        echo "</ul>";
+                        ?>
                     </div>
                 </div>
             </div>

@@ -25,6 +25,8 @@ $this->end();
         echo $this->Form->input('Message', array('rows' => '10'));
         echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));
         echo $this->Form->input('CreateDate');
+        echo $this->Form->input('Tags', array('value' => $this->requestAction('articles/getTagsForArticle/' . $articleID)));
+        print("(Seperate tags by using a comma and a space after the last tag)");
         echo $this->Form->input('id', array('type' => 'hidden'));
         echo $this->Form->end('Edit Article');
         ?>
