@@ -11,7 +11,10 @@ if ($imageDetails) {
     $fullImageLocation = "/images/albums/$albumID/$imageName";
 }
 ?>
-<img src="<?php print($fullImageLocation); ?>" alt="">
+<div class="center-cropped banner" style="background-image: url('<?php echo $fullImageLocation; ?>');">
+	<img src="<?php print($fullImageLocation); ?>" alt="">
+	<div class="gradient-overlay"></div>
+</div>
 <?php
 $this->end();
 

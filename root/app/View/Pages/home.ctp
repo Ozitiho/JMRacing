@@ -13,48 +13,106 @@ $articles = $this->requestAction('articles/getShortenedArticles');
 $products = $this->requestAction('products/getProducts');
 
 $photos = $this->requestAction('socialMedia/getFacebookPictures');
+
+function printArticle($article, $imageDetails) {
+    //TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
+    $url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
+
+    $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
+    if (isset($article['Article']['photo_id'])) {
+        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+    }
+    // If an image is found
+    if (isset($imageDetails)) {
+        $albumID = $imageDetails["Photo"]["album_id"];
+        $imageName = $imageDetails["Photo"]["name"];
+        $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+    }
+    $currentUrl = $url . "/articles/" . $article['Article']['id'];
+    ?>
+    <div class="box">
+        <div class="center-cropped news" style="background-image: url('<?php echo $thumbImageLocation; ?>');">
+
+        </div>
+        <span class="heading">NEWS</span>
+        <div class="description">
+            <h2><?php echo $article['Article']['Title']; ?></h2>
+            <p><?php echo $article['Article']['Message']; ?></p>
+            <div class="share">
+                <ul>
+                    <li>SHARE &nbsp;&nbsp;</li>
+                    <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . $article['Article']['Title']; ?>"  target="_blank">&nbsp;</a></li>
+                    <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+                    <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
+                </ul>
+                <a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
+            </div>
+        </div>
+    </div>	
+    <?php
+}
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
     <?php
-    //TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
-    $url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
-
     $count = 0;
-    foreach ($articles as $article) {
-        $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found
-        if (isset($article['Article']['photo_id'])) {
-            $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
-        }
 
-        // If an image is found
-        if (isset($imageDetails)) {
-            $albumID = $imageDetails["Photo"]["album_id"];
-            $imageName = $imageDetails["Photo"]["name"];
-            $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+    //Sort the articles
+    $sorted = array();
+    $date = new DateTime();
+    //First, add the highest priority and delete the lowest
+    foreach ($articles as $key => $article) {
+        $priority = $article['Article']['priority'];
+        If ($priority == 5) {
+            array_push($sorted, $article);
+            unset($articles[$key]);
         }
-        $currentUrl = $url . "/articles/" . $article['Article']['id'];
-        ?>
-        <div class="box">
-            <div class="center-cropped news" style="background-image: url('<?php echo $thumbImageLocation; ?>');">
+        If ($priority == 0) {
+            unset($articles[$key]);
+        }
+    }
 
-            </div>
-            <span class="heading">NEWS</span>
-            <div class="description">
-                <h2><?php echo $article['Article']['Title']; ?></h2>
-                <p><?php echo $article['Article']['Message']; ?></p>
-                <div class="share">
-                    <ul>
-                        <li>SHARE &nbsp;&nbsp;</li>
-                        <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . $article['Article']['Title']; ?>"  target="_blank">&nbsp;</a></li>
-                        <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
-                        <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
-                    </ul>
-                    <a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
-                </div>
-            </div>
-        </div>	
-        <?php
+    //Then, the second highest
+    foreach ($articles as $key => $article) {
+        $priority = $article['Article']['priority'];
+        If ($priority == 4) {
+            array_push($sorted, $article);
+            unset($articles[$key]);
+        }
+    }
+    //Then, the rest
+    $count = 0;
+    while (!empty($articles)) {
+        $highestScore = -10000;
+        $highestArticle = null;
+        $currentKey = 0;
+        foreach ($articles as $key => $article) {
+            $articleDate = new DateTime($article['Article']['CreateDate']);
+            $difference = $date->diff($articleDate);
+
+            $score = (0 - $difference->d) * $priority + 2;
+            if ($score > $highestScore) {
+                $highestScore = $score;
+                $highestArticle = $article;
+                $currentKey = $key;
+            }
+        }
+        if ($highestArticle != null) {
+            array_push($sorted, $highestArticle);
+            unset($articles[$currentKey]);
+        }
+        $count++;
+        if ($count > 4) {
+            unset($articles);
+            $articles = array();
+        }
+    }
+    $count = 0;
+    foreach ($sorted as $article) {
+        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+
+        printArticle($article, $imageDetails);
+
         $count ++;
         //Don't display more than 4 articles
         if ($count == 4)

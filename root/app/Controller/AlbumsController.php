@@ -1,7 +1,11 @@
 <?php
 
 class AlbumsController extends AppController {
-
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('getDetailsFromPhotoID');
+    }
+	
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
