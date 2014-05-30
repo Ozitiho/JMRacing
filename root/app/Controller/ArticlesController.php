@@ -11,7 +11,12 @@ class ArticlesController extends AppController {
     }
 
     public function index() {
-        $articles = $this->Article->find('all', array('order' => array('id' => 'desc')));
+        if ($this->request->is('post') && $_POST["searchQuery"] != "") {
+            $articles = $this->Article->Tag->find('all', array('conditions' => array('Tag.value' => $_POST["searchQuery"])
+            ));
+        } else {
+            $articles = $this->Article->find('all', array('order' => array('id' => 'desc')));
+        }
 
         foreach ($articles as $key => $article) {
             // Shorten body
@@ -106,7 +111,7 @@ class ArticlesController extends AppController {
         if (!$article) {
             throw new NotFoundException(__('Invalid article'));
         }
-        
+
         $this->set('articleID', $id);
 
         if ($this->request->is(array('article', 'put'))) {
@@ -202,23 +207,21 @@ class ArticlesController extends AppController {
             $this->Article->Tag->save($data);
         }
     }
-    
-    public function getTagsForArticle($articleID)
-    {
+
+    public function getTagsForArticle($articleID) {
         $tags = $this->Article->Tag->find('all', array(
             'conditions' => array('article_id' => $articleID)));
-        
+
         $tagsString = "";
-        
+
         // Make a string with comma's seperating them
-        foreach($tags as $tag)
-        {
+        foreach ($tags as $tag) {
             $tagsString .= $tag["Tag"]["value"] . ", ";
         }
-        
+
         // Remove the last ", "
         $tagsString = rtrim($tagsString, ", ");
-        
+
         return $tagsString;
     }
 

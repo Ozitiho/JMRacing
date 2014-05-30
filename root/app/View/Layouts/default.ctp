@@ -59,8 +59,8 @@
                         </div>
                         <div class="menu_open">
                             <div class="search">
-                                <form action="#">
-                                    <input type="text" value="">
+                                <form action="/articles" method="post">
+                                    <input type="text" value="" name="searchQuery">
                                     <input type="submit" value="" class="submit">
                                 </form>
                             </div>
