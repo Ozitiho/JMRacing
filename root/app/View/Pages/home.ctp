@@ -17,11 +17,7 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
 function printArticle($article, $imageDetails) {
     //TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
     $url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
-
-    $thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
-    if (isset($article['Article']['photo_id'])) {
-        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
-    }
+	
     // If an image is found
     if (isset($imageDetails)) {
         $albumID = $imageDetails["Photo"]["album_id"];
@@ -110,6 +106,11 @@ function printArticle($article, $imageDetails) {
     $count = 0;
     foreach ($sorted as $article) {
         $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+
+		$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
+		if (isset($article['Article']['photo_id'])) {
+			$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+		}
 
         printArticle($article, $imageDetails);
 
