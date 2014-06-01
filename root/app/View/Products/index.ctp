@@ -1,3 +1,31 @@
+<script>
+    // This function shows a product popup
+    function showProductPopup(albumID, imgName, photoID)
+    {
+        $("#merchandisePopup").css('background-image', 'url(/images/albums/' + albumID + '/' + imgName + ')');
+        $("#merchandisePopup").css('display', 'block');
+        var popupContent = '<div class="productPopupDescription"><p>Dit is een statische beschrijving die nog dynamisch gemaakt moet worden.</p>';
+        popupContent += 'Size: <select class="sizeSelector"><option>S</option><option>M</option><option>L</option><option>XL</option></select>';
+        popupContent += '<input type="button" value="Add to cart" class="button addToCartButton"></div>';
+        
+        $("#merchandisePopup").html(popupContent);
+
+        // Don't close the box when the user clicks the sizeSelector
+        $(".sizeSelector").click(function(e)
+        {
+            e.stopPropagation();
+        });
+    }
+
+    // When the box gets clicked, hide it
+    $(function()
+    {
+        $("#merchandisePopup").click(function()
+        {
+            $("#merchandisePopup").css('display', 'none');
+        });
+    });
+</script>
 <?php
 $this->start('bannerImage');
 ?>
@@ -18,12 +46,15 @@ $this->end();
 
             $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
             $thumbImageLocation = $fullImageLocation; // In case no image can be found
+            $photoID = 0;
+            $imageName = null;
             if (isset($product['Product']['photo_id'])) {
                 $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $product['Product']['photo_id']);
             }
 
             // If an image is found
             if (isset($imageDetails)) {
+                $photoID = $product['Product']['photo_id'];
                 $albumID = $imageDetails["Photo"]["album_id"];
                 $imageName = $imageDetails["Photo"]["name"];
                 $fullImageLocation = "/images/albums/$albumID/$imageName";
@@ -50,7 +81,7 @@ $this->end();
                             <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $product['Product']['Name']; ?>" target="_blank">&nbsp;</a></li>
                             <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                         </ul>
-                        <a href="#" class="button">BUY THIS ITEM</a>
+                        <a style="cursor: pointer;" onclick="showProductPopup('<?php print($albumID); ?>', '<?php print($imageName); ?>', '<?php print($photoID);?>')" class="button">BUY THIS ITEM</a>
                     </div>
                 </div>
             </div>
@@ -62,4 +93,7 @@ $this->end();
             print($this->element('socialmedia'));
         ?>
     </div>
+</div>
+<div id="merchandisePopup" title="Click to close this product">
+
 </div>
