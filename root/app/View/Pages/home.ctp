@@ -51,20 +51,30 @@ function printArticle($article, $imageDetails) {
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
     <?php
-    $count = 0;
 
     //Sort the articles
     $sorted = array();
     $date = new DateTime();
-    //First, add the highest priority and delete the lowest
+    $count = 0;
+	
+    //First, push the highest priority to the sorted array
     foreach ($articles as $key => $article) {
         $priority = $article['Article']['priority'];
         If ($priority == 5) {
             array_push($sorted, $article);
             unset($articles[$key]);
         }
+		
+		//Also delete the articles with a priority of 0 (never show these)
         If ($priority == 0) {
             unset($articles[$key]);
+        }
+		
+		//If at any point there are more than 4 articles, stop sorting
+        $count++;
+        if ($count > 4) {
+            unset($articles);
+            $articles = array();
         }
     }
 
@@ -75,34 +85,48 @@ function printArticle($article, $imageDetails) {
             array_push($sorted, $article);
             unset($articles[$key]);
         }
-    }
-    //Then, the rest
-    $count = 0;
-    while (!empty($articles)) {
-        $highestScore = -10000;
-        $highestArticle = null;
-        $currentKey = 0;
-        foreach ($articles as $key => $article) {
-            $articleDate = new DateTime($article['Article']['CreateDate']);
-            $difference = $date->diff($articleDate);
-
-            $score = (0 - $difference->d) * $priority + 2;
-            if ($score > $highestScore) {
-                $highestScore = $score;
-                $highestArticle = $article;
-                $currentKey = $key;
-            }
-        }
-        if ($highestArticle != null) {
-            array_push($sorted, $highestArticle);
-            unset($articles[$currentKey]);
-        }
+		
         $count++;
         if ($count > 4) {
             unset($articles);
             $articles = array();
         }
     }
+    //Then, the rest
+    while (!empty($articles)) {
+        $highestScore = -10000;
+        $highestArticle = null;
+        $currentKey = 0;
+        foreach ($articles as $key => $article) {
+			//Calculate the difference between today and the post date
+            $articleDate = new DateTime($article['Article']['CreateDate']);
+            $difference = $date->diff($articleDate);		
+			
+			//Calculate an arbitrary score based on the post date and the priority
+            $score = (0 - $difference->d) * $priority + 2;
+			
+			//If the current score is the highest, remember it
+            if ($score > $highestScore) {
+                $highestScore = $score;
+                $highestArticle = $article;
+                $currentKey = $key;
+            }
+        }
+		
+		//Push the highest scoring article to the array
+        if ($highestArticle != null) {
+            array_push($sorted, $highestArticle);
+            unset($articles[$currentKey]);
+        }
+		
+        $count++;
+        if ($count > 4) {
+            unset($articles);
+            $articles = array();
+        }
+    }
+	
+	//Now, print the sorted articles
     $count = 0;
     foreach ($sorted as $article) {
         $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
