@@ -63,6 +63,7 @@ function printArticle($article, $imageDetails) {
         If ($priority == 5) {
             array_push($sorted, $article);
             unset($articles[$key]);
+			$count++;
         }
 		
 		//Also delete the articles with a priority of 0 (never show these)
@@ -71,7 +72,6 @@ function printArticle($article, $imageDetails) {
         }
 		
 		//If at any point there are more than 4 articles, stop sorting
-        $count++;
         if ($count > 4) {
             unset($articles);
             $articles = array();
@@ -84,9 +84,9 @@ function printArticle($article, $imageDetails) {
         If ($priority == 4) {
             array_push($sorted, $article);
             unset($articles[$key]);
+			$count++;
         }
 		
-        $count++;
         if ($count > 4) {
             unset($articles);
             $articles = array();
@@ -115,11 +115,11 @@ function printArticle($article, $imageDetails) {
 		
 		//Push the highest scoring article to the array
         if ($highestArticle != null) {
+			$count++;
             array_push($sorted, $highestArticle);
             unset($articles[$currentKey]);
         }
 		
-        $count++;
         if ($count > 4) {
             unset($articles);
             $articles = array();
