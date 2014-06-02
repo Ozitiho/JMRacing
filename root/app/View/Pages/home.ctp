@@ -184,7 +184,7 @@ function printArticle($article, $imageDetails) {
                 $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
             }
             ?>
-            <a href="products">
+            <a href="/products">
                 <div class="center-cropped" style="background-image: url('<?php echo $thumbImageLocation; ?>');"></div>
                 <span class="overlay">&nbsp;</span>
                 <span class="heading blue">MERCHANDISE</span>
