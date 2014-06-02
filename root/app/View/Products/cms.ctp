@@ -15,6 +15,7 @@ $this->end();
             <th>Name</th>
             <th>Price</th>
             <th>Discount price</th>
+            <th>Description</th>
             <th>Size</th>
         </tr>
 
@@ -26,6 +27,7 @@ $this->end();
                 </td>
                 <td><?php echo $product['Product']['Price']; ?></td>
                 <td><?php echo $product['Product']['DiscountPrice']; ?></td>
+                <td><?php echo $product['Product']['description']; ?></td>
                 <td><?php echo $product['Product']['Size']; ?></td>
                 <td>
                     <?php

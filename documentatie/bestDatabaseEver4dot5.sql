@@ -177,6 +177,7 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`products` (
   `Name` VARCHAR(150) NOT NULL ,
   `Price` DOUBLE NOT NULL ,
   `DiscountPrice` DOUBLE NULL ,
+  `description` VARCHAR(200) NULL ,
   `Size` VARCHAR(4) NOT NULL ,
   `photo_id` INT NULL ,
   PRIMARY KEY (`id`) ,
@@ -387,8 +388,31 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (1, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', 29);
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (2, 'Race Shirt - Red Bull', 29.95, 14.95, 'none', 30);
-INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `Size`, `photo_id`) VALUES (3, 'New Era - Red Bull Cap', 29.95, 14.95, 'none', 31);
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `description`, `Size`, `photo_id`) VALUES (1, 'New Era - Red Bull Cap', 29.95, 14.95, NULL, 'none', 29);
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `description`, `Size`, `photo_id`) VALUES (2, 'Race Shirt - Red Bull', 29.95, 14.95, NULL, 'none', 30);
+INSERT INTO `JMRacing`.`products` (`id`, `Name`, `Price`, `DiscountPrice`, `description`, `Size`, `photo_id`) VALUES (3, 'New Era - Red Bull Cap', 29.95, 14.95, NULL, 'none', 31);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `JMRacing`.`tags`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JMRacing`;
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (1, 1, 'romain febvre');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (2, 1, 'aleksandr tonkov');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (3, 1, 'losail');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (4, 2, 'romain febvre');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (5, 2, 'si racha');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (6, 3, 'emmen');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (7, 4, 'mill');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (8, 5, 'aleksandr tonkov');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (9, 5, 'beto carrero');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (10, 6, 'romain febvre');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (11, 6, 'arco di trento');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (12, 7, 'sevlievo');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (13, 7, 'romain febvre');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (14, 8, 'glenn coldenhoff');
+INSERT INTO `JMRacing`.`tags` (`id`, `article_id`, `value`) VALUES (15, 9, 'valkenswaard');
 
 COMMIT;

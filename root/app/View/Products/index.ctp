@@ -1,10 +1,10 @@
 <script>
     // This function shows a product popup
-    function showProductPopup(albumID, imgName, photoID)
+    function showProductPopup(albumID, imgName, photoID, productDescription)
     {
         $("#merchandisePopup").css('background-image', 'url(/images/albums/' + albumID + '/' + imgName + ')');
         $("#merchandisePopup").css('display', 'block');
-        var popupContent = '<div class="productPopupDescription"><p>Dit is een statische beschrijving die nog dynamisch gemaakt moet worden.</p>';
+        var popupContent = '<div class="productPopupDescription"><p>' + productDescription + '</p>';
         popupContent += 'Size: <select class="sizeSelector"><option>S</option><option>M</option><option>L</option><option>XL</option></select>';
         popupContent += '<input type="button" value="Add to cart" class="button addToCartButton"></div>';
         
@@ -42,6 +42,7 @@ $this->end();
         <?php
         $count = 0;
         foreach ($products as $product) {
+            $productDescription = $product['Product']['description'];
             $count++;
 
             $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
@@ -81,7 +82,7 @@ $this->end();
                             <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $product['Product']['Name']; ?>" target="_blank">&nbsp;</a></li>
                             <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                         </ul>
-                        <a style="cursor: pointer;" onclick="showProductPopup('<?php print($albumID); ?>', '<?php print($imageName); ?>', '<?php print($photoID);?>')" class="button">BUY THIS ITEM</a>
+                        <a style="cursor: pointer;" onclick="showProductPopup('<?php print($albumID); ?>', '<?php print($imageName); ?>', '<?php print($photoID);?>', '<?php print($productDescription);?>')" class="button">BUY THIS ITEM</a>
                     </div>
                 </div>
             </div>
