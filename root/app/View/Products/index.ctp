@@ -72,7 +72,7 @@ $this->end();
                         if ($product['Product']['DiscountPrice'] > 0) {
                             echo ('<del>&euro;' . $product['Product']['Price'] . '</del> &nbsp;&nbsp;  <span>&euro;' . $product['Product']['DiscountPrice'] . '</span></p>');
                         } else {
-                            echo ('<span>&euro;' . $product['Product']['Price'] . '</span></p>');
+                            echo ('<normal>&euro;' . $product['Product']['Price'] . '</normal></p>');
                         }
                         ?>
                     <div class="share">
