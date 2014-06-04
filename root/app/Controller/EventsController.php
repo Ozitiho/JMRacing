@@ -4,7 +4,7 @@ class EventsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('countDown', 'getUpcomingEvents', 'getEventsByYear', 'index');
+        $this->Auth->allow('countDown', 'getUpcomingEvents', 'getEventsByYear', 'index', 'getSponsorsOfEvent');
     }
 
     public $helpers = array('Html', 'Form', 'Session');
@@ -43,6 +43,8 @@ class EventsController extends AppController {
                     'Unable to add your event.', 'default', array('class' => 'flashError')
             );
         }
+		
+		$this->set('sponsors', $this->requestAction('sponsors/index/'));
     }
 
     public function edit($id = null) {
@@ -64,9 +66,11 @@ class EventsController extends AppController {
                 return $this->redirect(array('action' => 'cms'));
             }
             $this->Session->setFlash(
-                    'Unable to update your event.', 'default', array('class' => 'flashError')
+				'Unable to update your event.', 'default', array('class' => 'flashError')
             );
         }
+		
+		$this->set('sponsors', $this->requestAction('sponsors/index/'));
 
         if (!$this->request->data) {
             $this->request->data = $event;
@@ -87,16 +91,23 @@ class EventsController extends AppController {
     }
 	
 	public function getSponsorsOfEvent($id) {
-		$sponsors = $this->Event->EventSponsor->find('all', array(
-            'conditions' => 'event_id = ' . $id
+		$sponsors = array();
+	
+		$event = $this->Event->find('first', array(
+            'conditions' => array('Event.id' => $id)
         ));
+		
+		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["main_sponsor"]));
+		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor1"]));
+		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor2"]));
+		
 		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $sponsors;
         } else {
             $this->set('sponsors', $sponsors);
         }
 	}
-
+	
     public function getUpcomingEvents() {
         $upcomingEvents = $this->Event->find('all', array('order' => array('Date' => 'asc'),
             'conditions' => 'Date >= NOW()'

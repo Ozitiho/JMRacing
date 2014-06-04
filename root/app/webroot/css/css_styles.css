@@ -183,6 +183,9 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .events_logo ul{width:100%; float:left; padding:24px 0 0;}
 .events_logo li{width:46%; float:left;}
 .events_logo li.fright{float:right;}
+.events_logo a, .events_logo ul li{background: white;}
+.events_logo a img {height: 90px; width: 280px; display: inline-block;}
+.events_logo ul li a img {width: 128px;}
 
 .time_left img{float:left; margin:0 2px 0 0;}
 .time_left ul{float:left;}

@@ -57,7 +57,7 @@ class ProductsController extends AppController {
             throw new NotFoundException(__('Invalid product'));
         }
 
-        if ($this->request->is(array('product', 'put'))) {
+        if ($this->request->is(array('post', 'put'))) {
             $this->Product->id = $id;
             if ($this->Product->save($this->request->data)) {
                 $this->Session->setFlash(__('Your product has been updated.'));

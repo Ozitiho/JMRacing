@@ -30,8 +30,15 @@ $this->end();
                 <td><?php echo $event['Event']['Date']; ?></td>
 				<td>
 				<?php 
+					$first = true;
 					foreach ($sponsors as $sponsor) {
-						echo $sponsor['Sponsor']['Name'] . " ";
+						if(isset($sponsor['Sponsor'])){
+							if(!$first){
+								echo ", ";
+							}
+							$first = false;
+							echo $sponsor['Sponsor']['Name'];
+						}
 					}
 				?>
 				</td>

@@ -4,7 +4,7 @@ class SponsorsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('index');
+        $this->Auth->allow('index', 'find');
     }
 
     public $helpers = array('Html', 'Form', 'Session');
@@ -73,5 +73,16 @@ class SponsorsController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
+	
+	public function find($id) {
+		$sponsor = $this->Sponsor->find('first', array(
+            'conditions' => array('Sponsor.id' => $id)
+        ));
+		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+            return $sponsor;
+        } else {
+            $this->set('sponsor', $sponsor);
+        }
+	}
 
 }
