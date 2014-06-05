@@ -93,17 +93,23 @@ function printArticle($article, $imageDetails) {
         }
     }
     //Then, the rest
-    while (!empty($articles)) {
+    while (!empty($articles) && $count < 4) {
         $highestScore = -10000;
         $highestArticle = null;
         $currentKey = 0;
         foreach ($articles as $key => $article) {
+			$priority = $article['Article']['priority'];
+			
 			//Calculate the difference between today and the post date
             $articleDate = new DateTime($article['Article']['CreateDate']);
-            $difference = $date->diff($articleDate);		
+            $difference = $articleDate->diff($date);	
+			$difference = ($difference->m * 30) + $difference->d;
 			
 			//Calculate an arbitrary score based on the post date and the priority
-            $score = (0 - $difference->d) * $priority + 2;
+            $score = 0 - $difference + 7 * $priority;
+			
+			//Debug line
+			//echo "ID: ". $article['Article']['id']  ."Score: $score Difference: $difference Priority: $priority <br>";
 			
 			//If the current score is the highest, remember it
             if ($score > $highestScore) {
@@ -118,11 +124,6 @@ function printArticle($article, $imageDetails) {
 			$count++;
             array_push($sorted, $highestArticle);
             unset($articles[$currentKey]);
-        }
-		
-        if ($count > 4) {
-            unset($articles);
-            $articles = array();
         }
     }
 	

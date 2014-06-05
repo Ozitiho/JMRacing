@@ -1,0 +1,1 @@
+$url = "http://$_SERVER[H TTP_HOST]$_SERVER[REQUEST_URI]";

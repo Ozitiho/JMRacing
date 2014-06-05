@@ -39,7 +39,7 @@
 	<h1>TWITTER</h1>
 	<ul>
 		<?php
-			if($pageposts == NULL){
+			if($tweets == NULL){
 			?>
 			<li>
 				<a href="https://twitter.com/HusqvarnaMXGP">Could not retrieve Twitter posts. Click here to go to Husqvarna MX's twitter feed or refresh to try again.</a>
