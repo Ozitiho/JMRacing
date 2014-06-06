@@ -24,6 +24,10 @@ function printArticle($article, $imageDetails) {
         $imageName = $imageDetails["Photo"]["name"];
         $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
     }
+	else {
+		$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
+	}
+	
     $currentUrl = $url . "/articles/" . $article['Article']['id'];
     ?>
     <div class="box">
@@ -130,9 +134,8 @@ function printArticle($article, $imageDetails) {
 	//Now, print the sorted articles
     $count = 0;
     foreach ($sorted as $article) {
-        $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
-
-		$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
+		$imageDetails = null;
+		
 		if (isset($article['Article']['photo_id'])) {
 			$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
 		}

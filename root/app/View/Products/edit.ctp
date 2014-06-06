@@ -17,6 +17,7 @@ $this->end();
         echo $this->Form->input('Name');
         echo $this->Form->input('Price');
         echo $this->Form->input('DiscountPrice');
+        echo $this->Form->input('description', array('rows' => '5'));
         echo $this->Form->input('Size', array('type' => 'select', 'options' =>
             array("none" => "None", "s" => "S", "m" => "M", "l" => "L", "xl" => "XL")));
         echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));

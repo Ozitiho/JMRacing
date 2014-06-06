@@ -317,6 +317,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e7ea', e
 .team_col .era{float:left; font:bold 18px 'Asap'; z-index:11; color:#002752; line-height:24px; width:100%;
                text-align:center; position:absolute; left:0; bottom:15px;}
 .team_col .era del{color:#828d9f;}
+.team_col .era normal{color:#828d9f;}
 .team_col .era span{color:#55ac0e;}
 .prodname{clear: both;}
 

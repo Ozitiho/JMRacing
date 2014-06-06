@@ -11,6 +11,6 @@ $this->end();
     <legend class="legend">
         <h1>Something went wrong!</h1>
     </legend>
-	This page does not exist.<br>
+	A fatal error has occurred.<br>
 	<br>
 </div>
