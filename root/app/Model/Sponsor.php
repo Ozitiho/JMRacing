@@ -1,9 +1,6 @@
 <?php
 
 class Sponsor extends AppModel {
-	public $hasAndBelongsToMany = array(
-        'Event' => array('with' => 'EventSponsor')
-    );
     public $validate = array(
         'Name' => array(
             'rule' => 'notEmpty'

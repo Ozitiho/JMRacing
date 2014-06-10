@@ -30,7 +30,7 @@ if ($events) {
                             $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
                         }
                         ?>
-                        <a href="events/view/<?php print($events[0]["Event"]["id"]);?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
+                        <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
                         <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                     </div>
                     <div class="right">
@@ -86,45 +86,43 @@ if ($events) {
                     </div>
                     <div class="events_logo">
                         <?php
-							if(isset($sponsors)){
-								/*The first couple sponsors are ALWAYS the main
-								* sponsors. However the top first sponsor is variable.
-								* To support this, simply switch around the image
-								* if the first sponsor is not husqvarna
-								*/
-								echo "<a href='" . $sponsors[0]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[0]['Sponsor']['wide_image'] . "' alt=''></a>";
-								
-								//The given slicing requires every row to be placed in a seperate <ul> element.
-								echo "<ul>";
-								//So, if the main sponsor of the event is Nestaan, then put Husqvarna in the spot of Nestaan.
-								if($sponsors[0]['Sponsor']['Name'] == "Nestaan"){
-									//TODO: Edit with husqvarna picture
-									echo "<li><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
-								}
-								else{
-									echo "<li><a href='http://www.nestaan.nl'><img src='/images/event_logo2.png' alt=''></a></li>";
-								}
-								
-								//Now, do the same for Wilvo
-								if($sponsors[0]['Sponsor']['Name'] == "Wilvo"){
-									echo "<li class=\"fright\"><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
-								}
-								else{
-									echo "<li class=\"fright\"><a href='http://www.wilvo.nl'><img src='/images/event_logo3.png' alt=''></a></li>";
-								}
-								
-								//End of the row, print a new <ul> element for the new row
-								echo "</ul><ul>";
-								
-								//First other sponsor
-								echo "<li><a href='" . $sponsors[1]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[1]['Sponsor']['box_image'] . "' alt=''></a></li>";
-								
-								//Second other sponsor.
-								 echo "<li class='fright'><a href='" . $sponsors[2]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[2]['Sponsor']['box_image'] . "' alt=''></a></li>";
-								
-								//End second row
-								echo "</ul>";
-							}
+                        if (isset($sponsors)) {
+                            /* The first couple sponsors are ALWAYS the main
+                             * sponsors. However the top first sponsor is variable.
+                             * To support this, simply switch around the image
+                             * if the first sponsor is not husqvarna
+                             */
+                            echo "<a href='" . $sponsors[0]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[0]['Sponsor']['wide_image'] . "' alt=''></a>";
+
+                            //The given slicing requires every row to be placed in a seperate <ul> element.
+                            echo "<ul>";
+                            //So, if the main sponsor of the event is Nestaan, then put Husqvarna in the spot of Nestaan.
+                            if ($sponsors[0]['Sponsor']['Name'] == "Nestaan") {
+                                //TODO: Edit with husqvarna picture
+                                echo "<li><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
+                            } else {
+                                echo "<li><a href='http://www.nestaan.nl'><img src='/images/event_logo2.png' alt=''></a></li>";
+                            }
+
+                            //Now, do the same for Wilvo
+                            if ($sponsors[0]['Sponsor']['Name'] == "Wilvo") {
+                                echo "<li class=\"fright\"><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
+                            } else {
+                                echo "<li class=\"fright\"><a href='http://www.wilvo.nl'><img src='/images/event_logo3.png' alt=''></a></li>";
+                            }
+
+                            //End of the row, print a new <ul> element for the new row
+                            echo "</ul><ul>";
+
+                            //First other sponsor
+                            echo "<li><a href='" . $sponsors[1]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[1]['Sponsor']['box_image'] . "' alt=''></a></li>";
+
+                            //Second other sponsor.
+                            echo "<li class='fright'><a href='" . $sponsors[2]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[2]['Sponsor']['box_image'] . "' alt=''></a></li>";
+
+                            //End second row
+                            echo "</ul>";
+                        }
                         ?>
                     </div>
                 </div>
