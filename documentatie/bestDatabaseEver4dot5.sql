@@ -188,6 +188,7 @@ CREATE  TABLE IF NOT EXISTS `JMRacing`.`Results` (
   `R1` INT NULL ,
   `R2` INT NULL ,
   `GP` INT NULL ,
+  `year` YEAR NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_Result_Event_idx` (`event_id` ASC) ,
   INDEX `fk_Result_Racer1_idx` (`racer_id` ASC) ,
@@ -380,18 +381,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (1, 1, 1, 6, 5, 5);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (2, 1, 2, 5, 4, 3);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (3, 2, 1, 7, 8, 9);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (4, 2, 2, 9, 3, 5);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (5, 3, 1, 6, 7, 8);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (6, 3, 2, 3, 11, 7);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (7, 4, 1, 14, 8, 10);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (8, 4, 2, 7, 5, 5);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (9, 5, 1, 10, 9, 9);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (10, 5, 2, 5, 5, 5);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (11, 6, 1, 5, 8, 7);
-INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`) VALUES (12, 6, 2, 3, 3, 2);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (1, 1, 1, 6, 5, 5, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (2, 1, 2, 5, 4, 3, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (3, 2, 1, 7, 8, 9, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (4, 2, 2, 9, 3, 5, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (5, 3, 1, 6, 7, 8, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (6, 3, 2, 3, 11, 7, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (7, 4, 1, 14, 8, 10, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (8, 4, 2, 7, 5, 5, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (9, 5, 1, 10, 9, 9, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (10, 5, 2, 5, 5, 5, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (11, 6, 1, 5, 8, 7, 2014);
+INSERT INTO `JMRacing`.`Results` (`id`, `event_id`, `racer_id`, `R1`, `R2`, `GP`, `year`) VALUES (12, 6, 2, 3, 3, 2, 2014);
 
 COMMIT;
 

@@ -43,8 +43,8 @@ class EventsController extends AppController {
                     'Unable to add your event.', 'default', array('class' => 'flashError')
             );
         }
-		
-		$this->set('sponsors', $this->requestAction('sponsors/index/'));
+
+        $this->set('sponsors', $this->requestAction('sponsors/index/'));
     }
 
     public function edit($id = null) {
@@ -66,11 +66,11 @@ class EventsController extends AppController {
                 return $this->redirect(array('action' => 'cms'));
             }
             $this->Session->setFlash(
-				'Unable to update your event.', 'default', array('class' => 'flashError')
+                    'Unable to update your event.', 'default', array('class' => 'flashError')
             );
         }
-		
-		$this->set('sponsors', $this->requestAction('sponsors/index/'));
+
+        $this->set('sponsors', $this->requestAction('sponsors/index/'));
 
         if (!$this->request->data) {
             $this->request->data = $event;
@@ -89,26 +89,28 @@ class EventsController extends AppController {
             return $this->redirect(array('action' => 'cms'));
         }
     }
-	
-	public function getSponsorsOfEvent($id) {
-		$sponsors = array();
-	
-		$event = $this->Event->find('first', array(
+
+    public function getSponsorsOfEvent($id) {
+        $sponsors = array();
+
+        $event = $this->Event->find('first', array(
             'conditions' => array('Event.id' => $id)
         ));
-		
-		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["main_sponsor"]));
-		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor1"]));
-		array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor2"]));
-		
-		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+
+        array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["main_sponsor"]));
+        array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor1"]));
+        array_push($sponsors, $this->requestAction('sponsors/find/' . $event["Event"]["sponsor2"]));
+
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $sponsors;
         } else {
             $this->set('sponsors', $sponsors);
         }
-	}
-	
+    }
+
     public function getUpcomingEvents() {
+        $this->increaseEventYears();
+
         $upcomingEvents = $this->Event->find('all', array('order' => array('Date' => 'asc'),
             'conditions' => 'Date >= NOW()'
         ));
@@ -121,6 +123,7 @@ class EventsController extends AppController {
 
     // This function counts down to the first upcoming event
     public function countdown() {
+
         // Get the first upcoming event
         $event = $this->Event->find('first', array(
             'conditions' => 'Date >= NOW()'
@@ -176,7 +179,7 @@ class EventsController extends AppController {
             $this->set('yearEvents', $events);
         }
     }
-    
+
     public function getEventById($id) {
         $event = $this->Event->findById($id);
 
@@ -184,6 +187,27 @@ class EventsController extends AppController {
             return $event;
         } else {
             $this->set('event', $event);
+        }
+    }
+
+    /* This function increases the year part of the date for all events when they are all done
+     * for the current year
+     */
+
+    public function increaseEventYears() {
+        $allEventsDone = true;
+
+        $events = $this->Event->find('all', array('fields' => 'DATE(Event.date) AS date'));
+
+        foreach ($events as $event) {
+            if ($event[0]["date"] >= date("Y-m-d")) {
+                $allEventsDone = false;
+                break;
+            }
+        }
+
+        if ($allEventsDone) {
+            $this->Event->updateAll(array('date' => 'date_add(date, INTERVAL 1 YEAR)'));
         }
     }
 
