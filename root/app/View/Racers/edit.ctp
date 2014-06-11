@@ -31,7 +31,7 @@ $this->end();
         echo $this->Form->input('Height');
         echo $this->Form->input('Weight');
         echo $this->Form->input('Hardware');
-		echo $this->Form->input('WorldCupStanding');
+        echo $this->Form->input('WorldCupStanding');
         echo $this->Form->input('id', array('type' => 'hidden'));
         echo $this->Form->end('Edit Racer');
         ?>
