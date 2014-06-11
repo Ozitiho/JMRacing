@@ -1,0 +1,279 @@
+[33mcommit 6be0eaa4784f7a59943d0a4b895ff6473a7edd47[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Wed Jun 11 12:00:26 2014 +0200
+
+    DB Update
+    
+    Tables small letters
+
+[33mcommit a3cd99f601e4c16eb05cb2e0270b2514d61e31bd[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Tue Jun 10 18:14:42 2014 +0200
+
+    Event years updated when all events for this year done
+    
+    Also added year column to results
+
+[33mcommit 0b4db9d91d54dda5664cdc7f37c9ea9989aaade5[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Tue Jun 10 11:55:23 2014 +0200
+
+    Deleted event sponsors mvc
+
+[33mcommit f1eb7123cd3a0d0f53b84ef5600f0025e63b1b84[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Fri Jun 6 11:40:21 2014 +0200
+
+    Added jorn's spul to documentatie
+
+[33mcommit 357bff7de978db328e848998c2be96086c058d39[m
+Merge: fa538a8 b65987d
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Fri Jun 6 09:40:36 2014 +0200
+
+    Merge branch 'master' of https://github.com/Ozitiho/JMRacing
+
+[33mcommit fa538a8536f7e94027a212993946e1c25b839695[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Fri Jun 6 09:40:20 2014 +0200
+
+    More documents and models
+
+[33mcommit 7f573b380b8a0695a7248c74a8f9d557298fe3e8[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu Jun 5 20:29:02 2014 +0200
+
+    Changed the formula and bugfixed article priority + bunch of model shit + lots of minor changes
+
+[33mcommit b65987d84fd11a7911cc1c0923f2f42e18bf2c63[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Thu Jun 5 13:59:40 2014 +0200
+
+    DB Update
+    
+    Voor event/sponsors zooi.
+
+[33mcommit 660d483687aaab1190005402618b32a589c8a895[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Wed Jun 4 10:27:40 2014 +0200
+
+    Added sponsors per event
+
+[33mcommit 8d4825c07bee6d2a0e5f1ac5b8177566b74d402a[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Wed Jun 4 10:22:21 2014 +0200
+
+    normal price is nu grijs ipv groen
+
+[33mcommit cac46d01f1630545f5a52f06192e7f8a6e3c913f[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Tue Jun 3 11:50:53 2014 +0200
+
+    404 fix & no image fix
+
+[33mcommit 8764f5d5a752c4bc252d1996fbbfa0bc34087b64[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Mon Jun 2 17:29:38 2014 +0200
+
+    Small changes
+    
+    Too lazy to note them.
+
+[33mcommit 5299a0d76bacbf618de5bcbae813acdab1229c3a[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Mon Jun 2 11:33:46 2014 +0200
+
+    fixed merchandise link (added slash)
+
+[33mcommit 90b31ca75969ff1b49f9fc8ef0fb144fafde9e44[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Mon Jun 2 11:31:38 2014 +0200
+
+    quick fix
+
+[33mcommit 0cc4099ded14f485110c7af61e63d6c82b409bc1[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Mon Jun 2 11:20:16 2014 +0200
+
+    added comments to home
+
+[33mcommit 4e9a87ea804a6b00c91ebe57a710f5205b0ae9b9[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Sun Jun 1 19:38:17 2014 +0200
+
+    quick fix to home
+
+[33mcommit 4a02c38d22216a8579fa43d3dbe7c10d0ae893ac[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Sun Jun 1 15:24:34 2014 +0200
+
+    Product popup
+    
+    Created product popup for merchandise.
+
+[33mcommit 7521553d94b70cf7dd9e6d00a08cf60731273c35[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Fri May 30 22:45:57 2014 +0200
+
+    Added search functionality
+    
+    Not a very mature system though...
+
+[33mcommit 65f95560b521ab5d6b419ed9fb4b63906eae1070[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Fri May 30 21:54:01 2014 +0200
+
+    Deleted jirn garbage
+    
+    What else is new :P
+
+[33mcommit ebd0f89da5eb0d07984ff15630347beef2f47913[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Fri May 30 21:48:57 2014 +0200
+
+    woops
+    
+    woopsiedoo
+
+[33mcommit 04676772270a546ffd983f8366f87f555c7eff5c[m
+Merge: 2b01c28 0e5a6af
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Fri May 30 21:35:51 2014 +0200
+
+    Merge branch 'master' of https://github.com/Ozitiho/JMRacing
+    
+    Ron: Tried to resolve conflicts as good as possible. I think I was able
+    to combine both our work, but just to be sure, plz make a backup of what
+    you did. PS there's an error in your code Koes...
+    
+    Conflicts:
+    	root/app/View/Articles/add.ctp
+    	root/app/View/Articles/edit.ctp
+    	root/app/View/Pages/home.ctp
+    	root/app/View/Products/index.ctp
+
+[33mcommit 2b01c287513985f092ce942070fa787142bd5370[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Fri May 30 21:06:40 2014 +0200
+
+    Big Update
+    
+    * Added merchandise album + pics
+    * Implemented merchandise pics in related pages
+    
+    * Added event album + pics
+    * Implemented album pics in related pages
+    
+    * Created tag add/edit in articles.
+
+[33mcommit 0e5a6af8b13f9d6a2be1c406b8c7ad5bc4a9573a[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu May 29 12:31:05 2014 +0200
+
+    Oops didnt commit this somehow
+
+[33mcommit eebc06581011c1b95fe603465d3638edd91b4795[m
+Merge: 3099d21 170a7dd
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu May 29 12:19:05 2014 +0200
+
+    Merge branch 'master' of https://github.com/Ozitiho/JMRacing
+
+[33mcommit 3099d21c93260edf9993864e941be7a377fa73af[m
+Merge: 53b2b6b a621c85
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu May 29 12:18:52 2014 +0200
+
+    conflicts with Jorn
+
+[33mcommit 170a7ddcbf84eed0844477b6533b5c8e4a1d25f9[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Thu May 29 12:01:32 2014 +0200
+
+    DB Update
+    
+    Added world cup standing test data.
+
+[33mcommit 53b2b6b72de9752647f95b69750f71f160ef1b63[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu May 29 12:00:21 2014 +0200
+
+    I couldnt get my missing_controller out of commit. sry. + merchandise element + made getPhotoDetailsByID publicly accesable + added login/logout button + Might have accidentilly fixed merchandise based on Jorns advice...+ responsive merchandise
+
+[33mcommit a621c853422d3d3834943d59c841a1bb0625cf59[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Thu May 29 11:53:58 2014 +0200
+
+    DB Update
+    
+    Added priority field to articles table
+
+[33mcommit 82f3718aaf893854582443469021e202b36b32fa[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Wed May 28 14:31:12 2014 +0200
+
+    Made banner dynamic on article view + added article priority + fixed links in social media boxes
+
+[33mcommit 1ec7c08de50cb1c633fa5ed85f9946b61e7f2250[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Tue May 27 15:13:13 2014 +0200
+
+    Veel kleine dingen
+    
+    - Next race date weggehaald
+    - Discount price niet meer zichtbaar als ie er niet is
+    - Header links gefixt
+    - Old password is standaard leeg
+    - 404 opgevangen
+    - Betere routing
+    - Geen errors meer als er geen image is
+
+[33mcommit 7530ccee11ddc30cd3f2e6f77096105b6b6a3913[m
+Merge: a0fd516 47aa1c3
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Tue May 27 10:29:58 2014 +0200
+
+    Merge branch 'master' of https://github.com/Ozitiho/JMRacing
+
+[33mcommit a0fd5169367dc3cb9f41bb645f2a76b414b00e0b[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Tue May 27 10:29:47 2014 +0200
+
+    Prut van EventSponsor
+
+[33mcommit 47aa1c3b2a099f10968c06a1815282c962b2accb[m
+Merge: a7cdfa4 2623468
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Mon May 26 09:53:59 2014 +0200
+
+    Merge branch 'master' of https://github.com/Ozitiho/JMRacing
+
+[33mcommit a7cdfa45084d089d1aa37dfed81f460a94841e0c[m
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Mon May 26 09:49:16 2014 +0200
+
+    design files
+
+[33mcommit 26234681c3fbc09e8d6583d68331f645452311fa[m
+Author: Jorn000 <jorn.harkema@hotmail.com>
+Date:   Fri May 23 10:55:10 2014 +0200
+
+    World cup standing in racer
+
+[33mcommit 70072743a08b4f060917aed9b57d22df960f5409[m
+Author: Ron Jonkers <ron_jonkers@hotmail.com>
+Date:   Thu May 22 22:49:05 2014 +0200
+
+    Finished photo albums
+    
+    * Added photos to database + implementation
+    * Added album edit page
+    * Added Jorn's koppeltabellen to DB
+    * Added article images to site
+
+[33mcommit 100f55827bc5a5c7ea1f32304921cb017f8e162b[m
+Merge: 3ecf47b 1361605
+Author: ozitiho <bvkoesveld@gmail.com>
+Date:   Thu May 22 13:23:44 2014 +0200
+
+    Merge branch 'master' o

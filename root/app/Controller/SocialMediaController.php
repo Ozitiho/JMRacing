@@ -51,8 +51,21 @@ class SocialMediaController extends AppController {
 		//The security token for the application
 		$token = '243799329140027|63915777e84ed91f711ac64cf25ca565';
 
-		// get JSON from adres, the @ represses the error it gives upon failing to get content
-		$page_posts = @file_get_contents('https://graph.facebook.com/'.$page_id.'/posts?fields=message&access_token='.$token);
+		// get JSON from adres, the @ represses the error it gives upon failing to get content		
+		$url = 'https://graph.facebook.com/'.$page_id.'/posts?fields=message&access_token='.$token;
+		
+		//  Initiate curl
+		$ch = curl_init();
+		// Disable SSL verification
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		// Will return the response, if false it print the response
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		// Set the url
+		curl_setopt($ch, CURLOPT_URL,$url);
+		// Execute
+		$page_posts=curl_exec($ch);
+		// Closing
+		curl_close($ch);
 		
 		//Also decode the facebook json.
 		$page_posts = json_decode($page_posts, true);
@@ -75,7 +88,20 @@ class SocialMediaController extends AppController {
 		$token = '243799329140027|63915777e84ed91f711ac64cf25ca565';
 
 		// get JSON from adres
-		$page_posts = file_get_contents('https://graph.facebook.com/'.$album_id.'/photos?access_token='.$token);
+		$url = 'https://graph.facebook.com/'.$album_id.'/photos?access_token='.$token;
+		
+		//  Initiate curl
+		$ch = curl_init();
+		// Disable SSL verification
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		// Will return the response, if false it print the response
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		// Set the url
+		curl_setopt($ch, CURLOPT_URL,$url);
+		// Execute
+		$page_posts=curl_exec($ch);
+		// Closing
+		curl_close($ch);
 
 		//Also decode the facebook json.
 		$page_posts = json_decode($page_posts, true);

@@ -74,10 +74,11 @@ class SponsorsController extends AppController {
         }
     }
 	
-	public function find($id) {
-		$sponsor = $this->Sponsor->find('first', array(
-            'conditions' => array('Sponsor.id' => $id)
-        ));
+	public function find($id = 1) {
+		$sponsor = $this->Sponsor->findById($id);
+		if (!$sponsor) {
+            throw new NotFoundException(__('Invalid sponsor'));
+        }
 		if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $sponsor;
         } else {

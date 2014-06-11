@@ -66,7 +66,7 @@ $this->end();
                 <div class="center-cropped news" style="background-image: url('<?php echo $thumbImageLocation; ?>');">
                 </div>
                 <span class="heading blue">MERCHANDISE</span>
-                <div class="description">
+                <div class="description merch">
                     <p class="era"><?php echo $product['Product']['Name'] ?></p><p class="era"> &nbsp;&nbsp;
                         <?php
                         if ($product['Product']['DiscountPrice'] > 0) {

@@ -183,8 +183,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .events_logo ul{width:100%; float:left; padding:24px 0 0;}
 .events_logo li{width:46%; float:left;}
 .events_logo li.fright{float:right;}
-.events_logo a, .events_logo ul li{background: white;}
-.events_logo a img {height: 90px; width: 280px; display: inline-block;}
+.events_logo a img {height: 90px; width: 280px; display: inline-block; background: white;}
 .events_logo ul li a img {width: 128px;}
 
 .time_left img{float:left; margin:0 2px 0 0;}
@@ -729,7 +728,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 
     .only_description .description{width:96%; padding:45px 2% 20px;}
     .description p.big{padding-top:15px;}
-    .description{ height: 140px;}
+    .description{ height: 260px;}
+    .description.merch{ height: 140px;}
 
     .cms
     {
@@ -1074,7 +1074,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.share li a{margin:0;}
 	
 	/* This is for the max size */
-	.description{ height: 140px;}
+	.description{ height: 235px;}
+	.description.merch{ height: 140px;}
 	.share {position: absolute; bottom: 1em; width: 90%}
 
 	.facebook_box li{padding-bottom:20px;}
@@ -1178,7 +1179,8 @@ span.small{font:normal 12px 'Asap'; color:#dc002f; line-height:24px;}
 	.share li a{margin:0;}
 	
 	/* This is for the max size */
-	.description{ height: 140px;}
+	.description{ height: 180px;}
+	.description.merch{ height: 140px;}
 	.share {position: absolute; bottom: 1em; width: 90%}
 	
 	.facebook_box{ min-height:389px;}
