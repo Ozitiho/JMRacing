@@ -27,7 +27,7 @@ class RacersController extends AppController {
         $this->set('racer', $racer);
 
         // Set results
-        $results = $this->Racer->Result->find('all');
+        $results = $this->getRacerResults();
 
         if (isset($this->params['requested']) && $this->params['requested'] == 1) {
             return $results;

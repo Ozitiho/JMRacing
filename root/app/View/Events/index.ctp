@@ -29,7 +29,7 @@ $this->end();
                         $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
                     }
                     ?>
-                    <a href="/events/view/<?php print($upcomingEvents[0]["Event"]["id"]);?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
+                    <a href="/events/view/<?php print($upcomingEvents[0]["Event"]["id"]); ?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
                     <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                 </div>
                 <div class="right">
@@ -49,15 +49,6 @@ $this->end();
 
     // Show the results for each racer
     foreach ($racers as $racer) {
-        $r1Count = 0;
-        $r2Count = 0;
-        $gpCount = 0;
-        $r1Sum = 0;
-        $r2Sum = 0;
-        $gpSum = 0;
-        $r1Average = 0;
-        $r2Average = 0;
-        $gpAverage = 0;
         ?>
         <div class="box">
             <div class="results_event">
@@ -87,24 +78,6 @@ $this->end();
                             foreach ($racer["Result"] as $result) {
                                 if ($event["Event"]["id"] == $result["event_id"]) {
                                     $resultFound = true;
-
-                                    // If the result for R1 is set, increase the count/sum
-                                    if ($result["R1"]) {
-                                        $r1Count++;
-                                        $r1Sum += $result["R1"];
-                                    }
-
-                                    // If the result for R2 is set, increase the count/sum
-                                    if ($result["R2"]) {
-                                        $r2Count++;
-                                        $r2Sum += $result["R2"];
-                                    }
-
-                                    // If the result for GP is set, increase the count/sum
-                                    if ($result["GP"]) {
-                                        $gpCount++;
-                                        $gpSum += $result["GP"];
-                                    }
                                     ?>
                                     <td class="event_r1"><span><?php print($result["R1"]); ?></span></td>
                                     <td class="event_r2"><span><?php print($result["R2"]); ?></span></td>
@@ -139,44 +112,10 @@ $this->end();
                         <td>&nbsp;</td>
                     </tr>
                     <tr class="average">
-                        <?php
-                        // Calculate the averages for R1/R2/GP
-                        // If the sum and count are > 0, an average can be calculated
-                        if ($r1Sum > 0 && $r1Count > 0) {
-                            $r1Average = round($r1Sum / $r1Count);
-                        }
-
-                        if ($r2Sum > 0 && $r2Count > 0) {
-                            $r2Average = round($r2Sum / $r2Count);
-                        }
-
-                        if ($gpSum > 0 && $gpCount > 0) {
-                            $gpAverage = round($gpSum / $gpCount);
-                        }
-                        ?>
-                        <td class="event_name"><span>AVERAGE ALL RACES</span></td>
-                        <td class="event_r1 blank"><span>
-                                <?php
-                                // If an average is calculated, show it
-                                if ($r1Average > 0) {
-                                    print($r1Average);
-                                }
-                                ?>
-                            </span>
-                        </td>
-                        <td class="event_r2 blank"><span>
-                                <?php
-                                if ($r2Average > 0) {
-                                    print($r2Average);
-                                }
-                                ?>
-                            </span>
-                        </td>
+                        <td class="event_name"><span>WORLD CUP STANDING</span></td>
                         <td class="event_gp blank"><span class="yellow">
                                 <?php
-                                if ($gpAverage > 0) {
-                                    print($gpAverage);
-                                }
+                                print($racer["Racer"]["WorldCupStanding"]);
                                 ?>
                             </span>
                         </td>
