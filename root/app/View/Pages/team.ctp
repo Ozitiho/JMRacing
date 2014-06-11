@@ -43,7 +43,7 @@ $this->end();
 	</div>
 	<div class="box team_col w2 box_info">
 		<span class="heading">GENERAL TEAM INFO</span>
-		<div class="description">
+		<div class="description team">
 			<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
 			<p>Suspendisse eget convallis tellus. Ut dapibus facilisis facilisis. Aliquam pretium lacus gravida libero euismod
 			commodo. Fusce mauris enim, commodo id dui a, pellentesque pretium odio. Nam sit amet purus dui. Ut rhoncus tortor velit, id ultrices mauris dapibus consectetur. Mauris id ante fermentum, faucibus purus vitae, congue metus. Aliquam erat volutpat. Ut quis odio porttitor, eleifend nisi at, semper libero.
@@ -77,43 +77,7 @@ $this->end();
 		</a>
 		<p class="black font_18">R. COIFFARD - MECHANIC FEBVRE</p>
 	</div>
-	<div class="box_equal">
-		<div class="load_more">
-			<a id="load-images">MERCHANDISE</a>
-		</div>
-		<div class="box team_col item">
-			<img src="/images/team_img5.jpg" alt="">
-			<span class="heading blue">MERCHANDISE</span>
-			<div class="description">
-				<p class="era">Race Shirt - Red Bull &nbsp;&nbsp;  <del>€29,95</del> &nbsp;&nbsp;  <span>€14,95</span></p>
-				<div class="share">
-					<ul>
-						<li>SHARE &nbsp;&nbsp;</li>
-						<li class="fb"><a href="#">&nbsp;</a></li>
-						<li class="twitter"><a href="#">&nbsp;</a></li>
-						<li class="google"><a href="#">&nbsp;</a></li>
-					</ul>
-					<a href="#" class="button">BUY THIS ITEM</a>
-				</div>
-			</div>
-		</div>
-		<div class="box team_col item">
-			<img src="/images/team_img6.jpg" alt="">
-			<span class="heading blue">MERCHANDISE</span>
-			<div class="description">
-				<p class="era">New Era - Red Bull Cap &nbsp;&nbsp;  <del>€29,95</del> &nbsp;&nbsp;  <span>€14,95</span></p>
-				<div class="share">
-					<ul>
-						<li>SHARE &nbsp;&nbsp;</li>
-						<li class="fb"><a href="#">&nbsp;</a></li>
-						<li class="twitter"><a href="#">&nbsp;</a></li>
-						<li class="google"><a href="#">&nbsp;</a></li>
-					</ul>
-					<a href="#" class="button">BUY THIS ITEM</a>
-				</div>
-			</div>
-		</div>
-	</div>
+	<?php print($this->element('merchandise')); ?>
 	<div class="box_equal">
 		<div class="load_more">
 			<a id="load-images">MAIN SPONSORS</a>

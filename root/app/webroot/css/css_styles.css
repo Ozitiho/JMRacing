@@ -241,6 +241,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .box .heading{font:bold 13px 'Asap'; color:#ffffff; line-height:23px; padding:5px 10px; z-index:11; background:#dc002f; position:absolute; left:10px; top:10px;}
 
 .description{width:90%; padding:20px 5%; float:left;}
+.description.team{height: auto; padding-bottom: 40px;}
 .description h2{font:bold 17px 'Asap'; color:#002752; line-height:23px; float:left; width:100%;}
 .input, .submit, .legend, .description p{width:100%; float:left; font:normal 13px 'Asap'; color:#828d9f; line-height:23px; padding:0 0 5px;}
 .submit input {margin-top: 25px; margin-left: 25px; background-color: #FFF;}
@@ -1019,7 +1020,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 }
 
 @media only screen and (min-width:980px) and (max-width: 1200px) {
-	.container{width:980px;}
+	.container{width:984px;}
 	header .container{margin-left:-490px; padding-top:10px;}
 	.logo{width:140px;}
 	header .right{width:110px;}
