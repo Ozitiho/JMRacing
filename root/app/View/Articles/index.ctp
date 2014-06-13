@@ -10,14 +10,14 @@ $this->end();
 ?>
 
 <script>
+	//Code for the trimming of the text of the first article.
 	function cut() {
 		var text = "<?php echo $articles[0]['Article']['Message']; ?>";
-		if($( window ).width() <= 1183 && $( window ).width() >= 733){
-			console.log("check2");
-			$('.description p').text(text.substr(0,120)+'...');
+		if($( window ).width() <= 1183 && $( window ).width() >= 734){
+			$('.w3 .description p').text(text.substr(0,120)+'...');
 		}
 		else{
-			$('.description p').text(text);
+			$('.w3 	.description p').text(text);
 		}
 	}
 

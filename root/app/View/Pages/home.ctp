@@ -4,7 +4,10 @@ print($this->element('countdown'));
 
 $this->start('bannerImage');
 ?>
-<img src="/images/home_banner1.jpg" alt="">
+<div class="center-cropped banner" style="background-image: url('/images/home_banner1.jpg');">
+	<img src="/images/home_banner1.jpg" alt="">
+	<div class="gradient-overlay"></div>
+</div>
 <?php
 $this->end();
 
