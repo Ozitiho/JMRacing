@@ -10,15 +10,15 @@ class ProductsController extends AppController {
     public $components = array('Session');
 
     public function index() {
-        $this->set('products', $this->Product->find('all'));
+        if (isset($this->params['requested']) && $this->params['requested'] == 1) {
+			return $this->Product->find('all');
+        } else {
+			$this->set('products', $this->Product->find('all'));
+        }
     }
 
     public function cms() {
         $this->set('products', $this->Product->find('all'));
-    }
-
-    public function getProducts() {
-        return $this->Product->find('all');
     }
 
     public function add() {

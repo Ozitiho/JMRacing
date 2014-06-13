@@ -1,5 +1,5 @@
 <?php
-	$products = $this->requestAction('products/getProducts');
+	$products = $this->requestAction('products/index');
 ?>
 <div class="box_equal merch">
 	<div class="load_more">

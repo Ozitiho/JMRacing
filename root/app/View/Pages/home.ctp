@@ -13,7 +13,7 @@ $this->end();
 
 $articles = $this->requestAction('articles/getShortenedArticles');
 
-$products = $this->requestAction('products/getProducts');
+$products = $this->requestAction('products/index');
 
 $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
