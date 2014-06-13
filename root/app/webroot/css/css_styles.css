@@ -1616,7 +1616,13 @@ ul.albumViewImages .deleteBox
     display: inline-block;
     width: 100%;
     text-align: center;
-    cursor: text;
+}
+
+.popupButton{
+    position: absolute; 
+    bottom: 0;
+    left: 2.5%;
+    width: 90%;
 }
 
 .productPopupDescription

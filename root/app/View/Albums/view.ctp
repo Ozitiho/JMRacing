@@ -4,7 +4,7 @@
     {
         $("#includeBox").css('background-image', 'url(/images/albums/' + albumID + '/' + imgName + ')');
         $("#includeBox").css('display', 'block');
-        $("#includeBox").html('<p class="articleImageLink">Photo ID: ' + photoID + '</p>');
+        $("#includeBox").html('<a href="/articles/add" class="redButton popupButton">Create an article with this image</a>');
 
         // Don't close the box when the user clicks the links text
         $(".articleImageLink").click(function(e)
@@ -42,23 +42,27 @@ $albumImages = $this->requestAction('albums/getSpecificAlbumImages/' . $albumID)
         <legend class="legend">
             <h1><?php print($album["Album"]["name"]); ?> Album</h1>
         </legend>
-        <legend class="legend">
-            <h1>Add pictures</h1>
-        </legend>
-        <p>The max file size is xxxx MB</p>
-        <p>You can upload up to xxxx files at once</p>
         <?php
-        if (isset($errorMessages) && $errorMessages) {
-            foreach ($errorMessages as $errorMessage) {
-                print("<p class='error-message'>" . $errorMessage . "</p>");
+        if ($hasRights) {
+            ?>
+            <legend class="legend">
+                <h1>Add pictures</h1>
+            </legend>
+            <p>The max file size is xxxx MB</p>
+            <p>You can upload up to xxxx files at once</p>
+            <?php
+            if (isset($errorMessages) && $errorMessages) {
+                foreach ($errorMessages as $errorMessage) {
+                    print("<p class='error-message'>" . $errorMessage . "</p>");
+                }
             }
+            ?>
+            <form action="" method="post" enctype="multipart/form-data" id="photoUploadForm">
+                <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
+                <p><input type="submit" value="Upload Photos" name="uploadPhotosButton" class="redButton" /></p>
+            </form>
+            <?php
         }
-        ?>
-        <form action="" method="post" enctype="multipart/form-data" id="photoUploadForm">
-            <input type="file" id="file" name="files[]" multiple="multiple" accept="image/*" />
-            <p><input type="submit" value="Upload Photos" name="uploadPhotosButton" class="redButton" /></p>
-        </form>
-        <?php
         // If the album contains images
         if ($albumImages) {
             ?>
@@ -71,17 +75,29 @@ $albumImages = $this->requestAction('albums/getSpecificAlbumImages/' . $albumID)
                         $rawImage = rawurlencode($imageName); // convert spaces to %20
                         ?>
                         <li style="background-image: url(/images/albums/<?php print($albumID . "/thumbs/" . $rawImage); ?>);"
-                            onclick="setBoxImage('<?php print($albumID); ?>', '<?php print($rawImage); ?>', '<?php print($photoID);?>')" 
+                            onclick="setBoxImage('<?php print($albumID); ?>', '<?php print($rawImage); ?>', '<?php print($photoID); ?>')" 
                             title="Click to see a bigger version of this image">
-                            <p>
-                                <input type="checkbox" class="deleteBox" name="deleteImage[]" value="<?php print($imageName); ?>">
-                            </p>
+                                <?php
+                                if ($hasRights) {
+                                    ?>
+                                <p>
+                                    <input type="checkbox" class="deleteBox" name="deleteImage[]" value="<?php print($imageName); ?>">
+                                </p>
+                                <?php
+                            }
+                            ?>
                         </li>
                         <?php
                     }
                     ?>
                 </ul>
-                <input type="submit" name="deleteImagesButton" value="Delete Images" class="redButton">
+                <?php
+                if ($hasRights) {
+                    ?>
+                    <input type="submit" name="deleteImagesButton" value="Delete Images" class="redButton">
+                    <?php
+                }
+                ?>
             </form>
             <?php
         } else {

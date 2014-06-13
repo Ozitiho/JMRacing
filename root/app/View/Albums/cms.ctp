@@ -10,8 +10,13 @@ $this->end();
     <legend class="legend">
         <h1>Albums</h1>
     </legend>
-    <a href="/albums/add" class="buttonLink">Add Album</a>
     <?php
+    if ($canAddAlbum) {
+        ?>
+        <a href="/albums/add" class="buttonLink">Add Album</a>
+        <?php
+    }
+
     if ($albums) {
         ?>
         <div id="album">
@@ -24,10 +29,18 @@ $this->end();
                         $albumImage = $this->requestAction('albums/returnAlbumImage/' . $albumID);
                         ?>
                         <li style="background-image: url(<?php print($albumImage); ?>);">
-                            <input type="checkbox" name="deleteAlbum[]" value="<?php print($albumID); ?>">
-                            <a href="/albums/edit/<?php print($albumID); ?>">
-                                <img src="/images/editIcon.png" alt="" class="pencilIcon">
-                            </a>
+                            <?php
+                            // Check if the user has the right to delete/edit albums
+                            $hasRights = $this->requestAction('albums/isOwnedBy/' . $albumID);
+                            if ($hasRights) {
+                                ?>
+                                <input type="checkbox" name="deleteAlbum[]" value="<?php print($albumID); ?>">
+                                <a href="/albums/edit/<?php print($albumID); ?>">
+                                    <img src="/images/editIcon.png" alt="" class="pencilIcon">
+                                </a>
+                                <?php
+                            }
+                            ?>
                             <a href="/albums/view/<?php print($albumID); ?>" class="blockLink">
                                 <?php
                                 print("<p>" . $album["Album"]["name"] . "</p>");
@@ -38,7 +51,12 @@ $this->end();
                     endforeach;
                     ?>
                 </ul>
-                <input type="submit" name="deleteAlbumsButton" value="Delete Albums" class="redButton">
+                <?php
+                if ($canAddAlbum) {
+                    ?>
+                    <input type="submit" name="deleteAlbumsButton" value="Delete Albums" class="redButton">
+                <?php }
+                ?>
             </form>
         </div>
         <?php

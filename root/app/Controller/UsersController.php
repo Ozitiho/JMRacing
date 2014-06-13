@@ -4,12 +4,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login');
-    }
-
-    public function index() {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+        $this->Auth->allow('login', 'logout');
     }
 
     public function cms() {
