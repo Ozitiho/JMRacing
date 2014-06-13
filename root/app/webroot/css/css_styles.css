@@ -728,6 +728,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .events_logo{margin-top:10px;}
 
     .share {position: absolute; bottom: 1em; width: 94%}
+    .merch .share {width: 90%}
     .share a.button{width:100%; padding:10px 0; text-align:center; margin:5px 0 0;}
     .share ul{width:94%;}
     .description p{padding-bottom:15px;}

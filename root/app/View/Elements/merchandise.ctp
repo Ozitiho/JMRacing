@@ -1,7 +1,7 @@
 <?php
 	$products = $this->requestAction('products/getProducts');
 ?>
-<div class="box_equal">
+<div class="box_equal merch">
 	<div class="load_more">
 		<a id="load-images">MERCHANDISE</a>
 	</div>
