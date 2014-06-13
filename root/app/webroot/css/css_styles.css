@@ -344,11 +344,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e7ea', e
 .team_col .overlay{background:url(../images/overlay1.png) repeat left top; display:none; width:100%; height:100%; position:absolute; left:0; top:0; z-index:10;}
 .team_col:hover .overlay{display:block;}
 
-.team_col .era{float:left; font:bold 17px 'Asap'; z-index:11; color:#002752; line-height:23px; width:100%;
+.box .era{float:left; font:bold 17px 'Asap'; z-index:11; color:#002752; line-height:23px; width:100%;
                text-align:center; position:absolute; left:0; bottom:15px;}
-.team_col .era del{color:#828d9f;}
-.team_col .era normal{color:#828d9f;}
-.team_col .era span{color:#55ac0e;}
+.box .era del{color:#828d9f;}
+.box .era normal{color:#828d9f;}
+.box .era span{color:#55ac0e;}
 .prodname{clear: both;}
 
 .box a.play_button{position:absolute; left:50%; top:50%; z-index:11; margin:-40px 0 0 -40px; border:0;}
@@ -576,10 +576,10 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 .box_equal{width:49.8%; float:left;}
 .box_equal.index{width:100%;}
 .box_equal .box{width:46%; margin:0 1.9% 20px;}
-.box_equal.index .box{width:22.6%; margin: 0 0.9% 10px;}
+/*.box_equal.index .box{width:22.6%; margin: 0 0.9% 10px;}*/
 .box_equal .box img{border-bottom:1px solid #bac0c9;}
-.box_equal .box .era{position:relative; bottom:auto; left:auto;}
-.box_equal .item .button{background:#f27f32;}
+.box .era{position:relative; bottom:auto; left:auto;}
+.merch .item .button{background:#f27f32;}
 .item ul{width:42%;}
 .item .button{width:48%; background:#f27f32; padding-left:0; padding-right:0; text-align:center;}
 .item .share .button:hover{background:#db6618;}
@@ -675,7 +675,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .facebook_box{padding:10px 1%; width:20.6%; height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:15px; line-height:22px;}
-    .team_col .era{font-size:15px; line-height:22px;}
+    .box .era{font-size:15px; line-height:22px;}
     .team_col .black{font-size:21px line-height:23px; left:15px;}
 
     .photos_main li{width:158px; margin:10px 5px;}
@@ -737,7 +737,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .facebook_box{padding:10px 1%; width:20.6%; min-height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:13px; line-height:17px;}
-    .team_col .era{font-size:13px; line-height:20px; bottom:10px;}
+    .box .era{font-size:13px; line-height:20px; bottom:10px;}
     .team_col .black{font-size:17px; line-height:20px; left:15px; bottom:10px;}
     .inner_container2 .box .font_18, .team_col .font_18{font-size:15px;}
 
@@ -828,7 +828,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:13px; line-height:17px;}
-    .team_col .era{font-size:13px; line-height:20px; bottom:10px;}
+    .box .era{font-size:13px; line-height:20px; bottom:10px;}
     .team_col .black{font-size:17px; line-height:20px; left:15px; bottom:10px;}
 
     .photos_main li{width:150px; margin:10px 4px;}
@@ -934,7 +934,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .facebook_box{ min-height:389px;}
     .facebook_box li{padding-bottom:20px;}
     .facebook_box li a{font-size:13px; line-height:17px;}
-    .team_col .era{font-size:13px; line-height:20px; bottom:10px;}
+    .box .era{font-size:13px; line-height:20px; bottom:10px;}
     .team_col .black{font-size:15px; line-height:17px; left:15px; bottom:10px;}
 
     .photos_main li{width:150px; margin:10px 4px;}
@@ -1111,7 +1111,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 
 	.facebook_box li{padding-bottom:20px;}
 	.facebook_box li a{font-size:13px; line-height:17px;}
-	.team_col .era{font-size:13px; line-height:20px; bottom:10px;}
+	.box .era{font-size:13px; line-height:20px; bottom:10px;}
 	.team_col .black{font-size:17px; line-height:20px; left:15px; bottom:10px;}
 	
 	.photos_main li{width:150px; margin:10px 4px;}
@@ -1217,7 +1217,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 	.facebook_box{ min-height:389px;}
 	.facebook_box li{padding-bottom:20px;}
 	.facebook_box li a{font-size:13px; line-height:17px;}
-	.team_col .era{font-size:13px; line-height:20px; bottom:10px;}
+	.box .era{font-size:13px; line-height:20px; bottom:10px;}
 	.team_col .black{font-size:15px; line-height:17px; left:15px; bottom:10px;}
 	
 	.photos_main li{width:150px; margin:10px 4px;}
@@ -1323,7 +1323,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 	.description p.big{padding-top:15px;}
 }
 @media only screen and (max-width: 450px){
-    .team_col .era{font-size:13px; bottom:10px; line-height:16px;}
+    .box .era{font-size:13px; bottom:10px; line-height:16px;}
     .team_col .black{font-size:19px; line-height:22px; left:10px; bottom:10px;}	
     .time_left li{font-size:29px; line-height:36px; width:36px;}
 

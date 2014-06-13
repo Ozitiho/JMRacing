@@ -38,7 +38,7 @@ $this->end();
     <!-- There is currently no means for sharing products, so do so later -->
     <?php $currentUrl = "TODO"; ?>
 
-    <div class="box_equal index">
+    <div class="merch index">
         <?php
         $count = 0;
         foreach ($products as $product) {
