@@ -8,6 +8,9 @@ $this->end();
 // Get the race results for all racers
 $year = date("Y");
 $yearEvents = $this->requestAction('events/getEventsByYear/' . $year);
+
+// Get Photos
+$photos = $this->requestAction('socialMedia/getFacebookPictures');
 ?>
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
@@ -142,10 +145,10 @@ $yearEvents = $this->requestAction('events/getEventsByYear/' . $year);
         </div>
     </div>
     <div class="box team_col">
-        <img src="/images/home_img8.jpg" alt="">
+        <div class="center-cropped" style="background-image: url('<?php echo $photos[17]['source']; ?>');"></div>
         <span class="overlay">&nbsp;</span>
         <span class="heading blue">VIDEO</span>
-        <a href="#" class="play_button"><img src="/images/play_button.png" alt=""></a>
+        <a href="https://www.facebook.com/media/set/?set=vb.628475897212573&type=2" class="play_button"><img src="/images/play_button.png" alt=""></a>
     </div>
     <div class="box team_col">
         <a href="/teams/">
