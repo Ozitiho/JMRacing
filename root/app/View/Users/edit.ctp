@@ -19,8 +19,10 @@ $this->end();
         echo $this->Form->input('newPassword', array('type' => 'password'));
         echo $this->Form->input('newPassword2', array('label' => 'Repeat New Password', 'type' => 'password'));
         echo $this->Form->input('role', array(
-            'type' => 'select', 'options' => array('admin' => 'Admin', 'author' => 'Author')
+            'type' => 'select', 'options' => array('admin' => 'Admin', 'author' => 'Author',
+                'photographer' => 'Photographer')
         ));
+        echo $this->Form->input('id', array('type' => 'hidden'));
         echo $this->Form->end('Edit User');
         ?>
     </fieldset>

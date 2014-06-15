@@ -1,11 +1,34 @@
 <?php
 
 class AlbumsController extends AppController {
-	public function beforeFilter() {
+
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('getDetailsFromPhotoID');
     }
-	
+
+    public function isAuthorized($user = null) {
+        // Check if user is a photographer
+        if (isset($user['role'])) {
+
+            if ($user['role'] == 'author') {
+                // An editor can access the albums CMS page
+                if (in_array($this->action, array('cms', 'returnAlbumImage',
+                            'getSpecificAlbumImages', 'isOwnedBy'))) {
+                    return true;
+                }
+            } else if ($user['role'] == 'photographer') {
+                // An editor can access the albums CMS page
+                if (in_array($this->action, array('cms', 'add', 'edit', 'returnAlbumImage',
+                            'getSpecificAlbumImages', 'isOwnedBy', 'delete'))) {
+                    return true;
+                }
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
     public $helpers = array('Html', 'Form', 'Session');
     public $components = array('Session');
 
@@ -15,15 +38,20 @@ class AlbumsController extends AppController {
 
     public function cms() {
         $this->set('albums', $this->Album->find('all', array('order' => array('id DESC'))));
+
+        // Whether or not the visitor has the right to add/delete albums
+        $this->set('canAddAlbum', $this->Album->canAddAlbums());
     }
 
     public function view($id = null) {
         //Load the image resize class
         require_once(APP . 'Vendor' . DS . "imageResize/smart_resize_image.function.php");
 
+        // Whether or not the visitor has the right to upload/delete pics in this album
+        $this->set('hasRights', $this->isOwnedBy($id));
+
         if ($this->request->is('post')) {
-            if(!$_POST)
-            {
+            if (!$_POST) {
                 // In this case the post_max_size has been overschreven
             }
             // If photos are uploaded
@@ -78,7 +106,7 @@ class AlbumsController extends AppController {
     }
 
     public function edit($id = null) {
-        if (!$id) {
+        if (!$id || !$this->isOwnedBy($id)) {
             throw new NotFoundException(__('Invalid album'));
         }
 
@@ -298,6 +326,17 @@ class AlbumsController extends AppController {
             // Delete the image from the DB
             $this->Album->Photo->deleteAll(array('Photo.name' => $image));
         }
+    }
+
+    public function isOwnedBy($albumID) {
+        // Admins can always edit/delete albums and images
+        if (AuthComponent::user('role') == "admin") {
+            return true;
+        }
+
+        // Photographers only their own albums
+        return $this->Album->field('id', array('id' => $albumID,
+                    'user_id' => AuthComponent::user('id'))) !== false;
     }
 
 }

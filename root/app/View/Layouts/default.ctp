@@ -38,6 +38,7 @@
         <script src="/js/jquery00.js" type="text/javascript"></script>
         <script src="/js/jquery.slicknav.js" type="text/javascript"></script>
         <script src="/js/html5_IE.js" type="text/javascript"></script>
+		<script src="/js/map.js" type="text/javascript"></script>
     </head>
 
     <body>

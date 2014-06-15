@@ -52,10 +52,6 @@ class User extends AppModel {
         // If the two passwords match, save the new password
         if ($this->data[$this->alias]['newPassword'] ==
                 $this->data[$this->alias]['newPassword2']) {
-            
-            $passwordHasher = new SimplePasswordHasher();
-            $this->data[$this->alias]['password'] = $passwordHasher->hash(
-                    $this->data[$this->alias]['newPassword']);
             return true;
         }
 
@@ -67,11 +63,16 @@ class User extends AppModel {
         $passwordHasher = new SimplePasswordHasher();
 
         // Get the DB password
-        $user = $this->requestAction('users/getUserById/' . AuthComponent::user('id'));
+        $user = $this->requestAction('users/getUserById/' . $this->data[$this->alias]['id']);
         $dbPassword = $user["User"]["password"];
+//        print($dbPassword . "<br/>");
+//        print($this->data[$this->alias]['oldPassword'] . "<br/>");
 
         // Get the old password that has been entered
         $oldPassword = $passwordHasher->hash($this->data[$this->alias]['oldPassword']);
+//        
+//        print($oldPassword);
+//        die;
 
         // Check if they match
         if ($dbPassword == $oldPassword) {
@@ -81,6 +82,22 @@ class User extends AppModel {
         }
 
         return false;
+    }
+
+    public function beforeSave($options = array()) {
+        if (isset($this->data[$this->alias]['newPassword'])) {
+            print($this->data[$this->alias]['newPassword']);
+            $this->data[$this->alias]['password'] = $this->data[$this->alias]['newPassword'];
+        }
+
+        if (isset($this->data[$this->alias]['password'])) {
+            $passwordHasher = new SimplePasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                    $this->data[$this->alias]['password']
+            );
+        }
+
+        return true;
     }
 
 }

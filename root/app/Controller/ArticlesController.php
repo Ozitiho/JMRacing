@@ -10,6 +10,27 @@ class ArticlesController extends AppController {
         $this->Auth->allow('index', 'view', 'getShortenedArticles');
     }
 
+    public function isAuthorized($user = null) {
+        // Check if user is an editor
+        if (isset($user['role']) && $user['role'] === 'author') {
+
+            // An editor can edit and delete his own articles
+            if (in_array($this->action, array('edit', 'delete', 'editTags', 'getTagsForArticle'))) {
+                $articleID = (int) $this->request->params['pass'][0];
+                if ($this->Article->isOwnedBy($articleID, $user['id'])) {
+                    return true;
+                }
+            }
+
+            // An editor can access the articles CMS and add page
+            if (in_array($this->action, array('cms', 'add'))) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
     public function index() {
         if ($this->request->is('post') && $_POST["searchQuery"] != "") {
             $articles = $this->Article->Tag->find('all', array('conditions' => array('Tag.value' => $_POST["searchQuery"])
@@ -55,7 +76,12 @@ class ArticlesController extends AppController {
     }
 
     public function cms() {
-        $this->set('articles', $this->Article->find('all', array('order' => array('id DESC'))));
+        if ($this->Auth->user('role') == "admin") {
+            $this->set('articles', $this->Article->find('all', array('order' => array('id DESC'))));
+        } elseif ($this->Auth->user('role') == "author") {
+            $this->set('articles', $this->Article->find('all', array('order' => array('id DESC'),
+                        'conditions' => array('Article.user_id' => $this->Auth->user('id')))));
+        }
     }
 
     public function view($id = null) {

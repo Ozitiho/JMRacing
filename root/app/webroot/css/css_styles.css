@@ -627,7 +627,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 
 .box_profile h1{color:#ffcc00; font:bold 23px 'Asap'; line-height:23px; width:100%; float:left; padding:0 0 15px;}
 .box_profile .description{padding:15px 5%;}
-.box_profile .description p{padding-bottom:15px;}
+.box_profile .description p{padding-bottom:15px; min-height: 100px}
 
 .personal_info{width:100%; float:left; outline:1px solid #fff;}
 .personal_info h1{color:#ffffff; font:bold 17px 'Asap'; line-height:23px; width:100%; float:left; padding:10px 0; text-align:center; background:#828d9f;}
@@ -1647,7 +1647,13 @@ ul.albumViewImages .deleteBox
     display: inline-block;
     width: 100%;
     text-align: center;
-    cursor: text;
+}
+
+.popupButton{
+    position: absolute; 
+    bottom: 0;
+    left: 2.5%;
+    width: 90%;
 }
 
 .productPopupDescription
