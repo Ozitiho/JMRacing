@@ -90,7 +90,14 @@ $this->end();
             if ($count == 3)
                 print($this->element('socialmedia'));
         }
-        if ($count < 3)
+		if($count == 0){
+			?>
+            <div class="box team_col item">
+				<p class="era">No products currently for sale</p>
+			</div>
+			<?php
+		}
+		else if ($count < 3)
             print($this->element('socialmedia'));
         ?>
     </div>
