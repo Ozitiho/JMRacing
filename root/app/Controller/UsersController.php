@@ -48,10 +48,16 @@ class UsersController extends AppController {
     }
 
     public function edit($id = null) {
+		if($id === null){
+			$id = $this->Auth->user('id');
+		}
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+		if($this->Auth->user('role') !== 'admin' && $this->Auth->user('id') !== $id){
+			throw new UnauthorizedException(__('Not allowed to access this page'));
+		}
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been saved'));
