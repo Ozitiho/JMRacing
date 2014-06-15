@@ -36,7 +36,7 @@ $this->end();
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
     <!-- There is currently no means for sharing products, so do so later -->
-    <?php $currentUrl = "TODO"; ?>
+    <?php $currentUrl = "http://$_SERVER[HTTP_HOST]"; ?>
 
     <div class="merch index">
         <?php
@@ -78,9 +78,9 @@ $this->end();
                     <div class="share">
                         <ul>
                             <li>SHARE &nbsp;&nbsp;</li>
-                            <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . $product['Product']['Name']; ?>"  target="_blank">&nbsp;</a></li>
-                            <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $product['Product']['Name']; ?>" target="_blank">&nbsp;</a></li>
-                            <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
+                            <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . "/products"; ?>"  target="_blank">&nbsp;</a></li>
+                            <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . "/products Check out this " . $product['Product']['Name'] . " for sale on the JMRacing website!"; ?>" target="_blank">&nbsp;</a></li>
+                            <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl . "/products"; ?>" target="_blank">&nbsp;</a></li>
                         </ul>
                         <a style="cursor: pointer;" onclick="showProductPopup('<?php print($albumID); ?>', '<?php print($imageName); ?>', '<?php print($photoID);?>', '<?php print($productDescription);?>')" class="button">BUY THIS ITEM</a>
                     </div>

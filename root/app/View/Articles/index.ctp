@@ -27,7 +27,7 @@ $this->end();
 
 <div id="container" class="js-masonry transitions-enabled infinite-scroll clearfix">
     <?php
-    $url = $actual_link = "$_SERVER[HTTP_HOST]";
+    $url = "$_SERVER[HTTP_HOST]";
 
     $count = 0;
     foreach ($articles as $article) {
@@ -43,7 +43,7 @@ $this->end();
             $fullImageLocation = "/images/albums/$albumID/$imageName";
             $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
         }
-        $currentUrl = $url . "/articles/" . $article['Article']['id'];
+        $currentUrl = $url . "/articles/view/" . $article['Article']['id'];
         $count++;
         if ($count == 1) {
             ?>
@@ -56,9 +56,9 @@ $this->end();
                     <div class="share">
                         <ul>
                             <li>SHARE &nbsp;&nbsp;</li>
-                            <li class="fb"><a href="#">&nbsp;</a></li>
-                            <li class="twitter"><a href="#">&nbsp;</a></li>
-                            <li class="google"><a href="#">&nbsp;</a></li>
+                            <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl; ?>" target="_blank">&nbsp;</a></li>
+                            <li class="twitter"><a href="https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+                            <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                         </ul>
                         <a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>
                     </div>
@@ -79,8 +79,8 @@ $this->end();
                     <div class="share">
                         <ul>
                             <li>SHARE &nbsp;&nbsp;</li>
-                            <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl; ?>"  target="_blank">&nbsp;</a></li>
-                            <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+                            <li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl; ?>" target="_blank">&nbsp;</a></li>
+                            <li class="twitter"><a href="https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
                             <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                         </ul>
                         <a href="/articles/view/<?php print($article['Article']['id']); ?>" class="button yellow">READ FULL ARTICLE</a>

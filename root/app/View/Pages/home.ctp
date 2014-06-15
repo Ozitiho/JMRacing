@@ -19,7 +19,7 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
 function printArticle($article, $imageDetails) {
     //TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
-    $url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
+    $url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
 	
     // If an image is found
     if (isset($imageDetails)) {
@@ -31,7 +31,7 @@ function printArticle($article, $imageDetails) {
 		$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
 	}
 	
-    $currentUrl = $url . "/articles/" . $article['Article']['id'];
+    $currentUrl = $url . "/articles/view/" . $article['Article']['id'];
     ?>
     <div class="box">
         <div class="center-cropped news" style="background-image: url('<?php echo $thumbImageLocation; ?>');">
