@@ -581,7 +581,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 .box .era{position:relative; bottom:auto; left:auto;}
 .merch .item .button{background:#f27f32;}
 .item ul{width:42%;}
-.item .button{width:48%; background:#f27f32; padding-left:0; padding-right:0; text-align:center;}
+.item .button{width:40%; background:#f27f32; padding-left:0; padding-right:0; text-align:center;}
 .item .share .button:hover{background:#db6618;}
 .box_equal .box.w4{width:95.8%;}
 

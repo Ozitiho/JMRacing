@@ -158,7 +158,12 @@
                         </div>
                         <div class="photos_main">
                             <h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
-                            <div class="hide">
+                            <div class="hide" 
+							<?php
+								if($title_for_layout == "Home")
+									echo "style=\"display:block\"";
+							?>
+							>
                                 <ul>
                                     <?php
                                     for ($i = 0; $i < 16; $i++):
@@ -187,7 +192,12 @@
                     <section class="container">
                         <div class="center">
                             <a id="explore_map">EXPLORE THE MAP<br><span>&nbsp;</span></a>
-                            <div class="hide">
+                            <div class="hide"
+							<?php
+								if($title_for_layout == "Home")
+									echo "style=\"display:block\"";
+							?>
+							>
                                 <img src="/images/direction_icon.png" alt="">
 
                                 <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong></h2>
