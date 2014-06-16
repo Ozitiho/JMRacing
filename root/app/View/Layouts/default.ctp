@@ -188,7 +188,11 @@
                         <div class="clear"></div>
                     </section>
                 </section>
-                <section class="map_main" id="map">
+                <section class="map_main
+							<?php
+								if($title_for_layout == "Home")
+									echo " map_main1";
+							?>" id="map">
                     <section class="container">
                         <div class="center">
                             <a id="explore_map">EXPLORE THE MAP<br><span>&nbsp;</span></a>
