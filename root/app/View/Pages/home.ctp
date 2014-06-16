@@ -159,7 +159,7 @@ function printArticle($article, $imageDetails) {
     //After the articles, show the merchandise and team
     ?>
     <div class="box team_col">
-        <a href="#">
+        <a href="/racers/view/1">
             <div class="center-cropped" style="background-image: url('/images/home_img3.jpg');"></div>
             <span class="overlay">&nbsp;</span>
             <span class="heading">TEAM</span>
@@ -167,7 +167,7 @@ function printArticle($article, $imageDetails) {
         <p class="black">ALEKSANDR TONKOV #59</p>
     </div>
     <div class="box team_col">
-        <a href="#">
+        <a href="/racers/view/2">
             <div class="center-cropped" style="background-image: url('/images/home_img4.jpg');"></div>
             <span class="overlay">&nbsp;</span>
             <span class="heading">TEAM</span>
