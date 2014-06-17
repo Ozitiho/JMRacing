@@ -42,6 +42,7 @@ $albumImages = $this->requestAction('albums/getSpecificAlbumImages/' . $albumID)
         <legend class="legend">
             <h1><?php print($album["Album"]["name"]); ?> Album</h1>
         </legend>
+        <a href="/albums/cms">&laquo; Back to albums</a>
         <?php
         if ($hasRights) {
             ?>
