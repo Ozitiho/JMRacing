@@ -40,5 +40,14 @@ $this->end();
 			</p>
 			<?php echo $this->element('exception_stack_trace'); 
 		endif;
+		else{
+			?>
+					
+			<p>
+				Now redirecting. Alternatively you can click on the logo at the top to return to home. 
+			</p>
+			<meta http-equiv="refresh" content="5;url=/" />
+			<?php
+		}
 	?>
 </div>

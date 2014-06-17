@@ -29,4 +29,9 @@
 			"<strong>'{$url}'</strong>"
 		); ?>
 	</p>
+	<p>
+		Now redirecting. Alternatively you can click on the logo at the top to return to home.
+	</p>
 </div>
+
+<meta http-equiv="refresh" content="5;url=/" />
