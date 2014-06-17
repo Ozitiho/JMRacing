@@ -14,7 +14,6 @@ $this->end();
         <?php
         echo $this->Form->create('Album');
         echo $this->Form->input('name');
-        echo $this->Form->input('description', array('rows' => '5'));
         echo $this->Form->input('user_id', array('type' => 'hidden', 'default'=>AuthComponent::user('id')));
         echo $this->Form->end('Add Album');
         ?>

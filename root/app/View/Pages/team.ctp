@@ -52,9 +52,13 @@ $this->end();
 			<div class="share">
 				<ul>
 					<li>SHARE &nbsp;&nbsp;</li>
-					<li class="fb"><a href="#">&nbsp;</a></li>
-					<li class="twitter"><a href="#">&nbsp;</a></li>
-					<li class="google"><a href="#">&nbsp;</a></li>
+					<?php
+						$url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
+						$currentUrl = $url . "/team/";
+					?>
+					<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl ?>"  target="_blank">&nbsp;</a></li>
+					<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " General team info"; ?>" target="_blank">&nbsp;</a></li>
+					<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 				</ul>
 			</div>
 		</div>

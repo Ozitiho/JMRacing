@@ -1,14 +1,20 @@
 <?php
 $this->start('bannerImage');
 
-$fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
-$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+$imageDetails = null;
+			
+if (isset($article['Article']['photo_id'])) {
+	$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+}
 
 // If an image is found
-if ($imageDetails) {
-    $albumID = $imageDetails["Photo"]["album_id"];
-    $imageName = $imageDetails["Photo"]["name"];
-    $fullImageLocation = "/images/albums/$albumID/$imageName";
+if (isset($imageDetails)) {
+	$albumID = $imageDetails["Photo"]["album_id"];
+	$imageName = $imageDetails["Photo"]["name"];
+	$fullImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+}
+else {
+	$fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
 }
 ?>
 <div class="center-cropped banner" style="background-image: url('<?php echo $fullImageLocation; ?>');">
@@ -41,9 +47,13 @@ $this->end();
             <div class="share">
                 <ul>
                     <li>SHARE &nbsp;&nbsp;</li>
-                    <li class="fb"><a href="#">&nbsp;</a></li>
-                    <li class="twitter"><a href="#">&nbsp;</a></li>
-                    <li class="google"><a href="#">&nbsp;</a></li>
+                    <?php
+						$url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
+						$currentUrl = $url . "/articles/view/" .$article['Article']['id'] ;
+					?>
+					<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl ?>"  target="_blank">&nbsp;</a></li>
+					<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+					<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                 </ul>
             </div>
         </div>
@@ -55,15 +65,21 @@ $this->end();
         echo "<div class='load_more'><a>NEWEST NEWS ITEMS</a></div>";
         $count = 0;
         foreach ($articles as $article) {
-            $thumbImageLocation = $fullImageLocation; // In case no image can be found
-            $imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+            $imageDetails = null;
+			
+			if (isset($article['Article']['photo_id'])) {
+				$imageDetails = $this->requestAction('albums/getDetailsFromPhotoID/' . $article['Article']['photo_id']);
+			}
 
             // If an image is found
-            if ($imageDetails) {
-                $albumID = $imageDetails["Photo"]["album_id"];
-                $imageName = $imageDetails["Photo"]["name"];
-                $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
-            }
+            if (isset($imageDetails)) {
+				$albumID = $imageDetails["Photo"]["album_id"];
+				$imageName = $imageDetails["Photo"]["name"];
+				$thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+			}
+			else {
+				$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
+			}
             ?>
             <div class="box">
                 <img src="<?php echo $thumbImageLocation; ?>" alt="">
@@ -74,9 +90,13 @@ $this->end();
                     <div class="share">
                         <ul>
                             <li>SHARE &nbsp;&nbsp;</li>
-                            <li class="fb"><a href="#">&nbsp;</a></li>
-                            <li class="twitter"><a href="#">&nbsp;</a></li>
-                            <li class="google"><a href="#">&nbsp;</a></li>
+                            <?php
+								$url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
+								$currentUrl = $url . "/articles/view/" .$article['Article']['id'] ;
+							?>
+							<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl ?>"  target="_blank">&nbsp;</a></li>
+							<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $article['Article']['Title']; ?>" target="_blank">&nbsp;</a></li>
+							<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                         </ul>
                         <a href="/articles/view/<?php echo $article['Article']['id']; ?>" class="button yellow">READ FULL ARTICLE</a>
                     </div>

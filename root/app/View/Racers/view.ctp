@@ -17,7 +17,7 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
     <div class="box w2 event_w2">
         <div class="box_top team_col">
             <a>
-                <img src="/images/big_img1.jpg" alt="">
+                <img src="/images/big_img<?php echo $racer['Racer']['id'] ?>.jpg" alt="">
             </a>
             <p class="black"><?php echo strtoupper($racer['Racer']['Name']) . " #" . $racer['Racer']['RacerNumber'] ?></p>
         </div>
@@ -28,9 +28,13 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
                 <div class="share">
                     <ul>
                         <li>SHARE &nbsp;&nbsp;</li>
-                        <li class="fb"><a href="#">&nbsp;</a></li>
-                        <li class="twitter"><a href="#">&nbsp;</a></li>
-                        <li class="google"><a href="#">&nbsp;</a></li>
+                        <?php
+							$url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
+							$currentUrl = $url . "/racers/view/" .$racer['Racer']['id'] ;
+						?>
+						<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl ?>"  target="_blank">&nbsp;</a></li>
+						<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $racer['Racer']['Name']; ?>" target="_blank">&nbsp;</a></li>
+						<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
                     </ul>
                 </div>
             </div>

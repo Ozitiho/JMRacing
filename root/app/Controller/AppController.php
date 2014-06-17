@@ -35,10 +35,6 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array(
-                'controller' => '/',
-                'action' => 'index'
-            ),
             'logoutRedirect' => array(
                 'controller' => '/',
                 'action' => 'index'
@@ -52,8 +48,8 @@ class AppController extends Controller {
         if (isset($user['role']) && $user['role'] === 'admin') {
             return true;
         }
-        
-        return false;
+
+        throw new UnauthorizedException(__('Not allowed to access this page'));
     }
 
     public function beforeFilter() {

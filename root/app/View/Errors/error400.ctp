@@ -16,16 +16,17 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $name; ?></h2>
-<p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
-	<?php printf(
-		__d('cake', 'The requested address %s was not found on this server.'),
-		"<strong>'{$url}'</strong>"
-	); ?>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	echo $this->element('exception_stack_trace');
-endif;
-?>
+<div class="box users form cms cmsIndex">
+    <?php echo $this->Session->flash(); ?>
+    <legend class="legend">
+        <h1>Something went wrong!</h1>
+		<h2><?php echo $name; ?></h2>
+    </legend>
+	<p class="error">
+		<strong><?php echo __d('cake', 'Error'); ?>: </strong>
+		<?php printf(
+			__d('cake', 'The requested address %s could not be fetched.'),
+			"<strong>'{$url}'</strong>"
+		); ?>
+	</p>
+</div>

@@ -31,6 +31,7 @@ $this->end();
 
     $count = 0;
     foreach ($articles as $article) {
+		$imageDetails = null;
         $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
         $thumbImageLocation = $fullImageLocation; // In case no image can be found
 		if (isset($article['Article']['photo_id'])){

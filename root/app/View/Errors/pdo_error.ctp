@@ -12,8 +12,7 @@ $this->end();
         <h1>Something went wrong!</h1>
     </legend>
 	PDO error in the database.<br>
-	<br>
-	
+	<br>	
 	<?php
 	
 		if (Configure::read('debug') > 0):
