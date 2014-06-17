@@ -52,8 +52,8 @@ class AppController extends Controller {
         if (isset($user['role']) && $user['role'] === 'admin') {
             return true;
         }
-        
-        return false;
+
+        throw new UnauthorizedException(__('Not allowed to access this page'));
     }
 
     public function beforeFilter() {
