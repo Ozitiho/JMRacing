@@ -190,24 +190,18 @@ class EventsController extends AppController {
         }
     }
 
-    /* This function increases the year part of the date for all events when they are all done
-     * for the current year
+    /* This function increases the year part of the date for all events when a new year begins
      */
 
     public function increaseEventYears() {
-        $allEventsDone = true;
+        $event = $this->Event->find('first', array('fields' => 'YEAR(Event.date) AS year'));
 
-        $events = $this->Event->find('all', array('fields' => 'DATE(Event.date) AS date'));
+        $serverDateTime = getdate();
 
-        foreach ($events as $event) {
-            if ($event[0]["date"] >= date("Y-m-d")) {
-                $allEventsDone = false;
-                break;
-            }
-        }
-
-        if ($allEventsDone) {
+        // On the 2nd of january of the new year, up the events years
+        if ($event[0]["year"] < $serverDateTime["year"]) {
             $this->Event->updateAll(array('date' => 'date_add(date, INTERVAL 1 YEAR)'));
+            $this->Event->Result->updateAll(array('R1' => null, 'R2' => null, 'GP' => null));
         }
     }
 

@@ -9,7 +9,7 @@ $this->end();
 $racers = $this->requestAction('racers/getRacerResults');
 
 // Get a list of all events
-$events = $this->requestAction('events/getEventsByYear/2014');
+$events = $this->requestAction('events/getEventsByYear/' . date("Y"));
 
 $racerID = null;
 ?>
