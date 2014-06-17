@@ -13,4 +13,9 @@ $this->end();
     </legend>
 	The helper was not found.<br>
 	<br>
+	<?php
+	  if (Configure::read('debug') > 0):
+	  echo $this->element('exception_stack_trace');
+	  endif;
+	?>
 </div>

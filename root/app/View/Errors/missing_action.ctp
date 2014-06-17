@@ -13,4 +13,9 @@ $this->end();
     </legend>
 	This page does not exist.<br>
 	<br>
+	<?php
+	  if (Configure::read('debug') > 0):
+	  echo $this->element('exception_stack_trace');
+	  endif;
+	?>
 </div>
