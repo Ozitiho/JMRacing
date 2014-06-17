@@ -1733,3 +1733,30 @@ img.pencilIcon
 .noMerch h1{
     color: #000;
 }
+
+.adminLinks li{
+    position: relative !important;
+    float: left;
+    background: #002752;
+    width: 29%;
+    margin: 10px 2% 5px 0;
+    padding: 2px 0 2px 4px;
+    display: inline-block;
+    height: 20px;
+}
+
+.adminLinks li:hover{
+    background: #ABC;
+}
+
+.adminLinks li a{
+    color: #FFF;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 20px;
+}
+
+.adminLinks li a:hover{
+    text-decoration: none;
+}
