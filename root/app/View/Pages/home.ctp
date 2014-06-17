@@ -4,19 +4,22 @@ print($this->element('countdown'));
 
 $this->start('bannerImage');
 ?>
-<img src="/images/home_banner1.jpg" alt="">
+<div class="center-cropped banner" style="background-image: url('/images/home_banner1.jpg');">
+	<img src="/images/home_banner1.jpg" alt="">
+	<div class="gradient-overlay"></div>
+</div>
 <?php
 $this->end();
 
 $articles = $this->requestAction('articles/getShortenedArticles');
 
-$products = $this->requestAction('products/getProducts');
+$products = $this->requestAction('products/index');
 
 $photos = $this->requestAction('socialMedia/getFacebookPictures');
 
 function printArticle($article, $imageDetails) {
     //TODO: EDIT THIS WHEN WEBSITE GOES ONLINE!!
-    $url = $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; // <-- TEST THIS PLS
+    $url = "http://$_SERVER[HTTP_HOST]"; // <-- TEST THIS PLS
 	
     // If an image is found
     if (isset($imageDetails)) {
@@ -28,7 +31,7 @@ function printArticle($article, $imageDetails) {
 		$thumbImageLocation = "/images/no-photo.jpg"; // In case no image can be found;
 	}
 	
-    $currentUrl = $url . "/articles/" . $article['Article']['id'];
+    $currentUrl = $url . "/articles/view/" . $article['Article']['id'];
     ?>
     <div class="box">
         <div class="center-cropped news" style="background-image: url('<?php echo $thumbImageLocation; ?>');">
@@ -156,7 +159,7 @@ function printArticle($article, $imageDetails) {
     //After the articles, show the merchandise and team
     ?>
     <div class="box team_col">
-        <a href="#">
+        <a href="/racers/view/1">
             <div class="center-cropped" style="background-image: url('/images/home_img3.jpg');"></div>
             <span class="overlay">&nbsp;</span>
             <span class="heading">TEAM</span>
@@ -164,7 +167,7 @@ function printArticle($article, $imageDetails) {
         <p class="black">ALEKSANDR TONKOV #59</p>
     </div>
     <div class="box team_col">
-        <a href="#">
+        <a href="/racers/view/2">
             <div class="center-cropped" style="background-image: url('/images/home_img4.jpg');"></div>
             <span class="overlay">&nbsp;</span>
             <span class="heading">TEAM</span>

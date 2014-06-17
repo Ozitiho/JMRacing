@@ -30,7 +30,9 @@ if ($events) {
                             $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
                         }
                         ?>
+						<div class="center-cropped" style="background-image: url('<?php echo $thumbImageLocation; ?>'); width: 280px; height: 186; border:1px solid #828D9F;">
                         <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
+						</div>
                         <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                     </div>
                     <div class="right">

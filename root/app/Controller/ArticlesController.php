@@ -138,7 +138,7 @@ class ArticlesController extends AppController {
             throw new NotFoundException(__('Invalid article'));
         }
 
-        $this->set('articleID', $id);
+        $this->set('article', $article);
 
         if ($this->request->is(array('article', 'put'))) {
             $this->Article->id = $id;
