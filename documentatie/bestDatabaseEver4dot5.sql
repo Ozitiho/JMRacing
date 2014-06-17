@@ -25,7 +25,6 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `JMRacing`.`albums` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(100) NOT NULL ,
-  `description` VARCHAR(300) NULL ,
   `user_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_albums_users1_idx` (`user_id` ASC) ,
@@ -262,9 +261,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `JMRacing`;
-INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (1, 'News Images', NULL, 1);
-INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (2, 'Event Images', NULL, 1);
-INSERT INTO `JMRacing`.`albums` (`id`, `name`, `description`, `user_id`) VALUES (3, 'Merchandise Images', NULL, 1);
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `user_id`) VALUES (1, 'News Images', 1);
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `user_id`) VALUES (2, 'Event Images', 1);
+INSERT INTO `JMRacing`.`albums` (`id`, `name`, `user_id`) VALUES (3, 'Merchandise Images', 1);
 
 COMMIT;
 
