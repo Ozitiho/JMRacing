@@ -7,7 +7,8 @@ $this->end();
 
 	$sponsorList = array();
 	foreach($sponsors as $sponsor){
-		$sponsorList[$sponsor['Sponsor']['id']] = $sponsor['Sponsor']['Name'];
+		$key = $sponsor['Sponsor']['id'];
+		$sponsorList[$key] = $sponsor['Sponsor']['Name'];
 	}
 ?>
 <div class="box users form cms">
@@ -25,7 +26,10 @@ $this->end();
         echo $this->Form->input('Latitude');
         echo $this->Form->input('Longitude');
         echo $this->Form->input('Date');
-        echo $this->Form->input('main_sponsor', array('options' => array_slice($sponsorList, 0, 3), 'default' => $event['Event']['main_sponsor']));
+        echo $this->Form->input('main_sponsor', array('options' => array(
+														'1' => $sponsors[0]['Sponsor']['Name'], 
+														'2' => $sponsors[1]['Sponsor']['Name'],
+														'3' => $sponsors[2]['Sponsor']['Name']), 'default' => $event['Event']['main_sponsor']));
         echo $this->Form->input('sponsor1', array('options' => $sponsorList, 'default' => $event['Event']['sponsor1']));
         echo $this->Form->input('sponsor2', array('options' => $sponsorList, 'default' => $event['Event']['sponsor2']));
         echo $this->Form->input('id', array('type' => 'hidden'));

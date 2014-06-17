@@ -1,4 +1,8 @@
 <?php
+
+//Load the picture loading library
+require_once(APP . 'Vendor' . DS . "functions/imageload.php");
+
 $this->start('header');
 
 // Get the upcoming events
@@ -94,7 +98,11 @@ if ($events) {
                              * To support this, simply switch around the image
                              * if the first sponsor is not husqvarna
                              */
-                            echo "<a href='" . $sponsors[0]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[0]['Sponsor']['wide_image'] . "' alt=''></a>";
+							 
+							 //Get the image
+							$image = loadImage($sponsors[0]['Sponsor']['wide_image'], $this);
+							$image = $image['full'];
+                            echo "<a href='" . $sponsors[0]['Sponsor']['URL'] . "'><img src='" . $image . "' alt=''></a>";
 
                             //The given slicing requires every row to be placed in a seperate <ul> element.
                             echo "<ul>";
@@ -115,12 +123,18 @@ if ($events) {
 
                             //End of the row, print a new <ul> element for the new row
                             echo "</ul><ul>";
-
+							
+							$image = loadImage($sponsors[1]['Sponsor']['box_image'], $this);
+							$image = $image['full'];
+							
                             //First other sponsor
-                            echo "<li><a href='" . $sponsors[1]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[1]['Sponsor']['box_image'] . "' alt=''></a></li>";
+                            echo "<li><a href='" . $sponsors[1]['Sponsor']['URL'] . "'><img src='" . $image . "' alt=''></a></li>";
 
-                            //Second other sponsor.
-                            echo "<li class='fright'><a href='" . $sponsors[2]['Sponsor']['URL'] . "'><img src='/images/" . $sponsors[2]['Sponsor']['box_image'] . "' alt=''></a></li>";
+                            $image = loadImage($sponsors[2]['Sponsor']['box_image'], $this);
+							$image = $image['full'];
+							
+							//Second other sponsor.
+                            echo "<li class='fright'><a href='" . $sponsors[2]['Sponsor']['URL'] . "'><img src='" . $image . "' alt=''></a></li>";
 
                             //End second row
                             echo "</ul>";

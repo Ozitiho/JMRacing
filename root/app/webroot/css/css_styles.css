@@ -236,6 +236,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
      -moz-box-shadow: #666 0px 2px 2px;
      box-shadow: #666 0px 2px 2px; behavior: url(js/pie/PIE.php);}
 .box.fright{float:right;}
+.box.sponsor{width: auto;}
 
 .box img{float:left; border:1px solid #fff; margin:-1px; width:99.8%;}
 .box .heading{font:bold 13px 'Asap'; color:#ffffff; line-height:23px; padding:5px 10px; z-index:11; background:#dc002f; position:absolute; left:10px; top:10px;}
