@@ -202,7 +202,7 @@ function printArticle($article, $imageDetails) {
         <div class="center-cropped" style="background-image: url('<?php echo $photos[17]['source']; ?>');"></div>
         <span class="overlay">&nbsp;</span>
         <span class="heading blue">VIDEO</span>
-        <a href="https://www.facebook.com/media/set/?set=vb.628475897212573&type=2" class="play_button"><img src="/images/play_button.png" alt=""></a>
+        <a href="https://www.facebook.com/media/set/?set=vb.628475897212573&amp;type=2" class="play_button"><img src="/images/play_button.png" alt=""></a>
     </div>
     <!-- When requesting to show more news, simply link to a page with all news -->
     <div class="load_more">
