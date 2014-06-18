@@ -283,6 +283,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .center-cropped.banner {
     height: 831px;
 }
+
 .gradient-overlay{
     width:100%;
     height: 100%;
@@ -1187,7 +1188,7 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 	.box{width:31%;}
 	.events_logo ul{padding:10px 0 0;}
 	.equal .left{width:98%;}
-	.equal .left img{width:48%; margin:0.7%;}
+	.equal .left img, .equal .left .center-cropped{width:48%; margin:0.7%; height: 100px;}
 	.equal .right{width:94%; padding:5px 3%;}
 	.all_events,.year_events .all_events{width:94%; padding:5px 3%;}
 	.events_logo{display:none;}

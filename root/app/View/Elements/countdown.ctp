@@ -34,7 +34,7 @@ if ($events) {
                             $thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
                         }
                         ?>
-						<div class="center-cropped" style="background-image: url('<?php echo $thumbImageLocation; ?>'); width: 280px; height: 186; border:1px solid #828D9F;">
+						<div class="center-cropped event" style="background-image: url('<?php echo $thumbImageLocation; ?>'); max-width: 100%; border:1px solid #828D9F;">
 						</div>
                         <img src="/images/event_img2.jpg" alt="">
                     </div>
