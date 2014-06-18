@@ -14,10 +14,8 @@ class UsersController extends AppController {
     public function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                if ($this->Auth->user('role') == 'admin') {
+                if ($this->Auth->user('role') == 'admin' || $this->Auth->user('role') == 'author') {
                     $this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'admin');
-                } elseif ($this->Auth->user('role') == 'author') {
-                    $this->Auth->loginRedirect = array('controller' => 'articles', 'action' => 'cms');
                 } elseif ($this->Auth->user('role') == 'photographer') {
                     $this->Auth->loginRedirect = array('controller' => 'albums', 'action' => 'cms');
                 }
