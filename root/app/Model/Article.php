@@ -12,6 +12,11 @@ class Article extends AppModel {
         ),
         'priority' => array(
             'rule' => array('between', 0, 5)
+        ),
+        'photo_id' => array(
+            'photoCheck' => array(
+                'rule' => 'checkIfPhotoExists'
+            )
         )
     );
 

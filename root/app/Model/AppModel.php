@@ -41,10 +41,27 @@ class AppModel extends Model {
             return false;
         }
     }
-    
+
+    public function checkIfPhotoExists() {
+        $arrayKey = current(array_keys($this->data));
+
+        $this->Photo = ClassRegistry::init('Photo');
+        $photo = $this->Photo->find('first', array(
+            'conditions' => array(
+                'Photo.id' => $this->data[$arrayKey]["photo_id"]
+            )
+        ));
+
+        if ($photo) {
+            return true;
+        } else {
+            return "This photo does not exist, please choose an existing ID.";
+        }
+    }
+
     public function getLastInsertedId() {
-       $db =& ConnectionManager::getDataSource($this->useDbConfig);
-       return $db->lastInsertId();
+        $db = & ConnectionManager::getDataSource($this->useDbConfig);
+        return $db->lastInsertId();
     }
 
 }
