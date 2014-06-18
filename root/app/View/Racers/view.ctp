@@ -162,19 +162,5 @@ $photos = $this->requestAction('socialMedia/getFacebookPictures');
         </a>
         <p class="black font_18">R. COIFFARD - MECHANIC FEBVRE</p>
     </div>
-    <?php print($this->element('merchandise')); ?>
-    <div class="box_equal">
-        <div class="load_more">
-            <a id="load-images">MAIN SPONSORS</a>
-        </div>
-        <div class="box team_col">
-            <a href="http://www.wilvo.nl"><img src="/images/item_logo1.png" alt=""></a>
-        </div>
-        <div class="box team_col">
-            <a href="http://www.nestaan.nl"><img src="/images/item_logo2.png" alt=""></a>
-        </div>
-        <div class="box team_col w4">
-            <a href="http://www.husqvarna.com"><img src="/images/item_logo3.png" alt=""></a>
-        </div>
-    </div>
+    <?php print($this->element('merchandise_sponsors')); ?>
 </div>

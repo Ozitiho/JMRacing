@@ -12,6 +12,8 @@
 			$imageName = $imageDetails["Photo"]["name"];
 			$fullImageLocation = "/images/albums/$albumID/$imageName";
 			$thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
+			$image['name'] = $imageName;
+			$image['album'] = $albumID;
 		}
 		
 		$image['full'] = $fullImageLocation;

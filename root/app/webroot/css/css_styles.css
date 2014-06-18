@@ -365,7 +365,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .news_items .box{width:50%;}
 
 .facebook_box, .noMerch{background:#2f6cb0 url(../images/big_fb.png) no-repeat right top; float:left; border:1px solid #fff;
-              padding:20px 1.9% 0; width:19%;}
+              padding:20px 1.9% 0; width:19%; height: 389px;}
 .facebook_box h1, .noMerch h1{font:bold 31px 'Asap'; padding:0 0 30px; color:#ffffff; line-height:32px; width:100%; float:left;}
 .facebook_box li{width:100%; float:left; padding:0 0 30px;}
 .facebook_box span{width:100%; float:left; font:normal 11px 'Asap'; color:#ffffff; line-height:23px;}
