@@ -22,7 +22,8 @@ $this->end();
         <tr>
             <th>Title</th>
             <th>Created</th>
-            <th>Last updated</th>
+            <th>Priority</th>
+            <th>Photo ID</th>
         </tr>
 
         <!-- Here is where we loop through our $posts array, printing out post info -->
@@ -34,7 +35,8 @@ $this->end();
                     ?>
                 </td>
                 <td><?php echo $article['Article']['CreateDate']; ?></td>
-                <td><?php echo $article['Article']['LastUpdatedDate']; ?></td>
+                <td><?php echo $article['Article']['priority']; ?></td>
+                <td><?php echo $article['Article']['photo_id']; ?></td>
                 <td>
                     <?php
                     echo $this->Html->link(

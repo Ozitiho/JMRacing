@@ -14,6 +14,7 @@ $this->end();
         <tr>
             <th>Name</th>
             <th>Racer Number</th>
+            <th>World Cup Standing</th>
         </tr>
 
         <?php foreach ($racers as $racer): ?>
@@ -23,6 +24,7 @@ $this->end();
                     ?>
                 </td>
                 <td><?php echo $racer['Racer']['RacerNumber']; ?></td>
+                <td><?php echo $racer['Racer']['WorldCupStanding']; ?></td>
                 <td>
                     <?php
                     echo $this->Html->link(

@@ -17,6 +17,7 @@ $this->end();
             <th>Discount price</th>
             <th>Description</th>
             <th>Size</th>
+            <th>Photo</th>
         </tr>
 
         <?php foreach ($products as $product): ?>
@@ -29,6 +30,7 @@ $this->end();
                 <td><?php echo $product['Product']['DiscountPrice']; ?></td>
                 <td><?php echo $product['Product']['description']; ?></td>
                 <td><?php echo $product['Product']['Size']; ?></td>
+                <td><?php echo $product['Product']['photo_id']; ?></td>
                 <td>
                     <?php
                     echo $this->Html->link(

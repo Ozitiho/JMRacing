@@ -5,20 +5,21 @@
         $("#merchandisePopup").css('background-image', 'url(' + image + ')');
         $("#merchandisePopup").css('display', 'block');
         var popupContent = '<div class="productPopupDescription"><p>' + productDescription + '</p>';
-		var sizes = size.split(', ')
-		console.log(sizes)
-        popupContent += 'Size: <select class="sizeSelector">';
-		if($.inArray('xs', sizes) > -1)
-			popupContent += '<option>XS</option>'
-		if($.inArray('s', sizes) > -1)
-			popupContent += '<option>S</option>'
-		if($.inArray('m', sizes) > -1)
-			popupContent += '<option>M</option>'
-		if($.inArray('l', sizes) > -1)
-			popupContent += '<option>L</option>'
-		if($.inArray('xl', sizes) > -1)
-			popupContent += '<option>XL</option>'
-		popupContent += '</select>';
+		if(size !== ""){
+			var sizes = size.split(', ')
+			popupContent += 'Size: <select class="sizeSelector">';
+			if($.inArray('xs', sizes) > -1)
+				popupContent += '<option>XS</option>'
+			if($.inArray('s', sizes) > -1)
+				popupContent += '<option>S</option>'
+			if($.inArray('m', sizes) > -1)
+				popupContent += '<option>M</option>'
+			if($.inArray('l', sizes) > -1)
+				popupContent += '<option>L</option>'
+			if($.inArray('xl', sizes) > -1)
+				popupContent += '<option>XL</option>'
+			popupContent += '</select>';
+		}
         popupContent += '<input type="button" value="Add to cart" class="button addToCartButton"></div>';
 
         $("#merchandisePopup").html(popupContent);

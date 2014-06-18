@@ -16,6 +16,7 @@ $this->end();
             <th>Username</th>
             <th>Role</th>
             <th>Created</th>
+            <th>Modified</th>
         </tr>
 
         <?php foreach ($users as $user): ?>
@@ -25,6 +26,7 @@ $this->end();
                 </td>
                 <td><?php echo $user['User']['role']; ?></td>
                 <td><?php echo $user['User']['created']; ?></td>
+                <td><?php echo $user['User']['modified']; ?></td>
                 <td>
                     <?php
                     echo $this->Html->link(
