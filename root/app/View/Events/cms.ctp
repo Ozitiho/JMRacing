@@ -14,6 +14,7 @@ $this->end();
         <tr>
             <th>Country</th>
             <th>City</th>
+            <th>Ticket URL</th>
             <th>Date</th>
             <th>Sponsors</th>
         </tr>
@@ -28,6 +29,7 @@ $this->end();
                     ?>
                 </td>
                 <td><?php echo $event['Event']['City']; ?></td>
+                <td><?php echo $event['Event']['ticketURL']; ?></td>
                 <td><?php echo $event['Event']['Date']; ?></td>
                 <td>
                     <?php

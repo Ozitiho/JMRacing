@@ -40,7 +40,9 @@ if ($events) {
                     <div class="right">
                         <h1><span><?php print(date("d F Y", strtotime($events[0]["Event"]["Date"]))); ?></span><br><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
                         <p><?php print($events[0]["Event"]["Description"]); ?></p>
-                        <a href="#" class="gray">GET TICKETS</a>
+						<?php if ($events[0]["Event"]["ticketURL"]):?>
+                        <a href="<?php print $events[0]["Event"]["ticketURL"]; ?>" class="gray">GET TICKETS</a>
+						<?php endif; ?>
                         <a href="/events" class="yellow">SEE RESULTS MX2 2014</a>
                     </div>
                 </div>

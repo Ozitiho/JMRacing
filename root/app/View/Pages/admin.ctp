@@ -28,6 +28,7 @@ if (AuthComponent::user('role') != "admin" && AuthComponent::user('role') != "au
         if (AuthComponent::user('role') == "admin") {
             ?>
             <li><a href="/events/cms">Events</a></li>
+            <li><a href="/orders/cms">Orders</a></li>
             <li><a href="/products/cms">Products</a></li>
             <li><a href="/racers/cms">Racers</a></li>
             <li><a href="/results/cms">Results</a></li>

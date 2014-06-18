@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2014 at 12:29 PM
+-- Generation Time: Jun 18, 2014 at 09:10 PM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -60,7 +60,6 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `Message` text NOT NULL,
   `priority` int(11) NOT NULL DEFAULT '3',
   `CreateDate` datetime NOT NULL,
-  `LastUpdatedDate` datetime DEFAULT NULL,
   `photo_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_Article_Editor1_idx` (`user_id`),
@@ -71,16 +70,16 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `user_id`, `Title`, `Message`, `priority`, `CreateDate`, `LastUpdatedDate`, `photo_id`) VALUES
-(1, 1, 'Wilvo Nestaan Husqvarna Factory Racing on the podium in Qatar', 'Wilvo Nestaan Husqvarna Factory Racing has started the World MX2 Series in Losail, Qatar with a podium position. Romain Febvre finished third overall just the same as he did last year and his team mate Aleksandr Tonkov ended the day with fifth position overall.', 3, '2014-03-02 00:00:00', NULL, 9),
-(2, 1, 'Romain Febvre scores top three moto finish in Thailand', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing managed to score a top three moto finish in the second round of the World MX2 Series in Si Racha, Thailand. The young Frenchman scored this result in the second moto. In the first moto he made a mistake in the beginning of the race but came back from twelfth to ninth position, which gave him fifth position overall. Aleksandr Tonkov was riding well in the extreme heat of Thailand. He finished in seventh and eight position in the motos and ended the day with ninth position overall.', 3, '2014-03-09 00:00:00', NULL, 8),
-(3, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Emmen', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have scored podium positions at the opening round of the Dutch Open MX2 Series in Emmercompascuum. After a fourth position in the first moto, Romain Febvre was fighting for the win in the second moto and finished the race in second position. With these results he finished in second position overall as well. Aleksandr Tonkov didn’t felt comfortable on the track but gave everything he had and finished in third position in both motos.', 3, '2014-03-17 00:00:00', NULL, 7),
-(4, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Mill', 'Wilvo Nestaan Husqvarna Factory Racing has scored two podium positions in the second round of the Dutch Open Championship Series in Mill. Aleksandr Tonkov and Romain Febvre had a nice battle for second position in both motos. In the first and the second moto it was Romain who crossed the finish line in second position in front of his team mate Aleksandr.', 3, '2014-03-23 00:00:00', NULL, 6),
-(5, 1, 'Romain Febvre scores top three moto finish in Brazil', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish in the third round of the World MX2 Series in Beto Carrero, Brazil. Unfortunately he made a crash in the opening lap of the second moto and had to come from behind. Romain gave everything he had and worked his way back up to eleventh position for seventh overall. Aleksandr Tonkov was fighting inside of the top three in the first moto but due to a crash in the closing stages of the race he finished the moto in sixth position. In the second moto he was riding in fifth position but with still several laps to go he crashed and lost two positions to finish the race in seventh position.', 3, '2014-03-31 00:00:00', NULL, 5),
-(6, 1, 'Romain Febvre in the top five in GP of Italy', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing finished inside of the top five at round four of the World MX2 Series in Arco di Trento, Italy. The young Frenchman finished seventh in the first moto and came home in fifth position in the second moto which gave him fifth place overall. Aleksandr Tonkov had to start from the outside in the first moto due to some bad luck in the qualifying heat. He had a good jump out of the gate but disaster struck the young Russian when he made a crash in the beginning of the race. Due to this he dropped back to the back of the pack. Aleksandr tried to make the best of it and charged all the way back to fourteenth position. In the second moto things were going better for him as he finished in seventh position, which gave him tenth position overall.', 3, '2014-04-14 00:00:00', NULL, 4),
-(7, 1, 'Romain Febvre close of scoring a top three moto finish in Bulgaria', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing came close of scoring a top three moto finish at round five of the World MX2 Series in Sevlievo, Bulgaria. Febvre finished in fifth position in the first moto and things were looking that he was going for a top three moto finish in the second moto. He was riding in third position but with several laps to go he made a small crash and lost two positions to finally finish the race in fifth position. Aleksandr had several duels around tenth position in the first moto. He changed places for several times and finally finished the moto in tenth position. In the second moto he crashed in the start but charged back through the field and finished the race in ninth position.', 3, '2014-04-20 00:00:00', NULL, 3),
-(8, 1, 'Febvre and Tonkov new leaders in the Dutch MX2 Series', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have taken over the first two spots in the Dutch MX2 Series. In round three of the series in Axel, Romain finished second overall and took over the championship lead from the injured Glenn Coldenhoff. Aleksandr Tonkov missed the overall podium by only two points but with fourth position overall he moved up to second position in the standings.', 3, '2014-04-27 00:00:00', NULL, 2),
-(9, 1, 'Romain Febvre second in the Dutch Grand Prix', 'Wilvo Nestaan Husqvarna Factory Racing has had a successful Grand Prix in Valkenswaard. Romain Febvre and Aleksandr Tonkov were doing a great job and scored well on the sand circuit of Valkenswaard. Romain Febvre finished in third position in both motos which gave him second position overall. Aleksandr ended the day in seventh position with a 5-8 in the motos and scored consistent in the Dutch Grand Prix.', 3, '2014-05-04 00:00:00', NULL, 1);
+INSERT INTO `articles` (`id`, `user_id`, `Title`, `Message`, `priority`, `CreateDate`, `photo_id`) VALUES
+(1, 1, 'Wilvo Nestaan Husqvarna Factory Racing on the podium in Qatar', 'Wilvo Nestaan Husqvarna Factory Racing has started the World MX2 Series in Losail, Qatar with a podium position. Romain Febvre finished third overall just the same as he did last year and his team mate Aleksandr Tonkov ended the day with fifth position overall.', 3, '2014-03-02 00:00:00', 9),
+(2, 1, 'Romain Febvre scores top three moto finish in Thailand', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing managed to score a top three moto finish in the second round of the World MX2 Series in Si Racha, Thailand. The young Frenchman scored this result in the second moto. In the first moto he made a mistake in the beginning of the race but came back from twelfth to ninth position, which gave him fifth position overall. Aleksandr Tonkov was riding well in the extreme heat of Thailand. He finished in seventh and eight position in the motos and ended the day with ninth position overall.', 3, '2014-03-09 00:00:00', 8),
+(3, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Emmen', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have scored podium positions at the opening round of the Dutch Open MX2 Series in Emmercompascuum. After a fourth position in the first moto, Romain Febvre was fighting for the win in the second moto and finished the race in second position. With these results he finished in second position overall as well. Aleksandr Tonkov didn’t felt comfortable on the track but gave everything he had and finished in third position in both motos.', 3, '2014-03-17 00:00:00', 7),
+(4, 1, 'Febvre and Tonkov on the podium in the Dutch Open in Mill', 'Wilvo Nestaan Husqvarna Factory Racing has scored two podium positions in the second round of the Dutch Open Championship Series in Mill. Aleksandr Tonkov and Romain Febvre had a nice battle for second position in both motos. In the first and the second moto it was Romain who crossed the finish line in second position in front of his team mate Aleksandr.', 3, '2014-03-23 00:00:00', NULL),
+(5, 1, 'Romain Febvre scores top three moto finish in Brazil', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing has scored a top three moto finish in the third round of the World MX2 Series in Beto Carrero, Brazil. Unfortunately he made a crash in the opening lap of the second moto and had to come from behind. Romain gave everything he had and worked his way back up to eleventh position for seventh overall. Aleksandr Tonkov was fighting inside of the top three in the first moto but due to a crash in the closing stages of the race he finished the moto in sixth position. In the second moto he was riding in fifth position but with still several laps to go he crashed and lost two positions to finish the race in seventh position.', 3, '2014-03-31 00:00:00', 5),
+(6, 1, 'Romain Febvre in the top five in GP of Italy', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing finished inside of the top five at round four of the World MX2 Series in Arco di Trento, Italy. The young Frenchman finished seventh in the first moto and came home in fifth position in the second moto which gave him fifth place overall. Aleksandr Tonkov had to start from the outside in the first moto due to some bad luck in the qualifying heat. He had a good jump out of the gate but disaster struck the young Russian when he made a crash in the beginning of the race. Due to this he dropped back to the back of the pack. Aleksandr tried to make the best of it and charged all the way back to fourteenth position. In the second moto things were going better for him as he finished in seventh position, which gave him tenth position overall.', 3, '2014-04-14 00:00:00', 4),
+(7, 1, 'Romain Febvre close of scoring a top three moto finish in Bulgaria', 'Romain Febvre of Wilvo Nestaan Husqvarna Factory Racing came close of scoring a top three moto finish at round five of the World MX2 Series in Sevlievo, Bulgaria. Febvre finished in fifth position in the first moto and things were looking that he was going for a top three moto finish in the second moto. He was riding in third position but with several laps to go he made a small crash and lost two positions to finally finish the race in fifth position. Aleksandr had several duels around tenth position in the first moto. He changed places for several times and finally finished the moto in tenth position. In the second moto he crashed in the start but charged back through the field and finished the race in ninth position.', 3, '2014-04-20 00:00:00', 3),
+(8, 1, 'Febvre and Tonkov new leaders in the Dutch MX2 Series', 'Romain Febvre and Aleksandr Tonkov of Wilvo Nestaan Husqvarna Factory Racing have taken over the first two spots in the Dutch MX2 Series. In round three of the series in Axel, Romain finished second overall and took over the championship lead from the injured Glenn Coldenhoff. Aleksandr Tonkov missed the overall podium by only two points but with fourth position overall he moved up to second position in the standings.', 3, '2014-04-27 00:00:00', 2),
+(9, 1, 'Romain Febvre second in the Dutch Grand Prix', 'Wilvo Nestaan Husqvarna Factory Racing has had a successful Grand Prix in Valkenswaard. Romain Febvre and Aleksandr Tonkov were doing a great job and scored well on the sand circuit of Valkenswaard. Romain Febvre finished in third position in both motos which gave him second position overall. Aleksandr ended the day in seventh position with a 5-8 in the motos and scored consistent in the Dutch Grand Prix.', 3, '2014-05-04 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -93,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `Country` varchar(100) NOT NULL,
   `City` varchar(100) NOT NULL,
   `Description` text NOT NULL,
+  `ticketURL` varchar(200) DEFAULT NULL,
   `Latitude` varchar(45) DEFAULT NULL,
   `Longitude` varchar(45) DEFAULT NULL,
   `Date` datetime NOT NULL,
@@ -111,25 +111,50 @@ CREATE TABLE IF NOT EXISTS `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `Country`, `City`, `Description`, `Latitude`, `Longitude`, `Date`, `photo_id`, `main_sponsor`, `sponsor1`, `sponsor2`) VALUES
-(1, 'Qatar', 'Losail', 'beschrijving', NULL, NULL, '2014-03-01 00:00:00', 28, NULL, NULL, NULL),
-(2, 'Thailand', 'Si Racha', 'beschrijving', NULL, NULL, '2014-03-09 00:00:00', 27, NULL, NULL, NULL),
-(3, 'Brazil', 'Beto Carrero', 'beschrijving', NULL, NULL, '2014-03-30 00:00:00', 26, NULL, NULL, NULL),
-(4, 'Trentino', 'Arco di Trento', 'beschrijving', NULL, NULL, '2014-04-13 00:00:00', 25, NULL, NULL, NULL),
-(5, 'Bulgaria', 'Sevlievo', 'beschrijving', NULL, NULL, '2014-04-20 00:00:00', 24, NULL, NULL, NULL),
-(6, 'Netherlands', 'Valkenswaard', 'beschrijving', NULL, NULL, '2014-05-04 00:00:00', 23, NULL, NULL, NULL),
-(7, 'Spain', 'Talavera de la Reina', 'beschrijving', NULL, NULL, '2014-05-11 00:00:00', 22, NULL, NULL, NULL),
-(8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', '55.378051', '-3.435973', '2014-05-25 00:00:00', 21, NULL, NULL, NULL),
-(9, 'France', 'Saint Jean d''Angely', 'beschrijving', '45.944823', '-0.517763', '2014-06-01 00:00:00', 20, NULL, NULL, NULL),
-(10, 'Italy', 'Maggiora', 'beschrijving', '45.686217', '8.419272', '2014-06-15 00:00:00', 19, NULL, NULL, NULL),
-(11, 'Germany', 'Teutschenthal', 'beschrijving', '51.447752', '11.798088', '2014-06-22 00:00:00', 18, 1, 1, 1),
-(12, 'Sweden', 'Uddevalla', 'beschrijving', '58.349800', '11.935649', '2014-07-06 00:00:00', 17, NULL, NULL, NULL),
-(13, 'Finland', 'Hyvinkää', 'beschrijving', '60.631811', '24.857883', '2014-07-13 00:00:00', 16, NULL, NULL, NULL),
-(14, 'Czech Republic', 'Loket', 'beschrijving', '50.186012', '12.754063', '2014-07-27 00:00:00', 15, NULL, NULL, NULL),
-(15, 'Belgium', 'TBA', 'beschrijving', '50.850000', '4.350000', '2014-08-03 00:00:00', NULL, NULL, NULL, NULL),
-(16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', '48.296212', '37.270004', '2014-08-17 00:00:00', NULL, NULL, NULL, NULL),
-(17, 'State of Goias', 'Goiania', 'beschrijving', '-16.686891', '-49.264794', '2014-09-07 00:00:00', 10, NULL, NULL, NULL),
-(18, 'Mexico', 'Leon', 'beschrijving', '21.129201', '-101.672675', '2014-09-14 00:00:00', 13, NULL, NULL, NULL);
+INSERT INTO `events` (`id`, `Country`, `City`, `Description`, `ticketURL`, `Latitude`, `Longitude`, `Date`, `photo_id`, `main_sponsor`, `sponsor1`, `sponsor2`) VALUES
+(1, 'Qatar', 'Losail', 'beschrijving', NULL, NULL, NULL, '2014-03-01 00:00:00', 28, NULL, NULL, NULL),
+(2, 'Thailand', 'Si Racha', 'beschrijving', NULL, NULL, NULL, '2014-03-09 00:00:00', 27, NULL, NULL, NULL),
+(3, 'Brazil', 'Beto Carrero', 'beschrijving', NULL, NULL, NULL, '2014-03-30 00:00:00', 26, NULL, NULL, NULL),
+(4, 'Trentino', 'Arco di Trento', 'beschrijving', NULL, NULL, NULL, '2014-04-13 00:00:00', 25, NULL, NULL, NULL),
+(5, 'Bulgaria', 'Sevlievo', 'beschrijving', NULL, NULL, NULL, '2014-04-20 00:00:00', 24, NULL, NULL, NULL),
+(6, 'Netherlands', 'Valkenswaard', 'beschrijving', NULL, NULL, NULL, '2014-05-04 00:00:00', 23, NULL, NULL, NULL),
+(7, 'Spain', 'Talavera de la Reina', 'beschrijving', NULL, NULL, NULL, '2014-05-11 00:00:00', 22, NULL, NULL, NULL),
+(8, 'Great Britain', 'Matterly Basin, Winchester', 'beschrijving', NULL, '55.378051', '-3.435973', '2014-05-25 00:00:00', 21, NULL, NULL, NULL),
+(9, 'France', 'Saint Jean d''Angely', 'beschrijving', NULL, '45.944823', '-0.517763', '2014-06-01 00:00:00', 20, NULL, NULL, NULL),
+(10, 'Italy', 'Maggiora', 'beschrijving', NULL, '45.686217', '8.419272', '2014-06-15 00:00:00', 19, NULL, NULL, NULL),
+(11, 'Germany', 'Teutschenthal', 'beschrijving', NULL, '51.447752', '11.798088', '2014-06-22 00:00:00', 18, 3, 11, 13),
+(12, 'Sweden', 'Uddevalla', 'beschrijving', NULL, '58.349800', '11.935649', '2014-07-06 00:00:00', 17, NULL, NULL, NULL),
+(13, 'Finland', 'Hyvinkää', 'beschrijving', NULL, '60.631811', '24.857883', '2014-07-13 00:00:00', 16, NULL, NULL, NULL),
+(14, 'Czech Republic', 'Loket', 'beschrijving', NULL, '50.186012', '12.754063', '2014-07-27 00:00:00', 15, NULL, NULL, NULL),
+(15, 'Belgium', 'TBA', 'beschrijving', NULL, '50.850000', '4.350000', '2014-08-03 00:00:00', NULL, NULL, NULL, NULL),
+(16, 'Ukraine', 'Dimotrov, Donetssk', 'beschrijving', NULL, '48.296212', '37.270004', '2014-08-17 00:00:00', NULL, NULL, NULL, NULL),
+(17, 'State of Goias', 'Goiania', 'beschrijving', NULL, '-16.686891', '-49.264794', '2014-09-07 00:00:00', 10, NULL, NULL, NULL),
+(18, 'Mexico', 'Leon', 'beschrijving', NULL, '21.129201', '-101.672675', '2014-09-14 00:00:00', 13, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `country` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `street` varchar(100) NOT NULL,
+  `house_number` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `name`, `first_name`, `company`, `country`, `city`, `street`, `house_number`) VALUES
+(2, 'van Koesveld', 'Bas', 'autoservice 2000', 'netherlands', 'Ermelo', 'Zwaluwstraat', '135');
 
 -- --------------------------------------------------------
 
@@ -217,11 +242,11 @@ CREATE TABLE IF NOT EXISTS `products` (
   `Price` double NOT NULL,
   `DiscountPrice` double DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
-  `Size` varchar(4) NOT NULL,
+  `Size` varchar(100) NOT NULL,
   `photo_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_products_photos1_idx` (`photo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `products`
@@ -229,8 +254,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`id`, `Name`, `Price`, `DiscountPrice`, `description`, `Size`, `photo_id`) VALUES
 (1, 'New Era - Red Bull Cap', 29.95, 14.95, 'Een hele mooie goed', 'none', 29),
-(2, 'Race Shirt - Red Bull', 29.95, 14.95, 'WOW MUCH SHIRT', 'none', 30),
-(3, 'New Era - Red Bull Cap', 29.95, 14.95, 'Red bull geeft je vleugels', 'none', 31);
+(2, 'Race Shirt - Red Bull', 29.95, 14.95, 'Nvm, not really ALL that shirt...Nvm, not really ALL that shirt...Nvm, not really ALL that shirt...Nvm, not really ALL that shirt...Nvm, not really ALL that shirt...Nvm, not really ALL that shirt...Nv', '', 30),
+(3, 'New Era - Red Bull Cap', 29.95, 14.95, 'Red bull geeft je vleugels', 'none', 31),
+(4, 'Cool Thingy', 10, 5, 'This thing is pretty cool :)', 'xs, s, m', 4);
 
 -- --------------------------------------------------------
 
@@ -409,8 +435,8 @@ ALTER TABLE `albums`
 -- Constraints for table `articles`
 --
 ALTER TABLE `articles`
-  ADD CONSTRAINT `fk_Article_Editor1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_Articles_photos1` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `fk_Articles_photos1` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `fk_Article_Editor1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `events`

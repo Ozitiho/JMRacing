@@ -7,8 +7,7 @@ $this->end();
 
 	$sponsorList = array();
 	foreach($sponsors as $sponsor){
-		$key = $sponsor['Sponsor']['id'];
-		$sponsorList[$key] = $sponsor['Sponsor']['Name'];
+		$sponsorList[$sponsor['Sponsor']['id']] = $sponsor['Sponsor']['Name'];
 	}
 ?>
 <div class="box users form cms">
@@ -22,6 +21,7 @@ $this->end();
         echo $this->Form->input('Country');
         echo $this->Form->input('City');
         echo $this->Form->input('Description', array('rows' => '5'));
+        echo $this->Form->input('ticketURL');
         echo $this->Form->input('photo_id', array('label' => 'Photo ID (<a href="/albums/cms" target="_blank">browse through albums</a>)', 'type' => 'number'));
         echo $this->Form->input('Date');
         echo $this->Form->input('main_sponsor', array('options' => array(

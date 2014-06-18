@@ -18,6 +18,10 @@ class Event extends AppModel {
         'City' => array(
             'rule' => array('lettersOnly', 'notEmpty'),
             'message' => 'Only letters are allowed.'
+        ),
+        'ticketURL' => array(
+            'rule' => array('url', 'notEmpty'),
+            'message' => 'This is no valid URL.'
         )
     );
 
