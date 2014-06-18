@@ -15,7 +15,7 @@
                     <?php
                     foreach($sponsors as $sponsor)
                     {
-						if($sponsor["Sponsor"]["Image"] !== "NULL"){
+						if($sponsor["Sponsor"]["Image"] !== NULL){
                         ?>
 						<li>
 							<a href="<?php print($sponsor["Sponsor"]["URL"]);?>" style="background:url(/images/<?php print($sponsor["Sponsor"]["Image"]);?>) no-repeat" target="_blank">&nbsp;</a>
