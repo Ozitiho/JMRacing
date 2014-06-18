@@ -25,7 +25,21 @@ class ProductsController extends AppController {
         
         if ($this->request->is('post')) {
             $this->Product->create();
-            if ($this->Product->save($this->request->data)) {
+			
+			$editProduct = $this->request->data;
+			$sizes = $editProduct['Product']['Size'];
+			$sizesString = "";
+			$count = 0;
+			foreach($sizes as $size){
+				if($count == 0)
+					$sizesString .= $size;
+				else
+					$sizesString .= ", " . $size;
+				$count++;
+			}
+			$editProduct['Product']['Size'] = $sizesString;
+
+            if ($this->Product->save($editProduct)) {
                 $this->Session->setFlash(__('Your product has been saved.'));
                 return $this->redirect(array('action' => 'cms'));
             }
@@ -47,7 +61,21 @@ class ProductsController extends AppController {
 
         if ($this->request->is(array('post', 'put'))) {
             $this->Product->id = $id;
-            if ($this->Product->save($this->request->data)) {
+			
+			$editProduct = $this->request->data;
+			$sizes = $editProduct['Product']['Size'];
+			$sizesString = "";
+			$count = 0;
+			foreach($sizes as $size){
+				if($count == 0)
+					$sizesString .= $size;
+				else
+					$sizesString .= ", " . $size;
+				$count++;
+			}
+			$editProduct['Product']['Size'] = $sizesString;
+			
+            if ($this->Product->save($editProduct)) {
                 $this->Session->setFlash(__('Your product has been updated.'));
                 return $this->redirect(array('action' => 'cms'));
             }
