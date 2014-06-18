@@ -1638,6 +1638,7 @@ ul.albumViewImages .deleteBox
     margin-left: -200px;
     background-size: contain;
     background-position: center top;
+	z-index: 888;
 }
 
 .articleImageLink, .productPopupDescription
