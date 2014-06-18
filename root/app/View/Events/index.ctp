@@ -30,7 +30,6 @@ $this->end();
                     }
                     ?>
                     <a href="/events/view/<?php print($upcomingEvents[0]["Event"]["id"]); ?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
-                    <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
                 </div>
                 <div class="right">
                     <h1 class="heading2">UPCOMING RACE </h1>
@@ -178,7 +177,7 @@ $this->end();
         <?php
     }
     ?>
-	<?php print($this->element('merchandise')); ?>
+	<?php print($this->element('merchandise_sponsors')); ?>
     <div class="box_equal">
         <div class="load_more">
             <a id="load-images">MAIN SPONSORS</a>
