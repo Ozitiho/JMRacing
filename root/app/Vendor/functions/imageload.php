@@ -9,7 +9,7 @@
 		// If an image is found
 		if (isset($imageDetails)) {
 			$albumID = $imageDetails["Photo"]["album_id"];
-			$imageName = $imageDetails["Photo"]["name"];
+			$imageName = rawurlencode($imageDetails["Photo"]["name"]);
 			$fullImageLocation = "/images/albums/$albumID/$imageName";
 			$thumbImageLocation = "/images/albums/$albumID/thumbs/$imageName";
 			$image['name'] = $imageName;

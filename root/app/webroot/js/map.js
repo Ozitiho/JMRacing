@@ -2,7 +2,7 @@
 function showEventPopup(country, city, date)
 {
 	$("#merchandisePopup").css('display', 'block');
-	var popupContent = '<div class="productPopupDescription"><p>' + country + ' - ' + city + '</p>';
+	var popupContent = '<div class="productPopupDescription"><p>' + country + ' - ' + city + '<br>' + date + '</p></div>';
 	
 	$("#merchandisePopup").html(popupContent);
 }

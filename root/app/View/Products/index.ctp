@@ -1,11 +1,24 @@
 <script>
     // This function shows a product popup
-    function showProductPopup(image, productDescription)
+    function showProductPopup(image, productDescription, size)
     {
         $("#merchandisePopup").css('background-image', 'url(' + image + ')');
         $("#merchandisePopup").css('display', 'block');
         var popupContent = '<div class="productPopupDescription"><p>' + productDescription + '</p>';
-        popupContent += 'Size: <select class="sizeSelector"><option>S</option><option>M</option><option>L</option><option>XL</option></select>';
+		var sizes = size.split(', ')
+		console.log(sizes)
+        popupContent += 'Size: <select class="sizeSelector">';
+		if($.inArray('xs', sizes) > -1)
+			popupContent += '<option>XS</option>'
+		if($.inArray('s', sizes) > -1)
+			popupContent += '<option>S</option>'
+		if($.inArray('m', sizes) > -1)
+			popupContent += '<option>M</option>'
+		if($.inArray('l', sizes) > -1)
+			popupContent += '<option>L</option>'
+		if($.inArray('xl', sizes) > -1)
+			popupContent += '<option>XL</option>'
+		popupContent += '</select>';
         popupContent += '<input type="button" value="Add to cart" class="button addToCartButton"></div>';
 
         $("#merchandisePopup").html(popupContent);
@@ -47,6 +60,7 @@ require_once(APP . 'Vendor' . DS . "functions/imageload.php");
         if ($products) {
             foreach ($products as $product) {
                 $productDescription = $product['Product']['description'];
+				$sizes = $product['Product']['Size'];
                 $count++;
 				
 				 //Get the image
@@ -72,7 +86,7 @@ require_once(APP . 'Vendor' . DS . "functions/imageload.php");
                                 <li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . "/products Check out this " . $product['Product']['Name'] . " for sale on the JMRacing website!"; ?>" target="_blank">&nbsp;</a></li>
                                 <li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl . "/products"; ?>" target="_blank">&nbsp;</a></li>
                             </ul>
-                            <a style="cursor: pointer;" onclick="showProductPopup('<?php echo $image['full']; ?>', '<?php echo $productDescription; ?>')" class="button">BUY THIS ITEM</a>
+                            <a style="cursor: pointer;" onclick="showProductPopup('<?php echo $image['full']; ?>', '<?php echo $productDescription; ?>', '<?php echo $sizes; ?>')" class="button">BUY THIS ITEM</a>
                         </div>
                     </div>
 				</div>

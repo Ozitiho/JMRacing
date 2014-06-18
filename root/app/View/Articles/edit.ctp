@@ -46,7 +46,7 @@ $this->end();
 		
 		<?php
         echo $this->Form->input('Tags', array('value' => $this->requestAction('articles/getTagsForArticle/' . $article['Article']['id'])));
-        print("(Seperate tags by using a comma and a space after the last tag)");
+        print("(Seperate tags by using a comma and a space between tags)");
         echo $this->Form->input('id', array('type' => 'hidden'));
         echo $this->Form->end('Edit Article');
         ?>

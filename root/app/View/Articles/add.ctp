@@ -46,7 +46,7 @@ $this->end();
 		
 		<?php
 		echo $this->Form->input('Tags');
-        print("(Seperate tags by using a comma and a space after the last tag)");
+        print("(Seperate tags by using a comma and a space between tags)");
         echo $this->Form->input('user_id', array('type' => 'hidden', 'default' => AuthComponent::user('id')));
         echo $this->Form->end('Add Article');
         ?>
