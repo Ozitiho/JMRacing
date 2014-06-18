@@ -24,6 +24,11 @@ class Product extends AppModel {
                 'rule' => array('inList', array('none', 's', 'm', 'l', 'xl')),
                 'allowEmpty' => false
             )
+        ),
+        'photo_id' => array(
+            'photoCheck' => array(
+                'rule' => 'checkIfPhotoExists'
+            )
         )
     );
 
