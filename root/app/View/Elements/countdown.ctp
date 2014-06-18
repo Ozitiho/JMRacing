@@ -105,15 +105,14 @@ if ($events) {
                             echo "<ul>";
                             //So, if the main sponsor of the event is Nestaan, then put Husqvarna in the spot of Nestaan.
                             if ($sponsors[0]['Sponsor']['Name'] == "Nestaan") {
-                                //TODO: Edit with husqvarna picture
-                                echo "<li><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
+                                echo "<li><a href='http://www.husqvarna.com'><img src='/images/event_logo1.png' alt=''></a></li>";
                             } else {
                                 echo "<li><a href='http://www.nestaan.nl'><img src='/images/event_logo2.png' alt=''></a></li>";
                             }
 
                             //Now, do the same for Wilvo
                             if ($sponsors[0]['Sponsor']['Name'] == "Wilvo") {
-                                echo "<li class=\"fright\"><a href='http://www.husqvarna.com'><img src='/images/event_logo2.png' alt=''></a></li>";
+                                echo "<li class=\"fright\"><a href='http://www.husqvarna.com'><img src='/images/event_logo1.png' alt=''></a></li>";
                             } else {
                                 echo "<li class=\"fright\"><a href='http://www.wilvo.nl'><img src='/images/event_logo3.png' alt=''></a></li>";
                             }
