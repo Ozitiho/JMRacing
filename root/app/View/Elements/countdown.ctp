@@ -40,7 +40,6 @@ if ($events) {
                     </div>
                     <div class="right">
                         <h1><span><?php print(date("d F Y", strtotime($events[0]["Event"]["Date"]))); ?></span><br><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
-                        <h3>45°56’48’’N 0°31’46’’W</h3>
                         <p><?php print($events[0]["Event"]["Description"]); ?></p>
                         <a href="#" class="gray">GET TICKETS</a>
                         <a href="/events" class="yellow">SEE RESULTS MX2 2014</a>
