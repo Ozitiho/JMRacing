@@ -34,7 +34,7 @@
         ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
+        <script src="/js/jquery-1.7.1.js" type="text/javascript"></script>
         <script src="/js/jquery00.js" type="text/javascript"></script>
         <script src="/js/jquery.slicknav.js" type="text/javascript"></script>
         <script src="/js/html5_IE.js" type="text/javascript"></script>

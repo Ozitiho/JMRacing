@@ -9,7 +9,8 @@
 	</div>
 	<?php 
 	//There is currently no means for sharing products, so do so later
-		$currentUrl = "TODO";
+		$url = "http://$_SERVER[HTTP_HOST]";
+		$currentUrl = $url . "/products/";
 		for ($i = 0; $i < 2; $i++):
 		
             $fullImageLocation = "/images/no-photo.jpg"; // In case no image can be found
@@ -47,8 +48,8 @@
 				<div class="share">
 					<ul>
 						<li>SHARE &nbsp;&nbsp;</li>
-						<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl . $products[$i]['Product']['Name']; ?>"  target="_blank">&nbsp;</a></li>
-						<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl . " " . $products[$i]['Product']['Name']; ?>" target="_blank">&nbsp;</a></li>
+						<li class="fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $currentUrl ?>"  target="_blank">&nbsp;</a></li>
+						<li class="twitter"><a href=" https://twitter.com/home?status=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 						<li class="google"><a href="https://plus.google.com/share?url=<?php echo $currentUrl ?>" target="_blank">&nbsp;</a></li>
 					</ul>
 					<a href="/products" class="button">BUY THIS ITEM</a>
