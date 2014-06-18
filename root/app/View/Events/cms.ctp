@@ -15,33 +15,34 @@ $this->end();
             <th>Country</th>
             <th>City</th>
             <th>Date</th>
-			<th>Sponsors</th>
+            <th>Sponsors</th>
         </tr>
 
-        <?php foreach ($events as $event): 
-			$sponsors = $this->requestAction('events/getSponsorsOfEvent/'.$event["Event"]["id"]);
-		?>
+        <?php
+        foreach ($events as $event):
+            $sponsors = $this->requestAction('events/getSponsorsOfEvent/' . $event["Event"]["id"]);
+            ?>
             <tr>
                 <td>
-                    <?php echo $this->Html->link($event['Event']['Country'], array('controller' => 'events', 'action' => 'view', $event['Event']['id']));
+                    <?php echo $event['Event']['Country'];
                     ?>
                 </td>
                 <td><?php echo $event['Event']['City']; ?></td>
                 <td><?php echo $event['Event']['Date']; ?></td>
-				<td>
-				<?php 
-					$first = true;
-					foreach ($sponsors as $sponsor) {
-						if(isset($sponsor['Sponsor'])){
-							if(!$first){
-								echo ", ";
-							}
-							$first = false;
-							echo $sponsor['Sponsor']['Name'];
-						}
-					}
-				?>
-				</td>
+                <td>
+                    <?php
+                    $first = true;
+                    foreach ($sponsors as $sponsor) {
+                        if (isset($sponsor['Sponsor'])) {
+                            if (!$first) {
+                                echo ", ";
+                            }
+                            $first = false;
+                            echo $sponsor['Sponsor']['Name'];
+                        }
+                    }
+                    ?>
+                </td>
                 <td>
                     <?php
                     echo $this->Html->link(
@@ -51,8 +52,7 @@ $this->end();
                     |
                     <?php
                     echo $this->Form->postLink(
-                            'Delete', array('action' => 'delete', $event['Event']['id']), 
-                            array('confirm' => 'Are you sure?')
+                            'Delete', array('action' => 'delete', $event['Event']['id']), array('confirm' => 'Are you sure?')
                     );
                     ?>
                 </td>
