@@ -35,15 +35,12 @@ if ($events) {
                         }
                         ?>
 						<div class="center-cropped" style="background-image: url('<?php echo $thumbImageLocation; ?>'); width: 280px; height: 186; border:1px solid #828D9F;">
-                        <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>"><img src="<?php print($thumbImageLocation); ?>" alt=""></a>
 						</div>
-                        <a href="#"><img src="/images/event_img2.jpg" alt=""></a>
+                        <img src="/images/event_img2.jpg" alt="">
                     </div>
                     <div class="right">
                         <h1><span><?php print(date("d F Y", strtotime($events[0]["Event"]["Date"]))); ?></span><br><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
-                        <h3>45°56’48’’N 0°31’46’’W</h3>
                         <p><?php print($events[0]["Event"]["Description"]); ?></p>
-                        <a href="events/view/<?php print($events[0]["Event"]["id"]); ?>" class="red">MORE INFO</a>
                         <a href="#" class="gray">GET TICKETS</a>
                         <a href="/events" class="yellow">SEE RESULTS MX2 2014</a>
                     </div>

@@ -37,7 +37,6 @@ $this->end();
                     <h1><span><?php print(date("d F Y", strtotime($upcomingEvents[0]["Event"]["Date"]))); ?></span><br><?php print($upcomingEvents[0]["Event"]["City"]); ?> - <?php print($upcomingEvents[0]["Event"]["Country"]); ?></h1>
                     <p><?php print($upcomingEvents[0]["Event"]["Description"]); ?></p>
                     <a href="#" class="gray">GET TICKETS</a>
-                    <a href="#" class="yellow">SEE RESULTS MX2 2014</a>
                 </div>
             </div>
         </div>
