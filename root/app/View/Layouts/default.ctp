@@ -34,11 +34,11 @@
         ?>
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
+        <script src="/js/jquery-1.7.1.js" type="text/javascript"></script>
         <script src="/js/jquery00.js" type="text/javascript"></script>
         <script src="/js/jquery.slicknav.js" type="text/javascript"></script>
         <script src="/js/html5_IE.js" type="text/javascript"></script>
-		<script src="/js/map.js" type="text/javascript"></script>
+        <script src="/js/map.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -106,10 +106,7 @@
                         ?>
                         <img src="/images/inner_banner2.jpg" alt="">
                         <?php
-                    }
-                    
-                    else
-                    {
+                    } else {
                         print($bannerImage);
                     }
                     ?>
@@ -159,11 +156,11 @@
                         <div class="photos_main">
                             <h1><a id="photos">LATEST PHOTOS <br><span>&nbsp;</span></a></h1>
                             <div class="hide" 
-							<?php
-								if($title_for_layout == "Home")
-									echo "style=\"display:block\"";
-							?>
-							>
+                            <?php
+                            if ($title_for_layout == "Home")
+                                echo "style=\"display:block\"";
+                            ?>
+                                 >
                                 <ul>
                                     <?php
                                     for ($i = 0; $i < 16; $i++):
@@ -189,24 +186,24 @@
                     </section>
                 </section>
                 <section class="map_main
-							<?php
-								if($title_for_layout == "Home")
-									echo " map_main1";
-							?>" id="map">
+                <?php
+                if ($title_for_layout == "Home")
+                    echo " map_main1";
+                ?>" id="map">
                     <section class="container">
                         <div class="center">
                             <a id="explore_map">EXPLORE THE MAP<br><span>&nbsp;</span></a>
                             <div class="hide"
-							<?php
-								if($title_for_layout == "Home")
-									echo "style=\"display:block\"";
-							?>
-							>
+                            <?php
+                            if ($title_for_layout == "Home")
+                                echo "style=\"display:block\"";
+                            ?>
+                                 >
                                 <img src="/images/direction_icon.png" alt="">
 
                                 <h2><strong>EXPLORE.</strong> <strong><span>NEXT RACE</span></strong></h2>
                                 <?php
-                                // Fetch the next_race element
+// Fetch the next_race element
                                 echo $this->fetch('next_race');
                                 ?>
                                 <a class="button red" id="explore">EXPLORE THE MAP</a>
@@ -219,7 +216,7 @@
                             <a id="close"><img src="/images/G_cross.png" alt=""></a>
                             <img src="/images/full_map.png" alt="" id="A_map_img">
                             <?php
-                            // Fetch the map element
+// Fetch the map element
                             echo $this->fetch('map');
                             ?>
                         </div>
@@ -247,15 +244,30 @@
                                 <li class="sep">|</li>
                                 <li><a href="/products">MERCHANDISE</a></li>
                                 <li class="sep">|</li>
+                                <?php
+                                if (AuthComponent::user('id')) {
+                                    $url = null;
+                                    if (AuthComponent::user('role') == "admin") {
+                                        $url = "/pages/admin";
+                                    } elseif (AuthComponent::user('role') == "author") {
+                                        $url = "/articles/cms";
+                                    } elseif (AuthComponent::user('role') == "photographer") {
+                                        $url = "/albums/cms";
+                                    }
+                                    ?>
+                                    <li><a href="<?php print($url);?>">CMS</a></li>
+                                    <li class="sep">|</li>
+                                    <?php
+                                }
+                                ?>
                                 <li>
-								<?php 
-									if (!$this->Session->read('Auth.User')){
-										echo "<a href=\"/users/login\">LOGIN</a></li>";
-									}
-									else{
-										echo "<a href=\"/users/logout\">LOGOUT</a></li>";
-									}
-								?>
+                                    <?php
+                                    if (!$this->Session->read('Auth.User')) {
+                                        echo "<a href=\"/users/login\">LOGIN</a></li>";
+                                    } else {
+                                        echo "<a href=\"/users/logout\">LOGOUT</a></li>";
+                                    }
+                                    ?>
                                 <li class="sep">|</li>
                             </ul>
                         </div>

@@ -47,7 +47,7 @@ $events = $this->requestAction("events/getEventsByYear/$date");
 	
 	<!-- id = 9 -->
 	<div class='flag' style='left:49%;top:32.5%;'>
-		<a onclick="showEventPopup('<?php print($events[8]['Event']['Country']); ?>', '<?php print($events[8]['Event']['City']); ?>', '<?php print($events[8]['Event']['Date']);?>")'><img src='/images/flag.png' alt=''></a>
+		<a onclick="showEventPopup('<?php print($events[8]['Event']['Country']); ?>', '<?php print($events[8]['Event']['City']); ?>', '<?php print($events[8]['Event']['Date']);?>')"><img src='/images/flag.png' alt=''></a>
 	</div>
 	
 	<!-- id = 10 -->

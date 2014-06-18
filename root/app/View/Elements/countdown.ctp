@@ -36,7 +36,6 @@ if ($events) {
                         ?>
 						<div class="center-cropped event" style="background-image: url('<?php echo $thumbImageLocation; ?>'); max-width: 100%; border:1px solid #828D9F;">
 						</div>
-                        <img src="/images/event_img2.jpg" alt="">
                     </div>
                     <div class="right">
                         <h1><span><?php print(date("d F Y", strtotime($events[0]["Event"]["Date"]))); ?></span><br><?php print($events[0]["Event"]["City"]); ?> - <?php print($events[0]["Event"]["Country"]); ?></h1>
