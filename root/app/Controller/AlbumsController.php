@@ -213,7 +213,7 @@ class AlbumsController extends AppController {
         return $albumImages;
     }
 
-    public function getDetailsFromPhotoID($id) {
+    public function getDetailsFromPhotoID($id = null) {
         $image = $this->Album->Photo->find('first', array(
             'conditions' => array('Photo.id' => $id)));
 

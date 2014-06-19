@@ -1,17 +1,18 @@
 // This function shows a event popup
-function showEventPopup(country, city, date)
+function showEventPopup(eventImage, country, city, date)
 {
-	$("#merchandisePopup").css('display', 'block');
-	var popupContent = '<div class="productPopupDescription"><p>' + country + ' - ' + city + '<br>' + date + '</p></div>';
-	
-	$("#merchandisePopup").html(popupContent);
+    $("#merchandisePopup").css('background-image', 'url(' + eventImage + ')');
+    $("#merchandisePopup").css('display', 'block');
+    var popupContent = '<p class="mapEventName">' + country + ' - ' + city + '</p><div class="eventPopupDate"><p><b>Date:</b><br />' + date + '</p></div>';
+
+    $("#merchandisePopup").html(popupContent);
 }
 
 // When the box gets clicked, hide it
 $(function()
 {
-	$("#merchandisePopup").click(function()
-	{
-		$("#merchandisePopup").css('display', 'none');
-	});
+    $("#merchandisePopup").click(function()
+    {
+        $("#merchandisePopup").css('display', 'none');
+    });
 });
