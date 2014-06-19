@@ -519,7 +519,12 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 .map1 #close{position:absolute; top:10px; right:10px; z-index:111; cursor:pointer;}
 .map1 #close img{margin:0 !important;}
 
-.flag {position: absolute; z-index: 222; top: 0;}
+#A_map{
+    position: relative;
+}
+
+
+#A_map .flag {position: absolute; z-index: 222;}
 
 /* ======================================== Footer Styles ============================================ */
 footer{width:100%; background:#002145; padding:0 0 40px; margin:-40px 0 0; float:left; position:relative; z-index:11;}
@@ -842,8 +847,8 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .facebook_box .button{font-size:13px; line-height:17px; padding:7px 10px;}
     .map_main h2{font-size:25px; line-height:30px;}
 
-    .map_main .center .map, .map1{height:300px;}
-    .map img{margin-bottom:-30px;}
+/*    .map_main .center .map, .map1{height:300px;}
+    .map img{margin-bottom:-30px;}*/
 
     .image_left{width:100%;}
     .w3{width:31.5%;}
@@ -949,8 +954,8 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .facebook_box .button{font-size:13px; line-height:17px; padding:7px 10px;}
     .map_main h2{font-size:25px; line-height:30px;}
 
-    .map_main .center .map, .map1{height:220px;}
-    .map img{margin-bottom:-20px;}
+/*    .map_main .center .map, .map1{height:220px;}
+    .map img{margin-bottom:-20px;}*/
 
     .box{width:48%;}
     .facebook_box, .noMerch{width:44%;}
@@ -1016,11 +1021,11 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .F_bottom li{width:100%; padding:0; text-align:center;}
 
     footer p.copyright{width:100%; text-align:center; padding:20px 0 0;}
-    .map{height:auto;}
+/*    .map{height:auto;}*/
     footer{margin:-10px 0 0;}
 
-    .map_main .center .map, .map1{height:200px;}
-    .map img{margin-bottom:-20px;}
+/*    .map_main .center .map, .map1{height:200px;}
+    .map img{margin-bottom:-20px;}*/
 
     /*#viewport ul{width:100% !important; left:auto !important; margin:0 !important; text-align:center;}
     #viewport li{float:none; display:inline-block; margin:10px 0;}
@@ -1125,8 +1130,8 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 	.facebook_box .button{font-size:13px; line-height:17px; padding:7px 10px;}
 	.map_main h2{font-size:25px; line-height:30px;}
 	
-	.map_main .center .map, .map1{height:300px;}
-	.map img{margin-bottom:-30px;}
+/*	.map_main .center .map, .map1{height:300px;}
+	.map img{margin-bottom:-30px;}*/
 	
 	.image_left{width:100%;}
 	.w3{width:31.5%;}
@@ -1232,8 +1237,8 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
 	.facebook_box .button{font-size:13px; line-height:17px; padding:7px 10px;}
 	.map_main h2{font-size:25px; line-height:30px;}
 	
-	.map_main .center .map, .map1{height:220px;}
-	.map img{margin-bottom:-20px;}
+/*	.map_main .center .map, .map1{height:220px;}
+	.map img{margin-bottom:-20px;}*/
 	
 	.box{width:48%;}
 	.facebook_box, .noMerch{width:44%;}
@@ -1295,11 +1300,11 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .F_bottom li{width:100%; padding:0; text-align:center;}
 
     footer p.copyright{width:100%; text-align:center; padding:20px 0 0;}
-    .map{height:auto;}
+/*    .map{height:auto;}*/
     footer{margin:-10px 0 0;}
 
-    .map_main .center .map, .map1{height:200px;}
-    .map img{margin-bottom:-20px;}
+/*    .map_main .center .map, .map1{height:200px;}
+    .map img{margin-bottom:-20px;}*/
 
     /*#viewport ul{width:100% !important; left:auto !important; margin:0 !important; text-align:center;}
     #viewport li{float:none; display:inline-block; margin:10px 0;}
@@ -1334,8 +1339,8 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     .events #event,.events p.event_text,.results li.race_results,.full_event .heading{font-size:15px; line-height:17px;}
     .equal .left img{width:47.8%;}
 
-    .map_main .center .map, .map1{height:150px;}
-    .map img{margin-bottom:-10px;}
+/*    .map_main .center .map, .map1{height:150px;}
+    .map img{margin-bottom:-10px;}*/
 
     #viewport{width:300px; float:none; margin:0 auto;}
     #viewport li{width:300px;}
