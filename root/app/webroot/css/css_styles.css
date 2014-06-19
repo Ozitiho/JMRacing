@@ -524,7 +524,7 @@ header .social_icons a.twitter:hover{background: #15B7E0;
 }
 
 
-#A_map .flag {position: absolute; z-index: 222;}
+#A_map .flag {position: absolute; z-index: 222; cursor: pointer;}
 
 /* ======================================== Footer Styles ============================================ */
 footer{width:100%; background:#002145; padding:0 0 40px; margin:-40px 0 0; float:left; position:relative; z-index:11;}
@@ -1587,8 +1587,6 @@ span.small{font:normal 11px 'Asap'; color:#dc002f; line-height:23px;}
     display: block;
     width: 100%;
     height: 100%;
-    margin-top: -200px;
-    margin-left: -250px;
 }
 
 #album input[type=checkbox]
@@ -1669,6 +1667,7 @@ ul.albumViewImages .deleteBox
 
 .eventPopupDate{
     font-size: 16px;
+    font-weight: bold;
 }
 
 .popupButton{
