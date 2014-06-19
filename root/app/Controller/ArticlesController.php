@@ -112,7 +112,8 @@ class ArticlesController extends AppController {
         $this->set('articles', $articles);
     }
 
-    public function add() {
+    public function add($photoID = null) {
+        $this->set('photoID', $photoID);
         if ($this->request->is('post')) {
             $this->Article->create();
             if ($this->Article->save($this->request->data)) {
